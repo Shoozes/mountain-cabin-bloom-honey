@@ -686,11 +686,19 @@ export const STYLES: StyleDef[] = [
     palette: ["#1e3a4c", "#c4563a", "#e0b15a", "#f4efe6"],
     glsl: `vec3 groutStyle(vec2 uv) {
       float f = 8.0 * SC();
+      // Pixel chunks sit on cell centers so opposite edges share a chip.
+      // A hard mortar keeps ordered dither from flipping only one side.
+      if (uLook < 0.5) {
+        vec2 p = fract(uv + 0.5 / f);
+        vec2 cell = wrap2(floor(p * f), f);
+        vec2 w = worley((cell + 0.5) / f, f);
+        float mortar = step(w.y - w.x, 0.055);
+        return mix(pick4(H(cell)), uC3, mortar);
+      }
       vec2 w = worley(uv, f);
       float mortar = 1.0 - smoothstep(0.03, 0.08, w.y - w.x);
       float n = H(wrap2(floor(uv * f), f));
-      vec3 chip = pick4(n);
-      return mix(chip, uC3, mortar);
+      return mix(pick4(n), uC3, mortar);
     }`,
   }),
   g({
@@ -766,6 +774,14 @@ export const STYLES: StyleDef[] = [
     palette: ["#2a2824", "#6a655c", "#9a9388", "#d9d2c6"],
     glsl: `vec3 groutStyle(vec2 uv) {
       float f = 9.0 * SC();
+      // Pixel stones are whole cells straddling the tile edge, so the rim matches.
+      if (uLook < 0.5) {
+        vec2 p = fract(uv + 0.5 / f);
+        vec2 cell = wrap2(floor(p * f), f);
+        vec2 w = worley((cell + 0.5) / f, f);
+        float stone = 1.0 - step(0.40, w.x);
+        return mix(uC0, pick4(H(cell)), stone);
+      }
       vec2 w = worley(uv, f);
       float stone = 1.0 - smoothstep(0.12, 0.28, w.x);
       float n = H(wrap2(floor(uv * f), f));
@@ -790,13 +806,21 @@ export const STYLES: StyleDef[] = [
     name: "Snow Field",
     category: "Ground",
     blurb: "Soft drifts and a few cold sparks.",
-    palette: ["#8aa0b0", "#c5d4de", "#e7eef2", "#f7fbfd"],
+    palette: ["#3e6284", "#7aa4c4", "#b9d4e8", "#e7f3fb"],
     glsl: `vec3 groutStyle(vec2 uv) {
       float sc = SC();
       float n = FBM(uv, 3.0 * sc);
-      vec3 c = mix(uC0, uC3, 0.45 + 0.55 * n);
       float spark = step(0.93, N(uv, 18.0 * sc));
-      return mix(c, uC3, spark);
+      vec3 c = mix(uC0, uC3, 0.45 + 0.55 * n);
+      c = mix(c, uC3, spark);
+      // Painted warms the ramp; a wider cool mix keeps blue-white shadows.
+      // Poster needs the same spread or it collapses onto one stop.
+      if (uLook > 0.5 && uLook < 1.5) {
+        c = mix(uC0, uC3, clamp(n * 1.05 - 0.02, 0.0, 1.0));
+      } else if (uLook > 2.5) {
+        c = mix(uC0, uC3, smoothstep(0.28, 0.72, n));
+      }
+      return c;
     }`,
   }),
   g({
@@ -838,7 +862,17 @@ export const STYLES: StyleDef[] = [
       float n = FBM(uv, 4.0 * sc);
       float fib = 1.0 - smoothstep(0.02, 0.2, abs(fract(uv.y * 14.0 * sc + N(uv, 3.0 * sc)) - 0.5));
       vec3 c = pick4(n * 0.75);
-      return mix(c, uC1, fib * 0.45);
+      c = mix(c, uC1, fib * 0.45);
+      // Painted and poster were stuck on the dark stop. Fibers reach uC3
+      // before those finishes quantize. Pixel and hyper-real stay on the line above.
+      if (uLook > 0.5 && uLook < 1.5) {
+        float t = clamp(max(smoothstep(0.08, 0.7, fib), smoothstep(0.28, 0.78, n)), 0.0, 1.0);
+        c = mix(uC0, uC3, t);
+      } else if (uLook > 2.5) {
+        float strand = max(fib, smoothstep(0.42, 0.75, n));
+        c = mix(uC0, uC3, smoothstep(0.35, 0.88, strand));
+      }
+      return c;
     }`,
   }),
   g({
