@@ -343,14 +343,17 @@
   padding: 0;
 }
 
+.judge-list > li {
+  border-bottom: 1px solid var(--color-line);
+}
+
 .judge-row {
   display: grid;
-  grid-template-columns: 1.4fr 0.8fr 0.4fr 0.9fr;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.8fr) auto auto;
   gap: 8px;
   width: 100%;
   padding: 8px 0;
   border: 0;
-  border-bottom: 1px solid var(--color-line);
   background: transparent;
   color: var(--color-muted);
   font: inherit;
@@ -364,6 +367,26 @@
 
 .judge-ref {
   color: var(--color-muted);
+}
+
+.judge-fails {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 8px;
+  padding: 0;
+  list-style: none;
+}
+
+.judge-fail {
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--color-muted);
+  font: inherit;
+  font-size: 12px;
+  line-height: 1.2;
+  padding: 4px 8px;
 }
 
 .details {
