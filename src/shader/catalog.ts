@@ -973,6 +973,27 @@ export const STYLES: StyleDef[] = [
     glsl: `vec3 groutStyle(vec2 uv) {
       float sc = SC();
       float period = 6.0 * sc;
+      // Pixel beds sit on cells that straddle the tile edge so opposite
+      // rims share a bed. Five across keeps that rim wider than the
+      // logical seam band. A hard step keeps dither from flipping one side.
+      if (uLook < 0.5) {
+        float g = 5.0 * sc;
+        vec2 p = fract(uv + 0.5 / g);
+        vec2 cell = wrap2(floor(p * g), g);
+        vec2 s = (cell + 0.5) / g;
+        float wob = (N(vec2(s.x, 0.2), 2.0 * sc) - 0.5) * 0.16;
+        float arg = s.y * period + 0.5 + wob;
+        float id = mod(floor(arg), period);
+        float strata = fract(arg);
+        float line = 1.0 - step(0.08, strata);
+        float tone = H(vec2(id, 3.1));
+        float grit = N(vec2(s.x, id / period), 3.0 * sc);
+        // Bed owns the dark stop. Sediment stays on the lighter three so a
+        // course that hashes dark does not swallow the bed line.
+        float t = 0.26 + 0.70 * tone + (grit - 0.5) * 0.06;
+        vec3 c = pick4(clamp(t, 0.0, 0.999));
+        return mix(c, uC0, line);
+      }
       // Wobble is a function of x only, and the bed line sits mid-band.
       // A y-varying warp parked the color step on the tile cut (8px at x 136).
       float wob = (N(vec2(uv.x, 0.2), 2.0 * sc) - 0.5) * 0.16;
