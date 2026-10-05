@@ -34,7 +34,7 @@ export const RECIPE = {
   smoothPixels: 0,
 };
 
-/** 36 keep ids, plan table order. Needs-ref ids are not in this list. */
+/** 41 keep ids, plan table order. Ground pixel keeps follow catalog order. */
 export const KEEP_IDS = [
   "brick",
   "stone",
@@ -58,8 +58,13 @@ export const KEEP_IDS = [
   "cobble",
   "hex-bond",
   "honeycomb",
+  "dirt",
   "gravel",
+  "mud",
+  "snow",
+  "ash",
   "clay",
+  "peat",
   "moss",
   "granite",
   "shingle",
@@ -79,7 +84,7 @@ export const LOOK_STRIP_IDS = ["brick", "stone", "subway", "mosaic"];
 export const LOOK_STRIP_LOOKS = ["painted", "real", "poster"];
 
 /** Held needs-ref heroes. Never bake these in P0. */
-export const HELD_IDS = ["dirt", "concrete", "rust", "ice"];
+export const HELD_IDS = ["concrete", "rust", "ice"];
 
 const PNG_MAGIC = Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]);
 
@@ -273,7 +278,7 @@ function writeCorpus(drawn, sourceTip) {
 export async function bakeCorpus() {
   const jobs = corpusJobs();
   if (jobs.length !== KEEP_IDS.length + LOOK_STRIP_IDS.length * LOOK_STRIP_LOOKS.length) {
-    throw new Error(`expected 48 bake jobs, got ${jobs.length}`);
+    throw new Error(`expected 53 bake jobs, got ${jobs.length}`);
   }
   const sourceTip = readSourceTip();
   if (!/^[0-9a-f]{7,40}$/.test(sourceTip)) {
