@@ -18,7 +18,19 @@ export const JUDGE_REFS: RefDef[] = [
     id: "brick",
     label: "Brick",
     file: "/judge/brick.jpg",
-    styles: ["brick", "herringbone", "basket", "chevron", "diamond", "hex-bond", "honeycomb", "pantile", "shingle"],
+    styles: ["brick", "buttered", "herringbone", "basket", "chevron", "diamond", "hex-bond", "honeycomb", "pantile", "shingle"],
+  },
+  {
+    id: "subway",
+    label: "Subway",
+    file: "/judge/subway.jpg",
+    styles: ["subway"],
+  },
+  {
+    id: "mosaic",
+    label: "Mosaic",
+    file: "/judge/mosaic.jpg",
+    styles: ["mosaic"],
   },
   {
     id: "stone",
