@@ -130,6 +130,18 @@ export const JUDGE_REFS: RefDef[] = [
     file: "/judge/snow.jpg",
     styles: ["snow"],
   },
+  {
+    id: "asphalt",
+    label: "Asphalt",
+    file: "/judge/asphalt.jpg",
+    styles: ["asphalt"],
+  },
+  {
+    id: "erosion",
+    label: "Strata",
+    file: "/judge/erosion.jpg",
+    styles: ["erosion"],
+  },
 ];
 
 const REF_BY_STYLE = new Map<string, RefDef>();
