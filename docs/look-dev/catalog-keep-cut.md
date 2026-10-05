@@ -144,6 +144,7 @@ Tessera signed off the 10-cut list and the original 33 keep. Bond Cut A (PR #2) 
 2. Swatch: Justin GO via Umbra executed — the 10 cuts are applied in this draft. Priority needs-ref list is unchanged and still open.
 3. Lens may borrow later for proof — not this PR.
 4. Console palettes landed in mill `PALETTES`: `pico8`, `gameboy`, `nes` (see `console-palettes.md`). `style` stays the default.
+5. Public PNG hosting plan: [public-publish-png-plan.md](./public-publish-png-plan.md). Docs only — no catalog row changes.
 
 ---
 Work: 2026-10-05T09:05:00-04:00 | agent=Swatch | role=Look-dev / Visual Director | where=Shoozes/mountain-cabin-bloom-honey | what=first catalog keep/cut/needs-ref pass
