@@ -1,4 +1,4 @@
-import { LOOKS, type LookId } from "@/shader/catalog";
+import { LOOKS, type LookId } from "./catalog.ts";
 
 export type Sample = {
   mean: [number, number, number];
@@ -173,24 +173,13 @@ export function readFeatures(data: Uint8ClampedArray, w: number, h: number): Sam
   };
 }
 
-export function seamError(data: Uint8ClampedArray, w: number, h: number): number {
-  let err = 0;
-  let count = 0;
-  const pix = (x: number, y: number, c: number) => data[(y * w + x) * 4 + c] ?? 0;
-  for (let y = 0; y < h; y++) {
-    for (let c = 0; c < 3; c++) {
-      err += Math.abs(pix(0, y, c) - pix(w - 1, y, c));
-      count += 1;
-    }
-  }
-  for (let x = 0; x < w; x++) {
-    for (let c = 0; c < 3; c++) {
-      err += Math.abs(pix(x, 0, c) - pix(x, h - 1, c));
-      count += 1;
-    }
-  }
-  return err / count / 255;
-}
+/**
+ * Wrap error used by the reference judge.
+ * `seamEdgeL1` is the previous edge average; `seamError` is that value or higher
+ * when a thin wrap band or the four-corner 2×2 is worse than the interior.
+ * Scale stays 0..1 and `SEAM_MAX` stays 0.16. See `seam.ts`.
+ */
+export { seamEdgeL1, seamError } from "./seam.ts";
 
 export function matchScore(a: Sample, b: Sample): number {
   const color =
