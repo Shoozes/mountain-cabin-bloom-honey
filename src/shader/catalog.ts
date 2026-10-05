@@ -912,17 +912,53 @@ export const STYLES: StyleDef[] = [
     id: "asphalt",
     name: "Asphalt",
     category: "Ground",
-    blurb: "Tar, pale aggregate, and a wandering crack.",
-    palette: ["#121212", "#2a2a28", "#8a8680", "#d0ccc4"],
+    blurb: "Sunlit grey aggregate, pale chips, and a dark binder crack.",
+    palette: ["#24282c", "#3c4246", "#545c58", "#7a847c"],
     glsl: `vec3 groutStyle(vec2 uv) {
       float sc = SC();
-      float n = FBM(uv, 6.0 * sc);
-      vec3 c = mix(uC0, uC1, n);
-      vec2 w = worley(uv, 2.0 * sc);
-      float crack = 1.0 - smoothstep(0.012, 0.05, w.y - w.x);
-      float stones = step(0.86, N(uv, 18.0 * sc));
-      c = mix(c, uC2, stones);
-      return mix(c, uC0, crack * 0.92);
+      // Chips are whole cells that straddle the tile edge, so opposite rims match.
+      // Pixel stays on hard steps; smooth looks keep that same cell phase.
+      float f = 8.0 * sc;
+      vec2 p = fract(uv + 0.5 / f);
+      vec2 cell = wrap2(floor(p * f), f);
+      float h = H(cell);
+      if (uLook < 0.5) {
+        float chip = step(0.84, h);
+        float crack = step(0.94, H(cell + 3.7));
+        vec3 c = pick4(0.40 + 0.36 * h);
+        c = mix(c, uC3, chip);
+        return mix(c, uC0, crack);
+      }
+      float n = FBM(uv, 5.0 * sc);
+      float grit = N(uv, 11.0 * sc);
+      float t = clamp(0.40 + 0.24 * n + (grit - 0.5) * 0.18, 0.0, 1.0);
+      vec3 c = mix4(t);
+      float chip = step(0.84, h);
+      c = mix(c, uC3, chip * 0.85);
+      c = mix(c, uC1, step(0.97, H(cell + 1.7)) * 0.40);
+      // Half a cell of phase keeps the voronoi ridge off the tile cut.
+      float cf = 3.0 * sc;
+      vec2 s = fract(uv + 0.5 / cf);
+      vec2 w = worley(s, cf);
+      float crack = 1.0 - smoothstep(0.02, 0.08, w.y - w.x);
+      c = mix(c, uC0, crack * 0.82);
+      if (uLook > 2.5) {
+        // Poster bins: dark binder, sunlit field, light chips.
+        float band = 0.50;
+        if (crack > 0.62) band = 0.06;
+        else if (chip > 0.5) band = 0.90;
+        c = vec3(band);
+      } else if (uLook > 0.5 && uLook < 1.5) {
+        float spread = crack > 0.55 ? 0.04 : chip > 0.5 ? 0.94 : 0.32 + 0.38 * n;
+        c = mix(uC0, uC3, clamp(spread, 0.0, 1.0));
+      } else if (uLook > 1.5 && uLook < 2.5) {
+        // Hyper shade valleys on the border and paints a vertical band.
+        // Lift only that valley; finish() multiplies the same term back.
+        float shade = FBM(uv, 6.0 * sc);
+        float factor = max(0.76 + 0.40 * shade, 0.25);
+        c *= max(factor, 0.94) / factor;
+      }
+      return c;
     }`,
   }),
   g({
