@@ -145,7 +145,7 @@ Tessera signed off the 10-cut list and the original 33 keep. Bond Cut A (PR #2) 
 4. Console palettes landed in mill `PALETTES`: `pico8`, `gameboy`, `nes` (see `console-palettes.md`). `style` stays the default.
 5. Public PNG hosting plan: [public-publish-png-plan.md](./public-publish-png-plan.md). Docs only — no catalog row changes.
 6. Asphalt catalog status is keep. Tessera polish backlog remains (crack morphology / luma / Hyper ridge); shaders stay as on tip `e64850e`.
-7. Concrete, stucco, cinder, and ceramic catalog status is keep. Polish backlog remains (concrete Hyper edge frame; ceramic Poster rim / dark-grout re-lock). HELD_IDS and the concrete PNG bake are a later Tessera/Relay step.
+7. Concrete, stucco, cinder, and ceramic catalog status is keep. Polish backlog remains (concrete Hyper edge frame; ceramic Poster rim / dark-grout re-lock; ceramic pixel vertical stripes / sparkle pixels; concrete checker-dither). Pixel PNGs landed in the corpus (#30 / tip `1c3a292`). HELD_IDS is now `[rust, ice]` only (concrete removed).
 
 ---
 Work: 2026-10-05T09:05:00-04:00 | agent=Swatch | role=Look-dev / Visual Director | where=Shoozes/mountain-cabin-bloom-honey | what=first catalog keep/cut/needs-ref pass
@@ -157,3 +157,4 @@ Work: 2026-10-05T21:10:00Z | agent=docs | where=Shoozes/mountain-cabin-bloom-hon
 Work: 2026-10-05T21:31:00Z | agent=docs | where=Shoozes/mountain-cabin-bloom-honey | what=keep-via-ref asphalt after PR #19 / tip `e64850e`; counts keep=43 needs-ref=32 cut=0 total=75
 Work: 2026-10-05T21:50:00Z | agent=docs | where=Shoozes/mountain-cabin-bloom-honey | what=keep-via-ref plaster and rebar after Built Cut PR #22 on tip `0e9a259`; cinder, concrete, stucco, ceramic stay needs-ref; counts keep=45 needs-ref=30 cut=0 total=75
 Work: 2026-10-05T22:40:00Z | agent=docs | where=Shoozes/mountain-cabin-bloom-honey | what=keep-via-ref concrete/stucco/cinder/ceramic after #26 / tip `1c48c7c`; counts 49/26/0/75
+Work: 2026-10-05T23:25:00Z | agent=docs | where=Shoozes/mountain-cabin-bloom-honey | what=docs sync after #30 / tip `1c3a292`: HELD_IDS [rust, ice]; concrete PNG landed
