@@ -1,6 +1,6 @@
 # Public publish / PNG hosting plan
 
-Status: **draft**. Docs only. No bake script, no PNG binaries, no CI, no catalog edits.
+Status: **draft plan**. P0 bake follow-up adds `scripts/bake-corpus.mjs`, the committed PNGs, and `public/textures/manifest.json`. Still no CI bake, no catalog edits, and no bake step inside `npm run build`.
 
 | | |
 | --- | --- |
@@ -64,7 +64,7 @@ Why this and not a flat `public/corpus/` dump:
 
 Bake must use the same draw as Save / PNG catalog: `ShaderMill.drawUtil` on a square canvas of `exportSize`, `repeat` forced to 1, `time` 0. Do not bake during `vite build`. Vercel has no WebGL step. A local or CI Playwright run (Chromium is already a devDependency) writes the files **before** deploy.
 
-Proposed script (do not add it in the plan PR): `scripts/bake-corpus.mjs`. It reads the P0 list below, writes PNGs, and writes `public/textures/manifest.json`.
+Bake script: `scripts/bake-corpus.mjs` (`npm run bake:corpus`). It reads the P0 list below, writes PNGs, and writes `public/textures/manifest.json`. `sourceTip` is `git rev-parse origin/main` at bake time. Re-run after a shader or recipe change and commit the PNGs. It is not part of `npm run build`.
 
 Manifest (one object per file):
 
@@ -192,7 +192,7 @@ Do not label a needs-ref PNG as a finished corpus tile. Ground tranche first (`d
 
 - **P0/P1 bytes:** static files under `public/`, served by the deployed app. No third-party CDN.
 - **URL shape:** `https://<deployed-host>/textures/pixel/bond/subway.png`. Host is whatever Vercel assigns. Do not hard-code it in the app. Do not set `package.json` `homepage` until that host is the one we mean to keep.
-- **Working assumption:** check P0 (36 PNGs + manifest) into git. 256² PNGs are small. The deploy then serves them with no bake on Vercel. P1 (144) can follow the same way if the diff stays modest; if it doesn’t, P1 ZIPs go to a **GitHub Release** and the per-tile PNGs stay in `public/textures/`.
+- **P0 bytes in git** (Justin via Umbra / Keystone): commit the 36 keep PNGs, the look strip, and the manifest. 256² PNGs are small. The deploy then serves them with no bake on Vercel. P1 (144) can follow the same way if the diff stays modest; if it doesn’t, P1 ZIPs go to a **GitHub Release** and the per-tile PNGs stay in `public/textures/`.
 - **Do not** generate textures inside `npm run build`.
 - Raw GitHub URLs (`raw.githubusercontent.com/.../public/textures/...`) work only because the repo is public and only for a pinned commit. The durable link is the deployed path, not a raw URL.
 - Atlas button output is not hosted.
@@ -224,15 +224,15 @@ A CLI, HTTP route, or MCP tool that returns either the PNG or the GLSL recipe (`
 For Umbra / Justin only if the working assumption is wrong. Tessera can start the P0 script against §3 without these answered.
 
 1. **Public URL branding.** Is the Vercel host the public name, or do we want a stable custom host before anyone links the corpus? `homepage` stays unset until then.
-2. **Git vs artifact.** Working assumption is commit P0 PNGs. Say if they must stay out of git (Release-only). Release-only means `/textures/...` 404s on the deployed app until something else copies them into `public/`.
-3. **License blurb** for redistributed PNGs. The repo has no root `LICENSE`. Public visibility is not a texture license. Do not add one in the bake PR until this is decided.
+2. **Git vs artifact.** Decided (Justin via Umbra / Keystone): commit the P0 PNGs into git. Not Release-only.
+3. **License blurb** for redistributed PNGs. The repo has no root `LICENSE`. Public visibility is not a texture license. Do not add one in the bake PR until this is decided. Host branding (question 1) stays open.
 
 ## 7. Immediate next steps
 
 After this doc merges:
 
 1. **Swatch + Tessera — Ground needs-ref tranche.** Refs for `dirt`, `mud`, `ash`, `peat`, `snow` (then `asphalt`, `erosion`). No public PNGs for those ids until Show.
-2. **Tessera — draft bake script for the P0 list.** Input: the 36-row table and the locked recipe. Output: `public/textures/pixel/{category}/{id}.png` plus `public/textures/manifest.json`. Look-strip and `public/showcase/` only if Swatch asks in that PR.
+2. **Tessera — P0 bake.** `npm run bake:corpus` writes the 36 keep pixel PNGs, the 12-file look strip, and `public/textures/manifest.json`. Showcase palettes and the ZIP stay follow-ups.
 3. **Frame — smoke the corpus** once those URLs exist (PNG bytes at `/textures/pixel/bond/subway.png`, mill browse and export still intact).
 
 ---
