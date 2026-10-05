@@ -1,6 +1,6 @@
 {
   "format": "grout-corpus/1",
-  "sourceTip": "4530f7d8c64fad9ea358dda06915577fe8cb7d8d",
+  "sourceTip": "89bc2855e964a2a5b8cc6e3c733bda18adf99c58",
   "files": [
     {
       "id": "brick",
@@ -435,6 +435,20 @@
       "wear": 0.35,
       "repeat": 1,
       "path": "textures/pixel/ground/granite.png"
+    },
+    {
+      "id": "erosion",
+      "name": "Strata",
+      "category": "Ground",
+      "look": "pixel",
+      "pixels": 32,
+      "exportSize": 256,
+      "palette": "style",
+      "seed": 1204,
+      "scale": 1,
+      "wear": 0.35,
+      "repeat": 1,
+      "path": "textures/pixel/ground/erosion.png"
     },
     {
       "id": "shingle",
