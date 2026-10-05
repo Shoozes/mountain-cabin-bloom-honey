@@ -33,19 +33,19 @@ function walkPngs(dir, prefix) {
   return out;
 }
 
-test("corpus jobs are the 45 keep plus the 12-file look strip", () => {
+test("corpus jobs are the 49 keep plus the 12-file look strip", () => {
   const jobs = corpusJobs();
-  assert.equal(jobs.length, 57);
-  assert.equal(KEEP_IDS.length, 45);
+  assert.equal(jobs.length, 61);
+  assert.equal(KEEP_IDS.length, 49);
   assert.deepEqual(
-    jobs.slice(0, 45).map((job) => job.id),
+    jobs.slice(0, 49).map((job) => job.id),
     KEEP_IDS,
   );
-  for (const job of jobs.slice(0, 45)) {
+  for (const job of jobs.slice(0, 49)) {
     assert.equal(job.look, "pixel");
     assert.equal(job.pixels, 32);
   }
-  const strip = jobs.slice(45);
+  const strip = jobs.slice(49);
   assert.deepEqual(
     strip.map((job) => `${job.look}/${job.id}`),
     LOOK_STRIP_IDS.flatMap((id) => LOOK_STRIP_LOOKS.map((look) => `${look}/${id}`)),
@@ -61,15 +61,17 @@ test("corpus jobs are the 45 keep plus the 12-file look strip", () => {
     assert.equal(job.repeat, 1);
     assert.equal(HELD_IDS.includes(job.id), false);
   }
-  assert.deepEqual(HELD_IDS, ["concrete", "rust", "ice"]);
+  assert.deepEqual(HELD_IDS, ["rust", "ice"]);
+  assert.equal(KEEP_IDS.includes("concrete"), true);
+  assert.equal(HELD_IDS.includes("concrete"), false);
 });
 
 test("committed corpus matches the manifest and the subway example path", () => {
   const manifestPath = join(root, "public/textures/manifest.json");
   const manifest = JSON.parse(readFileSync(manifestPath, "utf8"));
   assert.equal(manifest.format, "grout-corpus/1");
-  assert.equal(manifest.sourceTip, "96ff004a4a83747db4039da22e7c6938a55b2dfc");
-  assert.equal(manifest.files.length, 57);
+  assert.equal(manifest.sourceTip, "ccdb5c1736745936a6f68b60d57e6b400ad77eba");
+  assert.equal(manifest.files.length, 61);
 
   const subway = manifest.files.find((file) => file.path === "textures/pixel/bond/subway.png");
   assert.deepEqual(subway, {
@@ -98,7 +100,7 @@ test("committed corpus matches the manifest and the subway example path", () => 
   }
   const pixel = manifest.files.filter((file) => file.look === "pixel");
   const strip = manifest.files.filter((file) => file.look !== "pixel");
-  assert.equal(pixel.length, 45);
+  assert.equal(pixel.length, 49);
   assert.equal(strip.length, 12);
   for (const id of ["dirt", "mud", "ash", "peat", "snow", "asphalt", "erosion"]) {
     const file = manifest.files.find((item) => item.id === id && item.look === "pixel");
@@ -107,7 +109,7 @@ test("committed corpus matches the manifest and the subway example path", () => 
     assert.equal(file.pixels, 32);
     assert.equal(file.path, `textures/pixel/ground/${id}.png`);
   }
-  for (const id of ["plaster", "rebar"]) {
+  for (const id of ["concrete", "stucco", "cinder", "plaster", "rebar", "ceramic"]) {
     const file = manifest.files.find((item) => item.id === id && item.look === "pixel");
     assert.ok(file, id);
     assert.equal(file.category, "Built");
