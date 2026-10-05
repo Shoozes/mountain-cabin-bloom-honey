@@ -142,6 +142,42 @@ export const JUDGE_REFS: RefDef[] = [
     file: "/judge/erosion.jpg",
     styles: ["erosion"],
   },
+  {
+    id: "concrete",
+    label: "Concrete",
+    file: "/judge/concrete.jpg",
+    styles: ["concrete"],
+  },
+  {
+    id: "stucco",
+    label: "Stucco",
+    file: "/judge/stucco.jpg",
+    styles: ["stucco"],
+  },
+  {
+    id: "plaster",
+    label: "Cracked Plaster",
+    file: "/judge/plaster.jpg",
+    styles: ["plaster"],
+  },
+  {
+    id: "cinder",
+    label: "Cinder Block",
+    file: "/judge/cinder.jpg",
+    styles: ["cinder"],
+  },
+  {
+    id: "ceramic",
+    label: "Glazed Tile",
+    file: "/judge/ceramic.jpg",
+    styles: ["ceramic"],
+  },
+  {
+    id: "rebar",
+    label: "Rebar Grid",
+    file: "/judge/rebar.jpg",
+    styles: ["rebar"],
+  },
 ];
 
 const REF_BY_STYLE = new Map<string, RefDef>();
