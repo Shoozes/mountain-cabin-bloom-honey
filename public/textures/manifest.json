@@ -1,6 +1,6 @@
 {
   "format": "grout-corpus/1",
-  "sourceTip": "3b030753ad8f11e86ad47dd3e62de40e3a5b33d5",
+  "sourceTip": "1c48c7c8e8b6ff5418e068f5ec97cf91b192c4b7",
   "files": [
     {
       "id": "brick",
@@ -493,6 +493,20 @@
       "path": "textures/pixel/built/pantile.png"
     },
     {
+      "id": "plaster",
+      "name": "Cracked Plaster",
+      "category": "Built",
+      "look": "pixel",
+      "pixels": 32,
+      "exportSize": 256,
+      "palette": "style",
+      "seed": 1204,
+      "scale": 1,
+      "wear": 0.35,
+      "repeat": 1,
+      "path": "textures/pixel/built/plaster.png"
+    },
+    {
       "id": "terrazzo",
       "name": "Terrazzo",
       "category": "Built",
@@ -519,6 +533,20 @@
       "wear": 0.35,
       "repeat": 1,
       "path": "textures/pixel/built/slate.png"
+    },
+    {
+      "id": "rebar",
+      "name": "Rebar Grid",
+      "category": "Built",
+      "look": "pixel",
+      "pixels": 32,
+      "exportSize": 256,
+      "palette": "style",
+      "seed": 1204,
+      "scale": 1,
+      "wear": 0.35,
+      "repeat": 1,
+      "path": "textures/pixel/built/rebar.png"
     },
     {
       "id": "brushed",

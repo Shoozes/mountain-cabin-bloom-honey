@@ -1117,9 +1117,24 @@ export const STYLES: StyleDef[] = [
     palette: ["#6a5348", "#cbb59a", "#e4d4c0", "#f6efe6"],
     glsl: `vec3 groutStyle(vec2 uv) {
       float sc = SC();
-      float n = FBM(uv, 3.0 * sc);
+      float f = 3.0 * sc;
+      // Pixel chunks sit on cells that straddle the tile edge so opposite
+      // rims share a crack. Five across keeps that rim wider than the
+      // logical seam band. A hard step keeps dither from flipping one side.
+      if (uLook < 0.5) {
+        float g = 5.0 * sc;
+        vec2 p = fract(uv + 0.5 / g);
+        vec2 cell = wrap2(floor(p * g), g);
+        vec2 s = (cell + 0.5) / g;
+        float n = FBM(s, f);
+        vec3 c = mix(uC1, uC2, step(0.5, n));
+        vec2 w = worley(s, f);
+        float crack = step(w.y - w.x, 0.035);
+        return mix(c, uC0, crack);
+      }
+      float n = FBM(uv, f);
       vec3 c = mix(uC1, uC2, n);
-      vec2 w = worley(uv, 3.0 * sc);
+      vec2 w = worley(uv, f);
       float crack = 1.0 - smoothstep(0.01, 0.04, w.y - w.x);
       return mix(c, uC0, crack * 0.75);
     }`,
