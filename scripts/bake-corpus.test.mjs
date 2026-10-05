@@ -33,19 +33,19 @@ function walkPngs(dir, prefix) {
   return out;
 }
 
-test("corpus jobs are the 36 keep plus the 12-file look strip", () => {
+test("corpus jobs are the 41 keep plus the 12-file look strip", () => {
   const jobs = corpusJobs();
-  assert.equal(jobs.length, 48);
-  assert.equal(KEEP_IDS.length, 36);
+  assert.equal(jobs.length, 53);
+  assert.equal(KEEP_IDS.length, 41);
   assert.deepEqual(
-    jobs.slice(0, 36).map((job) => job.id),
+    jobs.slice(0, 41).map((job) => job.id),
     KEEP_IDS,
   );
-  for (const job of jobs.slice(0, 36)) {
+  for (const job of jobs.slice(0, 41)) {
     assert.equal(job.look, "pixel");
     assert.equal(job.pixels, 32);
   }
-  const strip = jobs.slice(36);
+  const strip = jobs.slice(41);
   assert.deepEqual(
     strip.map((job) => `${job.look}/${job.id}`),
     LOOK_STRIP_IDS.flatMap((id) => LOOK_STRIP_LOOKS.map((look) => `${look}/${id}`)),
@@ -61,15 +61,15 @@ test("corpus jobs are the 36 keep plus the 12-file look strip", () => {
     assert.equal(job.repeat, 1);
     assert.equal(HELD_IDS.includes(job.id), false);
   }
-  assert.deepEqual(HELD_IDS, ["dirt", "concrete", "rust", "ice"]);
+  assert.deepEqual(HELD_IDS, ["concrete", "rust", "ice"]);
 });
 
 test("committed corpus matches the manifest and the subway example path", () => {
   const manifestPath = join(root, "public/textures/manifest.json");
   const manifest = JSON.parse(readFileSync(manifestPath, "utf8"));
   assert.equal(manifest.format, "grout-corpus/1");
-  assert.equal(manifest.sourceTip, "a5117a6b08d446de0f117204da6d1a4479eff9bb");
-  assert.equal(manifest.files.length, 48);
+  assert.equal(manifest.sourceTip, "4530f7d8c64fad9ea358dda06915577fe8cb7d8d");
+  assert.equal(manifest.files.length, 53);
 
   const subway = manifest.files.find((file) => file.path === "textures/pixel/bond/subway.png");
   assert.deepEqual(subway, {
@@ -98,8 +98,15 @@ test("committed corpus matches the manifest and the subway example path", () => 
   }
   const pixel = manifest.files.filter((file) => file.look === "pixel");
   const strip = manifest.files.filter((file) => file.look !== "pixel");
-  assert.equal(pixel.length, 36);
+  assert.equal(pixel.length, 41);
   assert.equal(strip.length, 12);
+  for (const id of ["dirt", "mud", "ash", "peat", "snow"]) {
+    const file = manifest.files.find((item) => item.id === id && item.look === "pixel");
+    assert.ok(file, id);
+    assert.equal(file.category, "Ground");
+    assert.equal(file.pixels, 32);
+    assert.equal(file.path, `textures/pixel/ground/${id}.png`);
+  }
   for (const file of pixel) assert.equal(file.pixels, 32);
   for (const file of strip) assert.equal(file.pixels, 0);
 

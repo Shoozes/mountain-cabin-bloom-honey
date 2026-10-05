@@ -1,6 +1,6 @@
 {
   "format": "grout-corpus/1",
-  "sourceTip": "a5117a6b08d446de0f117204da6d1a4479eff9bb",
+  "sourceTip": "4530f7d8c64fad9ea358dda06915577fe8cb7d8d",
   "files": [
     {
       "id": "brick",
@@ -311,6 +311,20 @@
       "path": "textures/pixel/bond/honeycomb.png"
     },
     {
+      "id": "dirt",
+      "name": "Packed Dirt",
+      "category": "Ground",
+      "look": "pixel",
+      "pixels": 32,
+      "exportSize": 256,
+      "palette": "style",
+      "seed": 1204,
+      "scale": 1,
+      "wear": 0.35,
+      "repeat": 1,
+      "path": "textures/pixel/ground/dirt.png"
+    },
+    {
       "id": "gravel",
       "name": "Gravel",
       "category": "Ground",
@@ -325,6 +339,48 @@
       "path": "textures/pixel/ground/gravel.png"
     },
     {
+      "id": "mud",
+      "name": "Wet Mud",
+      "category": "Ground",
+      "look": "pixel",
+      "pixels": 32,
+      "exportSize": 256,
+      "palette": "style",
+      "seed": 1204,
+      "scale": 1,
+      "wear": 0.35,
+      "repeat": 1,
+      "path": "textures/pixel/ground/mud.png"
+    },
+    {
+      "id": "snow",
+      "name": "Snow Field",
+      "category": "Ground",
+      "look": "pixel",
+      "pixels": 32,
+      "exportSize": 256,
+      "palette": "style",
+      "seed": 1204,
+      "scale": 1,
+      "wear": 0.35,
+      "repeat": 1,
+      "path": "textures/pixel/ground/snow.png"
+    },
+    {
+      "id": "ash",
+      "name": "Ash",
+      "category": "Ground",
+      "look": "pixel",
+      "pixels": 32,
+      "exportSize": 256,
+      "palette": "style",
+      "seed": 1204,
+      "scale": 1,
+      "wear": 0.35,
+      "repeat": 1,
+      "path": "textures/pixel/ground/ash.png"
+    },
+    {
       "id": "clay",
       "name": "Raw Clay",
       "category": "Ground",
@@ -337,6 +393,20 @@
       "wear": 0.35,
       "repeat": 1,
       "path": "textures/pixel/ground/clay.png"
+    },
+    {
+      "id": "peat",
+      "name": "Peat",
+      "category": "Ground",
+      "look": "pixel",
+      "pixels": 32,
+      "exportSize": 256,
+      "palette": "style",
+      "seed": 1204,
+      "scale": 1,
+      "wear": 0.35,
+      "repeat": 1,
+      "path": "textures/pixel/ground/peat.png"
     },
     {
       "id": "moss",
