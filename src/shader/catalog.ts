@@ -60,6 +60,9 @@ export const PALETTES: PaletteChoice[] = [
   { id: "ink", name: "Ink", colors: ["#14120f", "#3a342c", "#a39886", "#efe6d6"] },
   { id: "copper", name: "Copper", colors: ["#2c1a12", "#6e3b28", "#b8734a", "#e6c2a2"] },
   { id: "bone", name: "Bone", colors: ["#4a3d32", "#8a7564", "#d9cbb8", "#f4efe6"] },
+  { id: "pico8", name: "PICO-8", colors: ["#1d2b53", "#5f574f", "#c2c3c7", "#fff1e8"] },
+  { id: "gameboy", name: "Game Boy", colors: ["#0f380f", "#306230", "#8bac0f", "#9bbc0f"] },
+  { id: "nes", name: "NES", colors: ["#000000", "#7c7c7c", "#f8f8f8", "#a81000"] },
 ];
 
 const g = (

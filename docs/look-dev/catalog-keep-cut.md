@@ -132,6 +132,7 @@ Tessera signed off the 10-cut list and the 33 keep. Ordered priority for the rem
 1. Tessera: judge scoring / PBR untouched this pass.
 2. Swatch: after Justin GO, open follow-up draft to apply cuts + priority needs-ref list.
 3. Lens may borrow later for proof — not this PR.
+4. Console palettes landed in mill `PALETTES`: `pico8`, `gameboy`, `nes` (see `console-palettes.md`). `style` stays the default.
 
 ---
 Work: 2026-10-05T09:05:00-04:00 | agent=Swatch | role=Look-dev / Visual Director | where=Shoozes/mountain-cabin-bloom-honey | what=first catalog keep/cut/needs-ref pass
