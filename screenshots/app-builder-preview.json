@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Grout Shader",
+      "hasCanvas": true,
+      "bodyTextLen": 1645,
+      "bodyTextHash": "2fa108f967ff395c14567977e21891fb374641190bffcd4940d4e12a804dc3e4",
+      "bodyTextPrefix": "Reviewed Running Bond Judge Adjust Save All Kept Reviewed Bond G",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Grout Shader",
+      "hasCanvas": true,
+      "bodyTextLen": 1645,
+      "bodyTextHash": "2fa108f967ff395c14567977e21891fb374641190bffcd4940d4e12a804dc3e4",
+      "bodyTextPrefix": "Reviewed Running Bond Judge Adjust Save All Kept Reviewed Bond G",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}
