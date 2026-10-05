@@ -3,7 +3,7 @@
 Owner: Swatch (Look-dev / Visual Director). Partner: Tessera (Technical Artist).
 Repo tip at review: `main` @ `1cc892cdf4c99ec71cc5a368807a8faf0104bc12`.
 Bond Cut A landed via PR #2 (`fa6a992`): buttered, subway, and mosaic are keep-via-ref.
-Ground Cut A landed via PR #10 (`04a9f20`): dirt, mud, and ash are keep-via-ref. Peat and snow are keep-via-ref after PRs #12/#14 / tip `4530f7d`. erosion is keep-via-ref after Ground Cut B / tip `7d2044f`. asphalt is keep-via-ref after tip `e64850e` / PR #19.
+Ground Cut A landed via PR #10 (`04a9f20`): dirt, mud, and ash are keep-via-ref. Peat and snow are keep-via-ref after PRs #12/#14 / tip `4530f7d`. erosion is keep-via-ref after Ground Cut B / tip `7d2044f`. asphalt is keep-via-ref after tip `e64850e` / PR #19. plaster and rebar are keep-via-ref after Built Cut PR #22 (`078fd8c`) on tip `0e9a259` (PR #23). concrete, stucco, cinder, and ceramic stay needs-ref pending Tessera polish.
 Scope: catalog + looks only — **no new shaders**.
 
 ## Four looks
@@ -27,7 +27,7 @@ Live look shots in `screenshots/look-{pixel,painted,real,poster}.png`.
 - **needs-ref** — stays for now; add `JUDGE_REFS` (and ideally a screenshot) before calling Show done.
 - **cut** — removed from the catalog. Justin GO via Umbra (executed by Swatch / Look-dev) applied the held Signal FX + hazard cuts; none remain pending.
 
-## Counts: keep=43 · needs-ref=32 · cut=0 · total=75
+## Counts: keep=45 · needs-ref=30 · cut=0 · total=75
 
 Justin GO via Umbra executed. The 10 cut style ids are gone from `STYLES`. The empty Signal category chip went with them. Fiber `dark-panels`, judge RefDef `panels`, and `public/judge/panels.jpg` stay. Pixel-look Bayer / ordered dither in `glsl.ts` stays.
 
@@ -70,16 +70,16 @@ Justin GO via Umbra executed. The 10 cut style ids are gone from `STYLES`. The e
 | keep | Ground | `granite` | Granite | yes | no | Judge-mapped core surface; add screenshot when convenient |
 | keep | Ground | `asphalt` | Asphalt | yes | no | New asphalt RefDef + `public/judge/asphalt.jpg` after Ground Cut B / PR #19 polish / tip `e64850e` |
 | keep | Ground | `erosion` | Strata | yes | no | New erosion RefDef + `public/judge/erosion.jpg` after Ground Cut B (PR #17) / tip `7d2044f` |
-| needs-ref | Built | `concrete` | Concrete | no | no | In catalog; no judge ref and no style screenshot yet |
-| needs-ref | Built | `stucco` | Stucco | no | no | In catalog; no judge ref and no style screenshot yet |
-| needs-ref | Built | `cinder` | Cinder Block | no | no | In catalog; no judge ref and no style screenshot yet |
+| needs-ref | Built | `concrete` | Concrete | yes | no | RefDef wired (`public/judge/concrete.jpg` after Built Cut PR #22); Swatch/Keystone hold for Tessera polish (seam + de-flagstone polygon cracks, 9/12) before keep |
+| needs-ref | Built | `stucco` | Stucco | yes | no | RefDef wired (`public/judge/stucco.jpg` after Built Cut PR #22); Swatch/Keystone hold for Tessera polish (flat luma, 6/12) before keep |
+| needs-ref | Built | `cinder` | Cinder Block | yes | no | RefDef wired (`public/judge/cinder.jpg` after Built Cut PR #22); Swatch taste hold — does not read as CMU (shader: 2 big oval-core blocks vs judge ref multi-row CMU with 3 round cores). Tessera polish backlog before keep |
 | keep | Built | `shingle` | Shingles | yes | no | Judge-mapped core surface; add screenshot when convenient |
 | keep | Built | `pantile` | Pantile | yes | no | Judge-mapped core surface; add screenshot when convenient |
-| needs-ref | Built | `plaster` | Cracked Plaster | no | no | In catalog; no judge ref and no style screenshot yet |
+| keep | Built | `plaster` | Cracked Plaster | yes | no | New plaster RefDef + `public/judge/plaster.jpg` after Built Cut PR #22 / tip `078fd8c` |
 | keep | Built | `terrazzo` | Terrazzo | yes | no | Judge-mapped core surface; add screenshot when convenient |
 | keep | Built | `slate` | Slate | yes | no | Judge-mapped core surface; add screenshot when convenient |
-| needs-ref | Built | `rebar` | Rebar Grid | no | no | In catalog; no judge ref and no style screenshot yet |
-| needs-ref | Built | `ceramic` | Glazed Tile | no | no | In catalog; no judge ref and no style screenshot yet |
+| keep | Built | `rebar` | Rebar Grid | yes | no | New rebar RefDef + `public/judge/rebar.jpg` after Built Cut PR #22 / tip `078fd8c` |
+| needs-ref | Built | `ceramic` | Glazed Tile | yes | no | RefDef wired (`public/judge/ceramic.jpg` after Built Cut PR #22); Swatch/Keystone hold for Tessera polish (match, 11/12) before keep |
 | needs-ref | Fiber | `canvas` | Canvas | no | no | In catalog; no judge ref and no style screenshot yet |
 | needs-ref | Fiber | `linen` | Linen | no | no | In catalog; no judge ref and no style screenshot yet |
 | needs-ref | Fiber | `knit` | Knit | no | no | In catalog; no judge ref and no style screenshot yet |
@@ -132,9 +132,9 @@ Preserved on purpose: Fiber style `dark-panels`, judge RefDef id `panels`, `publ
 
 ## Priority needs-ref (Tessera tech view, after cuts)
 
-Tessera signed off the 10-cut list and the original 33 keep. Bond Cut A (PR #2) moved buttered, subway, and mosaic to keep. Ground Cut A (PR #10) moved dirt, mud, and ash to keep. Peat and snow are keep-via-ref after PRs #12/#14 / tip `4530f7d`. erosion is keep-via-ref after Ground Cut B / tip `7d2044f`. asphalt is keep-via-ref after tip `e64850e` / PR #19 (43 keep / 32 needs-ref). Ground needs-ref is clear. Ordered priority for the remaining needs-ref work:
+Tessera signed off the 10-cut list and the original 33 keep. Bond Cut A (PR #2) moved buttered, subway, and mosaic to keep. Ground Cut A (PR #10) moved dirt, mud, and ash to keep. Peat and snow are keep-via-ref after PRs #12/#14 / tip `4530f7d`. erosion is keep-via-ref after Ground Cut B / tip `7d2044f`. asphalt is keep-via-ref after tip `e64850e` / PR #19. plaster and rebar are keep-via-ref after Built Cut PR #22 (`078fd8c`) on tip `0e9a259` (45 keep / 30 needs-ref). Ground needs-ref is clear. Ordered priority for the remaining needs-ref work:
 
-1. Built: concrete, stucco, plaster, cinder, ceramic, rebar
+1. Built remaining: concrete, stucco, cinder, ceramic
 2. Metal leftovers: rust, carbon, copper, gold, chainmail
 3. Nature / Fiber / Reviewed (checkerboard, lava) after that
 
@@ -155,3 +155,4 @@ Work: 2026-10-05T17:30:00Z | agent=docs | where=Shoozes/mountain-cabin-bloom-hon
 Work: 2026-10-05T20:45:00Z | agent=docs | where=Shoozes/mountain-cabin-bloom-honey | what=keep-via-ref peat and snow after PRs #12/#14 / tip `4530f7d`; asphalt and erosion stay needs-ref; counts keep=41 needs-ref=34 cut=0 total=75
 Work: 2026-10-05T21:10:00Z | agent=docs | where=Shoozes/mountain-cabin-bloom-honey | what=keep-via-ref erosion after Ground Cut B / tip `7d2044f`; asphalt stays needs-ref; counts keep=42 needs-ref=33 cut=0 total=75
 Work: 2026-10-05T21:31:00Z | agent=docs | where=Shoozes/mountain-cabin-bloom-honey | what=keep-via-ref asphalt after PR #19 / tip `e64850e`; counts keep=43 needs-ref=32 cut=0 total=75
+Work: 2026-10-05T21:50:00Z | agent=docs | where=Shoozes/mountain-cabin-bloom-honey | what=keep-via-ref plaster and rebar after Built Cut PR #22 on tip `0e9a259`; cinder, concrete, stucco, ceramic stay needs-ref; counts keep=45 needs-ref=30 cut=0 total=75
