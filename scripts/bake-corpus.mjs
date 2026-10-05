@@ -34,7 +34,7 @@ export const RECIPE = {
   smoothPixels: 0,
 };
 
-/** 42 keep ids, plan table order. Ground pixel keeps follow catalog order. */
+/** 43 keep ids, plan table order. Ground pixel keeps follow catalog order. */
 export const KEEP_IDS = [
   "brick",
   "stone",
@@ -67,6 +67,7 @@ export const KEEP_IDS = [
   "peat",
   "moss",
   "granite",
+  "asphalt",
   "erosion",
   "shingle",
   "pantile",
@@ -279,7 +280,7 @@ function writeCorpus(drawn, sourceTip) {
 export async function bakeCorpus() {
   const jobs = corpusJobs();
   if (jobs.length !== KEEP_IDS.length + LOOK_STRIP_IDS.length * LOOK_STRIP_LOOKS.length) {
-    throw new Error(`expected 54 bake jobs, got ${jobs.length}`);
+    throw new Error(`expected 55 bake jobs, got ${jobs.length}`);
   }
   const sourceTip = readSourceTip();
   if (!/^[0-9a-f]{7,40}$/.test(sourceTip)) {
