@@ -1,3 +1,5 @@
+import { LOOKS, type LookId } from "@/shader/catalog";
+
 export type Sample = {
   mean: [number, number, number];
   std: number;
@@ -18,7 +20,19 @@ export const JUDGE_REFS: RefDef[] = [
     id: "brick",
     label: "Brick",
     file: "/judge/brick.jpg",
-    styles: ["brick", "herringbone", "basket", "chevron", "diamond", "hex-bond", "honeycomb", "pantile", "shingle"],
+    styles: ["brick", "buttered", "herringbone", "basket", "chevron", "diamond", "hex-bond", "honeycomb", "pantile", "shingle"],
+  },
+  {
+    id: "subway",
+    label: "Subway",
+    file: "/judge/subway.jpg",
+    styles: ["subway"],
+  },
+  {
+    id: "mosaic",
+    label: "Mosaic",
+    file: "/judge/mosaic.jpg",
+    styles: ["mosaic"],
   },
   {
     id: "stone",
@@ -212,4 +226,87 @@ export function verdict(seam: number, match: number | null, flat: boolean, compi
   if (seam > SEAM_MAX) return { pass: false, reason: "seam" };
   if (match < MATCH_MIN) return { pass: false, reason: "unlike reference" };
   return { pass: true, reason: "matches" };
+}
+
+/** Smooth plus two pixel grids. 64 and 128 track smooth closely and are left out to keep the matrix small. */
+export const JUDGE_SIZES = [
+  { value: 0, label: "Smooth" },
+  { value: 32, label: "32×32" },
+  { value: 16, label: "16×16" },
+] as const;
+
+export type JudgeCellSpec = {
+  look: LookId;
+  lookValue: number;
+  lookLabel: string;
+  pixels: number;
+  sizeLabel: string;
+};
+
+/** Every catalog look × JUDGE_SIZES. A new look joins the matrix automatically. */
+export const JUDGE_MATRIX: JudgeCellSpec[] = LOOKS.flatMap((look) =>
+  JUDGE_SIZES.map((size) => ({
+    look: look.id,
+    lookValue: look.value,
+    lookLabel: look.label,
+    pixels: size.value,
+    sizeLabel: size.label,
+  })),
+);
+
+export type JudgeCell = {
+  look: LookId;
+  lookLabel: string;
+  pixels: number;
+  sizeLabel: string;
+  seam: number;
+  match: number | null;
+  pass: boolean;
+  reason: string;
+};
+
+export type JudgeRow = {
+  id: string;
+  name: string;
+  ref: string;
+  seam: number;
+  match: number | null;
+  pass: boolean;
+  reason: string;
+  cells: JudgeCell[];
+};
+
+/** Short labels for the judge list. Gate strings from `verdict` stay unchanged. */
+export function judgeReasonLabel(reason: string): string {
+  if (reason === "unlike reference") return "match";
+  if (reason === "too flat") return "flat";
+  if (reason === "shader failed") return "compile";
+  return reason;
+}
+
+export function judgeSummaryText(rows: JudgeRow[], busy: boolean): string {
+  const mapped = rows.filter((row) => row.cells.length > 0);
+  const cellTotal = mapped.reduce((sum, row) => sum + row.cells.length, 0);
+  const cellPass = mapped.reduce((sum, row) => sum + row.cells.filter((cell) => cell.pass).length, 0);
+  const unmapped = rows.length - mapped.length;
+  const pass = mapped.filter((row) => row.pass).length;
+  return `${pass} pass / ${mapped.length} scored · ${cellPass}/${cellTotal} cells${unmapped ? ` · ${unmapped} no reference` : ""}${busy ? "…" : ""}`;
+}
+
+export function summarizeJudge(
+  cells: JudgeCell[],
+  hasRef: boolean,
+): Pick<JudgeRow, "pass" | "reason" | "seam" | "match"> {
+  if (!hasRef) return { pass: false, reason: "no reference", seam: 1, match: null };
+  let seam = 0;
+  let match: number | null = null;
+  const reasons = new Set<string>();
+  for (const cell of cells) {
+    if (cell.seam > seam) seam = cell.seam;
+    if (cell.match !== null && (match === null || cell.match < match)) match = cell.match;
+    if (!cell.pass) reasons.add(cell.reason);
+  }
+  if (reasons.size === 0) return { pass: true, reason: "matches", seam, match };
+  const reason = reasons.size === 1 ? ([...reasons][0] ?? "failed") : "mixed";
+  return { pass: false, reason, seam, match };
 }

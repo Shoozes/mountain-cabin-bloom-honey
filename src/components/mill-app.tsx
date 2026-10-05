@@ -14,25 +14,21 @@ import {
 } from "@/shader/catalog";
 import { hexToRgb, ShaderMill, type DrawParams } from "@/shader/engine";
 import {
+  JUDGE_MATRIX,
   JUDGE_REFS,
+  judgeReasonLabel,
+  judgeSummaryText,
   matchScore,
   readFeatures,
   refForStyle,
   seamError,
+  summarizeJudge,
   verdict,
+  type JudgeCell,
+  type JudgeRow,
 } from "@/shader/judge";
 import { glslText, recipeText } from "@/shader/recipe";
 import { zipStore } from "@/shader/zip-store";
-
-type JudgeRow = {
-  id: string;
-  name: string;
-  ref: string;
-  seam: number;
-  match: number | null;
-  pass: boolean;
-  reason: string;
-};
 
 const STORAGE_KEY = "grout-shader-v1";
 
@@ -491,41 +487,87 @@ export function MillApp() {
       samples.set(ref.id, readFeatures(ctx.getImageData(0, 0, 96, 96).data, 96, 96));
     }
     const rows: JudgeRow[] = [];
+    let unmappedDirty = false;
+    const yieldFrame = () => new Promise((resolve) => setTimeout(resolve, 0));
     for (const style of STYLES) {
       const ref = refForStyle(style.id);
+      if (!ref) {
+        rows.push({
+          id: style.id,
+          name: style.name,
+          ref: "—",
+          ...summarizeJudge([], false),
+          cells: [],
+        });
+        unmappedDirty = true;
+        continue;
+      }
+      if (unmappedDirty) {
+        setJudgeRows(rows.slice());
+        unmappedDirty = false;
+        await yieldFrame();
+      }
       util.width = 96;
       util.height = 96;
       const colors = style.palette.map(hexToRgb) as DrawParams["colors"];
-      const ok = mill.drawUtil(util, style, {
-        seed: 7,
-        scale: 1,
-        pixels: 0,
-        wear: 0.08,
-        repeat: 1,
-        time: 0,
-        look: 2,
-        colors,
-      });
-      ctx.clearRect(0, 0, 96, 96);
-      if (ok) ctx.drawImage(util, 0, 0, 96, 96);
-      const data = ctx.getImageData(0, 0, 96, 96).data;
-      const sample = readFeatures(data, 96, 96);
-      const seam = ok ? seamError(data, 96, 96) : 1;
-      const refSample = ref ? samples.get(ref.id) : undefined;
-      const match = refSample ? matchScore(sample, refSample) : null;
-      const result = verdict(seam, match, sample.std < 6, ok);
+      const refSample = samples.get(ref.id);
+      const cells: JudgeCell[] = [];
+      let compiled = true;
+      for (const spec of JUDGE_MATRIX) {
+        if (!compiled) {
+          const result = verdict(1, null, true, false);
+          cells.push({
+            look: spec.look,
+            lookLabel: spec.lookLabel,
+            pixels: spec.pixels,
+            sizeLabel: spec.sizeLabel,
+            seam: 1,
+            match: null,
+            pass: result.pass,
+            reason: result.reason,
+          });
+          continue;
+        }
+        const ok = mill.drawUtil(util, style, {
+          seed: 7,
+          scale: 1,
+          pixels: spec.pixels,
+          wear: 0.08,
+          repeat: 1,
+          time: 0,
+          look: spec.lookValue,
+          colors,
+        });
+        ctx.clearRect(0, 0, 96, 96);
+        if (ok) ctx.drawImage(util, 0, 0, 96, 96);
+        const data = ctx.getImageData(0, 0, 96, 96).data;
+        const sample = readFeatures(data, 96, 96);
+        const seam = ok ? seamError(data, 96, 96) : 1;
+        const match = ok && refSample ? matchScore(sample, refSample) : null;
+        const result = verdict(seam, match, sample.std < 6, ok);
+        if (!ok) compiled = false;
+        cells.push({
+          look: spec.look,
+          lookLabel: spec.lookLabel,
+          pixels: spec.pixels,
+          sizeLabel: spec.sizeLabel,
+          seam,
+          match,
+          pass: result.pass,
+          reason: result.reason,
+        });
+      }
       rows.push({
         id: style.id,
         name: style.name,
-        ref: ref?.label ?? "—",
-        seam,
-        match,
-        pass: result.pass,
-        reason: result.reason,
+        ref: ref.label,
+        ...summarizeJudge(cells, true),
+        cells,
       });
       setJudgeRows(rows.slice());
-      await new Promise((resolve) => setTimeout(resolve, 0));
+      await yieldFrame();
     }
+    if (unmappedDirty) setJudgeRows(rows.slice());
     mill.dispose();
     for (const canvas of [display, util]) {
       canvas.getContext("webgl")?.getExtension("WEBGL_lose_context")?.loseContext();
@@ -773,39 +815,84 @@ export function MillApp() {
           </button>
         </div>
         <p className="lede">
-          Each scored texture is compared with a generated seamless tile of the same material. A pass means it
-          tiles and sits close to that tile.
+          Mapped textures are scored on all four looks at Smooth, 32×32, and 16×16. A style passes only when
+          every cell does. Anything without a reference stays no reference.
         </p>
         <p className="judge-sum" data-judge-sum="true">
-          {judgeRows
-            ? `${judgeRows.filter((row) => row.pass).length} pass / ${judgeRows.filter((row) => row.reason !== "no reference").length} scored${judgeBusy ? "…" : ""}`
-            : "Running…"}
+          {judgeRows ? judgeSummaryText(judgeRows, judgeBusy) : "Running…"}
         </p>
         <ul className="judge-list">
           {(judgeRows ?? [])
-            .filter((row) => row.reason !== "no reference")
-            .map((row) => (
-              <li key={row.id}>
-                <button
-                  type="button"
-                  className="judge-row"
-                  data-pass={row.pass}
-                  data-judge-row={row.id}
-                  data-seam={row.seam.toFixed(3)}
-                  data-match={row.match === null ? "" : row.match.toFixed(3)}
-                  data-reason={row.reason}
-                  onClick={() => {
-                    patch({ styleId: row.id, look: "real", pixels: 0 });
-                    setJudgeOpen(false);
-                  }}
-                >
-                  <span>{row.name}</span>
-                  <span className="judge-ref">{row.ref}</span>
-                  <span>{row.match === null ? "—" : row.match.toFixed(2)}</span>
-                  <span>{row.pass ? "Pass" : row.reason}</span>
-                </button>
-              </li>
-            ))}
+            .slice()
+            .sort((a, b) => {
+              const rank = (row: JudgeRow) => (row.cells.length === 0 ? 2 : row.pass ? 1 : 0);
+              return rank(a) - rank(b);
+            })
+            .map((row) => {
+              const passed = row.cells.filter((cell) => cell.pass).length;
+              const fails = row.cells.filter((cell) => !cell.pass);
+              const compileOnly =
+                fails.length > 0 && fails.length === row.cells.length && fails.every((cell) => cell.reason === "shader failed");
+              const openCell = fails[0];
+              return (
+                <li key={row.id}>
+                  <button
+                    type="button"
+                    className="judge-row"
+                    data-pass={row.pass}
+                    data-judge-row={row.id}
+                    data-seam={row.seam.toFixed(3)}
+                    data-match={row.match === null ? "" : row.match.toFixed(3)}
+                    data-reason={row.reason}
+                    data-cell-pass={passed}
+                    data-cell-total={row.cells.length}
+                    onClick={() => {
+                      patch({
+                        styleId: row.id,
+                        look: openCell?.look ?? "real",
+                        pixels: openCell?.pixels ?? 0,
+                      });
+                      setJudgeOpen(false);
+                    }}
+                  >
+                    <span>{row.name}</span>
+                    <span className="judge-ref">{row.ref}</span>
+                    <span>{row.cells.length ? `${passed}/${row.cells.length}` : "—"}</span>
+                    <span>{row.pass ? "Pass" : judgeReasonLabel(row.reason)}</span>
+                  </button>
+                  {fails.length > 0 ? (
+                    <ul className="judge-fails">
+                      {compileOnly ? (
+                        <li>
+                          <span className="judge-fail" data-reason="shader failed">
+                            All {row.cells.length} cells · compile
+                          </span>
+                        </li>
+                      ) : (
+                        fails.map((cell) => (
+                          <li key={`${cell.look}:${cell.pixels}`}>
+                            <button
+                              type="button"
+                              className="judge-fail"
+                              data-judge-cell={`${row.id}:${cell.look}:${cell.pixels}`}
+                              data-reason={cell.reason}
+                              data-seam={cell.seam.toFixed(3)}
+                              data-match={cell.match === null ? "" : cell.match.toFixed(3)}
+                              onClick={() => {
+                                patch({ styleId: row.id, look: cell.look, pixels: cell.pixels });
+                                setJudgeOpen(false);
+                              }}
+                            >
+                              {cell.lookLabel} · {cell.sizeLabel} · {judgeReasonLabel(cell.reason)}
+                            </button>
+                          </li>
+                        ))
+                      )}
+                    </ul>
+                  ) : null}
+                </li>
+              );
+            })}
         </ul>
       </section>
 
