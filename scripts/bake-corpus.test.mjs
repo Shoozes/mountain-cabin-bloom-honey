@@ -68,7 +68,7 @@ test("committed corpus matches the manifest and the subway example path", () => 
   const manifestPath = join(root, "public/textures/manifest.json");
   const manifest = JSON.parse(readFileSync(manifestPath, "utf8"));
   assert.equal(manifest.format, "grout-corpus/1");
-  assert.equal(manifest.sourceTip, "d31ac8ccf125823c6cddf91b9dba53054892bb59");
+  assert.equal(manifest.sourceTip, "1c48c7c8e8b6ff5418e068f5ec97cf91b192c4b7");
   assert.equal(manifest.files.length, 57);
 
   const subway = manifest.files.find((file) => file.path === "textures/pixel/bond/subway.png");
