@@ -33,19 +33,19 @@ function walkPngs(dir, prefix) {
   return out;
 }
 
-test("corpus jobs are the 41 keep plus the 12-file look strip", () => {
+test("corpus jobs are the 42 keep plus the 12-file look strip", () => {
   const jobs = corpusJobs();
-  assert.equal(jobs.length, 53);
-  assert.equal(KEEP_IDS.length, 41);
+  assert.equal(jobs.length, 54);
+  assert.equal(KEEP_IDS.length, 42);
   assert.deepEqual(
-    jobs.slice(0, 41).map((job) => job.id),
+    jobs.slice(0, 42).map((job) => job.id),
     KEEP_IDS,
   );
-  for (const job of jobs.slice(0, 41)) {
+  for (const job of jobs.slice(0, 42)) {
     assert.equal(job.look, "pixel");
     assert.equal(job.pixels, 32);
   }
-  const strip = jobs.slice(41);
+  const strip = jobs.slice(42);
   assert.deepEqual(
     strip.map((job) => `${job.look}/${job.id}`),
     LOOK_STRIP_IDS.flatMap((id) => LOOK_STRIP_LOOKS.map((look) => `${look}/${id}`)),
@@ -68,8 +68,8 @@ test("committed corpus matches the manifest and the subway example path", () => 
   const manifestPath = join(root, "public/textures/manifest.json");
   const manifest = JSON.parse(readFileSync(manifestPath, "utf8"));
   assert.equal(manifest.format, "grout-corpus/1");
-  assert.equal(manifest.sourceTip, "4530f7d8c64fad9ea358dda06915577fe8cb7d8d");
-  assert.equal(manifest.files.length, 53);
+  assert.equal(manifest.sourceTip, "89bc2855e964a2a5b8cc6e3c733bda18adf99c58");
+  assert.equal(manifest.files.length, 54);
 
   const subway = manifest.files.find((file) => file.path === "textures/pixel/bond/subway.png");
   assert.deepEqual(subway, {
@@ -98,9 +98,9 @@ test("committed corpus matches the manifest and the subway example path", () => 
   }
   const pixel = manifest.files.filter((file) => file.look === "pixel");
   const strip = manifest.files.filter((file) => file.look !== "pixel");
-  assert.equal(pixel.length, 41);
+  assert.equal(pixel.length, 42);
   assert.equal(strip.length, 12);
-  for (const id of ["dirt", "mud", "ash", "peat", "snow"]) {
+  for (const id of ["dirt", "mud", "ash", "peat", "snow", "erosion"]) {
     const file = manifest.files.find((item) => item.id === id && item.look === "pixel");
     assert.ok(file, id);
     assert.equal(file.category, "Ground");
