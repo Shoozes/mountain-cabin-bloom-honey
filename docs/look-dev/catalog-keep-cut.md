@@ -24,9 +24,11 @@ Live look shots in `screenshots/look-{pixel,painted,real,poster}.png`.
 
 - **keep** — stays in catalog; judge mapping exists (screenshot optional polish).
 - **needs-ref** — stays for now; add `JUDGE_REFS` (and ideally a screenshot) before calling Show done.
-- **cut** — remove from catalog when Justin GO via Umbra; not a material surface for the tile mill.
+- **cut** — removed from the catalog. Justin GO via Umbra (executed by Swatch / Look-dev) applied the held Signal FX + hazard cuts; none remain pending.
 
-## Counts: keep=36 · needs-ref=39 · cut=10 · total=85
+## Counts: keep=36 · needs-ref=39 · cut=0 · total=75
+
+Justin GO via Umbra executed. The 10 cut style ids are gone from `STYLES`. The empty Signal category chip went with them. Fiber `dark-panels`, judge RefDef `panels`, and `public/judge/panels.jpg` stay. Pixel-look Bayer / ordered dither in `glsl.ts` stays.
 
 ## Table
 
@@ -92,7 +94,6 @@ Live look shots in `screenshots/look-{pixel,painted,real,poster}.png`.
 | keep | Metal | `tread` | Diamond Plate | yes | no | Judge-mapped core surface; add screenshot when convenient |
 | needs-ref | Metal | `carbon` | Carbon Twill | no | no | In catalog; no judge ref and no style screenshot yet |
 | needs-ref | Metal | `copper` | Copper Sheet | no | no | In catalog; no judge ref and no style screenshot yet |
-| cut | Metal | `hazard` | Hazard | no | no | Decorative stripe motif, not a tile material for the mill |
 | keep | Metal | `vent` | Vent | yes | no | Judge-mapped core surface; add screenshot when convenient |
 | needs-ref | Metal | `gold` | Gold Leaf | no | no | In catalog; no judge ref and no style screenshot yet |
 | keep | Metal | `anodized` | Anodized | yes | no | Judge-mapped core surface; add screenshot when convenient |
@@ -108,15 +109,25 @@ Live look shots in `screenshots/look-{pixel,painted,real,poster}.png`.
 | needs-ref | Nature | `bamboo` | Bamboo | no | no | In catalog; no judge ref and no style screenshot yet |
 | needs-ref | Nature | `foam` | Sea Foam | no | no | In catalog; no judge ref and no style screenshot yet |
 | needs-ref | Nature | `obsidian` | Obsidian | no | no | In catalog; no judge ref and no style screenshot yet |
-| cut | Signal | `circuit` | Circuit | no | no | Signal/FX filter, not a material surface for the tile mill catalog |
-| cut | Signal | `panel` | Sci Panel | no | no | Signal/FX filter, not a material surface for the tile mill catalog |
-| cut | Signal | `dither` | Ordered Dither | no | no | Signal/FX filter, not a material surface for the tile mill catalog |
-| cut | Signal | `plasma` | Plasma | no | no | Signal/FX filter, not a material surface for the tile mill catalog |
-| cut | Signal | `film` | Film Grain | no | no | Signal/FX filter, not a material surface for the tile mill catalog |
-| cut | Signal | `hatch` | Crosshatch | no | no | Signal/FX filter, not a material surface for the tile mill catalog |
-| cut | Signal | `oil` | Oil Slick | no | no | Signal/FX filter, not a material surface for the tile mill catalog |
-| cut | Signal | `static` | Static | no | no | Signal/FX filter, not a material surface for the tile mill catalog |
-| cut | Signal | `phosphor` | Phosphor | no | no | Signal/FX filter, not a material surface for the tile mill catalog |
+
+## Removed (Justin GO)
+
+Justin GO via Umbra executed. These 10 ids are no longer in the mill catalog (not pending cut):
+
+| Status | Category | Id | Name | Reason |
+| --- | --- | --- | --- | --- |
+| removed | Metal | `hazard` | Hazard | Decorative stripe motif, not a tile material for the mill |
+| removed | Signal | `circuit` | Circuit | Signal/FX filter, not a material surface for the tile mill catalog |
+| removed | Signal | `panel` | Sci Panel | Signal/FX filter, not a material surface for the tile mill catalog |
+| removed | Signal | `dither` | Ordered Dither | Signal/FX filter, not a material surface for the tile mill catalog. Catalog style only — pixel-look Bayer in `glsl.ts` is unchanged |
+| removed | Signal | `plasma` | Plasma | Signal/FX filter, not a material surface for the tile mill catalog |
+| removed | Signal | `film` | Film Grain | Signal/FX filter, not a material surface for the tile mill catalog |
+| removed | Signal | `hatch` | Crosshatch | Signal/FX filter, not a material surface for the tile mill catalog |
+| removed | Signal | `oil` | Oil Slick | Signal/FX filter, not a material surface for the tile mill catalog |
+| removed | Signal | `static` | Static | Signal/FX filter, not a material surface for the tile mill catalog |
+| removed | Signal | `phosphor` | Phosphor | Signal/FX filter, not a material surface for the tile mill catalog |
+
+Preserved on purpose: Fiber style `dark-panels`, judge RefDef id `panels`, `public/judge/panels.jpg`, and dark-panels screenshots.
 
 ## Priority needs-ref (Tessera tech view, after cuts)
 
@@ -130,10 +141,11 @@ Tessera signed off the 10-cut list and the original 33 keep. Bond Cut A (PR #2) 
 ## Next
 
 1. Tessera: judge scoring / PBR untouched this pass.
-2. Swatch: after Justin GO, open follow-up draft to apply cuts + priority needs-ref list.
+2. Swatch: Justin GO via Umbra executed — the 10 cuts are applied in this draft. Priority needs-ref list is unchanged and still open.
 3. Lens may borrow later for proof — not this PR.
 4. Console palettes landed in mill `PALETTES`: `pico8`, `gameboy`, `nes` (see `console-palettes.md`). `style` stays the default.
 
 ---
 Work: 2026-10-05T09:05:00-04:00 | agent=Swatch | role=Look-dev / Visual Director | where=Shoozes/mountain-cabin-bloom-honey | what=first catalog keep/cut/needs-ref pass
 Work: 2026-10-05T13:15:00Z | agent=docs | where=Shoozes/mountain-cabin-bloom-honey | what=Bond Cut A keep-via-ref (buttered, subway, mosaic) after PR #2 `fa6a992`; tip `1cc892c`
+Work: 2026-10-05T16:46:00Z | agent=Swatch | role=Look-dev / Visual Director | where=Shoozes/mountain-cabin-bloom-honey | what=Justin GO via Umbra executed: removed hazard, circuit, panel, dither, plasma, film, hatch, oil, static, phosphor; counts keep=36 needs-ref=39 cut=0 total=75
