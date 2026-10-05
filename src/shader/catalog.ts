@@ -6,7 +6,6 @@ export const CATEGORIES = [
   "Fiber",
   "Metal",
   "Nature",
-  "Signal",
 ] as const;
 
 export type Category = (typeof CATEGORIES)[number];
@@ -1321,20 +1320,6 @@ export const STYLES: StyleDef[] = [
     }`,
   }),
   g({
-    id: "hazard",
-    name: "Hazard",
-    category: "Metal",
-    blurb: "Diagonal caution bands. Still seamless.",
-    palette: ["#1a140c", "#c45512", "#3a342c", "#f0c030"],
-    glsl: `vec3 groutStyle(vec2 uv) {
-      float s = fract((uv.x + uv.y) * 4.0 * SC());
-      float band = step(0.5, s);
-      float n = N(uv, 8.0 * SC());
-      vec3 c = mix(uC0, uC3, band);
-      return mix(c, uC1, n * 0.18);
-    }`,
-  }),
-  g({
     id: "vent",
     name: "Vent",
     category: "Metal",
@@ -1561,137 +1546,6 @@ export const STYLES: StyleDef[] = [
       float shine = smoothstep(0.72, 0.95, n);
       vec3 c = mix(uC0, uC1, n * 0.85);
       return mix(c, uC3, shine);
-    }`,
-  }),
-
-  g({
-    id: "circuit",
-    name: "Circuit",
-    category: "Signal",
-    blurb: "Traces and a few square pads on a board.",
-    palette: ["#102018", "#1e6a38", "#c6a24a", "#e8f6d8"],
-    glsl: `vec3 groutStyle(vec2 uv) {
-      float cols = 8.0 * SC();
-      vec2 g = fract(uv * cols);
-      vec2 id = wrap2(floor(uv * cols), cols);
-      float trace = 0.0;
-      if (H(id) > 0.42) trace = max(trace, 1.0 - smoothstep(0.45, 0.55, abs(g.x - 0.5) * 2.0));
-      if (H(id + 3.0) > 0.55) trace = max(trace, 1.0 - smoothstep(0.45, 0.55, abs(g.y - 0.5) * 2.0));
-      float pad = (1.0 - smoothstep(0.12, 0.2, length(g - vec2(0.5, 0.5)))) * step(0.82, H(id + 8.0));
-      vec3 c = uC0;
-      c = mix(c, uC2, clamp(trace, 0.0, 1.0));
-      return mix(c, uC1, pad);
-    }`,
-  }),
-  g({
-    id: "panel",
-    name: "Sci Panel",
-    category: "Signal",
-    blurb: "Inset plates. Some of them carry a lamp.",
-    palette: ["#14181c", "#2a343c", "#4a5a66", "#e2b04a"],
-    glsl: `vec3 groutStyle(vec2 uv) {
-      float cols = 4.0 * SC();
-      vec2 g = fract(uv * cols);
-      float panel = face(g, 0.08, 0.08, cols);
-      float n = N(uv, cols);
-      vec3 c = mix(uC0, mix(uC1, uC2, n), panel);
-      vec2 id = wrap2(floor(uv * cols), cols);
-      float lamp = step(0.8, H(id));
-      float ld = length(g - vec2(0.78, 0.22));
-      float on = (1.0 - smoothstep(0.035, 0.07, ld)) * lamp * panel;
-      return mix(c, uC3, on);
-    }`,
-  }),
-  g({
-    id: "dither",
-    name: "Ordered Dither",
-    category: "Signal",
-    blurb: "A vertical ramp through a 4-step Bayer threshold.",
-    palette: ["#1a120e", "#6a3a28", "#d4652f", "#f6e6d4"],
-    glsl: `vec3 groutStyle(vec2 uv) {
-      vec2 px = floor(uv * RES());
-      float threshold = mod(mod(px.x, 2.0) + mod(px.y, 2.0) * 2.0, 4.0) / 4.0;
-      float v = step(threshold, uv.y);
-      return mix(uC0, uC3, v);
-    }`,
-  }),
-  g({
-    id: "plasma",
-    name: "Plasma",
-    category: "Signal",
-    blurb: "Three sine fields, periodic, slowly turning.",
-    motion: true,
-    palette: ["#1a1030", "#6a2878", "#e25822", "#f6d36a"],
-    glsl: `vec3 groutStyle(vec2 uv) {
-      float sc = SC();
-      float v = 0.5 + 0.5 * sin(uv.x * 6.28318 * sc + uTime);
-      v += 0.5 + 0.5 * sin(uv.y * 6.28318 * 2.0 * sc - uTime * 0.7);
-      v += 0.5 + 0.5 * sin((uv.x + uv.y) * 6.28318 * sc + uTime * 0.4);
-      return mix4(v / 3.0);
-    }`,
-  }),
-  g({
-    id: "film",
-    name: "Film Grain",
-    category: "Signal",
-    blurb: "Frame-stepped grain that still tiles.",
-    motion: true,
-    palette: ["#12100e", "#3a342c", "#a39886", "#efe6d6"],
-    glsl: `vec3 groutStyle(vec2 uv) {
-      vec2 px = wrap2(floor(uv * RES() + vec2(floor(uTime * 12.0), 0.0)), RES());
-      float n = H(px);
-      return mix(uC0, uC3, n);
-    }`,
-  }),
-  g({
-    id: "hatch",
-    name: "Crosshatch",
-    category: "Signal",
-    blurb: "Ink lines on a paper ground.",
-    palette: ["#1a140e", "#5c4636", "#a89880", "#f3eadc"],
-    glsl: `vec3 groutStyle(vec2 uv) {
-      float sc = SC();
-      float a = 1.0 - smoothstep(0.0, 0.06, abs(fract(uv.x * 14.0 * sc) - 0.5));
-      float b = 1.0 - smoothstep(0.0, 0.05, abs(fract((uv.x + uv.y) * 10.0 * sc) - 0.5));
-      return mix(uC3, uC0, clamp(a + b, 0.0, 1.0));
-    }`,
-  }),
-  g({
-    id: "oil",
-    name: "Oil Slick",
-    category: "Signal",
-    blurb: "A thin-film shift that keeps the tile period.",
-    motion: true,
-    palette: ["#101820", "#1e6a5a", "#c43a6a", "#f0d36a"],
-    glsl: `vec3 groutStyle(vec2 uv) {
-      float n = FBM(uv + vec2(uTime * 0.02, 0.0), 2.0 * SC());
-      float v = fract(n * 3.0 + uTime * 0.05);
-      return mix4(v);
-    }`,
-  }),
-  g({
-    id: "static",
-    name: "Static",
-    category: "Signal",
-    blurb: "One palette index per pixel. Seed changes the field.",
-    palette: ["#141210", "#3a342c", "#a39886", "#efe6d6"],
-    glsl: `vec3 groutStyle(vec2 uv) {
-      float q = H(wrap2(floor(uv * RES()), RES()));
-      return pick4(q);
-    }`,
-  }),
-  g({
-    id: "phosphor",
-    name: "Phosphor",
-    category: "Signal",
-    blurb: "Scanlines over a dim green field.",
-    palette: ["#04140c", "#0e3a22", "#3dcc6e", "#d8ffd8"],
-    glsl: `vec3 groutStyle(vec2 uv) {
-      float sc = SC();
-      float n = N(uv, 6.0 * sc);
-      float line = 0.65 + 0.35 * (0.5 + 0.5 * sin(uv.y * 6.28318 * RES() * 0.5));
-      vec3 c = mix(uC0, uC2, 0.35 + 0.5 * n);
-      return c * line;
     }`,
   }),
 ];
