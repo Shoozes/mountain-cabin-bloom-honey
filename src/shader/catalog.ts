@@ -750,10 +750,13 @@ export const STYLES: StyleDef[] = [
     palette: ["#3a2a1c", "#6b4a30", "#8d6844", "#cbb48a"],
     glsl: `vec3 groutStyle(vec2 uv) {
       float sc = SC();
-      float n = FBM(uv, 4.0 * sc);
-      float p = N(uv, 14.0 * sc);
-      vec3 c = pick4(n * 0.85);
-      return mix(c, uC3, smoothstep(0.8, 0.94, p));
+      float clod = FBM(uv, 3.0 * sc);
+      float grit = N(uv, 11.0 * sc);
+      float pit = N(uv, 6.0 * sc);
+      float t = clamp(clod * 0.62 + grit * 0.22 + (pit - 0.5) * 0.12, 0.0, 0.999);
+      vec3 c = pick4(t);
+      float stone = smoothstep(0.82, 0.96, N(uv, 16.0 * sc));
+      return mix(c, uC3, stone);
     }`,
   }),
   g({
@@ -913,11 +916,14 @@ export const STYLES: StyleDef[] = [
     palette: ["#3a3a38", "#6e6e6a", "#9a9a94", "#d2d0c8"],
     glsl: `vec3 groutStyle(vec2 uv) {
       float sc = SC();
-      float n = FBM(uv, 4.0 * sc);
-      vec3 c = pick4(0.28 + 0.5 * n);
-      vec2 w = worley(uv, 2.0 * sc);
-      float crack = 1.0 - smoothstep(0.015, 0.05, w.y - w.x);
-      float allow = step(0.55, H(wrap2(floor(uv * 2.0 * sc), 2.0 * sc)));
+      float n = FBM(uv, 3.5 * sc);
+      float agg = N(uv, 18.0 * sc);
+      float t = clamp(0.32 + 0.38 * n + (agg - 0.5) * 0.16, 0.0, 0.999);
+      vec3 c = pick4(t);
+      vec2 w = worley(uv, 2.2 * sc);
+      float crack = 1.0 - smoothstep(0.012, 0.045, w.y - w.x);
+      float allow = step(0.62, H(wrap2(floor(uv * 2.0 * sc), 2.0 * sc)));
+      c = mix(c, uC2, step(0.9, agg) * 0.55);
       return mix(c, uC0, crack * allow);
     }`,
   }),
@@ -1254,10 +1260,13 @@ export const STYLES: StyleDef[] = [
     palette: ["#2a140c", "#8a3418", "#c46228", "#e8a85a"],
     glsl: `vec3 groutStyle(vec2 uv) {
       float sc = SC();
-      float n = FBM(uv, 3.0 * sc);
-      float pits = worley(uv, 6.0 * sc).x;
-      vec3 c = mix4(n);
-      return mix(c, uC0, 1.0 - smoothstep(0.05, 0.16, pits));
+      float n = FBM(uv, 2.6 * sc);
+      float flake = FBM(uv + vec2(0.17, 0.09), 6.5 * sc);
+      float pits = worley(uv, 7.0 * sc).x;
+      vec3 c = mix4(clamp(n * 0.72 + flake * 0.28, 0.0, 1.0));
+      float scale = smoothstep(0.42, 0.58, flake) * (1.0 - smoothstep(0.58, 0.74, flake));
+      c = mix(c, uC3, scale * 0.35);
+      return mix(c, uC0, 1.0 - smoothstep(0.04, 0.14, pits));
     }`,
   }),
   g({
@@ -1422,11 +1431,13 @@ export const STYLES: StyleDef[] = [
     palette: ["#1a3040", "#8ec4d4", "#d4eef4", "#f7fcfe"],
     glsl: `vec3 groutStyle(vec2 uv) {
       float sc = SC();
-      float n = FBM(uv, 3.0 * sc);
-      vec2 w = worley(uv, 4.0 * sc);
-      float crack = 1.0 - smoothstep(0.02, 0.07, w.y - w.x);
-      vec3 c = mix(uC1, uC3, 0.35 + 0.65 * n);
-      return mix(c, uC0, crack * 0.55);
+      float n = FBM(uv, 2.5 * sc);
+      vec2 w = worley(uv, 3.5 * sc);
+      float crack = 1.0 - smoothstep(0.015, 0.055, w.y - w.x);
+      float facet = smoothstep(0.08, 0.28, w.x);
+      vec3 c = mix(uC1, uC3, clamp(0.25 + 0.7 * n, 0.0, 1.0));
+      c = mix(c, uC2, facet * 0.35);
+      return mix(c, uC0, crack * 0.7);
     }`,
   }),
   g({

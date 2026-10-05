@@ -29,8 +29,15 @@ float SC() {
   return max(1.0, floor(uScale + 0.5));
 }
 
+float pixelGrid() {
+  float grid = uPixels;
+  if (uLook < 0.5 && grid < 1.5) grid = 32.0;
+  return grid;
+}
+
 float RES() {
-  return uPixels > 1.5 ? uPixels : 96.0;
+  float grid = pixelGrid();
+  return grid > 1.5 ? grid : 96.0;
 }
 
 float N(vec2 uv, float freq) {
@@ -90,6 +97,46 @@ vec3 pick4(float t) {
   return uC3;
 }
 
+float bayer4(vec2 px) {
+  float x = mod(floor(px.x), 4.0);
+  float y = mod(floor(px.y), 4.0);
+  if (y < 0.5) {
+    if (x < 0.5) return 0.0;
+    if (x < 1.5) return 8.0;
+    if (x < 2.5) return 2.0;
+    return 10.0;
+  }
+  if (y < 1.5) {
+    if (x < 0.5) return 12.0;
+    if (x < 1.5) return 4.0;
+    if (x < 2.5) return 14.0;
+    return 6.0;
+  }
+  if (y < 2.5) {
+    if (x < 0.5) return 3.0;
+    if (x < 1.5) return 11.0;
+    if (x < 2.5) return 1.0;
+    return 9.0;
+  }
+  if (x < 0.5) return 15.0;
+  if (x < 1.5) return 7.0;
+  if (x < 2.5) return 13.0;
+  return 5.0;
+}
+
+vec3 nearest4(vec3 c) {
+  float d0 = dot(c - uC0, c - uC0);
+  float d1 = dot(c - uC1, c - uC1);
+  float d2 = dot(c - uC2, c - uC2);
+  float d3 = dot(c - uC3, c - uC3);
+  vec3 pick = uC0;
+  float best = d0;
+  if (d1 < best) { best = d1; pick = uC1; }
+  if (d2 < best) { best = d2; pick = uC2; }
+  if (d3 < best) { best = d3; pick = uC3; }
+  return pick;
+}
+
 vec3 mix4(float t) {
   t = clamp(t, 0.0, 1.0);
   if (t < 0.3333) return mix(uC0, uC1, t * 3.0);
@@ -119,8 +166,11 @@ float gid(vec2 uv, float f) {
 
 vec3 finish(vec3 c, vec2 uv) {
   if (uLook < 0.5) {
-    float luma = dot(c, vec3(0.25, 0.55, 0.2));
-    c = pick4(clamp(luma * 1.05, 0.0, 0.999));
+    float grid = max(pixelGrid(), 1.0);
+    vec2 px = floor(uv * grid);
+    float t = bayer4(px) / 16.0 - 0.5;
+    float amp = 0.03 + uWear * 0.05;
+    c = nearest4(clamp(c + vec3(t * amp), 0.0, 1.0));
   } else if (uLook < 1.5) {
     float luma = dot(c, vec3(0.3, 0.5, 0.2));
     float bristle = N(vec2(uv.y * 14.0 * SC(), uv.x * 2.0 * SC()), 6.0);
@@ -138,9 +188,10 @@ vec3 finish(vec3 c, vec2 uv) {
     float luma = dot(c, vec3(0.3, 0.59, 0.11));
     c = mix4(clamp(floor(luma * 3.0) / 2.0, 0.0, 1.0));
   }
-  float grain = N(uv, 16.0 * SC()) - 0.5;
-  float wearAmt = uLook < 0.5 ? 0.06 : 0.22;
-  c += grain * uWear * wearAmt;
+  if (uLook >= 0.5) {
+    float grain = N(uv, 16.0 * SC()) - 0.5;
+    c += grain * uWear * 0.22;
+  }
   return clamp(c, 0.0, 1.0);
 }
 `;
@@ -148,8 +199,7 @@ vec3 finish(vec3 c, vec2 uv) {
 const MAIN = `
 void main() {
   vec2 uv = fract(vUv * max(uRepeat, 1.0));
-  float grid = uPixels;
-  if (uLook < 0.5 && grid < 1.5) grid = 32.0;
+  float grid = pixelGrid();
   if (grid > 1.5) {
     uv = (floor(uv * grid) + 0.5) / grid;
   }
