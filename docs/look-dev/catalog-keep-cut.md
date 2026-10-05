@@ -1,7 +1,8 @@
 # Catalog keep / cut / needs-ref — first pass
 
 Owner: Swatch (Look-dev / Visual Director). Partner: Tessera (Technical Artist).
-Repo tip at review: `main` @ `9a4fcf582dc840d77ee28ada317fd5726da8ea24`.
+Repo tip at review: `main` @ `1cc892cdf4c99ec71cc5a368807a8faf0104bc12`.
+Bond Cut A landed via PR #2 (`fa6a992`): buttered, subway, and mosaic are keep-via-ref.
 Scope: catalog + looks only — **no new shaders**.
 
 ## Four looks
@@ -25,7 +26,7 @@ Live look shots in `screenshots/look-{pixel,painted,real,poster}.png`.
 - **needs-ref** — stays for now; add `JUDGE_REFS` (and ideally a screenshot) before calling Show done.
 - **cut** — remove from catalog when Justin GO via Umbra; not a material surface for the tile mill.
 
-## Counts: keep=33 · needs-ref=42 · cut=10 · total=85
+## Counts: keep=36 · needs-ref=39 · cut=10 · total=85
 
 ## Table
 
@@ -45,13 +46,13 @@ Live look shots in `screenshots/look-{pixel,painted,real,poster}.png`.
 | keep | Reviewed | `water` | Shallow Water | yes | no | Judge-mapped core surface; add screenshot when convenient |
 | needs-ref | Reviewed | `lava` | Magma | no | no | Reviewed cookbook style but missing JUDGE_REFS entry |
 | keep | Reviewed | `sand` | Dry Sand | yes | no | Judge-mapped core surface; add screenshot when convenient |
-| needs-ref | Bond | `buttered` | Buttered Grout | no | no | In catalog; no judge ref and no style screenshot yet |
+| keep | Bond | `buttered` | Buttered Grout | yes | no | Maps via brick RefDef (`styles[]` includes buttered) after PR #2 / tip `fa6a992` |
 | keep | Bond | `herringbone` | Herringbone | yes | no | Judge-mapped core surface; add screenshot when convenient |
 | keep | Bond | `basket` | Basket Weave | yes | no | Judge-mapped core surface; add screenshot when convenient |
-| needs-ref | Bond | `subway` | Subway Tile | no | no | In catalog; no judge ref and no style screenshot yet |
+| keep | Bond | `subway` | Subway Tile | yes | no | New subway RefDef + `public/judge/subway.jpg` on main |
 | keep | Bond | `chevron` | Chevron | yes | no | Judge-mapped core surface; add screenshot when convenient |
 | keep | Bond | `diamond` | Diamond Tile | yes | no | Judge-mapped core surface; add screenshot when convenient |
-| needs-ref | Bond | `mosaic` | Tessera | no | no | In catalog; no judge ref and no style screenshot yet |
+| keep | Bond | `mosaic` | Tessera | yes | no | New mosaic RefDef + `public/judge/mosaic.jpg` on main |
 | keep | Bond | `cobble` | Cobble | yes | no | Judge-mapped core surface; add screenshot when convenient |
 | keep | Bond | `hex-bond` | Hex Bond | yes | no | Judge-mapped core surface; add screenshot when convenient |
 | keep | Bond | `honeycomb` | Honeycomb | yes | no | Judge-mapped core surface; add screenshot when convenient |
@@ -119,13 +120,12 @@ Live look shots in `screenshots/look-{pixel,painted,real,poster}.png`.
 
 ## Priority needs-ref (Tessera tech view, after cuts)
 
-Tessera signed off the 10-cut list and the 33 keep. Ordered priority for the remaining needs-ref work (verdicts unchanged):
+Tessera signed off the 10-cut list and the original 33 keep. Bond Cut A (PR #2) moved buttered, subway, and mosaic to keep (36 keep / 39 needs-ref). Ordered priority for the remaining needs-ref work (verdicts unchanged):
 
-1. Bond: buttered, subway, mosaic (closest to existing brick/bond refs)
-2. Ground: dirt, mud, ash, peat, snow (then asphalt, erosion)
-3. Built: concrete, stucco, plaster, cinder, ceramic, rebar
-4. Metal leftovers: rust, carbon, copper, gold, chainmail
-5. Nature / Fiber / Reviewed (checkerboard, lava) after that
+1. Ground: dirt, mud, ash, peat, snow (then asphalt, erosion)
+2. Built: concrete, stucco, plaster, cinder, ceramic, rebar
+3. Metal leftovers: rust, carbon, copper, gold, chainmail
+4. Nature / Fiber / Reviewed (checkerboard, lava) after that
 
 ## Next
 
@@ -135,3 +135,4 @@ Tessera signed off the 10-cut list and the 33 keep. Ordered priority for the rem
 
 ---
 Work: 2026-10-05T09:05:00-04:00 | agent=Swatch | role=Look-dev / Visual Director | where=Shoozes/mountain-cabin-bloom-honey | what=first catalog keep/cut/needs-ref pass
+Work: 2026-10-05T13:15:00Z | agent=docs | where=Shoozes/mountain-cabin-bloom-honey | what=Bond Cut A keep-via-ref (buttered, subway, mosaic) after PR #2 `fa6a992`; tip `1cc892c`
