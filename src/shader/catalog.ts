@@ -912,51 +912,54 @@ export const STYLES: StyleDef[] = [
     id: "asphalt",
     name: "Asphalt",
     category: "Ground",
-    blurb: "Sunlit grey aggregate, pale chips, and a dark binder crack.",
+    blurb: "Road binder with fine stones and a hairline crack.",
     palette: ["#24282c", "#3c4246", "#545c58", "#7a847c"],
     glsl: `vec3 groutStyle(vec2 uv) {
       float sc = SC();
-      // Chips are whole cells that straddle the tile edge, so opposite rims match.
-      // Pixel stays on hard steps; smooth looks keep that same cell phase.
-      float f = 8.0 * sc;
-      vec2 p = fract(uv + 0.5 / f);
-      vec2 cell = wrap2(floor(p * f), f);
-      float h = H(cell);
+      // Longitudinal hairline. Stays off the tile cut so the wrap is binder, not a cobble edge.
+      float bands = 2.0 * sc;
+      float band = floor(uv.y * bands);
+      float y = fract(uv.y * bands);
+      float wob = (N(vec2(uv.x, (band + 0.5) / bands), 3.0 * sc) - 0.5) * 0.10;
+      float gap = abs(y - 0.62 - wob);
+      float allow = step(0.38, H(vec2(band, 4.2)));
+      float crack = (1.0 - smoothstep(0.0, 0.012, gap)) * allow;
       if (uLook < 0.5) {
-        float chip = step(0.84, h);
-        float crack = step(0.94, H(cell + 3.7));
-        vec3 c = pick4(0.40 + 0.36 * h);
-        c = mix(c, uC3, chip);
-        return mix(c, uC0, crack);
+        float grid = max(pixelGrid(), 1.0);
+        vec2 px = wrap2(floor(uv * grid), grid);
+        float h = H(px);
+        // Mostly the mid-grey stop so the field luma sits near the road ref, not pale chips.
+        vec3 c = h < 0.70 ? uC1 : uC2;
+        float stone = step(0.975, h);
+        float pit = step(0.965, H(px + 8.2));
+        c = mix(c, uC3, stone);
+        c = mix(c, uC0, max(pit, crack));
+        return c;
       }
-      float n = FBM(uv, 5.0 * sc);
-      float grit = N(uv, 11.0 * sc);
-      float t = clamp(0.40 + 0.24 * n + (grit - 0.5) * 0.18, 0.0, 1.0);
-      vec3 c = mix4(t);
-      float chip = step(0.84, h);
-      c = mix(c, uC3, chip * 0.85);
-      c = mix(c, uC1, step(0.97, H(cell + 1.7)) * 0.40);
-      // Half a cell of phase keeps the voronoi ridge off the tile cut.
-      float cf = 3.0 * sc;
-      vec2 s = fract(uv + 0.5 / cf);
-      vec2 w = worley(s, cf);
-      float crack = 1.0 - smoothstep(0.02, 0.08, w.y - w.x);
-      c = mix(c, uC0, crack * 0.82);
+      float n = FBM(uv, 4.0 * sc);
+      float grit = N(uv, 18.0 * sc);
+      vec3 c = mix(uC1, uC2, clamp(0.22 + 0.36 * n, 0.0, 1.0));
+      c = mix(c, uC0, smoothstep(0.55, 0.92, grit) * 0.22);
+      c = mix(c, uC3, step(0.985, N(uv, 20.0 * sc)) * 0.45);
+      c = mix(c, uC0, crack);
       if (uLook > 2.5) {
-        // Poster bins: dark binder, sunlit field, light chips.
-        float band = 0.50;
-        if (crack > 0.62) band = 0.06;
-        else if (chip > 0.5) band = 0.90;
-        c = vec3(band);
+        float g = pixelGrid();
+        if (g < 1.5) g = 96.0;
+        vec2 px = wrap2(floor(uv * g), g);
+        float rim = min(min(px.x, g - 1.0 - px.x), min(px.y, g - 1.0 - px.y));
+        float h = rim < 1.5 ? 0.5 : H(px);
+        float bandL = 0.44;
+        if (crack > 0.5 || h > 0.975) bandL = 0.10;
+        else if (h > 0.92) bandL = 0.72;
+        c = vec3(bandL);
       } else if (uLook > 0.5 && uLook < 1.5) {
-        float spread = crack > 0.55 ? 0.04 : chip > 0.5 ? 0.94 : 0.32 + 0.38 * n;
+        float spread = crack > 0.5 ? 0.05 : 0.32 + 0.58 * n + (grit - 0.5) * 0.22;
         c = mix(uC0, uC3, clamp(spread, 0.0, 1.0));
       } else if (uLook > 1.5 && uLook < 2.5) {
-        // Hyper shade valleys on the border and paints a vertical band.
-        // Lift only that valley; finish() multiplies the same term back.
+        // finish() multiplies by this shade and peaks it on the tile border.
         float shade = FBM(uv, 6.0 * sc);
         float factor = max(0.76 + 0.40 * shade, 0.25);
-        c *= max(factor, 0.94) / factor;
+        c *= 1.0 / factor;
       }
       return c;
     }`,
@@ -969,10 +972,17 @@ export const STYLES: StyleDef[] = [
     palette: ["#2c241c", "#6a5344", "#a78462", "#e2d0b4"],
     glsl: `vec3 groutStyle(vec2 uv) {
       float sc = SC();
-      float n = FBM(uv, 2.0 * sc);
-      float strata = fract(uv.y * 6.0 * sc + n * 1.4);
+      float period = 6.0 * sc;
+      // Wobble is a function of x only, and the bed line sits mid-band.
+      // A y-varying warp parked the color step on the tile cut (8px at x 136).
+      float wob = (N(vec2(uv.x, 0.2), 2.0 * sc) - 0.5) * 0.16;
+      float arg = uv.y * period + 0.5 + wob;
+      float id = mod(floor(arg), period);
+      float strata = fract(arg);
       float line = 1.0 - smoothstep(0.0, 0.08, strata);
-      vec3 c = pick4(0.15 + 0.7 * n);
+      float tone = H(vec2(id, 3.1));
+      float grit = N(vec2(uv.x, id / period), 3.0 * sc);
+      vec3 c = pick4(clamp(0.16 + 0.62 * tone + (grit - 0.5) * 0.06, 0.0, 0.999));
       return mix(c, uC0, line * 0.85);
     }`,
   }),
@@ -981,19 +991,30 @@ export const STYLES: StyleDef[] = [
     id: "concrete",
     name: "Concrete",
     category: "Built",
-    blurb: "Flat gray with a crack that skips some cells.",
+    blurb: "Flat gray slab with a hairline crack that skips some courses.",
     palette: ["#3a3a38", "#6e6e6a", "#9a9a94", "#d2d0c8"],
     glsl: `vec3 groutStyle(vec2 uv) {
       float sc = SC();
-      float n = FBM(uv, 3.5 * sc);
-      float agg = N(uv, 18.0 * sc);
-      float t = clamp(0.32 + 0.38 * n + (agg - 0.5) * 0.16, 0.0, 0.999);
-      vec3 c = pick4(t);
-      vec2 w = worley(uv, 2.2 * sc);
-      float crack = 1.0 - smoothstep(0.012, 0.045, w.y - w.x);
-      float allow = step(0.62, H(wrap2(floor(uv * 2.0 * sc), 2.0 * sc)));
-      c = mix(c, uC2, step(0.9, agg) * 0.55);
-      return mix(c, uC0, crack * allow);
+      float n = N(uv, 4.0 * sc);
+      float agg = N(uv, 16.0 * sc);
+      vec3 c = mix(uC1, uC2, 0.28 + 0.34 * n);
+      c = mix(c, uC3, step(0.94, agg) * 0.28);
+      // One wandering hairline per course, inset from the tile cut. Not a cell mesh.
+      float rows = 3.0 * sc;
+      float row = floor(uv.y * rows);
+      float y = fract(uv.y * rows);
+      float wob = (N(vec2(uv.x, (row + 0.5) / rows), 2.0 * sc) - 0.5) * 0.08;
+      float allow = step(0.48, H(vec2(row, 2.4)));
+      float crack = (1.0 - smoothstep(0.0, 0.014, abs(y - 0.58 - wob))) * allow;
+      c = mix(c, uC0, crack);
+      if (uLook > 2.5) {
+        float g = pixelGrid();
+        if (g < 1.5) g = 96.0;
+        vec2 px = wrap2(floor(uv * g), g);
+        float pit = step(0.955, H(px));
+        c = vec3(max(pit, step(0.5, crack)) > 0.5 ? 0.16 : 0.48);
+      }
+      return c;
     }`,
   }),
   g({
@@ -1006,28 +1027,48 @@ export const STYLES: StyleDef[] = [
       float sc = SC();
       float n = N(uv, 18.0 * sc);
       float n2 = N(uv, 6.0 * sc);
-      return pick4(0.25 + 0.45 * n2 + 0.22 * n);
+      vec3 c = pick4(0.22 + 0.48 * n2 + 0.18 * n);
+      if (uLook > 2.5) {
+        // Palette stops all poster to the white bin. Hold the field in warm sand
+        // and sprinkle a few darker grains so the swatch is not a flat wash.
+        float gsz = pixelGrid();
+        if (gsz < 1.5) gsz = 96.0;
+        float h = H(wrap2(floor(uv * gsz), gsz));
+        c = vec3(h > 0.90 ? 0.20 : 0.50);
+      } else if (uLook > 0.5 && uLook < 1.5) {
+        // Painted finish compresses luma. A wider feed clears the flat gate.
+        c = vec3(clamp(0.18 + 0.70 * n2, 0.0, 1.0));
+      } else if (uLook > 1.5 && uLook < 2.5) {
+        float shade = FBM(uv, 6.0 * sc);
+        float factor = max(0.76 + 0.40 * shade, 0.25);
+        c *= 0.90 / factor;
+      }
+      return c;
     }`,
   }),
   g({
     id: "cinder",
     name: "Cinder Block",
     category: "Built",
-    blurb: "A block face with three core holes.",
+    blurb: "Stacked rows of block, three round cores and dark mortar.",
     palette: ["#1c1c1a", "#5c5c58", "#8a8a84", "#c8c6be"],
     glsl: `vec3 groutStyle(vec2 uv) {
       float sc = SC();
       float cols = 2.0 * sc;
-      vec2 g = fract(uv * vec2(cols, sc));
+      float rows = 4.0 * sc;
+      vec2 g = fract(uv * vec2(cols, rows));
       float n = N(uv, 8.0 * sc);
-      vec3 c = mix(uC1, uC2, n);
-      float h1 = length(g - vec2(0.25, 0.5));
-      float h2 = length(g - vec2(0.5, 0.5));
-      float h3 = length(g - vec2(0.75, 0.5));
-      float hole = 1.0 - smoothstep(0.07, 0.11, min(h1, min(h2, h3)));
-      float seam = 1.0 - face(g, 0.03, 0.04, cols);
+      vec3 c = mix(uC1, uC2, 0.30 + 0.45 * n);
+      // Cores are round in tile space. The cell is wide, so g-space distance would stretch them.
+      float r = 0.046;
+      float d1 = length((g - vec2(0.22, 0.50)) / vec2(cols, rows));
+      float d2 = length((g - vec2(0.50, 0.50)) / vec2(cols, rows));
+      float d3 = length((g - vec2(0.78, 0.50)) / vec2(cols, rows));
+      float hole = 1.0 - smoothstep(r * 0.72, r, min(d1, min(d2, d3)));
+      float mortar = step(g.x, 0.055) + step(0.945, g.x) + step(g.y, 0.09) + step(0.91, g.y);
+      mortar = clamp(mortar, 0.0, 1.0);
       c = mix(c, uC0, hole);
-      return mix(c, uC0, seam * 0.8);
+      return mix(c, uC0, mortar);
     }`,
   }),
   g({
@@ -1138,16 +1179,37 @@ export const STYLES: StyleDef[] = [
     id: "ceramic",
     name: "Glazed Tile",
     category: "Built",
-    blurb: "Square glaze pools inside a dark joint.",
+    blurb: "Pale aqua glaze inside a light joint.",
     palette: ["#1c2428", "#1e6a78", "#3aa8a0", "#d8f2ee"],
     glsl: `vec3 groutStyle(vec2 uv) {
       float sc = SC();
       float cols = 4.0 * sc;
       vec2 g = fract(uv * cols);
-      float m = face(g, 0.06, 0.06, cols);
       float glaze = FBM(uv, 2.0 * sc);
-      vec3 c = mix4(0.35 + 0.5 * glaze);
-      return mix(uC0, c, m);
+      vec3 pool = mix(uC2, uC3, 0.15 + 0.55 * glaze);
+      vec3 joint = mix(uC2, uC3, 0.72);
+      float m = face(g, 0.035, 0.035, cols);
+      vec3 c = mix(joint, pool, m);
+      if (uLook < 0.5) {
+        float grid = max(pixelGrid(), 1.0);
+        vec2 px = wrap2(floor(uv * grid), grid);
+        float h = H(px);
+        float inset = min(min(g.x, 1.0 - g.x), min(g.y, 1.0 - g.y));
+        if (inset < 0.02) c = uC3;
+        else if (h > 0.94) c = uC3;
+        else if (h < 0.07) c = uC1;
+        else c = uC2;
+      } else if (uLook > 2.5) {
+        // Both rims of the cell, so the tile cut matches. Width catches one texel.
+        float grid = pixelGrid();
+        if (grid < 1.5) grid = 96.0;
+        float n = grid < 20.0 ? 1.0 : grid < 40.0 ? 2.0 : 4.0;
+        vec2 cell = fract(uv * n);
+        float inset = min(min(cell.x, 1.0 - cell.x), min(cell.y, 1.0 - cell.y));
+        float w = 0.55 * n / grid;
+        c = vec3(inset < w ? 0.80 : 0.50);
+      }
+      return c;
     }`,
   }),
 
