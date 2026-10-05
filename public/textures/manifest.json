@@ -1,6 +1,6 @@
 {
   "format": "grout-corpus/1",
-  "sourceTip": "96ff004a4a83747db4039da22e7c6938a55b2dfc",
+  "sourceTip": "ccdb5c1736745936a6f68b60d57e6b400ad77eba",
   "files": [
     {
       "id": "brick",
@@ -465,6 +465,48 @@
       "path": "textures/pixel/ground/erosion.png"
     },
     {
+      "id": "concrete",
+      "name": "Concrete",
+      "category": "Built",
+      "look": "pixel",
+      "pixels": 32,
+      "exportSize": 256,
+      "palette": "style",
+      "seed": 1204,
+      "scale": 1,
+      "wear": 0.35,
+      "repeat": 1,
+      "path": "textures/pixel/built/concrete.png"
+    },
+    {
+      "id": "stucco",
+      "name": "Stucco",
+      "category": "Built",
+      "look": "pixel",
+      "pixels": 32,
+      "exportSize": 256,
+      "palette": "style",
+      "seed": 1204,
+      "scale": 1,
+      "wear": 0.35,
+      "repeat": 1,
+      "path": "textures/pixel/built/stucco.png"
+    },
+    {
+      "id": "cinder",
+      "name": "Cinder Block",
+      "category": "Built",
+      "look": "pixel",
+      "pixels": 32,
+      "exportSize": 256,
+      "palette": "style",
+      "seed": 1204,
+      "scale": 1,
+      "wear": 0.35,
+      "repeat": 1,
+      "path": "textures/pixel/built/cinder.png"
+    },
+    {
       "id": "shingle",
       "name": "Shingles",
       "category": "Built",
@@ -547,6 +589,20 @@
       "wear": 0.35,
       "repeat": 1,
       "path": "textures/pixel/built/rebar.png"
+    },
+    {
+      "id": "ceramic",
+      "name": "Glazed Tile",
+      "category": "Built",
+      "look": "pixel",
+      "pixels": 32,
+      "exportSize": 256,
+      "palette": "style",
+      "seed": 1204,
+      "scale": 1,
+      "wear": 0.35,
+      "repeat": 1,
+      "path": "textures/pixel/built/ceramic.png"
     },
     {
       "id": "brushed",

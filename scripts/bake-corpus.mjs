@@ -34,7 +34,7 @@ export const RECIPE = {
   smoothPixels: 0,
 };
 
-/** 45 keep ids, plan table order. Ground pixel keeps follow catalog order. */
+/** 49 keep ids, plan table order. Ground and Built pixel keeps follow catalog order. */
 export const KEEP_IDS = [
   "brick",
   "stone",
@@ -69,12 +69,16 @@ export const KEEP_IDS = [
   "granite",
   "asphalt",
   "erosion",
+  "concrete",
+  "stucco",
+  "cinder",
   "shingle",
   "pantile",
   "plaster",
   "terrazzo",
   "slate",
   "rebar",
+  "ceramic",
   "brushed",
   "tread",
   "vent",
@@ -87,8 +91,8 @@ export const KEEP_IDS = [
 export const LOOK_STRIP_IDS = ["brick", "stone", "subway", "mosaic"];
 export const LOOK_STRIP_LOOKS = ["painted", "real", "poster"];
 
-/** Held needs-ref heroes. Never bake these in P0. */
-export const HELD_IDS = ["concrete", "rust", "ice"];
+/** Held needs-ref heroes. Never bake these in P0. Concrete left this list when its pixel PNG landed. */
+export const HELD_IDS = ["rust", "ice"];
 
 const PNG_MAGIC = Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]);
 
@@ -281,8 +285,9 @@ function writeCorpus(drawn, sourceTip) {
 
 export async function bakeCorpus() {
   const jobs = corpusJobs();
-  if (jobs.length !== KEEP_IDS.length + LOOK_STRIP_IDS.length * LOOK_STRIP_LOOKS.length) {
-    throw new Error(`expected 57 bake jobs, got ${jobs.length}`);
+  const expected = KEEP_IDS.length + LOOK_STRIP_IDS.length * LOOK_STRIP_LOOKS.length;
+  if (jobs.length !== expected) {
+    throw new Error(`expected ${expected} bake jobs, got ${jobs.length}`);
   }
   const sourceTip = readSourceTip();
   if (!/^[0-9a-f]{7,40}$/.test(sourceTip)) {
