@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { Link } from "@tanstack/react-router";
 import {
   CATEGORIES,
   LOOKS,
@@ -115,6 +116,54 @@ function loadState(): MillState {
   } catch {
     return INITIAL;
   }
+}
+
+/**
+ * `public/` paths are written root-absolute ("/judge/brick.jpg"); prefix them
+ * with Vite's base so they also resolve under the GitHub Pages subpath.
+ */
+function publicUrl(path: string) {
+  return `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
+}
+
+/**
+ * Deep link used by the gallery's "Open live shader":
+ * `?style=<id>&look=<look>&pixels=&seed=&scale=&wear=&palette=`.
+ * Each param is validated like stored state and ignored when invalid; with no
+ * params the stored state is returned untouched.
+ */
+function applyDeepLink(base: MillState, search: string): MillState {
+  const params = new URLSearchParams(search);
+  const next = { ...base };
+  const styleId = params.get("style");
+  if (styleId && STYLES.some((style) => style.id === styleId)) {
+    next.styleId = styleId;
+    // Make sure the linked tile is visible in the rack.
+    next.category = "All";
+    next.query = "";
+  }
+  const look = params.get("look");
+  if (look && LOOKS.some((item) => item.id === look)) {
+    next.look = look as LookId;
+    next.pixels = look === "pixel" ? next.pixels || 32 : 0;
+  }
+  const num = (key: string) => {
+    const raw = params.get(key);
+    if (raw === null || raw.trim() === "") return null;
+    const value = Number(raw);
+    return Number.isFinite(value) ? value : null;
+  };
+  const pixels = num("pixels");
+  if (pixels !== null && SIZES.some((size) => size.value === pixels)) next.pixels = pixels;
+  const seed = num("seed");
+  if (seed !== null) next.seed = clamp(Math.round(seed), 0, 999999);
+  const scale = num("scale");
+  if (scale !== null && (SCALE_CHOICES as readonly number[]).includes(scale)) next.scale = scale;
+  const wear = num("wear");
+  if (wear !== null) next.wear = clamp(wear, 0, 1);
+  const paletteId = params.get("palette");
+  if (paletteId && PALETTES.some((palette) => palette.id === paletteId)) next.paletteId = paletteId;
+  return next;
 }
 
 function paramsFor(state: MillState, time: number): DrawParams {
@@ -361,7 +410,7 @@ export function MillApp() {
   }, []);
 
   useEffect(() => {
-    setState(loadState());
+    setState(applyDeepLink(loadState(), window.location.search));
     setHydrated(true);
   }, []);
 
@@ -480,7 +529,7 @@ export function MillApp() {
     const samples = new Map<string, ReturnType<typeof readFeatures>>();
     for (const ref of JUDGE_REFS) {
       const img = new Image();
-      img.src = ref.file;
+      img.src = publicUrl(ref.file);
       await img.decode();
       ctx.clearRect(0, 0, 96, 96);
       ctx.drawImage(img, 0, 0, 96, 96);
@@ -674,13 +723,18 @@ export function MillApp() {
     <main className="bench">
       <header className="top">
         <div className="id">
-          <p className="mark">
-            {fired > 0 && fired < STYLE_COUNT
-              ? `Firing ${fired} / ${STYLE_COUNT}`
-              : style.preset
-                ? "Reviewed"
-                : style.category}
-          </p>
+          <div className="mark-row">
+            <p className="mark">
+              {fired > 0 && fired < STYLE_COUNT
+                ? `Firing ${fired} / ${STYLE_COUNT}`
+                : style.preset
+                  ? "Reviewed"
+                  : style.category}
+            </p>
+            <Link to="/gallery" className="mark-link" data-testid="app-gallery-link">
+              PNG gallery
+            </Link>
+          </div>
           <h1>{style.name}</h1>
         </div>
         <div className="top-actions">
