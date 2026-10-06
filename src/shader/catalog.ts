@@ -1,3 +1,5 @@
+import { CONCRETE_PIXEL, HERRINGBONE_PIXEL, PIXEL_KIT, STONE_PIXEL, WATER_PIXEL } from "./pixel-styles.ts";
+
 export const CATEGORIES = [
   "Reviewed",
   "Bond",
@@ -211,7 +213,8 @@ export const STYLES: StyleDef[] = [
     preset: "stone",
     blurb: "Cookbook stone. Noisy faces broken by dark joints.",
     palette: ["#6a6862", "#7e7c76", "#908e88", "#b4b0a6"],
-    glsl: `vec3 groutStyle(vec2 uv) {
+    glsl: `${PIXEL_KIT}${STONE_PIXEL}vec3 groutStyle(vec2 uv) {
+      if (uLook < 0.5) return rbPixel(uv);
       float sc = SC();
       float f = 9.0 * sc;
       vec2 w = worley(uv, f);
@@ -521,7 +524,8 @@ export const STYLES: StyleDef[] = [
     blurb: "Shallow turquoise water. Small caustic ripples and pale crests.",
     motion: true,
     palette: ["#4ea8a6", "#67b6b3", "#8ecfc8", "#e7f7f4"],
-    glsl: `vec3 groutStyle(vec2 uv) {
+    glsl: `${PIXEL_KIT}${WATER_PIXEL}vec3 groutStyle(vec2 uv) {
+      if (uLook < 0.5) return wtPixel(uv);
       float sc = SC();
       vec2 p = uv + vec2(uTime * 0.015, uTime * 0.01);
       float a = FBM(p, 5.0 * sc);
@@ -595,7 +599,8 @@ export const STYLES: StyleDef[] = [
     category: "Bond",
     blurb: "Parquet planks that flip direction every cell.",
     palette: ["#3e291c", "#7a5132", "#b58355", "#e6d2b4"],
-    glsl: `vec3 groutStyle(vec2 uv) {
+    glsl: `${PIXEL_KIT}${HERRINGBONE_PIXEL}vec3 groutStyle(vec2 uv) {
+      if (uLook < 0.5) return hbPixel(uv);
       float sc = SC();
       float n = 4.0 * sc;
       vec2 p = uv * n;
@@ -1014,7 +1019,8 @@ export const STYLES: StyleDef[] = [
     category: "Built",
     blurb: "Flat gray slab with a hairline crack that skips some courses.",
     palette: ["#3a3a38", "#6e6e6a", "#9a9a94", "#d2d0c8"],
-    glsl: `vec3 groutStyle(vec2 uv) {
+    glsl: `${PIXEL_KIT}${CONCRETE_PIXEL}vec3 groutStyle(vec2 uv) {
+      if (uLook < 0.5) return ccPixel(uv);
       float sc = SC();
       float n = N(uv, 4.0 * sc);
       float agg = N(uv, 16.0 * sc);
