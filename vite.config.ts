@@ -11,6 +11,7 @@ import { grokPwaPlugin } from "./scripts/grok-pwa-plugin.mjs";
 // @ts-expect-error JS plugin alongside the TS vite config
 import { appEnvPlugin } from "./scripts/app-env-plugin.mjs";
 import { isMigrationFile } from "./scripts/migration-plan.mjs";
+import { pages404Plugin } from "./scripts/pages-404.mjs";
 
 /** The files `src/lib/db.ts` globs — same directory, same non-recursive scope. */
 function hasGlobbedMigrations(root: string): boolean {
@@ -205,6 +206,9 @@ export default defineConfig(({ command, isPreview, mode }) => ({
           }),
         ]
       : []),
+    // Pages only: dist/client/404.html, which GitHub Pages serves for unknown
+    // paths; it redirects to the gallery. Never part of the Vercel build.
+    ...(isPagesBuild(mode) ? [pages404Plugin()] : []),
     viteReact(),
   ],
 }));
