@@ -206,10 +206,11 @@ vec3 rbPixel(vec2 uv) {
  * or stain clusters (2x2, L, T and short bar shapes) sit one per 4 px cell at
  * most, with a gap on the cell's right and bottom, so they never touch. Cell
  * rows are staggered, and the grid is offset so clusters cross the wrap. At 64
- * and 128 the cluster unit grows to 2 and 4 px, so the on-screen size holds. Density follows a coarse wrapped field, so some areas
- * stay bare. Most clusters are stains (uC1) and a few are light aggregate (uC3).
- * Most seeds also get one 4-connected hairline crack (uC0) that may run
- * across the wrap.
+ * and 128 the cluster unit grows to 2 and 4 px, so the on-screen size holds.
+ * Density follows a coarse wrapped field, so some areas stay bare. Most
+ * clusters are stains (uC1) and a few are light aggregate (uC3). Most seeds
+ * also get one 4-connected hairline crack (uC1, one step above near-black)
+ * that may run across the wrap. At grid 16 it's a 3-4px nick.
  */
 export const CONCRETE_PIXEL = `
 float ccShape(float s, vec2 l) {
@@ -243,7 +244,9 @@ float ccWalk(float seg) {
 }
 float ccCrack(vec2 q, float P) {
   if (pkH(vec2(1.0, 9.0), 30.0) < 0.25) return 0.0;
-  float L = floor(P * (0.4 + 0.3 * pkH(vec2(2.0, 9.0), 30.0)));
+  // At 16 the crack is a 3-4px nick, so it doesn't mark the period in a 3x3.
+  float L = P < 24.0 ? 3.0 + floor(pkH(vec2(2.0, 9.0), 30.0) * 2.0)
+                     : floor(P * (0.4 + 0.3 * pkH(vec2(2.0, 9.0), 30.0)));
   float x0 = floor(pkH(vec2(3.0, 9.0), 30.0) * P);
   float y0 = 4.0 + floor(pkH(vec2(4.0, 9.0), 30.0) * (P - 8.0));
   float dx = mod(q.x - x0, P);
@@ -256,7 +259,8 @@ float ccCrack(vec2 q, float P) {
 }
 float ccCls(vec2 q, float P) {
   q = pkW(q, P);
-  if (ccCrack(q, P) > 0.5) return 0.0;
+  // The crack uses uC1, one step above the near-black uC0.
+  if (ccCrack(q, P) > 0.5) return 1.0;
   // Cluster unit: 1 art px up to grid 32, 2 at 64, 4 at 128, so clusters
   // keep the same chunky size on screen.
   float u = P >= 128.0 ? 4.0 : (P >= 64.0 ? 2.0 : 1.0);
@@ -292,9 +296,10 @@ vec3 ccPixel(vec2 uv) {
 /**
  * Shallow water: a flat body (uC1) with 1px ripple lines (uC2). The lines are
  * the 8-connected inner boundary of wavy, mostly horizontal bands of a wrapped
- * value-noise field, so they come out 4-connected and join where bands pinch. The lines are broken in places for flow. A
- * uC0 drop shadow sits 2px below each line, and 2 or 3 short uC3
- * highlights are added. With motion on, the field drifts in whole pixels.
+ * value-noise field, so they come out 4-connected and join where bands pinch.
+ * The lines are broken in places for flow. A uC0 drop shadow sits 2px below
+ * each line. There's 1 short uC3 highlight at grid 16 and 2 from 32 up. With
+ * motion on, the field drifts in whole pixels.
  */
 export const WATER_PIXEL = `
 float wtVN(vec2 q, vec2 cs, float P, float salt) {
@@ -333,7 +338,7 @@ bool wtLine(vec2 q, float P) {
 }
 float wtCls(vec2 q, vec2 drift, float P) {
   q = pkW(q, P);
-  float n = P >= 32.0 ? 3.0 : 2.0;
+  float n = P < 24.0 ? 1.0 : 2.0;
   for (int i = 0; i < 3; i++) {
     if (float(i) < n) {
       float len = P < 24.0 ? 2.0 : 2.0 + floor(pkH(vec2(float(i), 4.0), 44.0) * 2.0);
