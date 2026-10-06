@@ -35,10 +35,10 @@ jobs:
           node-version: 22
           cache: npm
 
-      # `npm install` rather than `npm ci`: the committed lockfile is not in
-      # sync for npm 10's strict `ci` check (ajv), and this job must not edit it.
+      # Strict lockfile install. `--legacy-peer-deps` matches how the lockfile
+      # was resolved; without it npm 10's `ci` sync check rejects it (ajv).
       - name: Install
-        run: npm install --no-audit --no-fund
+        run: npm ci --legacy-peer-deps --no-audit --no-fund
 
       - name: Build (Pages mode, no texture bake)
         run: npm run build:pages

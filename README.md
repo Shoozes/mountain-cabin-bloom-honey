@@ -75,20 +75,20 @@ The corpus has a pixel PNG for each of the 49 keep styles. Four heroes (brick, s
 
 | Host | Pattern | Example |
 | --- | --- | --- |
-| GitHub Pages | `https://shoozes.github.io/mountain-cabin-bloom-honey/textures/<look>/<category>/<id>.png` | https://shoozes.github.io/mountain-cabin-bloom-honey/textures/pixel/bond/herringbone.png |
-| raw GitHub | `https://raw.githubusercontent.com/Shoozes/mountain-cabin-bloom-honey/main/public/textures/<look>/<category>/<id>.png` | https://raw.githubusercontent.com/Shoozes/mountain-cabin-bloom-honey/main/public/textures/pixel/bond/herringbone.png |
+| GitHub Pages | `https://shoozes.github.io/mountain-cabin-bloom-honey/textures/<look>/<category>/<id>.png` | https://shoozes.github.io/mountain-cabin-bloom-honey/textures/pixel/built/pantile.png |
+| raw GitHub | `https://raw.githubusercontent.com/Shoozes/mountain-cabin-bloom-honey/main/public/textures/<look>/<category>/<id>.png` | https://raw.githubusercontent.com/Shoozes/mountain-cabin-bloom-honey/main/public/textures/pixel/built/pantile.png |
 
 `<category>` is lowercase (`reviewed`, `bond`, `ground`, `built`, `fiber`, `metal`, `nature`). Raw GitHub URLs follow whatever `main` holds. Pin a commit SHA instead of `main` if you need the same bytes every time.
 
 ```sh
 curl -sO https://shoozes.github.io/mountain-cabin-bloom-honey/textures/manifest.json
-curl -sO https://shoozes.github.io/mountain-cabin-bloom-honey/textures/pixel/bond/herringbone.png
+curl -sO https://shoozes.github.io/mountain-cabin-bloom-honey/textures/pixel/built/pantile.png
 ```
 
 ## Shader first, bake only
 
 1. **Author in GLSL.** Styles are shader code in the catalog (`src/shader/catalog.ts`, `src/shader/glsl.ts`), and look-dev reviews them live in the mill.
-2. **Judge the rendered pixels.** The judge is TypeScript, not shader code. It scores the rendered tile against `SEAM_MAX` (0.16) and `MATCH_MIN` (0.58) in [`src/shader/judge.ts`](src/shader/judge.ts). Seam scoring is in [`src/shader/seam.ts`](src/shader/seam.ts). `npm run seam` ([`scripts/seam-harness.mjs`](scripts/seam-harness.mjs)) runs the fixture harness. The unit tests are in [`src/shader/seam.test.ts`](src/shader/seam.test.ts); run them with `node --experimental-strip-types --test src/shader/seam.test.ts` (Node 22). `npm test` does list that file, but it currently stops early: its first `node --test 'scripts/**/*.test.mjs'` step has failing grok-pwa tests, so the `&&` chain never reaches the `src/` tests.
+2. **Judge the rendered pixels.** The judge is TypeScript, not shader code. It scores the rendered tile against `SEAM_MAX` (0.16) and `MATCH_MIN` (0.58) in [`src/shader/judge.ts`](src/shader/judge.ts). Seam scoring is in [`src/shader/seam.ts`](src/shader/seam.ts). `npm run seam` ([`scripts/seam-harness.mjs`](scripts/seam-harness.mjs)) runs the fixture harness. The unit tests are in [`src/shader/seam.test.ts`](src/shader/seam.test.ts); run them with `node --experimental-strip-types --test src/shader/seam.test.ts` (Node 22). `npm test` runs them too, after the `scripts/` tests.
 3. **Bake, never paint.** `npm run bake:corpus` ([`scripts/bake-corpus.mjs`](scripts/bake-corpus.mjs)) uses headless Chromium (Playwright) to draw each tile with the same path the mill's Save / PNG catalog export uses. It uses a locked recipe (`RECIPE` in the script) and writes `public/textures/**` and `manifest.json`. The bake refuses held needs-ref ids (`HELD_IDS`). PNGs are only ever shader output. Nobody edits them by hand.
 4. **Provenance.** The bake writes `sourceTip` into the manifest. That value is `BAKE_SOURCE_TIP` if set. Otherwise it is `git rev-parse origin/main`, or `git rev-parse HEAD` if that command fails (for example, no `origin/main`). After a shader or recipe change, re-bake and commit the PNGs.
 5. **Deploy.** [`.github/workflows/pages.yml`](.github/workflows/pages.yml) runs `npm run build:pages` on every push to `main`. It never bakes. It ships the committed PNGs as-is. The bake is not part of `npm run build` either.
@@ -112,7 +112,7 @@ Requires Node 22 (`@tanstack/react-start` needs >= 22.12).
 ```sh
 npm install
 npm run dev            # mill + gallery on http://localhost:8080
-npm test               # scripts/ tests, then src/ tests (currently stops at scripts/ failures)
+npm test               # all unit tests: scripts/, then src/ (incl. seam / judge)
 node --experimental-strip-types --test src/shader/seam.test.ts   # seam / judge unit tests
 npm run seam           # seam / match harness
 npm run typecheck
