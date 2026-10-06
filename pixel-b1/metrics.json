@@ -930,10 +930,10 @@
   ]
  },
  "after|concrete|16|1204": {
-  "colors": 3,
+  "colors": 2,
   "orphans": 0,
   "seam1": 0.057,
-  "seam256": 0.043
+  "seam256": 0.032
  },
  "after|concrete|16|7": {
   "colors": 2,
@@ -948,10 +948,10 @@
   "seam256": 0.0
  },
  "after|concrete|32|1204": {
-  "colors": 3,
+  "colors": 2,
   "orphans": 0,
   "seam1": 0.057,
-  "seam256": 0.035
+  "seam256": 0.032
  },
  "after|concrete|32|7": {
   "colors": 2,
@@ -966,7 +966,7 @@
   "seam256": 0.012
  },
  "after|concrete|64|1204": {
-  "colors": 3,
+  "colors": 2,
   "orphans": 0,
   "seam1": 0.024,
   "seam256": 0.024
@@ -1087,13 +1087,13 @@
  "after|water|16|1204": {
   "colors": 4,
   "orphans": 0,
-  "seam1": 0.18,
+  "seam1": 0.029,
   "seam256": 0.013
  },
  "after|water|16|7": {
   "colors": 4,
   "orphans": 0,
-  "seam1": 0.151,
+  "seam1": 0.029,
   "seam256": 0.021
  },
  "after|water|16|42": {
@@ -1147,7 +1147,7 @@
     "pass_": true,
     "reason": "matches",
     "seam": 0.04,
-    "match": 0.893
+    "match": 0.891
    },
    {
     "look": "pixel",
@@ -1155,7 +1155,7 @@
     "pass_": true,
     "reason": "matches",
     "seam": 0.04,
-    "match": 0.893
+    "match": 0.891
    },
    {
     "look": "pixel",
@@ -1163,7 +1163,7 @@
     "pass_": true,
     "reason": "matches",
     "seam": 0.021,
-    "match": 0.896
+    "match": 0.892
    },
    {
     "look": "painted",
