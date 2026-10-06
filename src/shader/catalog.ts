@@ -1215,35 +1215,42 @@ export const STYLES: StyleDef[] = [
     id: "ceramic",
     name: "Glazed Tile",
     category: "Built",
-    blurb: "Pale aqua glaze inside a light joint.",
+    blurb: "Teal glaze pools inside a dark grout line.",
     palette: ["#1c2428", "#1e6a78", "#3aa8a0", "#d8f2ee"],
     glsl: `vec3 groutStyle(vec2 uv) {
       float sc = SC();
       float cols = 4.0 * sc;
-      vec2 g = fract(uv * cols);
-      float glaze = FBM(uv, 2.0 * sc);
-      vec3 pool = mix(uC2, uC3, 0.15 + 0.55 * glaze);
-      vec3 joint = mix(uC2, uC3, 0.72);
-      float m = face(g, 0.035, 0.035, cols);
-      vec3 c = mix(joint, pool, m);
+      // Half a cell off the cut so a painted/real joint is not split on the wrap.
+      vec2 uvJ = fract(uv + 0.5 / cols);
+      vec2 id = wrap2(floor(uvJ * cols), cols);
+      vec2 g = fract(uvJ * cols);
+      // Aqua pools. A pale joint read as teal banding, so the line is uC0.
+      float tone = H(id);
+      vec3 pool = mix(uC2, uC1, tone * 0.28);
+      float m = face(g, 0.05, 0.05, cols);
+      vec3 c = mix(uC0, pool, m);
       if (uLook < 0.5) {
         float grid = max(pixelGrid(), 1.0);
         vec2 px = wrap2(floor(uv * grid), grid);
-        float h = H(px);
-        float inset = min(min(g.x, 1.0 - g.x), min(g.y, 1.0 - g.y));
-        if (inset < 0.02) c = uC3;
-        else if (h > 0.94) c = uC3;
-        else if (h < 0.07) c = uC1;
-        else c = uC2;
+        float cell = max(grid / cols, 1.0);
+        // Half a cell, so the tile cut sits in a face. A joint on px=0
+        // already meets the next copy; a far-rim joint made that cut 2px
+        // and left the last cell one pixel short. Opposite edges share a face.
+        vec2 shifted = wrap2(px + cell * 0.5, grid);
+        vec2 local = mod(shifted, cell);
+        float tonePx = H(wrap2(floor(shifted / cell), cols));
+        float grout = step(local.x, 0.5) + step(local.y, 0.5);
+        c = grout > 0.5 ? uC0 : (tonePx < 0.22 ? uC1 : uC2);
       } else if (uLook > 2.5) {
-        // Both rims of the cell, so the tile cut matches. Width catches one texel.
+        // Both rims, one texel. 0.18 stays in the dark poster bin.
+        // 0.80 was the pale stop (luma ~234) against a field near 120.
         float grid = pixelGrid();
         if (grid < 1.5) grid = 96.0;
-        float n = grid < 20.0 ? 1.0 : grid < 40.0 ? 2.0 : 4.0;
-        vec2 cell = fract(uv * n);
-        float inset = min(min(cell.x, 1.0 - cell.x), min(cell.y, 1.0 - cell.y));
+        float n = grid < 20.0 ? 1.0 : grid < 40.0 ? 2.0 : cols;
+        vec2 cellUv = fract(uv * n);
+        float inset = min(min(cellUv.x, 1.0 - cellUv.x), min(cellUv.y, 1.0 - cellUv.y));
         float w = 0.55 * n / grid;
-        c = vec3(inset < w ? 0.80 : 0.50);
+        c = vec3(inset < w ? 0.18 : 0.50);
       }
       return c;
     }`,
