@@ -1220,8 +1220,10 @@ export const STYLES: StyleDef[] = [
     glsl: `vec3 groutStyle(vec2 uv) {
       float sc = SC();
       float cols = 4.0 * sc;
-      vec2 id = wrap2(floor(uv * cols), cols);
-      vec2 g = fract(uv * cols);
+      // Half a cell off the cut so a painted/real joint is not split on the wrap.
+      vec2 uvJ = fract(uv + 0.5 / cols);
+      vec2 id = wrap2(floor(uvJ * cols), cols);
+      vec2 g = fract(uvJ * cols);
       // Aqua pools. A pale joint read as teal banding, so the line is uC0.
       float tone = H(id);
       vec3 pool = mix(uC2, uC1, tone * 0.28);
@@ -1231,12 +1233,14 @@ export const STYLES: StyleDef[] = [
         float grid = max(pixelGrid(), 1.0);
         vec2 px = wrap2(floor(uv * grid), grid);
         float cell = max(grid / cols, 1.0);
-        vec2 local = mod(px, cell);
-        // One dark joint on the low side of each cell, plus the far rim
-        // so the tile cut matches. No per-pixel sparkle.
+        // Half a cell, so the tile cut sits in a face. A joint on px=0
+        // already meets the next copy; a far-rim joint made that cut 2px
+        // and left the last cell one pixel short. Opposite edges share a face.
+        vec2 shifted = wrap2(px + cell * 0.5, grid);
+        vec2 local = mod(shifted, cell);
+        float tonePx = H(wrap2(floor(shifted / cell), cols));
         float grout = step(local.x, 0.5) + step(local.y, 0.5);
-        grout += step(grid - 1.5, px.x) + step(grid - 1.5, px.y);
-        c = grout > 0.5 ? uC0 : (tone < 0.22 ? uC1 : uC2);
+        c = grout > 0.5 ? uC0 : (tonePx < 0.22 ? uC1 : uC2);
       } else if (uLook > 2.5) {
         // Both rims, one texel. 0.18 stays in the dark poster bin.
         // 0.80 was the pale stop (luma ~234) against a field near 120.
