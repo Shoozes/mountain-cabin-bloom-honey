@@ -26,7 +26,8 @@
     "bake:retro-terrain": "node scripts/bake-retro-terrain.mjs",
     "bake:retro-terrain-growth": "node scripts/bake-retro-terrain-growth.mjs",
     "lint": "eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "bake:retro-terrain-curated": "node scripts/bake-retro-terrain-curated.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.7.0",

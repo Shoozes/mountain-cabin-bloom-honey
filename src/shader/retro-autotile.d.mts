@@ -1,0 +1,10 @@
+export const BLOB_BITS: Readonly<{N: 1; NE: 2; E: 4; SE: 8; S: 16; SW: 32; W: 64; NW: 128}>;
+export const GROUT_AUTOTILE_NOTICE: string;
+export const BLOB_MASK_GRID: readonly (readonly number[])[];
+export type BlobTile = {blobMask: number; width: 16; height: 16; data: Uint8Array};
+export type BlobMapping = {mask: number; x: number; y: number; alias?: true};
+export type BlobAtlas = {width: 192; height: 64; data: Uint8Array};
+export function normalizeBlobMask(raw: number): number;
+export function blobAtlasPosition(raw: number): {x: number; y: number};
+export function blobMaskAt(grid: readonly (readonly (0 | 1)[])[], x: number, y: number): number;
+export function buildBlob47(sheetRGBA: Uint8Array): {tiles: BlobTile[]; atlas: BlobAtlas; mapping: BlobMapping[]};

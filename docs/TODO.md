@@ -7,6 +7,12 @@ connectors, database bootstrap and automatic migrations are retired.
 
 ## Priority 1: original retro art acceptance
 
+- [ ] Owner review of the new [curated edition](look-dev/retro-terrain-curated.md):
+  native 16px/64px drawings, three compositions and three palettes, individual
+  and mixed repeats, all 47 blob cases, and connected normal/weathered terrain.
+  Both earlier kits remain exact and selectable. Keep artwork unapproved.
+  Implemented criteria and current checks are recorded in the
+  [curated closeout](work/done/RETRO-TERRAIN-CURATED-20261011.md).
 - [ ] Owner review of the curated base: native 64px tiles, exact 3× viewing,
   4×4 repetition and connected normal/weathered paths. Check grass colonies,
   soil rims, stone faces and earthen shoulders. Preserve the original kit.
@@ -32,8 +38,9 @@ provides the source-bound findings and matched-channel evidence.
 
 ## After acceptance
 
-- [ ] Author distinct native layout variants to reduce recognizable repetition;
-  verify palette budgets, connected masks and native/repeated terrain together.
+- [ ] Follow up accepted curated art with any remaining boundary variation;
+  fixed shared gravel marks can still expose periodicity. Three authored surface
+  compositions are implemented; seed selection is independent of old phase previews.
 - [ ] Grow accepted surfaces through masonry, timber and metal.
 - [ ] Qualify engine receiving, runtime anti-tiling and multi-channel terrain in
   their engine-owned batch. The Godot/jMonkeyEngine references remain sampling
@@ -45,3 +52,5 @@ dated records; use the current standalone/Gknome proof and guarded helper for
 new publication.
 
 AI-edited: 2026-10-11 | agent=Codex/root | model=unknown | effort=unknown | task=standalone-gknome-setup | change=moved dated completed/blocker notes to history and kept current TODO focused on real future art/material work
+
+AI-edited: 2026-10-11 | agent=Codex/root | model=unknown | effort=unknown | task=curated-retro-terrain | change=recorded implemented compositions and native autotiles while retaining owner art acceptance

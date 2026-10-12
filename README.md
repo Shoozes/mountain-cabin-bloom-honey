@@ -30,6 +30,8 @@ required by the framework; current retained local proof uses Node 26.5.
 - [Original retro terrain](docs/look-dev/retro-terrain.md): preserved 64px kit.
 - [Paths and weathering](docs/look-dev/retro-terrain-growth.md): curated native
   drawings, Heath/Riverbed palettes, connected paths and deterministic exports.
+- [Curated edition](docs/look-dev/retro-terrain-curated.md): independent 16px/64px
+  compositions, three palette moods and Grout-compatible native autotiles.
 - [Current work and acceptance](docs/TODO.md): technical proof, remaining art
   review and the publication blocker. Purchased artwork stays private.
 
@@ -66,3 +68,5 @@ engine receiving complete. Deployment and releases remain separate requests.
 [Documentation map](docs/README.md) · [Project guidance](AGENTS.md)
 
 AI-edited: 2026-10-11 | agent=Codex/root | model=unknown | effort=unknown | task=gknome-root-organization | change=separated current project entrypoints from retained texture details and historical sandbox guidance
+
+AI-edited: 2026-10-11 | agent=Codex/root | model=unknown | effort=unknown | task=curated-retro-terrain | change=linked the additive native curated edition

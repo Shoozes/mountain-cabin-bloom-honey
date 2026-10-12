@@ -1,0 +1,16 @@
+import type {RetroPixels} from './retro-terrain.mjs';
+export type CuratedPalette = 'woodland'|'dry-trail'|'cool-moor';
+export type CuratedRecipe = {id:'retro-terrain-curated';tileSize:16|64;seed:number;palette:CuratedPalette};
+export type CuratedTile = RetroPixels & {id:string;role:string;family:string;composition?:number;weathered:boolean;blobMask?:number;cornerMask?:number;pathMask?:number;terrainMask?:Uint8Array};
+export type CuratedKit = {recipe:CuratedRecipe;tiles:CuratedTile[];atlases:(RetroPixels&{id:string})[];templates:(RetroPixels&{id:string})[];previews:(RetroPixels&{id:string})[]};
+export const CURATED_VERSION:string;
+export const CURATED_PATH_BITS:Readonly<{N:number;E:number;S:number;W:number}>;
+export const CURATED_SCENE:number[][];
+export const CURATED_PATH_SCENE:number[][];
+export function validateCuratedRecipe(input?:unknown):CuratedRecipe;
+export function generateCuratedTerrain(input?:unknown):CuratedKit;
+export function describeCuratedTerrain(kit:CuratedKit):Record<string,unknown>;
+export function curatedArtSource(kit:CuratedKit):Record<string,unknown>;
+export function curatedPathMask(mask:number,size:16|64,seed?:number):Uint8Array;
+export function composeCuratedSurface(kit:CuratedKit,family:string,options?:{weathered?:boolean;composition?:'mixed'|0|1|2}):RetroPixels;
+export function composeCuratedTerrain(kit:CuratedKit,options?:{weathered?:boolean;scene?:number[][];paths?:number[][];composition?:'mixed'|0|1|2;relationship?:'grass-dirt'|'gravel-dirt'}):RetroPixels;

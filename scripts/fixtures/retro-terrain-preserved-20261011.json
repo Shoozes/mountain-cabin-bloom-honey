@@ -1,0 +1,2921 @@
+{
+  "sourceTip": "195970fba57e2c23f08ff770051996fe8fabeab1",
+  "cases": [
+    {
+      "recipe": {
+        "id": "retro-terrain",
+        "seed": 1204
+      },
+      "tiles": [
+        {
+          "id": "dirt",
+          "rgba": "b045009c61e8f5384d9d864da77f0c8b6411a9d64ee3b1c1e3ac97974e9684b3"
+        },
+        {
+          "id": "grass",
+          "rgba": "2c900b6a9b08f032bee1fdff7840226de03c9f2fd94b282ae3ea2aaa3099e21e"
+        },
+        {
+          "id": "gravel",
+          "rgba": "f1fa501325bf7a60d1a99f53cb835fb25257a7f60e2efe99a18290c8b202311d"
+        },
+        {
+          "id": "grass-dirt-0",
+          "rgba": "b045009c61e8f5384d9d864da77f0c8b6411a9d64ee3b1c1e3ac97974e9684b3"
+        },
+        {
+          "id": "grass-dirt-1",
+          "rgba": "0a177ea43cd84fdfde2b706edf428d2735e190960e487c40a1e5d42628670af9"
+        },
+        {
+          "id": "grass-dirt-2",
+          "rgba": "5de7e655668a75792c81d6651c76dd21b9ce927fca2879451424302e9d915867"
+        },
+        {
+          "id": "grass-dirt-3",
+          "rgba": "8a87482acad132ab2273e562d21f37be34ec1b7bf6709b277504f28b4a67d5c7"
+        },
+        {
+          "id": "grass-dirt-4",
+          "rgba": "30c930255c4dc96798efa71ee819f176c4da857acf7f8d545e3bc6019674afae"
+        },
+        {
+          "id": "grass-dirt-5",
+          "rgba": "cda5805e003c77172de36fbf399933c5cc122ddd02227a49edb823b745099ae9"
+        },
+        {
+          "id": "grass-dirt-6",
+          "rgba": "793e0afbe445652d40c02882ff80736e415a2c068f0551249bef80c3ee2b13e0"
+        },
+        {
+          "id": "grass-dirt-7",
+          "rgba": "d0446613882fb3da06eb218fcf61340716ee1c27d22001c2bdcb1e2b14e4d3eb"
+        },
+        {
+          "id": "grass-dirt-8",
+          "rgba": "b78c3428eb01cef566b91fe6fb9a83a9ae6e1f7b1a2202b8e86cbc090f0e1963"
+        },
+        {
+          "id": "grass-dirt-9",
+          "rgba": "bfbf838087d8d84a6e5b3c47fd68206a0b67943009b08afd91b386bd1f69ee48"
+        },
+        {
+          "id": "grass-dirt-10",
+          "rgba": "02ca781ef86cbbca359a1fbea2c9d427efcc4443c1d45e496d7a010ba4425eb4"
+        },
+        {
+          "id": "grass-dirt-11",
+          "rgba": "c08484bbddda116f7a9aacaa19500d216db857cb58d22fabe93291b0ffb3dcfa"
+        },
+        {
+          "id": "grass-dirt-12",
+          "rgba": "fee385ec84feca112cb3224c7d1744b37f7f95a8fc6f5635c0568836593d1702"
+        },
+        {
+          "id": "grass-dirt-13",
+          "rgba": "4500cdbd18337000b175f0bdaf6f1a8976bb94cd2dc7132eb6488383077a466e"
+        },
+        {
+          "id": "grass-dirt-14",
+          "rgba": "f14b43f7cbb6e2f0e182dd8a3686b0919ec51698d6db3403d7ba9ee0078772f1"
+        },
+        {
+          "id": "grass-dirt-15",
+          "rgba": "2c900b6a9b08f032bee1fdff7840226de03c9f2fd94b282ae3ea2aaa3099e21e"
+        }
+      ],
+      "atlases": [
+        "d88d59b66a3b88e3ea8f8c8738235fe9b48866c51aae7731a175647e8c5ec9d7"
+      ]
+    },
+    {
+      "recipe": {
+        "id": "retro-terrain-growth",
+        "seed": 1204,
+        "palette": "original"
+      },
+      "tiles": [
+        {
+          "id": "dirt",
+          "rgba": "e4503f3c79a766774ca17bee074335113ab5face0c1dd990daf079dbc6cd9494"
+        },
+        {
+          "id": "grass",
+          "rgba": "dff6b4374137da1da7d0218ccbd085a122b7196f4ee7f38445aa2e8536a21d55"
+        },
+        {
+          "id": "gravel",
+          "rgba": "fe75e7849d4792263d4171d656336ab020fc55e895e5c04edd445fd2fea21082"
+        },
+        {
+          "id": "grass-dirt-0",
+          "rgba": "e4503f3c79a766774ca17bee074335113ab5face0c1dd990daf079dbc6cd9494"
+        },
+        {
+          "id": "grass-dirt-1",
+          "rgba": "177c6c6fb3752c134f0e21b87dd26597f17ac866fed4432021cbb1e01bd54def"
+        },
+        {
+          "id": "grass-dirt-2",
+          "rgba": "538db0cf4f3f3b2f4eb8612ee5a6e744067184d23370eed3be36eb23225b5f11"
+        },
+        {
+          "id": "grass-dirt-3",
+          "rgba": "249c1863d66e5c12b8eda92db044d4c986ebe5aa67dd2269b6f4f58674d0601c"
+        },
+        {
+          "id": "grass-dirt-4",
+          "rgba": "bbd55febb95156954aed9d42675857a1becd01f3e2b6418aba1d65efe844cb93"
+        },
+        {
+          "id": "grass-dirt-5",
+          "rgba": "0e4babaade4373278be932990b31648e58903f51151dbe5a941e6d9fa1888a69"
+        },
+        {
+          "id": "grass-dirt-6",
+          "rgba": "09692f273e747bc0580dede58b072700e80a42d8023d8307f95438e649ce0e2c"
+        },
+        {
+          "id": "grass-dirt-7",
+          "rgba": "7633ee2f0d5667b7d7a462bad17ee9238cc80744e53078c686d120d230d6e942"
+        },
+        {
+          "id": "grass-dirt-8",
+          "rgba": "2c8e100eb04ae693cb189c93048aadb98be861bda0f266cdc192d1084f9ef764"
+        },
+        {
+          "id": "grass-dirt-9",
+          "rgba": "afa51368c6f0c148f187dd5fefab0395d80b45dcd14c29ed3db647e1dabc4692"
+        },
+        {
+          "id": "grass-dirt-10",
+          "rgba": "372de9f7a199287e0875ddac07f7ca4664da6c7d2759073415be998fe27ef267"
+        },
+        {
+          "id": "grass-dirt-11",
+          "rgba": "af337d98b1b03a2bdfcd8132f119cdd2569b97cbabcc3b8df9a08e4c411caecd"
+        },
+        {
+          "id": "grass-dirt-12",
+          "rgba": "cf0a3e7ae4ac45ec49abe8d7ed08e3110e7687e93a52ca2f5967b43fda3c37bc"
+        },
+        {
+          "id": "grass-dirt-13",
+          "rgba": "af87ac14727268f0590546c933d641ba42f7b3bde20b99f872f96dac6e157485"
+        },
+        {
+          "id": "grass-dirt-14",
+          "rgba": "115aff4b0a98f969fd8a97ba85d3753374e02db5d06bbaa0abfd41d47853bffd"
+        },
+        {
+          "id": "grass-dirt-15",
+          "rgba": "dff6b4374137da1da7d0218ccbd085a122b7196f4ee7f38445aa2e8536a21d55"
+        },
+        {
+          "id": "weathered-dirt",
+          "rgba": "6ab8d1cfc66b572c8e4b5a5fa3cb0f43daa5f74fcb43161f2f33d4942bdf0121"
+        },
+        {
+          "id": "weathered-grass",
+          "rgba": "1c3f50bd7bdb61617b8c86983391e59c1247440480ca5e264de9210a0fcd2146"
+        },
+        {
+          "id": "weathered-gravel",
+          "rgba": "47124596c1e8430f1b5116355c336c06f92e7010c9fefcccb8c18518f621b967"
+        },
+        {
+          "id": "weathered-grass-dirt-0",
+          "rgba": "6ab8d1cfc66b572c8e4b5a5fa3cb0f43daa5f74fcb43161f2f33d4942bdf0121"
+        },
+        {
+          "id": "weathered-grass-dirt-1",
+          "rgba": "098c13f221e83c69e9452d438583a51b415435b5e0e0bd9d98b79dbf200cd578"
+        },
+        {
+          "id": "weathered-grass-dirt-2",
+          "rgba": "1abce026f889aada9bdad230c0705e97c283e52b6ab5a2b1e98568cae35f5b7b"
+        },
+        {
+          "id": "weathered-grass-dirt-3",
+          "rgba": "9d9d939875e1c1382d0b68d786fad9cc95c6fa79e9a49ad38af7ec25e1bb3614"
+        },
+        {
+          "id": "weathered-grass-dirt-4",
+          "rgba": "daec94f34995e58cbeb6d343023f60771b4a33753865ea3248f0e65bf829acbe"
+        },
+        {
+          "id": "weathered-grass-dirt-5",
+          "rgba": "8538c37f3e46170e02777ab55cf4c8a29934e1d62921cf919593fcbb1322660f"
+        },
+        {
+          "id": "weathered-grass-dirt-6",
+          "rgba": "82597528f4370b6f7c52e17392d5ff7c06b0aef53cd29e16467623fdb01f66fa"
+        },
+        {
+          "id": "weathered-grass-dirt-7",
+          "rgba": "c6ef493c4594a7976fee4c95f082ed3786ba7bfb243178a305a47251fc935f1e"
+        },
+        {
+          "id": "weathered-grass-dirt-8",
+          "rgba": "fc4285048631f232b896bf1a8fbbf9b0671123b4dc460a18685d95da1a7125e2"
+        },
+        {
+          "id": "weathered-grass-dirt-9",
+          "rgba": "0e6da8ff82d9788f5b54b0039ded7778de32aa408215babc238e37845811a919"
+        },
+        {
+          "id": "weathered-grass-dirt-10",
+          "rgba": "9a645e7964d080cacfaba7b9721d92707fe5959f090d39419c358d405cd5bbef"
+        },
+        {
+          "id": "weathered-grass-dirt-11",
+          "rgba": "c942be4b5611deeb2af8bd5e91989b1d0076f748e5ef4d2ce49a57af36708804"
+        },
+        {
+          "id": "weathered-grass-dirt-12",
+          "rgba": "da1f1721eaeb710e0a305c138be747f20f6ec7b5fbd3cf754f427ae1b208996d"
+        },
+        {
+          "id": "weathered-grass-dirt-13",
+          "rgba": "2e286d8588942338ac29384535d035df0e6c694406c1d5430b1ad0eb5be5ed6e"
+        },
+        {
+          "id": "weathered-grass-dirt-14",
+          "rgba": "db36c795b5dcd57e6203a416e68353734471905c3514a2a9d0a9c02842d3f2c1"
+        },
+        {
+          "id": "weathered-grass-dirt-15",
+          "rgba": "1c3f50bd7bdb61617b8c86983391e59c1247440480ca5e264de9210a0fcd2146"
+        },
+        {
+          "id": "gravel-path-0",
+          "rgba": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+        },
+        {
+          "id": "gravel-path-1",
+          "rgba": "992c698330eff11f75bb621aeb40f0aea60d1ddc8bdfe8f128a05259f12cf283"
+        },
+        {
+          "id": "gravel-path-2",
+          "rgba": "1499112aedde72a59ff3f89e3667b2a948b1093ec6833bf3beabc569e60595d3"
+        },
+        {
+          "id": "gravel-path-3",
+          "rgba": "5bd74a5c81f2a7ee14a7547a0744da5dcea6a0da589605c1d8c75596a0b515e7"
+        },
+        {
+          "id": "gravel-path-4",
+          "rgba": "ea7628bec6ef8745ab78211f9cfbc27549f220337318c4646ce89cbb62312ea4"
+        },
+        {
+          "id": "gravel-path-5",
+          "rgba": "71a76c99228e29d62a490b5e07d0f43a22349dcd498671a6d6937950a2e92884"
+        },
+        {
+          "id": "gravel-path-6",
+          "rgba": "297a378667d0e74876e51981e4ebaf9c188578cb09218609cfc283c006eaabea"
+        },
+        {
+          "id": "gravel-path-7",
+          "rgba": "16da5313fb137e7907c41ca2cdf0bbdb183750f94a0cff66c0c62d87c2bb74e8"
+        },
+        {
+          "id": "gravel-path-8",
+          "rgba": "6cf71f109fcada5a090eb2cfe24905700158ffe5036e7da3e68d301d4fc72ecd"
+        },
+        {
+          "id": "gravel-path-9",
+          "rgba": "1486d0e46d848376fa6c463510f29464115dd4ae969f424387612bec64fa153d"
+        },
+        {
+          "id": "gravel-path-10",
+          "rgba": "89811ad3cd668f5e8201221edb47c04849af8875bed4b9d0ab9fb48ab2a97267"
+        },
+        {
+          "id": "gravel-path-11",
+          "rgba": "e22d596f3073d6374861bd46edab87c0c8abd4dd2e91f9abb2d99e5732105543"
+        },
+        {
+          "id": "gravel-path-12",
+          "rgba": "7f6ff31544ed4cc31694d7982e3d70326bb83f2d05dae01ec409f16e1e57d3e3"
+        },
+        {
+          "id": "gravel-path-13",
+          "rgba": "f4f42e4a8d199aaafad392fe0ae4d11ba199105daff6aff6a19873f01b5bda39"
+        },
+        {
+          "id": "gravel-path-14",
+          "rgba": "800edf926efc05342de2cd1b8a3e85185d2ad111c304c3639bc4d355e7f7410c"
+        },
+        {
+          "id": "gravel-path-15",
+          "rgba": "63aa54715dca9710fd4b64bee6efb9c4f70c267064e95366077e7be419398568"
+        },
+        {
+          "id": "weathered-gravel-path-0",
+          "rgba": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+        },
+        {
+          "id": "weathered-gravel-path-1",
+          "rgba": "5c2a15b9d3e316b15f573db8dbab88f2b9872402e4ca1cbade80c040f94549d1"
+        },
+        {
+          "id": "weathered-gravel-path-2",
+          "rgba": "202fdba918913af6c02f16f2c296b137ac995a9587306c98c7abc3a54fec6d49"
+        },
+        {
+          "id": "weathered-gravel-path-3",
+          "rgba": "3cb4bc3a0a993a74a52c4d69faf9374d46cb721e893ecde891eaf10a4ed52ef9"
+        },
+        {
+          "id": "weathered-gravel-path-4",
+          "rgba": "f6942cd7773a3c221281a34d1a3cc698c35b10c0ebfa6a0b5a577ba6099f5866"
+        },
+        {
+          "id": "weathered-gravel-path-5",
+          "rgba": "7752cf77f0981d744db9a6ec1cd69689432864c8230b41b32063fddcae766bae"
+        },
+        {
+          "id": "weathered-gravel-path-6",
+          "rgba": "eed5813dd31cbdff7af3aaece16ff9d261d26f81cb94303b14a03a018e8a4711"
+        },
+        {
+          "id": "weathered-gravel-path-7",
+          "rgba": "aa9a0f6236e3e5806ae0d3156b5dacc62d375782567a446a358e36ff5e2d8701"
+        },
+        {
+          "id": "weathered-gravel-path-8",
+          "rgba": "07f4cf18e3f7f8640721ec287eac615644fc677466e6e84da2eedfbb7bd78738"
+        },
+        {
+          "id": "weathered-gravel-path-9",
+          "rgba": "9340da7f5dbfc842ba4fbfb378ca8445a902285e61e7823f47dfa51a7a00a1f9"
+        },
+        {
+          "id": "weathered-gravel-path-10",
+          "rgba": "7c6b42f877164a617bd3721e8d0455e5832d61bb1e8543a237f797bf779e3398"
+        },
+        {
+          "id": "weathered-gravel-path-11",
+          "rgba": "393a484f34cbed39c787c804087534ba9d9e8e3bad9725b1b2adb2fe5eb3ed3d"
+        },
+        {
+          "id": "weathered-gravel-path-12",
+          "rgba": "39d18a803087983d323ad23eb123f440b7c84f4f2c11ddab8d12ffd8aaeebdbb"
+        },
+        {
+          "id": "weathered-gravel-path-13",
+          "rgba": "ac812c08a4831f1b9db032935493ac456fc7887677fb4333f5b6f06007239739"
+        },
+        {
+          "id": "weathered-gravel-path-14",
+          "rgba": "6f978a462f0590c99be28086c3c5f4594a0d99f83603f3bab01857a50fdac400"
+        },
+        {
+          "id": "weathered-gravel-path-15",
+          "rgba": "ccdc4ab31c332de52e54f3c88de7ff8f62b61407f7ae8c3b9f5a0fdc44f90570"
+        }
+      ],
+      "atlases": [
+        "01ce08ef23b2e58175e469147fbc54af464ec080f6c114f7c131dfef2d2f4f93",
+        "2f02b8d6991a7364ae3e5a9e5dc6778d6f3b1307bfa33467eef35dcc42fd02e2",
+        "56e05c02ffce1f748605702e83ee54a0b1a18ac137ba7eccb706fc8103fcb2c2",
+        "b16d7f6e6985606facb6cd2906f6ea0f8d0a17ab80eab9abecb59e88e6820835"
+      ]
+    },
+    {
+      "recipe": {
+        "id": "retro-terrain-growth",
+        "seed": 1204,
+        "palette": "heath"
+      },
+      "tiles": [
+        {
+          "id": "dirt",
+          "rgba": "3b3001252909ed7b054d8359083d58cafa9a934aac9e446d38fca1d740d1382c"
+        },
+        {
+          "id": "grass",
+          "rgba": "709d4ee94f0161321c4ccf59f3aeb464636ac32fe0f5120caec722b57ce3ae60"
+        },
+        {
+          "id": "gravel",
+          "rgba": "0f74dbde6b7296809db22d233e46c9e5a88887e69c63bdadc25a0794028209c2"
+        },
+        {
+          "id": "grass-dirt-0",
+          "rgba": "3b3001252909ed7b054d8359083d58cafa9a934aac9e446d38fca1d740d1382c"
+        },
+        {
+          "id": "grass-dirt-1",
+          "rgba": "5e619075778a256ca35a625a9539a68d00e5624cf50fa8de14abbb5324a1e38a"
+        },
+        {
+          "id": "grass-dirt-2",
+          "rgba": "c300b5696ced2851e3321186f80399c6966c656b78bd07d97555742573154588"
+        },
+        {
+          "id": "grass-dirt-3",
+          "rgba": "1a73865e6d33e39dcd041b0d5f00530193f86709e79be7c95a159d3fc33ae879"
+        },
+        {
+          "id": "grass-dirt-4",
+          "rgba": "6e4b8b513e1f8144d739b3c86d0b1151bfcdf5a32fcccce58a3adb5653ccf370"
+        },
+        {
+          "id": "grass-dirt-5",
+          "rgba": "bc05f7d40609ed8ad4bfe1dc7259e19c030e3a269ca2754dc5daa41dc7e12b7b"
+        },
+        {
+          "id": "grass-dirt-6",
+          "rgba": "5f6c61c417ce883ea2829d781514ddd847788f2f7e8474e9d6c9c09358ce48d3"
+        },
+        {
+          "id": "grass-dirt-7",
+          "rgba": "8c04a5fce7206c3a21ab3edcecdaefd8272325940f030f4c8b1b0d39f7f833ae"
+        },
+        {
+          "id": "grass-dirt-8",
+          "rgba": "1119cd63181958adff72d362bad993e4aa6c237721481696ccda09bcc0fbc8d0"
+        },
+        {
+          "id": "grass-dirt-9",
+          "rgba": "82cb0a2d53658dd6279eeb6847319964abfb9aec366c8fecc58ed07c63ef054e"
+        },
+        {
+          "id": "grass-dirt-10",
+          "rgba": "0eae2105b7e3fdb2a2b3c0c92665b835a276b41fd9231bcf19832110d562f0bb"
+        },
+        {
+          "id": "grass-dirt-11",
+          "rgba": "24a5896089dc5a49595de1718bb35d348487380bdd8640417838708bd7e258fb"
+        },
+        {
+          "id": "grass-dirt-12",
+          "rgba": "94049a7901ef019be179d98bc38296de68f92bd20b616ac86cf1f04fc11b692a"
+        },
+        {
+          "id": "grass-dirt-13",
+          "rgba": "ad207c80ddf03e848e362e8ebcd802cc4756e11dde77591bf4a6ddb9f90ad3a5"
+        },
+        {
+          "id": "grass-dirt-14",
+          "rgba": "d19b99bd10b788daae9a8ea4b38b0fc24f9b788f2f7d46894d8c52c2206fec26"
+        },
+        {
+          "id": "grass-dirt-15",
+          "rgba": "709d4ee94f0161321c4ccf59f3aeb464636ac32fe0f5120caec722b57ce3ae60"
+        },
+        {
+          "id": "weathered-dirt",
+          "rgba": "3e6ce9f5cfcab06967e67ff124258b9306073df012d971b0f53277619ba17c17"
+        },
+        {
+          "id": "weathered-grass",
+          "rgba": "0fcd9532910c2d3862478eb620bc06eb027df2c7ba7d7fc5f7f993ae18fd754d"
+        },
+        {
+          "id": "weathered-gravel",
+          "rgba": "c93e7102f972589b40616b83fd59384cbd1f0d19c9d6adbdb359bd48bea69905"
+        },
+        {
+          "id": "weathered-grass-dirt-0",
+          "rgba": "3e6ce9f5cfcab06967e67ff124258b9306073df012d971b0f53277619ba17c17"
+        },
+        {
+          "id": "weathered-grass-dirt-1",
+          "rgba": "8af68cd7bd08daeda18905f6bc1e91b70453585b0e171685d715a51c7e843dc2"
+        },
+        {
+          "id": "weathered-grass-dirt-2",
+          "rgba": "9f3f5890d3f6df31e4c6ac1a7e566eac961ed349a96745a98456c1252e9b4bad"
+        },
+        {
+          "id": "weathered-grass-dirt-3",
+          "rgba": "2334b50691fcfc4dccaa28d712ec86ccd88f3e38a0a53dc3b85e6f5ef248112c"
+        },
+        {
+          "id": "weathered-grass-dirt-4",
+          "rgba": "e086f2f686de40db41c00fb75549e68b998f5cb73033fcc287283bf7a7d52d0a"
+        },
+        {
+          "id": "weathered-grass-dirt-5",
+          "rgba": "26f8ec3b8c86d60960747f3f3f626838c92cd34323d235582fb2eb33d816c078"
+        },
+        {
+          "id": "weathered-grass-dirt-6",
+          "rgba": "7076d395db7a503ec71fafc0437ead949a6403509a010f6d6f17b2a4f75a8d18"
+        },
+        {
+          "id": "weathered-grass-dirt-7",
+          "rgba": "ea0d7e6eebb475f84f0519d5949dba26244c8a9de678e622278585c5524dbae7"
+        },
+        {
+          "id": "weathered-grass-dirt-8",
+          "rgba": "ba1bc729a352cd97deb879bc259a5e41e1e319f774d81f56b5922f92169cbb4b"
+        },
+        {
+          "id": "weathered-grass-dirt-9",
+          "rgba": "982b9e3cb7b354eb0acc495a0fb686053fd2e58f0b41725272638931c0f63dea"
+        },
+        {
+          "id": "weathered-grass-dirt-10",
+          "rgba": "045a15d0cf7f5ae59f2ab63a8ce460759787952274f4d53d97f97962e55a2001"
+        },
+        {
+          "id": "weathered-grass-dirt-11",
+          "rgba": "28fc56d355fb13b39ffcda520da9745d02929fc9fc3a9bad9163ffbd3630daa9"
+        },
+        {
+          "id": "weathered-grass-dirt-12",
+          "rgba": "dfe649db675ea690b7c6b07d216555a005518ac6e5236c749bda0ecb2429452b"
+        },
+        {
+          "id": "weathered-grass-dirt-13",
+          "rgba": "00e25cd2d444d4753bea9783de2ae63d04a25c76f1f7a5c27da7ef0451ed1bd1"
+        },
+        {
+          "id": "weathered-grass-dirt-14",
+          "rgba": "ad37ad02c91db7c85fc247776df6632e57a29f1eb7e6977cbf023c04bc13c523"
+        },
+        {
+          "id": "weathered-grass-dirt-15",
+          "rgba": "0fcd9532910c2d3862478eb620bc06eb027df2c7ba7d7fc5f7f993ae18fd754d"
+        },
+        {
+          "id": "gravel-path-0",
+          "rgba": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+        },
+        {
+          "id": "gravel-path-1",
+          "rgba": "ed797b5bc7b3c7f8e45dffb660a62dd551b73e85b85e0a176d901a34a7ffd4ed"
+        },
+        {
+          "id": "gravel-path-2",
+          "rgba": "f44852a88934a025c88675473f6e095ef0d69d76cdfc54a3e541355f0cddadd3"
+        },
+        {
+          "id": "gravel-path-3",
+          "rgba": "df6b41c16913584a1ff01f5a050df889d9815dbe6a290b5fe77f03ae07ca9fd1"
+        },
+        {
+          "id": "gravel-path-4",
+          "rgba": "de49266c05ba4bef5de4d7a528f88a4ddcd68737548dd8e027f5359ce09012da"
+        },
+        {
+          "id": "gravel-path-5",
+          "rgba": "d942a86eabc2fdf5036a829b3709cf36eb4577759c4426fd44ced4b782e33ff7"
+        },
+        {
+          "id": "gravel-path-6",
+          "rgba": "d1962db6f2254e2378ec8b7ad0384c90acdf31603a312a5fa976589417799e61"
+        },
+        {
+          "id": "gravel-path-7",
+          "rgba": "9af07fbdb2623ddaa93fec84b3f066867473e3d0aa11a2f217afa733115bbbfb"
+        },
+        {
+          "id": "gravel-path-8",
+          "rgba": "809230a0a402038de6a2267ba067e93f05aeedd19a6a7bc2fdca3dd4b7b14fec"
+        },
+        {
+          "id": "gravel-path-9",
+          "rgba": "33f25772b7e96ac6ab46e90288bad7ef35e71d65adf77a1d600fb542d589ea12"
+        },
+        {
+          "id": "gravel-path-10",
+          "rgba": "1a1644503d184681e6bac0c8c36e8c1da77fbad18b7162fe57d31f73ae871859"
+        },
+        {
+          "id": "gravel-path-11",
+          "rgba": "7384f672aedf78aa896f7a5dd896f51f59f3d9514757de524dd509b83277ae2e"
+        },
+        {
+          "id": "gravel-path-12",
+          "rgba": "a8017f9b199d9f3cbf95f1dea49018dec047236a9fdea9d5e7e2fefe041df620"
+        },
+        {
+          "id": "gravel-path-13",
+          "rgba": "8313207f82061307803012a8e5f0c10e23382c19bd854e76dbf1168dc15795dc"
+        },
+        {
+          "id": "gravel-path-14",
+          "rgba": "219cd52e11bc02fce4f5501e7c2090beeea676cc74262a4e13dfc8eee958bf88"
+        },
+        {
+          "id": "gravel-path-15",
+          "rgba": "2e6564f103dd9825292badd37c813728d35b7fc3a9fd1501c24c80ad23b7e3d4"
+        },
+        {
+          "id": "weathered-gravel-path-0",
+          "rgba": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+        },
+        {
+          "id": "weathered-gravel-path-1",
+          "rgba": "9ed972319a24898055603619cc5862afd3c08913955a809666413db78f1d8020"
+        },
+        {
+          "id": "weathered-gravel-path-2",
+          "rgba": "dce7021ec7563a22bad87777f4b7481c4160aeeb0dc12e31b5d97056360845e6"
+        },
+        {
+          "id": "weathered-gravel-path-3",
+          "rgba": "d7f04b8548d6cb70ffa752a6856f28fa34dc0166c288153084aaf539e9f6ae61"
+        },
+        {
+          "id": "weathered-gravel-path-4",
+          "rgba": "7b45cfc3c9a02dda345a73615235590b88c521b9315e5524731f3c9332e91579"
+        },
+        {
+          "id": "weathered-gravel-path-5",
+          "rgba": "25bc49fe9295de1d40ab5b234d1fc1632c07e8a7700000815899322af5332c58"
+        },
+        {
+          "id": "weathered-gravel-path-6",
+          "rgba": "5fd7b187ee8e35064f72a5e9ec197460339bee24437c50ff511d0c39715157d5"
+        },
+        {
+          "id": "weathered-gravel-path-7",
+          "rgba": "7d6e73eff69b3d271bbebf9d1d2fc5c1e5bb1b2821b5f99a73e0ea925feb521e"
+        },
+        {
+          "id": "weathered-gravel-path-8",
+          "rgba": "ff939f6f769c945476b192164aea3066a5ffcbd547cc9623df4a4024e279fd0f"
+        },
+        {
+          "id": "weathered-gravel-path-9",
+          "rgba": "9979b2d627546e862636d686b6b98ba16cae75e9867daf3623a5f1cf743a1431"
+        },
+        {
+          "id": "weathered-gravel-path-10",
+          "rgba": "27152346f13bdbb2a0dc46f82762054ab07bf3d4727682a59134b9d8a2fa1981"
+        },
+        {
+          "id": "weathered-gravel-path-11",
+          "rgba": "0ceabc4ccd338a15923d240dd3b91ee39fddfd3fc0cbe194d9f760482cb32e6e"
+        },
+        {
+          "id": "weathered-gravel-path-12",
+          "rgba": "1e7ca29d2065bd2d64f28aeefc0dab73c9ffb43876852ca25092749979c4fb8e"
+        },
+        {
+          "id": "weathered-gravel-path-13",
+          "rgba": "72f6888002b10059c6b45307cd4223a647f8efd52d0ca0a4f124a4578a09bd26"
+        },
+        {
+          "id": "weathered-gravel-path-14",
+          "rgba": "b98e3aa9eda2d8e4b97aba6f44160f36e9de24369341c068a8016d09a0288426"
+        },
+        {
+          "id": "weathered-gravel-path-15",
+          "rgba": "84d926e7e2bafb09874ecdb7aafea4ba6daf023c5d819a92dfb6be61b6575043"
+        }
+      ],
+      "atlases": [
+        "fe9f72456c84334022a2f7b106cad27f63d312438c28672bdc477285ce9ddbce",
+        "eecd501eece2f1856eedd7c14a9bd95821aba9e8bca4f448d5327bda3db02208",
+        "6b9f0cc338f586ef2455b34a47868a25f6dd8e4e196e7e20eebe48a87c45fa5d",
+        "892f64e59eb7e987371c4f138afe026ca861ca49dfcee37e147dcdc6d879aa75"
+      ]
+    },
+    {
+      "recipe": {
+        "id": "retro-terrain-growth",
+        "seed": 1204,
+        "palette": "riverbed"
+      },
+      "tiles": [
+        {
+          "id": "dirt",
+          "rgba": "4132a35bb7dd0e9835a6bc3cb116aab602796423030767cdb5cdf5aeb46ec329"
+        },
+        {
+          "id": "grass",
+          "rgba": "dd1a30fcae185d20961c5cbe8bc8314682e912cad2a14d3439f6dcf1ca480738"
+        },
+        {
+          "id": "gravel",
+          "rgba": "da754143565c190c338f525a0ac0b9798450898623b1c708794a5d9eebeebca0"
+        },
+        {
+          "id": "grass-dirt-0",
+          "rgba": "4132a35bb7dd0e9835a6bc3cb116aab602796423030767cdb5cdf5aeb46ec329"
+        },
+        {
+          "id": "grass-dirt-1",
+          "rgba": "6de4288346dfdf59ec33366e15ca0192e219fb97fbc4037a01dfce097d3625e7"
+        },
+        {
+          "id": "grass-dirt-2",
+          "rgba": "8276508b5b2c7dd8604e854271728603740a2ae3953143248e03619cc1351a4b"
+        },
+        {
+          "id": "grass-dirt-3",
+          "rgba": "92a452a55f3a43c137502fd53b62186c6c401234bf93e08078ba476a32eb4491"
+        },
+        {
+          "id": "grass-dirt-4",
+          "rgba": "85b6f65300e784058b1eeeaa3b74e4d69d0fee343825211d17f21f6c412e87aa"
+        },
+        {
+          "id": "grass-dirt-5",
+          "rgba": "fb3e1088f5eac4c3ec9b3672e46252552ac4e2be7992337cabbb188d9ed0eea2"
+        },
+        {
+          "id": "grass-dirt-6",
+          "rgba": "9dd344f45d529555cd354c936445c5f8afc14f65a05dd3f131c2bfe2bdb601ea"
+        },
+        {
+          "id": "grass-dirt-7",
+          "rgba": "38b06fda19d47f958ed71be720bcb1c32deb40e9740fbdfd84fcf8cf30a547b8"
+        },
+        {
+          "id": "grass-dirt-8",
+          "rgba": "620985b98c7aece6bc6c0cc61a8b2addb538dc3560d6ff4085f23f7f6374d5a9"
+        },
+        {
+          "id": "grass-dirt-9",
+          "rgba": "72770c567c71552ecd8151ab16fa78cbd2553b27dae563630a103376944fa04d"
+        },
+        {
+          "id": "grass-dirt-10",
+          "rgba": "9e80599851be12292237d2b2f835cb5ac90d47b26d75ad4bea2fe43549be9783"
+        },
+        {
+          "id": "grass-dirt-11",
+          "rgba": "8c1be0dd12c43108a683c27e681526d36d91fd7db4d3413292a5b2e2372f4b52"
+        },
+        {
+          "id": "grass-dirt-12",
+          "rgba": "54327375b3298509758c0d8279290c1724ebd53f7ae0650dc66865ac74376f4d"
+        },
+        {
+          "id": "grass-dirt-13",
+          "rgba": "49bb4b25bd6fa29f55fbec4d4303f5947d7702c8e081709ddfe946eb404744c7"
+        },
+        {
+          "id": "grass-dirt-14",
+          "rgba": "c6e8457107ce8ad70475372290e2fd769a98540dba2a95771912496662e10ab8"
+        },
+        {
+          "id": "grass-dirt-15",
+          "rgba": "dd1a30fcae185d20961c5cbe8bc8314682e912cad2a14d3439f6dcf1ca480738"
+        },
+        {
+          "id": "weathered-dirt",
+          "rgba": "0006f23776a5eea7463a845d28951f50ad87b8b5903f70f89744dc3c85d5942b"
+        },
+        {
+          "id": "weathered-grass",
+          "rgba": "1efe1b03640b74ac6a4889ed6edfd1866f9f7f99b65e9038b33886408c46e3fb"
+        },
+        {
+          "id": "weathered-gravel",
+          "rgba": "c2ef008d0c56818fdcb2c5c65e9db371773d3e522ecf5d647f7d0a3fde711524"
+        },
+        {
+          "id": "weathered-grass-dirt-0",
+          "rgba": "0006f23776a5eea7463a845d28951f50ad87b8b5903f70f89744dc3c85d5942b"
+        },
+        {
+          "id": "weathered-grass-dirt-1",
+          "rgba": "d187f3b3d5b88a36bc15d44327c623193cf4c3eca3abac4d4af08dc5791d0c81"
+        },
+        {
+          "id": "weathered-grass-dirt-2",
+          "rgba": "fe8337b2cba89ef70491b9d4c173e9d1d2802dd71acfaee292b522561aa9c515"
+        },
+        {
+          "id": "weathered-grass-dirt-3",
+          "rgba": "c247caec6db3dddb5e11b51840ac1963d33193228b40abcc23b805e53afe3c61"
+        },
+        {
+          "id": "weathered-grass-dirt-4",
+          "rgba": "12874b51f949f0abba14fde87ac22a0725e8d18b47d76a5f7fe68830d976ddfe"
+        },
+        {
+          "id": "weathered-grass-dirt-5",
+          "rgba": "cef5cbc8699d9388851f66d277aba731de66cec04ed54cf1be654f4e55556010"
+        },
+        {
+          "id": "weathered-grass-dirt-6",
+          "rgba": "4e3dd2f6cbab91626437a305953e3e20ef0868382706716fc3e33a4fb4def46c"
+        },
+        {
+          "id": "weathered-grass-dirt-7",
+          "rgba": "301b0350fb4e079fff19934792a6b6b95dd4044fbbeb47b1447f14d8fd4c9fbf"
+        },
+        {
+          "id": "weathered-grass-dirt-8",
+          "rgba": "2d16962c56c3774231eba9c57611813903d4815caebe4a26f163dc8bb4631ac7"
+        },
+        {
+          "id": "weathered-grass-dirt-9",
+          "rgba": "be269c72519ace47aea8c1d5b3675618f88831980fb758e87aa9192ccdf8cd5f"
+        },
+        {
+          "id": "weathered-grass-dirt-10",
+          "rgba": "ef0d50cd9f04568601929ffc8262eff3e1f625d47d7900c17d00e168dc4270ef"
+        },
+        {
+          "id": "weathered-grass-dirt-11",
+          "rgba": "0e2edd8465e67c6b90d749fc69000abfd6b52b42e3aceb0b70a6f2318d5a5eee"
+        },
+        {
+          "id": "weathered-grass-dirt-12",
+          "rgba": "a1ff7de0f57918cf932b9f0f6994c63826f32e59065945e16300b14e2748a52d"
+        },
+        {
+          "id": "weathered-grass-dirt-13",
+          "rgba": "ff4362c762aa20d9754eacdb90b8cd67a4b2c5e954689b769c9a4ca02ea01b0b"
+        },
+        {
+          "id": "weathered-grass-dirt-14",
+          "rgba": "b3bea006fb4986499c5856a00250a871e2d4abafd780f4df1a5167aeda35cffe"
+        },
+        {
+          "id": "weathered-grass-dirt-15",
+          "rgba": "1efe1b03640b74ac6a4889ed6edfd1866f9f7f99b65e9038b33886408c46e3fb"
+        },
+        {
+          "id": "gravel-path-0",
+          "rgba": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+        },
+        {
+          "id": "gravel-path-1",
+          "rgba": "c4c3792904597f1e1c7b5b8949757c366c82df8ba7be5c71723407356b8a3e43"
+        },
+        {
+          "id": "gravel-path-2",
+          "rgba": "d8b9fe4aecfaedc45132ed2550a5944791d48d4ab56b1ff1868b19409f1a1180"
+        },
+        {
+          "id": "gravel-path-3",
+          "rgba": "86f146ae1801d6b74f9a600431bd491f6e8a187156b705f5ee5bf397795a8e47"
+        },
+        {
+          "id": "gravel-path-4",
+          "rgba": "0ad536d7a36a53fe4fcef0fcfe90c1490a5146fc371b733e40fdb1be68c743a1"
+        },
+        {
+          "id": "gravel-path-5",
+          "rgba": "4bebe036dcef5c38760d7acd7a83cee7dec403f28867698981c314f8a5c1ff8f"
+        },
+        {
+          "id": "gravel-path-6",
+          "rgba": "f6e5585236ac87dbf6f461b19599399684b2ad5d8cf01b911a9e90e94e5459c6"
+        },
+        {
+          "id": "gravel-path-7",
+          "rgba": "f7744a59b1d9f74b13dbda2617807c60a6ce3fa72c785591f7942e390a6f8f17"
+        },
+        {
+          "id": "gravel-path-8",
+          "rgba": "cefc53235821a7025be26b97d1b74ab9496075156d5fa6dd9bd14aba1f23567e"
+        },
+        {
+          "id": "gravel-path-9",
+          "rgba": "f0d025e774a434325ff7a235ccfe6645d9b89f308751a2f8b938ad754faaf708"
+        },
+        {
+          "id": "gravel-path-10",
+          "rgba": "3936ff6f05f2539df3f95b4b86608503dc10fcda6df4e775e5fac66518f673be"
+        },
+        {
+          "id": "gravel-path-11",
+          "rgba": "2cc6e7378e570d6435be3fe2da156d46fcad4dabc2e162fc86082083f5f96df4"
+        },
+        {
+          "id": "gravel-path-12",
+          "rgba": "cb81d1b77312eef19af669c2d2cccb289ccc8857508e46b300f873f82af81c77"
+        },
+        {
+          "id": "gravel-path-13",
+          "rgba": "f618773dd1b07e667600bfda6c4510f1478a77dfceab1b5e4ef4b2d703df54c1"
+        },
+        {
+          "id": "gravel-path-14",
+          "rgba": "0ca02e061f314921293c6ee98da6cc14371dcda419c9f503a7a095cd5d3209ee"
+        },
+        {
+          "id": "gravel-path-15",
+          "rgba": "6bc57202378cf0df9e6c27603c214ed83b7b08db1f2eefa63dfa8fefe3165c0e"
+        },
+        {
+          "id": "weathered-gravel-path-0",
+          "rgba": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+        },
+        {
+          "id": "weathered-gravel-path-1",
+          "rgba": "df1f982e57eb3597a81721e72eef63d18667262ca7808e6110f82b45b83825a5"
+        },
+        {
+          "id": "weathered-gravel-path-2",
+          "rgba": "e86ee56dc468f7c40b64192e33b0079f8a4da88b9c54f766b0c12d2647309c5e"
+        },
+        {
+          "id": "weathered-gravel-path-3",
+          "rgba": "ffa2c1f71c989d94ab9eb75f0a1e8804d27cc0b4dfa5c20408c8615c5f8ac5b5"
+        },
+        {
+          "id": "weathered-gravel-path-4",
+          "rgba": "82da153fc6df0d3f6bb7bffe0d242820ce0abf3776c2346bee8e06038a94ed03"
+        },
+        {
+          "id": "weathered-gravel-path-5",
+          "rgba": "d69df772195243c29e5a8b162f0b4c07efd3337c70911d0fce847e2ad5701f45"
+        },
+        {
+          "id": "weathered-gravel-path-6",
+          "rgba": "aabaae807e2d59035ae404e433efdcc903a29cdae6021fa2921fd6aa0fdd3762"
+        },
+        {
+          "id": "weathered-gravel-path-7",
+          "rgba": "69052f31bfdebb0d91022e5fcaaf4de1735fd5caf5a19e847fa4788262eb6862"
+        },
+        {
+          "id": "weathered-gravel-path-8",
+          "rgba": "32507a965e2b8a956d5ec05f3d6e2cfc220de24bc0fe33cfb466172804673a6d"
+        },
+        {
+          "id": "weathered-gravel-path-9",
+          "rgba": "00b1aea272eddc342a6047ba5c1eaabb5c3a76d010e85a545c20291c3be7d154"
+        },
+        {
+          "id": "weathered-gravel-path-10",
+          "rgba": "3fa3ad7d0de29db2b0553182f7dd64b21f54758615c8dc573d9a149334d62e2f"
+        },
+        {
+          "id": "weathered-gravel-path-11",
+          "rgba": "8a5df3458f599ebb5669ae7525048fbe8cfb99c3d50405bf575e50a1d1f8ad46"
+        },
+        {
+          "id": "weathered-gravel-path-12",
+          "rgba": "ec2b654edcc0999c7943c47f4fb78b6c0023a1d62922bb22932fe1b52462ef73"
+        },
+        {
+          "id": "weathered-gravel-path-13",
+          "rgba": "c5db1a4428ba35af7f7637584fd458388f0b15f09fe7739511012516f0d43ba4"
+        },
+        {
+          "id": "weathered-gravel-path-14",
+          "rgba": "983f5f9abbf3505ddcff0e9c8ae1537cbfdb29d95bb0a2d8171fc602ca8dc8d6"
+        },
+        {
+          "id": "weathered-gravel-path-15",
+          "rgba": "7cdd64fcce35e7b3dfe22b5a2f8860a193cdb67d2b68d7dfb0b63dff08b6d1ce"
+        }
+      ],
+      "atlases": [
+        "9d4200ff88d1b59f9e841e4ccc0921c2c38c7e4af67a0647be4d50e1ee3f04fe",
+        "fc5781dbf090eccf866057ea2565a88dad593ef2b328020d71da3ea85d696347",
+        "47f59650459e76db492f31398a854904c39d2b7531e20f2b0db556ff1f25f2ed",
+        "e269db9b72f37bfaa8813a90752b6eee0f333417cf6bcabc72951d72baf76d8c"
+      ]
+    },
+    {
+      "recipe": {
+        "id": "retro-terrain",
+        "seed": 1215
+      },
+      "tiles": [
+        {
+          "id": "dirt",
+          "rgba": "421ae5dfb6e462eb0afdcc3324504f72b24a61a90bcb34844ac08806d2f39cdc"
+        },
+        {
+          "id": "grass",
+          "rgba": "4755e484544d2a610be0d44260d747918775f082e0ce3c2f752aaf1d405668c2"
+        },
+        {
+          "id": "gravel",
+          "rgba": "3d5446cf2d61aa770c7c171b741de80f36ccda7b0af2a9389f12c4390c9458ef"
+        },
+        {
+          "id": "grass-dirt-0",
+          "rgba": "421ae5dfb6e462eb0afdcc3324504f72b24a61a90bcb34844ac08806d2f39cdc"
+        },
+        {
+          "id": "grass-dirt-1",
+          "rgba": "81c210c3e21245ea6377a6b3d6c96d0be5bcb16d56f95ad3f6938c591f382b7f"
+        },
+        {
+          "id": "grass-dirt-2",
+          "rgba": "02b30da282e743b074a4d81b0ae60d751e2ab9c87d5138166b5d973ef4c577e5"
+        },
+        {
+          "id": "grass-dirt-3",
+          "rgba": "dd1bc4ef62b94f9065dddbc9163c9315d672a172c574bdf89519fe186e1c2443"
+        },
+        {
+          "id": "grass-dirt-4",
+          "rgba": "e876801014399d34e222154799400173ecdf03a78e8e961532ebd2b2cc41269c"
+        },
+        {
+          "id": "grass-dirt-5",
+          "rgba": "a1600327e2d915c8739de57cd85be475e0a7e19e0a7e97f0cc40a25fde9adf01"
+        },
+        {
+          "id": "grass-dirt-6",
+          "rgba": "7a02d3424084358700a00749001acb3fa95361e815503598d2fdc14eff9f4870"
+        },
+        {
+          "id": "grass-dirt-7",
+          "rgba": "fe9b869863616a5f9db66e51e27945dcb93bf96bd8ae8b000005b5d24ffb5ae7"
+        },
+        {
+          "id": "grass-dirt-8",
+          "rgba": "5aebd6573a13fa3b17c18156413b10f30a24e654fcef3e30e699d06eb902ac83"
+        },
+        {
+          "id": "grass-dirt-9",
+          "rgba": "bfa2b53768782539f7f7cb930d0d33d0b5c0cf2ec26e14dc906d3b4de4f801ba"
+        },
+        {
+          "id": "grass-dirt-10",
+          "rgba": "5359edfbfcb90b03148652660f4503e777f7deeb50e58b931f2358e7f6a76fb2"
+        },
+        {
+          "id": "grass-dirt-11",
+          "rgba": "7566b5fd5debd7510ea839db45f257be651d74d5ab235068424c3ca18b8cf2d6"
+        },
+        {
+          "id": "grass-dirt-12",
+          "rgba": "cf10ef0c32328280f7a43e51189b83c0661b3647d49eb8c878f873ff2c8de8de"
+        },
+        {
+          "id": "grass-dirt-13",
+          "rgba": "b0437802dc6e3ed04f8d16d64fdd641a366bad18886d6a2de0886a8becca197a"
+        },
+        {
+          "id": "grass-dirt-14",
+          "rgba": "5a6200c85e164ea1e378f4ab0b28efff26d55416925bd58a6402c1dc6e50acb0"
+        },
+        {
+          "id": "grass-dirt-15",
+          "rgba": "4755e484544d2a610be0d44260d747918775f082e0ce3c2f752aaf1d405668c2"
+        }
+      ],
+      "atlases": [
+        "cb4ba27cbd484a236201e9546be11db21b99ac8b4bdcffc09d4bb1b1c86b5490"
+      ]
+    },
+    {
+      "recipe": {
+        "id": "retro-terrain-growth",
+        "seed": 1215,
+        "palette": "original"
+      },
+      "tiles": [
+        {
+          "id": "dirt",
+          "rgba": "3e493ff901a49b413a9fa5a1d26cb5e2650c071dc4061d104248ed9715efbc93"
+        },
+        {
+          "id": "grass",
+          "rgba": "f88674a127b609b99871917ac5ae25e5cef03a297724ea0919c1caeb34219b98"
+        },
+        {
+          "id": "gravel",
+          "rgba": "8be654435d68e17cf029d6aa66036d979ea9b45404b39700f29679d544cac82a"
+        },
+        {
+          "id": "grass-dirt-0",
+          "rgba": "3e493ff901a49b413a9fa5a1d26cb5e2650c071dc4061d104248ed9715efbc93"
+        },
+        {
+          "id": "grass-dirt-1",
+          "rgba": "7f6fe4ce67dc59f91ae9e51f468401f97c6f79811470c61825d1115e52f64b1e"
+        },
+        {
+          "id": "grass-dirt-2",
+          "rgba": "92ba1bab8950aab6655243e790af465e0ab5fa0b9e3ac98c3ece95dcf396c42e"
+        },
+        {
+          "id": "grass-dirt-3",
+          "rgba": "e36836e6f7e85fcb4108cb64ad78bb539b41e58b495b068691506482be759709"
+        },
+        {
+          "id": "grass-dirt-4",
+          "rgba": "cef8b4002136f3d0c7ad4dc448455e915fc7097705858d12f3b68455a0e7f913"
+        },
+        {
+          "id": "grass-dirt-5",
+          "rgba": "f135802186644511f41b7eae79a508bc71cc52ead76697baf065d31169ad5c71"
+        },
+        {
+          "id": "grass-dirt-6",
+          "rgba": "a41b5aa8b759f6219d38b9d91aac2a8b0dd0802dfec769d4b3503a9a23a519b9"
+        },
+        {
+          "id": "grass-dirt-7",
+          "rgba": "f6da4e85550348419c55b09dfaf5cbbf1cae313ea14ea31563c415476e2b06b9"
+        },
+        {
+          "id": "grass-dirt-8",
+          "rgba": "951f9d519d7d3169d8967af09264b16b33dc8b5f0af9d08f2022e7564d0bb4bf"
+        },
+        {
+          "id": "grass-dirt-9",
+          "rgba": "e147fa18041947a0cdb861744f09c1ad7ee551fa4a341b43111c1ecd7423046e"
+        },
+        {
+          "id": "grass-dirt-10",
+          "rgba": "dd7e8ca5aac77147dc486e06935c4a9ee32ac96a7b9f9aeb9866e10e1ce27f69"
+        },
+        {
+          "id": "grass-dirt-11",
+          "rgba": "390a66e8e9ff2afc184c7be176af3f4a63c8bb94c3ab73493c2673341b43ebd7"
+        },
+        {
+          "id": "grass-dirt-12",
+          "rgba": "b5a99821fe42670e2a818e3562eccc382a3fe0fa1e226f332fd703b62eb255d2"
+        },
+        {
+          "id": "grass-dirt-13",
+          "rgba": "1f5eacde4c87fde81fb0e53b8cf1a88f19df0f7b50b390621865b7ec9fbbba22"
+        },
+        {
+          "id": "grass-dirt-14",
+          "rgba": "27dc90a63dc7c2235da7ba165546f36359ad0192c9047426d4bdb22d92c9cec4"
+        },
+        {
+          "id": "grass-dirt-15",
+          "rgba": "f88674a127b609b99871917ac5ae25e5cef03a297724ea0919c1caeb34219b98"
+        },
+        {
+          "id": "weathered-dirt",
+          "rgba": "647b2843c962a2c7208c86844a915a2d812c1322ea82466c424fe145d8ee7c81"
+        },
+        {
+          "id": "weathered-grass",
+          "rgba": "d3c6c1a72a39c353612b4aba63c0d1504962683c5d5081b6688233a502bde389"
+        },
+        {
+          "id": "weathered-gravel",
+          "rgba": "d0a94b05d8eeb521384b1ae97b2ede2d900c9a33f8364a89dde97c8ff77119d1"
+        },
+        {
+          "id": "weathered-grass-dirt-0",
+          "rgba": "647b2843c962a2c7208c86844a915a2d812c1322ea82466c424fe145d8ee7c81"
+        },
+        {
+          "id": "weathered-grass-dirt-1",
+          "rgba": "6c44be9371a19c29d8e2b77aab76f0c88ff952c916677d9ecfc6c793521b31b5"
+        },
+        {
+          "id": "weathered-grass-dirt-2",
+          "rgba": "1d8774e0a5523414c3dd8182cac0880ae601280db3428f2d382ebec79d12482b"
+        },
+        {
+          "id": "weathered-grass-dirt-3",
+          "rgba": "6b684a55e65abf2c36e110bd38343033a649e6525d5c8de249870a774e8470cb"
+        },
+        {
+          "id": "weathered-grass-dirt-4",
+          "rgba": "f2307a18e80815880a0e45cf9e9b2fd8ecb92d010a0e416fb042cd0c4aafae5a"
+        },
+        {
+          "id": "weathered-grass-dirt-5",
+          "rgba": "c01a53e1847b0b3c078f9b19bf0cd2c76e51d3a10507d5afb604cdd96cdd73ca"
+        },
+        {
+          "id": "weathered-grass-dirt-6",
+          "rgba": "4e4f732d605934a09446aa5ec77d96c8906eca3a1c0c1d7d34076881e67a54bb"
+        },
+        {
+          "id": "weathered-grass-dirt-7",
+          "rgba": "a8343b9e2c8c8f6e18950f9f4557d6048d421daa5b7143259be8f76d7a0b13f8"
+        },
+        {
+          "id": "weathered-grass-dirt-8",
+          "rgba": "4549eb315bb1b9a05c87eb164cee7e12e62dd2d77e8313ee44841b218960c5f5"
+        },
+        {
+          "id": "weathered-grass-dirt-9",
+          "rgba": "b751e7a8d615f131be25d079bc2ed6f2e2988f86a6cd24eff647b81c87cba0bc"
+        },
+        {
+          "id": "weathered-grass-dirt-10",
+          "rgba": "dd7fb3fe45def4606e9341aafff86c6f9b3652f65516680fd2728f9ce6671b11"
+        },
+        {
+          "id": "weathered-grass-dirt-11",
+          "rgba": "5f5dca39e35be2175758c8807f1debda246652e9d3287749e00a297775e21e93"
+        },
+        {
+          "id": "weathered-grass-dirt-12",
+          "rgba": "d7f8ca0a5a7fe03ff70250a477e79a94ab6777a98a34ccba064d5f3e6694987b"
+        },
+        {
+          "id": "weathered-grass-dirt-13",
+          "rgba": "bc18497f6de23f13f5f4221146f957fcfb94365c5bf2bcfe5b4654b9f74e819d"
+        },
+        {
+          "id": "weathered-grass-dirt-14",
+          "rgba": "0086b3d345ade18372c3c2cdad7efffdb038eb2e76db2957577975d807b9a65d"
+        },
+        {
+          "id": "weathered-grass-dirt-15",
+          "rgba": "d3c6c1a72a39c353612b4aba63c0d1504962683c5d5081b6688233a502bde389"
+        },
+        {
+          "id": "gravel-path-0",
+          "rgba": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+        },
+        {
+          "id": "gravel-path-1",
+          "rgba": "4d67b5567406aa615028b062fbbd09683807b0087bd546d48fd952a748364770"
+        },
+        {
+          "id": "gravel-path-2",
+          "rgba": "a05b52b54091b762f9bbac0b88477930e6e61bfbbbc4a07ad0266143ccbf9631"
+        },
+        {
+          "id": "gravel-path-3",
+          "rgba": "6d2ed30ae68b95d271935614c25ea46cbda42cca6c17e9cec63b4a51f49d3800"
+        },
+        {
+          "id": "gravel-path-4",
+          "rgba": "0073fe96b420338d9523e27516b117a0485a036ca64bc10241687e8686934bf6"
+        },
+        {
+          "id": "gravel-path-5",
+          "rgba": "601ee7d35a5c61e59e6188f60b6402ae6bf558e22d6090961f33b0918f3e1a87"
+        },
+        {
+          "id": "gravel-path-6",
+          "rgba": "43fc253b4dae87deed9aa601a01566dc47eb6f85b38d6fff85c6c06369c9b123"
+        },
+        {
+          "id": "gravel-path-7",
+          "rgba": "314d9b05b2f04ae085ecd1b468e1400ee07c5a71aa134298da805781d731e74b"
+        },
+        {
+          "id": "gravel-path-8",
+          "rgba": "08143bbbfaa19d07881afcc2f5d773c634ee53409c0eedf04c442b68d547ef59"
+        },
+        {
+          "id": "gravel-path-9",
+          "rgba": "852a3a14ebe477b6d0dd7b1901be7227057e75e256e53cd14ef1cd22e6427087"
+        },
+        {
+          "id": "gravel-path-10",
+          "rgba": "78124eeea14f29067849a7cdea07258c6db8758f4b88202caf8a388c1b001cd5"
+        },
+        {
+          "id": "gravel-path-11",
+          "rgba": "4bf2092d80794cf32f927e47a22e93c1e4f3080944727575e2645d5737604698"
+        },
+        {
+          "id": "gravel-path-12",
+          "rgba": "51eb11b366bda5809d8f80d894c1fce586568d2addca0925d8d9f3913c7404d3"
+        },
+        {
+          "id": "gravel-path-13",
+          "rgba": "3e24753d4b4f2aa220f9475fb883a56d5f5337b57c663e37d9cf911faddb5251"
+        },
+        {
+          "id": "gravel-path-14",
+          "rgba": "c71cb94e54890bc36ac2e2dbf3e3ebb12909fb81c4406dd467e59decf210b152"
+        },
+        {
+          "id": "gravel-path-15",
+          "rgba": "6a49be4bbc002c7a625dcb06c3874cdda6ab2cc43ad77673a24a69a724b33d74"
+        },
+        {
+          "id": "weathered-gravel-path-0",
+          "rgba": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+        },
+        {
+          "id": "weathered-gravel-path-1",
+          "rgba": "554906736dde52505301bfe07e104fb985c224a8aacc7dc17e782672d7a2e616"
+        },
+        {
+          "id": "weathered-gravel-path-2",
+          "rgba": "41bc8e319ceab77f273f28452a5337d76d7847e91c1d6cb1a6bc515fce017141"
+        },
+        {
+          "id": "weathered-gravel-path-3",
+          "rgba": "ddb71d1c05ef05eda3d5fd8128ebc85bb06d06e8d624c6bd453b39cdcf0b97c6"
+        },
+        {
+          "id": "weathered-gravel-path-4",
+          "rgba": "9b33f51f33b5d4bd76c56b8bbf38d4ee8ec31600181907ff82649bd1e1c7908a"
+        },
+        {
+          "id": "weathered-gravel-path-5",
+          "rgba": "75626443454e4552c56d9d22a5e839bbe3c069b71a9d73413163ce8d38dbc06d"
+        },
+        {
+          "id": "weathered-gravel-path-6",
+          "rgba": "8cda292684d6177aecff3b566a66fe71747469706f98eeffd40dc019bb5ecfa3"
+        },
+        {
+          "id": "weathered-gravel-path-7",
+          "rgba": "63faa0ede1d6d2424abbad7899ada570e8b3f0fea752bd31cc762b4b1a5092b1"
+        },
+        {
+          "id": "weathered-gravel-path-8",
+          "rgba": "a99c3874bf6ff27a65ccb9a62aabf5065e4173102a29999f829fc128b944efc5"
+        },
+        {
+          "id": "weathered-gravel-path-9",
+          "rgba": "0014f29f5f28493a3790576465d2d9e4f4e73f7813179d56af37501147638cf2"
+        },
+        {
+          "id": "weathered-gravel-path-10",
+          "rgba": "226bb3b53f5c11bf7ce67f09551514e4d0be1a44c8b576983eb953336c9ad5bc"
+        },
+        {
+          "id": "weathered-gravel-path-11",
+          "rgba": "efb90c0e30441fedb2fdb86c928e11cbf5e7f03ab45742ed6f8de0f67a96053d"
+        },
+        {
+          "id": "weathered-gravel-path-12",
+          "rgba": "fe29316e3767d5dc7c491da11113cade2a81696ec3ba09bddbcfc10ce56849b3"
+        },
+        {
+          "id": "weathered-gravel-path-13",
+          "rgba": "93069fffc67a5445998c080d288c08c2b3389bcfae907bec9da17e12c6b47051"
+        },
+        {
+          "id": "weathered-gravel-path-14",
+          "rgba": "118e82a2858f05f334209fcada8db479d407248b5c73adc1805dcb55044f6835"
+        },
+        {
+          "id": "weathered-gravel-path-15",
+          "rgba": "e66561d4b64c8e50bb74d899afa3d39526f40c767b81146d7a61e245161e694c"
+        }
+      ],
+      "atlases": [
+        "297176c22e776b51680dcc6d708b4dba88bb631ce3d3955375fe1fa3b81c7688",
+        "08c5945c0df422baea7576f80efa257116708c9aad209fa07280a6741c224c9f",
+        "03d92bf960602f483a50663b918069e2f8f32088ea557d3c8afd20f0478418a2",
+        "9cbba85a81a9c47c87c08cf253e7257d970d297cdb965ee9f206a799e7af2530"
+      ]
+    },
+    {
+      "recipe": {
+        "id": "retro-terrain-growth",
+        "seed": 1215,
+        "palette": "heath"
+      },
+      "tiles": [
+        {
+          "id": "dirt",
+          "rgba": "f9739c94e0fd6717ccab454efae8229aad5e65b30ea49d4a7defbee64f06c35b"
+        },
+        {
+          "id": "grass",
+          "rgba": "b7acf655e4cbebea76af5b5fe27e6a1ca9dba1d8352248ff4a7fb24423720038"
+        },
+        {
+          "id": "gravel",
+          "rgba": "604c44c2de55cfd5e0fffe06d2a6c8d60f5a050cc9082e90c97e1db90773dc1a"
+        },
+        {
+          "id": "grass-dirt-0",
+          "rgba": "f9739c94e0fd6717ccab454efae8229aad5e65b30ea49d4a7defbee64f06c35b"
+        },
+        {
+          "id": "grass-dirt-1",
+          "rgba": "ba06a2599107b2e13504d9867ead9a9eafaba7120158e4cdd5b92d57b2a9f84c"
+        },
+        {
+          "id": "grass-dirt-2",
+          "rgba": "428a3fd909165761db21211bba3f9933760e34388ce2d1eeb5566b6d44c1cdfe"
+        },
+        {
+          "id": "grass-dirt-3",
+          "rgba": "90e6b948b9bd8b034d9a9da13234a2a2d36df2421523ce5dda41b37034f0d312"
+        },
+        {
+          "id": "grass-dirt-4",
+          "rgba": "73ae02dd6b06337c78fc9b66006ab6123812719136fe605b57e476fffdccc44b"
+        },
+        {
+          "id": "grass-dirt-5",
+          "rgba": "9833782b70a4a412fb1f8b7fea086ec8033a37889e1ac5564270e3e055eac025"
+        },
+        {
+          "id": "grass-dirt-6",
+          "rgba": "22b670f3593ed6470bbd2648e03eed1603c6f323340a77cfa1e6981356b52173"
+        },
+        {
+          "id": "grass-dirt-7",
+          "rgba": "bc4c6850445136214dcbf3086e4c5fd8c8023416eb93845887c09ccb0e924026"
+        },
+        {
+          "id": "grass-dirt-8",
+          "rgba": "1d65af21c334e5623db24a948461c73670d1f1d2869735b1155961ea293a7890"
+        },
+        {
+          "id": "grass-dirt-9",
+          "rgba": "626dcb250eb2e1deec8d45dbb3250b722954ffe2917bb7df39cd71452365547c"
+        },
+        {
+          "id": "grass-dirt-10",
+          "rgba": "e317d93ced92c6a9ae873ecaab3d5f269c73463f345845f7970967c010a6cb20"
+        },
+        {
+          "id": "grass-dirt-11",
+          "rgba": "089f45831ea0e96d7ba81d5e8ecb960b62fe2ed51817ab5bcc9ac5b8eaba835a"
+        },
+        {
+          "id": "grass-dirt-12",
+          "rgba": "7246d7fc27dfe7d0b1d158a7949b898b536a37084b343ccf4b1863f9c537dbc0"
+        },
+        {
+          "id": "grass-dirt-13",
+          "rgba": "67dbd4d76de5340ddb03b969af092c2e79dc3391512cec15879cca7618606566"
+        },
+        {
+          "id": "grass-dirt-14",
+          "rgba": "b525458c9d570dc1d515ce6f27c34367cfbf3d8e9bdda89655de41f283d26718"
+        },
+        {
+          "id": "grass-dirt-15",
+          "rgba": "b7acf655e4cbebea76af5b5fe27e6a1ca9dba1d8352248ff4a7fb24423720038"
+        },
+        {
+          "id": "weathered-dirt",
+          "rgba": "a6be4cfb30ac729f1e44ce47bf054f9fe8626fcc6096ca73c0be57f2615471dc"
+        },
+        {
+          "id": "weathered-grass",
+          "rgba": "c2bce3084c42830f92ac7946bc54e1fdd160ca5da39624a361fa55bcda886548"
+        },
+        {
+          "id": "weathered-gravel",
+          "rgba": "4041db1eef05eba63b9a410e8f0c77924d29118a45dc7779e30a3eebbe0a4aed"
+        },
+        {
+          "id": "weathered-grass-dirt-0",
+          "rgba": "a6be4cfb30ac729f1e44ce47bf054f9fe8626fcc6096ca73c0be57f2615471dc"
+        },
+        {
+          "id": "weathered-grass-dirt-1",
+          "rgba": "efadef2d8af855b87b16dd469aa68df2a6f0333b008e6de2df8b958271651b03"
+        },
+        {
+          "id": "weathered-grass-dirt-2",
+          "rgba": "2bd3c03237f6e79aa08b9e26ed4c352dd272c59ef5222dea933c6e6a5a57c280"
+        },
+        {
+          "id": "weathered-grass-dirt-3",
+          "rgba": "a14c725992dc797214b09b4de2f3b8f8ba963d6b6b40a711af0849ff67017ec6"
+        },
+        {
+          "id": "weathered-grass-dirt-4",
+          "rgba": "537fdef879962ecd8efd9280078a556e74a776876b9f126ac5d261aff98ddc21"
+        },
+        {
+          "id": "weathered-grass-dirt-5",
+          "rgba": "0c36bf06256332dc92aef3628d327c83e521f132ad384351e529108b55439fa2"
+        },
+        {
+          "id": "weathered-grass-dirt-6",
+          "rgba": "3640412439a4ba894fd662da74165ff1d1a2cedb127cdd5b4178a98134cf6baf"
+        },
+        {
+          "id": "weathered-grass-dirt-7",
+          "rgba": "77076fb4f4ba0ec03590ff04c1186496fa8889a276b07ef620af00a43ec30551"
+        },
+        {
+          "id": "weathered-grass-dirt-8",
+          "rgba": "b26a356bb3ba687eea4efe2f256425f35e6ef0114361e7fe57f36bd0d1761dbd"
+        },
+        {
+          "id": "weathered-grass-dirt-9",
+          "rgba": "94b5ce9995d3b341b34cafaa5c4ca20263bf59f0a5d05995e2c94eb8d1f61bc1"
+        },
+        {
+          "id": "weathered-grass-dirt-10",
+          "rgba": "1df2346e3b82885cba5a89cb784422d9b1a70716aa78b3a2210d8eea32b3d1a1"
+        },
+        {
+          "id": "weathered-grass-dirt-11",
+          "rgba": "1e9cc1cafda4a3a77b0d256d2520e80679586292f7ac6604d2f31ae44b8dcb33"
+        },
+        {
+          "id": "weathered-grass-dirt-12",
+          "rgba": "934c6d350ca46cfa68bfb60609cfe3fa95acb76b24ceb081cdda40c504f87787"
+        },
+        {
+          "id": "weathered-grass-dirt-13",
+          "rgba": "f217b33266dbb4a892b45f9bee4df4b2ae30965ba283886504b06f62865c2af9"
+        },
+        {
+          "id": "weathered-grass-dirt-14",
+          "rgba": "fed8adb9605dbc905efaff2218776afd0a7ee717b56c5c88e555bac546451709"
+        },
+        {
+          "id": "weathered-grass-dirt-15",
+          "rgba": "c2bce3084c42830f92ac7946bc54e1fdd160ca5da39624a361fa55bcda886548"
+        },
+        {
+          "id": "gravel-path-0",
+          "rgba": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+        },
+        {
+          "id": "gravel-path-1",
+          "rgba": "6ba24805363c0f745ca48c806ec7ffa4fd04044ba73b86f08f492b1eefb819af"
+        },
+        {
+          "id": "gravel-path-2",
+          "rgba": "d1aae31b8970d717c68fff0cf04af50c8a4c867ce5521b6cb4a928a50ec22d7a"
+        },
+        {
+          "id": "gravel-path-3",
+          "rgba": "021197063cc76f432e557a6a4090ea66b8a80676c83a344e772d68ead9c47f82"
+        },
+        {
+          "id": "gravel-path-4",
+          "rgba": "48a133f2ce0691d69509a95372aba77c1a0aa475caf476e1b5f0d897629d1087"
+        },
+        {
+          "id": "gravel-path-5",
+          "rgba": "bdb858b14f6c950f9d3cbbe65eec24d2fceee7a20d4c2f26daf5ac53c0815693"
+        },
+        {
+          "id": "gravel-path-6",
+          "rgba": "8cf91431c7e6731592297ec749b354f369ff87df6df91cc844b202f9ac2b5cbb"
+        },
+        {
+          "id": "gravel-path-7",
+          "rgba": "954de71b0ab9b0f6a13269c8e144b30bfab493384d1dc2101e28be844970cbee"
+        },
+        {
+          "id": "gravel-path-8",
+          "rgba": "d81792a45e79c9ff35db178129684cf20e5648ce0ac26cd4e6068b89d8540d7d"
+        },
+        {
+          "id": "gravel-path-9",
+          "rgba": "a1fd280dd2dd185ee18631532b22df98122806b62f2b932733fb222a5f51e1d4"
+        },
+        {
+          "id": "gravel-path-10",
+          "rgba": "b452a4dff3ad0c523f11bd147d412a218dc097cf37fbe9a1ed8c4e2d9d60cd3c"
+        },
+        {
+          "id": "gravel-path-11",
+          "rgba": "60ff317938730015d7326d32e3104cc048bc2fce0c25ec2eafffa48c08cd4034"
+        },
+        {
+          "id": "gravel-path-12",
+          "rgba": "5b06b721e909232b02bb84d9be657b7c1ffe7336e3bc9852c807f2e1f14582ea"
+        },
+        {
+          "id": "gravel-path-13",
+          "rgba": "add7403d5e56f68d9dc8e3d1fa6d731b43fdf08e6141993902ee45fbc16911be"
+        },
+        {
+          "id": "gravel-path-14",
+          "rgba": "618f23d66ff825d1d03c933c388bec38ef746df830aa526e8d0642aff8bca1fc"
+        },
+        {
+          "id": "gravel-path-15",
+          "rgba": "51afd564697509a7668a772d0c80466a3a5fa452ebab11e3e901a513916b90d4"
+        },
+        {
+          "id": "weathered-gravel-path-0",
+          "rgba": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+        },
+        {
+          "id": "weathered-gravel-path-1",
+          "rgba": "94143c0d095778e17d950fb370b9b8a6d5a4cc10b3803c7c75f07f4586b55a19"
+        },
+        {
+          "id": "weathered-gravel-path-2",
+          "rgba": "20e1d01af58ef741c825d2d1ecf38e601b54fd73882b320d29c80072c2b642d5"
+        },
+        {
+          "id": "weathered-gravel-path-3",
+          "rgba": "d16babdb798b38b4a2b11424cbce3635cb620f7ce87ad30e090ee5e00e39ada5"
+        },
+        {
+          "id": "weathered-gravel-path-4",
+          "rgba": "4c36bf0c0019eb8f1358075384ae7889930ed082f4c32a737ddb7e53d282972e"
+        },
+        {
+          "id": "weathered-gravel-path-5",
+          "rgba": "dc3988fc40b50fe74842eaf596375dc78911ac544a9d81ea04d2f6fb08ceddf3"
+        },
+        {
+          "id": "weathered-gravel-path-6",
+          "rgba": "3b496075a1af1339e6e018263ee42f9252a15262a51f28c09f15abe68c2355f8"
+        },
+        {
+          "id": "weathered-gravel-path-7",
+          "rgba": "b918849948b1124154bea7f82b8aa118ac39d5f0966622fa6f1071b50cd3ccb0"
+        },
+        {
+          "id": "weathered-gravel-path-8",
+          "rgba": "586e7ecc36be124711376c0cf743baea3a19400f7d2c937c84231946e6f64358"
+        },
+        {
+          "id": "weathered-gravel-path-9",
+          "rgba": "1d72736ec0c78159defc34a06cad4647a4137e7426f409d84a20ad14f67a1ca2"
+        },
+        {
+          "id": "weathered-gravel-path-10",
+          "rgba": "769194ad46804a525a91add589c04a34b7d170e779181d25f44fdfa5a80fa349"
+        },
+        {
+          "id": "weathered-gravel-path-11",
+          "rgba": "0536776490e7a6be12840ef565f3a6d0516e27c736f5d8b4d6cb6de6037d09c2"
+        },
+        {
+          "id": "weathered-gravel-path-12",
+          "rgba": "23ea07bfe455ec0a7915f98f8983b7dac54ed089dbe4600785d50da78c38a6e9"
+        },
+        {
+          "id": "weathered-gravel-path-13",
+          "rgba": "b22081b3ede11d9b1305a306fed04dc7bbdb6fa09ab78681508f219fa0888a15"
+        },
+        {
+          "id": "weathered-gravel-path-14",
+          "rgba": "447f4849c655080c3a3f211a8a81c6d112a1c32f553bcc16655add08847b0a8d"
+        },
+        {
+          "id": "weathered-gravel-path-15",
+          "rgba": "249d10cd6e44f41f33dc897213e9e78e8ffd13367b3dce1e5356f3a1e57e18fd"
+        }
+      ],
+      "atlases": [
+        "3d47bfb48b8d314c575a697dc42f20d90b71b105a2c01d185374c9948881c188",
+        "7c06e4e6cc973b670d6b2486505426ea2f4f0c9db742c77a23955b6648ef2e77",
+        "985c7a7225245106a9209fcc8efeebd636d3a703e2b48d3e91be0b8dceffa218",
+        "4fac76a00125401bf83df483fc095709e2ed14c7a63f73ca46bb8e88e3efd298"
+      ]
+    },
+    {
+      "recipe": {
+        "id": "retro-terrain-growth",
+        "seed": 1215,
+        "palette": "riverbed"
+      },
+      "tiles": [
+        {
+          "id": "dirt",
+          "rgba": "e5cf677e1f6c4019c8dee7b909ae975a87b07b0d88b6603f868c23355d9cc068"
+        },
+        {
+          "id": "grass",
+          "rgba": "76dd3938c9045e3857226f13f79e18c64ba03e4b7c559b97f4578e11154cf927"
+        },
+        {
+          "id": "gravel",
+          "rgba": "d978751d2020485e73b2117d5f85eb47705d07940fd327c532e5fb97fb3b0cd6"
+        },
+        {
+          "id": "grass-dirt-0",
+          "rgba": "e5cf677e1f6c4019c8dee7b909ae975a87b07b0d88b6603f868c23355d9cc068"
+        },
+        {
+          "id": "grass-dirt-1",
+          "rgba": "e3ce9b7d9e8502acb411552df2f05bff2c434c998b6db11b0dd0b9e99708b5bd"
+        },
+        {
+          "id": "grass-dirt-2",
+          "rgba": "8c428cc0e191535c8ce0b5b12d014f0aa28a483db58244b23b04f178ef4dd6a5"
+        },
+        {
+          "id": "grass-dirt-3",
+          "rgba": "ccfba1b65cf26cbc050acb4f0914b3de59cbdcb87288adc2beca4cfd188e5417"
+        },
+        {
+          "id": "grass-dirt-4",
+          "rgba": "5fb31560032e8fd4a20733cdb8bcfd45714d549d3eca2bea724322d51c6ffa54"
+        },
+        {
+          "id": "grass-dirt-5",
+          "rgba": "99a09f73ec92c68ec418e9b499d30344e09e610d8f455853215e6df31511fcfe"
+        },
+        {
+          "id": "grass-dirt-6",
+          "rgba": "6fd4d97c0a375e5c7e0c5c8c2520fe4ce826c6f697d0ea6cc619790468cee03d"
+        },
+        {
+          "id": "grass-dirt-7",
+          "rgba": "34d28db33d659b39ee321484f22923814dd93dab382fcbb539eb8fa0ae239810"
+        },
+        {
+          "id": "grass-dirt-8",
+          "rgba": "9608268c7fea241fc99c33b1dd8cf8790b42082cba687544c791d1b6d00e259c"
+        },
+        {
+          "id": "grass-dirt-9",
+          "rgba": "1a93747fada27b36488bec288cad273eeafcd4f127846b189097128f6fbfbc7e"
+        },
+        {
+          "id": "grass-dirt-10",
+          "rgba": "e93265cd12b0509e8a5dc2886c9c2d38797dee2e99260c1584b654b55c167ab3"
+        },
+        {
+          "id": "grass-dirt-11",
+          "rgba": "2608e795ab0b0b68a1d8bdbba94e3126d8cd88b9c37773317c42c4b7c8cef58e"
+        },
+        {
+          "id": "grass-dirt-12",
+          "rgba": "02315e96658a70630dffe8a75f5c877d758d0f87d69d18af17e2d57f442b3556"
+        },
+        {
+          "id": "grass-dirt-13",
+          "rgba": "7c96454be2e174ddee79cc5ec392e59968997b79ff22e3bf77534652462cd630"
+        },
+        {
+          "id": "grass-dirt-14",
+          "rgba": "42e8b58f8b9c2547b250a60633fa1e398563d4f47d7d693c4cb849793d911048"
+        },
+        {
+          "id": "grass-dirt-15",
+          "rgba": "76dd3938c9045e3857226f13f79e18c64ba03e4b7c559b97f4578e11154cf927"
+        },
+        {
+          "id": "weathered-dirt",
+          "rgba": "215fa8c285985c15cf08b6da31103be8f28cef629cac38a712ba38746e808fcd"
+        },
+        {
+          "id": "weathered-grass",
+          "rgba": "d281eee27601c4a96367453234a36447e057dd8bbe48ee4897c674a9591eb2e1"
+        },
+        {
+          "id": "weathered-gravel",
+          "rgba": "675cac99d188b7cda76a136e9ad28198792d4c2c685eb449894b02434cecf568"
+        },
+        {
+          "id": "weathered-grass-dirt-0",
+          "rgba": "215fa8c285985c15cf08b6da31103be8f28cef629cac38a712ba38746e808fcd"
+        },
+        {
+          "id": "weathered-grass-dirt-1",
+          "rgba": "fbf02cd9e32c7f16e7677650ec896ffd9859136af17bbfed2613e6600ab76692"
+        },
+        {
+          "id": "weathered-grass-dirt-2",
+          "rgba": "b59af10585049313f167112d3c8cdb13a4e6ac11b72839b28ebee1e3e97a47d8"
+        },
+        {
+          "id": "weathered-grass-dirt-3",
+          "rgba": "11762a836759ea8215fe07849022a37fe90567b82235dc9c3710d474e350ccf9"
+        },
+        {
+          "id": "weathered-grass-dirt-4",
+          "rgba": "f0b45dbc3a2e1d6fc9909eedd53c5d2b79c10054ed48a6d83ff67795b822a257"
+        },
+        {
+          "id": "weathered-grass-dirt-5",
+          "rgba": "45dc14a375dafb7399e4edb0813de9f1ec9a2eba0fa073ff0f6074619eb8fb82"
+        },
+        {
+          "id": "weathered-grass-dirt-6",
+          "rgba": "e2d53cf4b02efba38725ccb0ad661f64e241bede452b51051aefb0d0308a781d"
+        },
+        {
+          "id": "weathered-grass-dirt-7",
+          "rgba": "71bb58bad1beaebd4a4a1b170db3a70465116e325cb9a30baf0dd66da7779404"
+        },
+        {
+          "id": "weathered-grass-dirt-8",
+          "rgba": "0fbe51d4add69608ea6223212cc1eb8e395d446e52c4386a0b3969256c0bb025"
+        },
+        {
+          "id": "weathered-grass-dirt-9",
+          "rgba": "00a405f4fa8dafc532b8fdf23c94f976788f491fbd4c100bfe2c4fb10dfad9e1"
+        },
+        {
+          "id": "weathered-grass-dirt-10",
+          "rgba": "e7b182fc3db0e7c6888e6dbae0bd718ae6bf5a23bd1c277596d2affc665ca6e7"
+        },
+        {
+          "id": "weathered-grass-dirt-11",
+          "rgba": "7921c37a7ccb1364d2b303dd778833853f61e4da5ebddc2a3c219588fd0e8e88"
+        },
+        {
+          "id": "weathered-grass-dirt-12",
+          "rgba": "17dc027a03c54f2b8f3a6a32678af6e308842b721f6221d3b7f0b8518bc6bdc6"
+        },
+        {
+          "id": "weathered-grass-dirt-13",
+          "rgba": "e8c52b2136372a9003a7c765afd55b1b6983b36ebb324bbe5a4c532af789dec9"
+        },
+        {
+          "id": "weathered-grass-dirt-14",
+          "rgba": "30933e0f79d9c312d7005b58eab504395cf4bb14bc9fe8f77c83a62b6e94036b"
+        },
+        {
+          "id": "weathered-grass-dirt-15",
+          "rgba": "d281eee27601c4a96367453234a36447e057dd8bbe48ee4897c674a9591eb2e1"
+        },
+        {
+          "id": "gravel-path-0",
+          "rgba": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+        },
+        {
+          "id": "gravel-path-1",
+          "rgba": "13fa2c0d295a985c04fcbc3cca7eec997f23469a1c7a76f75fbbd3a3dc98280e"
+        },
+        {
+          "id": "gravel-path-2",
+          "rgba": "55f44f555cdc78a9f94bc9e8dd7b8b8aad97497d306631e7edb2ff67b0964954"
+        },
+        {
+          "id": "gravel-path-3",
+          "rgba": "d7180ab3e48212f6d1388bbda7b22551b509702fd0a2d378b55241b2b9338dcf"
+        },
+        {
+          "id": "gravel-path-4",
+          "rgba": "9effccdf41453258821674326533c9dd7ae6e0d908f70eb3b957ad77a928a6d5"
+        },
+        {
+          "id": "gravel-path-5",
+          "rgba": "07d67fe9de475e6a81b2ad7d0187799d704cfe57dc3745d9ea36110d2e063be0"
+        },
+        {
+          "id": "gravel-path-6",
+          "rgba": "6a138626125287fcdbc62bab6ba6b1ef368fff67930762a284b22540c538a425"
+        },
+        {
+          "id": "gravel-path-7",
+          "rgba": "46ea170663ef738f858a76f372527f8d94903c65f98d8243b8098d237dd82513"
+        },
+        {
+          "id": "gravel-path-8",
+          "rgba": "d5e67b4f240f5f333b3e400284c01f10531b4d7f3d75eead45cd90390cb6dcc3"
+        },
+        {
+          "id": "gravel-path-9",
+          "rgba": "4f491f8b2bde865ed594e0ddb9aafa2f938a5d7a1e638dcf9b2c7313ed3f9ca1"
+        },
+        {
+          "id": "gravel-path-10",
+          "rgba": "e5be59f6c9c41e958d564840739fe26b57e308f9a30a85ffd9c4444379efd4f5"
+        },
+        {
+          "id": "gravel-path-11",
+          "rgba": "d817b02311188a2e6422b98c60f3c97d2d337cd10d269e9076b842f4baaca251"
+        },
+        {
+          "id": "gravel-path-12",
+          "rgba": "7a086170666ec65fe40eb6edd806f2f93a63e88b5d279b0eb5c0fc6869f402f0"
+        },
+        {
+          "id": "gravel-path-13",
+          "rgba": "7e34ac1469f78a28ecc00b6e1e760204550df319f3fa672280eb33443c4f2c2b"
+        },
+        {
+          "id": "gravel-path-14",
+          "rgba": "82e9bab67fc2cbc208ec3e21aceaa8280b6a62e73e1901b7fb5be40235f3d21b"
+        },
+        {
+          "id": "gravel-path-15",
+          "rgba": "ee0a9c0ce54a923eab3d596b3ab96bef3d8dc7e61c7cb93216b78273f9077459"
+        },
+        {
+          "id": "weathered-gravel-path-0",
+          "rgba": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+        },
+        {
+          "id": "weathered-gravel-path-1",
+          "rgba": "1657b770b2f75d83b5543f60bf11bcb766a7e580ad6655d820dfd07b4b42efd5"
+        },
+        {
+          "id": "weathered-gravel-path-2",
+          "rgba": "d4995c6d4e1bb4e935690f918bd8f47e4bb42c8515d4b8146748f61b1257da79"
+        },
+        {
+          "id": "weathered-gravel-path-3",
+          "rgba": "b49f2cab29d360dd2493ac25609d37daa784d90ea7573922bb102ea885268574"
+        },
+        {
+          "id": "weathered-gravel-path-4",
+          "rgba": "a1ac5b4161ad374b3bfffeb182c43a9b0413b3f8d11f6741aafda55b4117cc6e"
+        },
+        {
+          "id": "weathered-gravel-path-5",
+          "rgba": "dc790d208c2eaa2f8c077d6814bb8678ce6ba07c99161a09f08e7ead0d116725"
+        },
+        {
+          "id": "weathered-gravel-path-6",
+          "rgba": "6318c39bd6889fade49616a044112368684781e0eef917570ffeeecf44c45e4d"
+        },
+        {
+          "id": "weathered-gravel-path-7",
+          "rgba": "986f0137c8c2af7bef2f95db1e783bf139a1dff4a3265498a056d4dbc8651683"
+        },
+        {
+          "id": "weathered-gravel-path-8",
+          "rgba": "2613b08f2015e47c238b72f5cea7a301340a47720bb2218d957f09efb6f34320"
+        },
+        {
+          "id": "weathered-gravel-path-9",
+          "rgba": "098594a5bf76bdc34acefb35398b2dcfb0cf02fd845165544c911ceec26cb464"
+        },
+        {
+          "id": "weathered-gravel-path-10",
+          "rgba": "9795ed5bb32dcdc091b0a15c65123e74e0574e5dafa9c9e595c6b8a4e91b44df"
+        },
+        {
+          "id": "weathered-gravel-path-11",
+          "rgba": "3c11b5e43ee267b668656348ef5576c4fc2e1aba743147fee2081e59fb033428"
+        },
+        {
+          "id": "weathered-gravel-path-12",
+          "rgba": "234739cebd43dcd23cbed437f9087e2bd275bb0bbfebf3a73ab6b5a4531a84c4"
+        },
+        {
+          "id": "weathered-gravel-path-13",
+          "rgba": "44b3d0f057840b552c57434001a92f7a7a7bbdcdd9d5b04f8181ea14d578ef36"
+        },
+        {
+          "id": "weathered-gravel-path-14",
+          "rgba": "f11f796a1f4144de020d1fef4ecdd57258e092afaee8b656d75575455806bc2c"
+        },
+        {
+          "id": "weathered-gravel-path-15",
+          "rgba": "79ce9cc677ab95edcd1f842431d9924c5869bf0e8e8e1e42f547d014df6f6bc4"
+        }
+      ],
+      "atlases": [
+        "ad9862fc7d0265647b158edf14fa7247d91124bd1aedc52644423725773addaa",
+        "b9b4e815131324cfc9e9ff99061cb73da71e48d19a230f6e424d36dc15c60fb7",
+        "983c3d227acd3f74ceb43322f250e0afc30188d163b14094ff3cb9c3d0447728",
+        "0c30e2cbef1ae4a5d27df4076272a24b3e639886c183b2344941e3025cf0cb23"
+      ]
+    },
+    {
+      "recipe": {
+        "id": "retro-terrain",
+        "seed": 1233
+      },
+      "tiles": [
+        {
+          "id": "dirt",
+          "rgba": "1d6f294413f51ccfc42a0184292649ef5ab2a52b09a395bec7113af3645d6830"
+        },
+        {
+          "id": "grass",
+          "rgba": "148f0c94aa80e2c388b30c8b242bd96c820c578db3e5e5a283a4a4cb36d47671"
+        },
+        {
+          "id": "gravel",
+          "rgba": "a0e6563f4e16fd79ebc80e94863762f6d4fb2d19ef7acbd7f4a5b5ba1dd06906"
+        },
+        {
+          "id": "grass-dirt-0",
+          "rgba": "1d6f294413f51ccfc42a0184292649ef5ab2a52b09a395bec7113af3645d6830"
+        },
+        {
+          "id": "grass-dirt-1",
+          "rgba": "eddedca0bb22ed775a0510e5680393fe8ab095dbb88a39d4fbda1857510303ce"
+        },
+        {
+          "id": "grass-dirt-2",
+          "rgba": "21b68a88c3d7d3fb84f35b3bcf76a886e340719acc2e45711bc402d742bc059e"
+        },
+        {
+          "id": "grass-dirt-3",
+          "rgba": "2f52f3e37ebd8b386430401671846fc6e3454280894a96b092fb93f30c767815"
+        },
+        {
+          "id": "grass-dirt-4",
+          "rgba": "106f68c32ef9d9449517afb1a7e925998114c042e108675af38b45ae6d7c9fe0"
+        },
+        {
+          "id": "grass-dirt-5",
+          "rgba": "757a0a985f49df4aa1e65518f2a9b9cdc6958b3e211d2ba3652ee86740813679"
+        },
+        {
+          "id": "grass-dirt-6",
+          "rgba": "0ba3a408e835b027af28d78bbdbcc12fdcbf36243293342b01cb8b09d9d0f82b"
+        },
+        {
+          "id": "grass-dirt-7",
+          "rgba": "7a918e83b912730b0b76aaaf1cc1ad7aeb47821024508ca1be116904150a4984"
+        },
+        {
+          "id": "grass-dirt-8",
+          "rgba": "839658afd72e35b638f35a578d0a4c4373e1ca1449f673d3028f757c769d712f"
+        },
+        {
+          "id": "grass-dirt-9",
+          "rgba": "9e756878b19ca1a4ff0813301018ca29d582e8853bced247d1735c0e6b75308b"
+        },
+        {
+          "id": "grass-dirt-10",
+          "rgba": "251088b4d38c4817f3865296597bc20ca76987f5e2ec2af017a81ef7ded15c8d"
+        },
+        {
+          "id": "grass-dirt-11",
+          "rgba": "a7616006baa7df4918ad00916a8d8f4ab50292299b3622bae131a872b6979043"
+        },
+        {
+          "id": "grass-dirt-12",
+          "rgba": "ac5dc2cd7afa640bd6c85dcef4ae262dcdf2d2fef0bae490ba36b1966caa5fe3"
+        },
+        {
+          "id": "grass-dirt-13",
+          "rgba": "709ad44a2245ce9e4005cd69a076d0365d0e66349bd96679444059f9175cef52"
+        },
+        {
+          "id": "grass-dirt-14",
+          "rgba": "0ef44a778e8f249d50e2d300dc36a27ca4c31f26752fd259545871768253bda9"
+        },
+        {
+          "id": "grass-dirt-15",
+          "rgba": "148f0c94aa80e2c388b30c8b242bd96c820c578db3e5e5a283a4a4cb36d47671"
+        }
+      ],
+      "atlases": [
+        "0c4be86c24294daafafdcf07d1575b52038f80a54e5d445376f8900dec2e5b7e"
+      ]
+    },
+    {
+      "recipe": {
+        "id": "retro-terrain-growth",
+        "seed": 1233,
+        "palette": "original"
+      },
+      "tiles": [
+        {
+          "id": "dirt",
+          "rgba": "6838cdaf4cedf9b46bf8693a841b621aa140eae190fa38f1fa11b622facc7cc5"
+        },
+        {
+          "id": "grass",
+          "rgba": "19f460f06a87150a4cf9f38f966ab8499eefc7c39e1c731fd0150dfad69ab719"
+        },
+        {
+          "id": "gravel",
+          "rgba": "7d4b4559887623bb7a5580ebcced8fb1f7c08e9f067c67141e3d8a07c44565a5"
+        },
+        {
+          "id": "grass-dirt-0",
+          "rgba": "6838cdaf4cedf9b46bf8693a841b621aa140eae190fa38f1fa11b622facc7cc5"
+        },
+        {
+          "id": "grass-dirt-1",
+          "rgba": "7454ed1c4255b344225c0d76f8effbde82ed54d48ae800f9860543157578c742"
+        },
+        {
+          "id": "grass-dirt-2",
+          "rgba": "04529dfba63277b2cb460a94cd470bb8cd9fdef095ef2be47cb8ae3b34efa13c"
+        },
+        {
+          "id": "grass-dirt-3",
+          "rgba": "092f8d5b4ad7dd0a8730d1d85873229e982ed41b0653047054f5063de45b9fc9"
+        },
+        {
+          "id": "grass-dirt-4",
+          "rgba": "8c42b01f644dc2e4999ce7427681b3d56b06eeab238eb7a87bfeb77e9d894c27"
+        },
+        {
+          "id": "grass-dirt-5",
+          "rgba": "f95fae2d709410e7712357030461bc85413127d8effbb7908a19594a25153d01"
+        },
+        {
+          "id": "grass-dirt-6",
+          "rgba": "54f5864f1c0711b4d0edd9ec1e1e422328d0235432d3484d0686fa6efcc27c6f"
+        },
+        {
+          "id": "grass-dirt-7",
+          "rgba": "caa213f593a9ed1c5b2efc4e2376a3362eccd0d5a7176df3933a4cac3bb0ecce"
+        },
+        {
+          "id": "grass-dirt-8",
+          "rgba": "144c76fd7236a5032592ae5f41a94174fd2dec1e0b74f8e8d5ea3e4c833d09aa"
+        },
+        {
+          "id": "grass-dirt-9",
+          "rgba": "40dae3d7cf4c71ec832b28211669668a539a7705d97698c39b65124dd7ad6fcc"
+        },
+        {
+          "id": "grass-dirt-10",
+          "rgba": "725e2a8b2eef26b0246aa77c74afd0f32a85effe02d7f0fd516476ab856cfa31"
+        },
+        {
+          "id": "grass-dirt-11",
+          "rgba": "13fce7cb1f31065d6e46ffe464b69208a33f0c6c0f777039a0366bb8fec99367"
+        },
+        {
+          "id": "grass-dirt-12",
+          "rgba": "c44fe610850cba4fb27ee41b417be401d78c31b12213fd521ce3e8d5f8787780"
+        },
+        {
+          "id": "grass-dirt-13",
+          "rgba": "745adde3c27f963d4b4746c07de1edeaa445ca980fcfe43b10058f7ea8d87468"
+        },
+        {
+          "id": "grass-dirt-14",
+          "rgba": "7daf987f1d08d694f1ee92c1c0d07e27cf8781f6991115ce73ca0b7a1b6a2606"
+        },
+        {
+          "id": "grass-dirt-15",
+          "rgba": "19f460f06a87150a4cf9f38f966ab8499eefc7c39e1c731fd0150dfad69ab719"
+        },
+        {
+          "id": "weathered-dirt",
+          "rgba": "893dbac7040450ba8c42c9bed67747f40d55e6fe0f9bcddc7f746a67a54775fd"
+        },
+        {
+          "id": "weathered-grass",
+          "rgba": "a1a092e70f327e347f2638a6a842dc723e199e3d38260fc472b7a625c71308a2"
+        },
+        {
+          "id": "weathered-gravel",
+          "rgba": "15d99d8a6f149d98c695a7fae455a64727b4782f8999abcbb6f5ca368eb11389"
+        },
+        {
+          "id": "weathered-grass-dirt-0",
+          "rgba": "893dbac7040450ba8c42c9bed67747f40d55e6fe0f9bcddc7f746a67a54775fd"
+        },
+        {
+          "id": "weathered-grass-dirt-1",
+          "rgba": "7dc14ed6d5da8f90e82575f44fba522336b1d4d2713acd305e0bd13a991c747b"
+        },
+        {
+          "id": "weathered-grass-dirt-2",
+          "rgba": "e9f0b1316bac4476cce8cd2a9bf22e70ce1107ec0260700a6fcc68d384696c05"
+        },
+        {
+          "id": "weathered-grass-dirt-3",
+          "rgba": "296f136cf99af87a57fbc059f1e9cc0697e9a1b0ffbf644d66757fc566bed1fd"
+        },
+        {
+          "id": "weathered-grass-dirt-4",
+          "rgba": "c042d380494ff45b720c3eedab55b8b8e0fe26eae5a8027d1c4326043b2c1f05"
+        },
+        {
+          "id": "weathered-grass-dirt-5",
+          "rgba": "dffee852abf88c8f2e2ddb154406bbd274f5574cf20542eaa4ee5602d3c8dd91"
+        },
+        {
+          "id": "weathered-grass-dirt-6",
+          "rgba": "9cbd85f574f43504d8dfd169480316808e9ff51bfef2cbf022603a6958eb2863"
+        },
+        {
+          "id": "weathered-grass-dirt-7",
+          "rgba": "4746455c17709fac6e8155b50aaa3218885b3e3f2b760e668916bc59138a425f"
+        },
+        {
+          "id": "weathered-grass-dirt-8",
+          "rgba": "5e3a66d483ab8d3a26d28217fb9affb79e77522a4b5febba700b9857a20112ef"
+        },
+        {
+          "id": "weathered-grass-dirt-9",
+          "rgba": "96229be254d83c0d293d84ecb45a9a1dec98668ecd7abf478207db3b1f906647"
+        },
+        {
+          "id": "weathered-grass-dirt-10",
+          "rgba": "226ec4b8d90e4868f5e443067c3c72fc70f39f083bf7440a07b08cb9099f6c92"
+        },
+        {
+          "id": "weathered-grass-dirt-11",
+          "rgba": "898728d8c26fdd2e7ac24286e910ee37d6d14c05a5a2eb646385791dfdc5d100"
+        },
+        {
+          "id": "weathered-grass-dirt-12",
+          "rgba": "0d5928da829b69e1c247e02a67501fb29d3fcc1164fa73d6fdf18c6336de67cf"
+        },
+        {
+          "id": "weathered-grass-dirt-13",
+          "rgba": "8fc410477b39c0a4867073fff7f572572f5160980f5ad374fadf47801c214377"
+        },
+        {
+          "id": "weathered-grass-dirt-14",
+          "rgba": "37ca47d7a836a71208145b0198b3de72d9cc7822d435ed048f16953bb6b5315f"
+        },
+        {
+          "id": "weathered-grass-dirt-15",
+          "rgba": "a1a092e70f327e347f2638a6a842dc723e199e3d38260fc472b7a625c71308a2"
+        },
+        {
+          "id": "gravel-path-0",
+          "rgba": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+        },
+        {
+          "id": "gravel-path-1",
+          "rgba": "602f386ecb3788001d5cd876ca4ed283d6ea8f52c0fd73511928feb8a07bd88f"
+        },
+        {
+          "id": "gravel-path-2",
+          "rgba": "e3eeee3e18bfc5f16b581dd6fcffa0dd872df87b2946ca82217889c95b6c9d78"
+        },
+        {
+          "id": "gravel-path-3",
+          "rgba": "6faf0af0a0c85eeff90fa84953dae6028cb5435b064cc76b55476a46dbe6cdc6"
+        },
+        {
+          "id": "gravel-path-4",
+          "rgba": "31a2baaf245cacd11c3a4378ec970091018c6baf46721a4993d5e1965e77e769"
+        },
+        {
+          "id": "gravel-path-5",
+          "rgba": "2b528cb29c0f60fbc645da895f3cae0841554b205725623a5cec632a4567baaf"
+        },
+        {
+          "id": "gravel-path-6",
+          "rgba": "9df57a18fbc1b594c3b3e60a315a97b67f49e70dbc4e6a8c3298e539b77f353d"
+        },
+        {
+          "id": "gravel-path-7",
+          "rgba": "cd7f652c39aac641c9cb23997f8cdf44ea8522b519fb7556b83379d110ca285a"
+        },
+        {
+          "id": "gravel-path-8",
+          "rgba": "eafaaeefb605f6a4c373bb28f45f5425cb1d2cac97722534dcf768faad21b61a"
+        },
+        {
+          "id": "gravel-path-9",
+          "rgba": "2e1e9ff88241faebd530b8bf297af42bcc7bab403be0779d511b1f55f0a6a0b7"
+        },
+        {
+          "id": "gravel-path-10",
+          "rgba": "3d029e9a093ed9e44982a33d84a8980e545436225c248ec157b83953702b3b27"
+        },
+        {
+          "id": "gravel-path-11",
+          "rgba": "28c8f98181dec6a0234bf19245332e1fc836468a6f86327e7d34ff220624c06a"
+        },
+        {
+          "id": "gravel-path-12",
+          "rgba": "436a0ab9659bb133604ff0fb3f0b44951378bc0a511a9bc11224d194664bcc2e"
+        },
+        {
+          "id": "gravel-path-13",
+          "rgba": "db6977d57a6ae038bc19e85d65c6b23453c5c5bb59f1c819ef6084c0ed877f37"
+        },
+        {
+          "id": "gravel-path-14",
+          "rgba": "03a5d2ac1e1d593863ea191d3924be104faf73845abc282d721f9f712fc1b964"
+        },
+        {
+          "id": "gravel-path-15",
+          "rgba": "16e94c401fd3222c5df4c31482e3638647fe1ffbe82625c2dd20186b3c317b3a"
+        },
+        {
+          "id": "weathered-gravel-path-0",
+          "rgba": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+        },
+        {
+          "id": "weathered-gravel-path-1",
+          "rgba": "686b253d30bf5aa8b9304870a3df79bcd77d0434068a309425d6a19419dc98a7"
+        },
+        {
+          "id": "weathered-gravel-path-2",
+          "rgba": "c3fc624310f2286e5ae1298c27368439d23e282aa5ac5e4d726da6106225fdc2"
+        },
+        {
+          "id": "weathered-gravel-path-3",
+          "rgba": "5bbfc64c968fb8c61da15db01603d746acd378bc8eb2527ecd887e988b602075"
+        },
+        {
+          "id": "weathered-gravel-path-4",
+          "rgba": "b57b21e289d7a3e65e36ee4176ccdd35c1ce1183296d74d77ca236a4d29ecde1"
+        },
+        {
+          "id": "weathered-gravel-path-5",
+          "rgba": "840d5f817b4101eaf48ab1194154bb2da9bc9f5a1125ae84d3fc66462232af22"
+        },
+        {
+          "id": "weathered-gravel-path-6",
+          "rgba": "cdad30dc4fc43c2f1e016b79390ab225f0e8cd28e8e4c35fc29870e0900bdefc"
+        },
+        {
+          "id": "weathered-gravel-path-7",
+          "rgba": "cc4d2893b2776d738f44a383990d23ada07e35da398709860ae0a7b756270526"
+        },
+        {
+          "id": "weathered-gravel-path-8",
+          "rgba": "c1852992653151f583fe273736357865d8421daef9fffb1395d81b17396dbd9a"
+        },
+        {
+          "id": "weathered-gravel-path-9",
+          "rgba": "18e38dc592d68810daf759b8b38648e2f2abf5ef5ce9f0a29ba9c18af1d1e29f"
+        },
+        {
+          "id": "weathered-gravel-path-10",
+          "rgba": "21b21e8c57757a6684753d4ac2136cd95f78d39ae242cfd363324b4217a71b35"
+        },
+        {
+          "id": "weathered-gravel-path-11",
+          "rgba": "ebc04fc03750d0c1eb391ae2974a4f8ad4fb7f032dc6825112f86f429d514c16"
+        },
+        {
+          "id": "weathered-gravel-path-12",
+          "rgba": "77ecf5bd14a4dc64e0e29f04abc47825da61a12d7e6933df4fe5b3197e364b0c"
+        },
+        {
+          "id": "weathered-gravel-path-13",
+          "rgba": "51d849d8b704ae9dda1319eec5f1f64342d36cbb15e3f3a5e0e3ff293519eac1"
+        },
+        {
+          "id": "weathered-gravel-path-14",
+          "rgba": "1c6d80ffafdb4f2acd402c993b089f369e44120ce34d45964a261d6debf49b76"
+        },
+        {
+          "id": "weathered-gravel-path-15",
+          "rgba": "3cbdc7df325b9dfba38347fcde387dfc2c3760a211f75b52c9a7592d2b23fab8"
+        }
+      ],
+      "atlases": [
+        "4384dad19d998b044a506a11be6aa54b157c363869266b0a986335c119b0ae76",
+        "79f3fcca6400ec7e68a494608abcc358c66ae81bd774b9fb76f02eda28ebdf46",
+        "18ed27e79ac20afb46ea645be4816df66968089b0121a16a8aeee4bfc9ff39d8",
+        "b91cb1fbc5f9b34308be0783cb933f797cfdddd92beae50fdab187913e2813c6"
+      ]
+    },
+    {
+      "recipe": {
+        "id": "retro-terrain-growth",
+        "seed": 1233,
+        "palette": "heath"
+      },
+      "tiles": [
+        {
+          "id": "dirt",
+          "rgba": "b1820c8787528466949da05becac63b77ab0225f0e2145f5214392dbe57ed7eb"
+        },
+        {
+          "id": "grass",
+          "rgba": "830566a1938dd9ace6e9f45402e4887d03d4ed594cbd3ab484140be12ccecc59"
+        },
+        {
+          "id": "gravel",
+          "rgba": "a659d47a1d877cdf1c0160970b241c356847481c77c5cc340d030e32baf55bc0"
+        },
+        {
+          "id": "grass-dirt-0",
+          "rgba": "b1820c8787528466949da05becac63b77ab0225f0e2145f5214392dbe57ed7eb"
+        },
+        {
+          "id": "grass-dirt-1",
+          "rgba": "9c1a4a711507dc2512ed635a2bea5cc2ea7c1f00a847b0dd20513b5ad345958c"
+        },
+        {
+          "id": "grass-dirt-2",
+          "rgba": "c83a169c5218d21f316f57a2eabd06a65f0d00a0031833f1dca182975d49516e"
+        },
+        {
+          "id": "grass-dirt-3",
+          "rgba": "d72cc5da8ae28c17bdc575375c51184b51f71e68670be3c9c1cb9f2802c183ed"
+        },
+        {
+          "id": "grass-dirt-4",
+          "rgba": "e111c3c80cd7b0a48a4c2d85f74c7c40e5e5ceeb41c172c4c30eb66a3ea960d8"
+        },
+        {
+          "id": "grass-dirt-5",
+          "rgba": "622c8f63e5dd12ffd44440c3a6a321071e9bf4a28e2c67821e9ec947e4765894"
+        },
+        {
+          "id": "grass-dirt-6",
+          "rgba": "7fe15a16d776f6402e75654e485582f3ad1b5b847469475355afe600afbdc530"
+        },
+        {
+          "id": "grass-dirt-7",
+          "rgba": "86c92e9d8bfb9d233052acc33f88165bf1486e821a7ae894b9426dac7f521e9d"
+        },
+        {
+          "id": "grass-dirt-8",
+          "rgba": "8d0e0a9c30b657bee3d3fc4b66f8e5fa43a487cc8bb0446344ca2fabd8abc5e1"
+        },
+        {
+          "id": "grass-dirt-9",
+          "rgba": "b494caba69bede84209b463744eb028860d398e44bbc322b4ba57aa4facab0df"
+        },
+        {
+          "id": "grass-dirt-10",
+          "rgba": "653770b2182da0ead092c045fb52b0b8903fed2c755057432b77046c064b770a"
+        },
+        {
+          "id": "grass-dirt-11",
+          "rgba": "0b2c9fcdfdb1621cd10a9e3d506fbbcf9bc9a0b4ceda9805e2110b4cb98e938b"
+        },
+        {
+          "id": "grass-dirt-12",
+          "rgba": "1b0f1fa3dca03d80873d39e5e0b7e63ca52b8f54e54443eb0511bf0c99263d3d"
+        },
+        {
+          "id": "grass-dirt-13",
+          "rgba": "f0cdc5e4007c84be7766f2bc78eccff5da821fc59ae2e9bbbc80412efa7cfe7e"
+        },
+        {
+          "id": "grass-dirt-14",
+          "rgba": "8cdac7f8d66e18fe53b1cbead50d3bd8781bdc3b0ce5a6176088e6fc0facfc7b"
+        },
+        {
+          "id": "grass-dirt-15",
+          "rgba": "830566a1938dd9ace6e9f45402e4887d03d4ed594cbd3ab484140be12ccecc59"
+        },
+        {
+          "id": "weathered-dirt",
+          "rgba": "17fce1654c693e2a6a2750be8d2be203df05ab502d4f1a4ed79cf8663e0cac3c"
+        },
+        {
+          "id": "weathered-grass",
+          "rgba": "f818a23f7f56e08898d0549a1ffd2e6c2b3dcb8192fa9576428584b4030817a6"
+        },
+        {
+          "id": "weathered-gravel",
+          "rgba": "d02a13a61e5ae12b9eaf5e83279a4a91fd9c284a1adf9e11b1367d61b7bb1e90"
+        },
+        {
+          "id": "weathered-grass-dirt-0",
+          "rgba": "17fce1654c693e2a6a2750be8d2be203df05ab502d4f1a4ed79cf8663e0cac3c"
+        },
+        {
+          "id": "weathered-grass-dirt-1",
+          "rgba": "dd7568fc493e52ccbe05810c80b695bda2b6fd3be74734af09361fa0a95e3814"
+        },
+        {
+          "id": "weathered-grass-dirt-2",
+          "rgba": "ca317b5af63dd732bc54291354e0d2b5d34c9fac3e57b373f71ba9076de3a26d"
+        },
+        {
+          "id": "weathered-grass-dirt-3",
+          "rgba": "441d75f93cd32f5b37f75db66aa24c8ae64c6b1955bed9f4c15ab505f13beeb8"
+        },
+        {
+          "id": "weathered-grass-dirt-4",
+          "rgba": "4e6bc6389d4a05e0fd640bdad37037ceb128e9540a314f6a4237e582cfc9b348"
+        },
+        {
+          "id": "weathered-grass-dirt-5",
+          "rgba": "2e91f96433feb65a76e02fc24fb14d18a0d01187df0b5f92b09eb8e1e59df2cf"
+        },
+        {
+          "id": "weathered-grass-dirt-6",
+          "rgba": "058bedd4654ed5769564eea81e824cccf509278cf1e3be38ede51093d9e19091"
+        },
+        {
+          "id": "weathered-grass-dirt-7",
+          "rgba": "7417f9cc5101361aeb8711f05e61ad3e035eeaba8380c14c6c37cc1afb73a849"
+        },
+        {
+          "id": "weathered-grass-dirt-8",
+          "rgba": "cb8a3acdb8c0dc47db87866b8a18815cea2b5ee42709f10c41fb771f62593a6b"
+        },
+        {
+          "id": "weathered-grass-dirt-9",
+          "rgba": "ea0dd34851038a59ebc9861f528a86e3c2e9924817686cd123047edec5c017e9"
+        },
+        {
+          "id": "weathered-grass-dirt-10",
+          "rgba": "bc0b850aedb408058ef5f9276d3c0edc9a71011a49822cf20c35b9ed2e26ca23"
+        },
+        {
+          "id": "weathered-grass-dirt-11",
+          "rgba": "c72671c596aacfac314c31addd0e703d8e481041f7dda966a5b6987d28374339"
+        },
+        {
+          "id": "weathered-grass-dirt-12",
+          "rgba": "a5e235ef7c71501b80e9d8d9dcf62df6138e6f84461fbf3a4bd4389c256da701"
+        },
+        {
+          "id": "weathered-grass-dirt-13",
+          "rgba": "b119e5f5d44ed04452a2b22164b8be14a14126b6cb0130c55920e45bc834761d"
+        },
+        {
+          "id": "weathered-grass-dirt-14",
+          "rgba": "1189708fc483e5163f38d9a38decb17e4cd9483d842ad4e33baa425b5a4664e6"
+        },
+        {
+          "id": "weathered-grass-dirt-15",
+          "rgba": "f818a23f7f56e08898d0549a1ffd2e6c2b3dcb8192fa9576428584b4030817a6"
+        },
+        {
+          "id": "gravel-path-0",
+          "rgba": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+        },
+        {
+          "id": "gravel-path-1",
+          "rgba": "8f0a8a5492fb8fc1148e18304f7bbd8820a31aa8151aedcd3e43ea8e05b4bbb3"
+        },
+        {
+          "id": "gravel-path-2",
+          "rgba": "dab067a4e51ff7444f14d8e38b5a9b1ff38011f24d95408eaee648d1adbc63e7"
+        },
+        {
+          "id": "gravel-path-3",
+          "rgba": "0e2db6c2efa42dc6275a9e8727e0102b7f6d53854c532929cb5590994b9c9269"
+        },
+        {
+          "id": "gravel-path-4",
+          "rgba": "900d81b192b484148a87ba3bba91644b15c4d2a17cd1222627c49339a48235bb"
+        },
+        {
+          "id": "gravel-path-5",
+          "rgba": "e4e6d6127e121be0ab61014fc41848633b48f30bede867efacde6ed6fa47a827"
+        },
+        {
+          "id": "gravel-path-6",
+          "rgba": "68b75bbfdc6be5130ea4c20d7861393d3274101d6f4b72a62d0ba4a7ddd2f29f"
+        },
+        {
+          "id": "gravel-path-7",
+          "rgba": "507b0bcd58ef87ed3ab89e095df13dd5c2229984b0a6a3b3baa547e98a5049fa"
+        },
+        {
+          "id": "gravel-path-8",
+          "rgba": "9f2d50a191e5a9996dcbd8abebaa905d2f975665921968c975ce969faec1280a"
+        },
+        {
+          "id": "gravel-path-9",
+          "rgba": "e1f261c178bf3800b4e218526fc28af7fd0c24a38cb477d176443e6ccc64ef9d"
+        },
+        {
+          "id": "gravel-path-10",
+          "rgba": "8475a4684b13108ab21824b909a3a84f9a963d1eca30232f95ecaf0e3a984d07"
+        },
+        {
+          "id": "gravel-path-11",
+          "rgba": "580163f9603424d3dd897125e05369bfc3f4f197d8b4044281a58bc1ae5b1f6b"
+        },
+        {
+          "id": "gravel-path-12",
+          "rgba": "a8a2e5ca8de805e2548e4d338d66e602790e8686c66e9e73b2680d57e5017b75"
+        },
+        {
+          "id": "gravel-path-13",
+          "rgba": "8b307b0e39289709351749e6fd7011d1062ff8214c00f00538f37bb816fedc68"
+        },
+        {
+          "id": "gravel-path-14",
+          "rgba": "528475b1833743be95e3f2cbae0fbb6016c49b7c579ce95e94b26c453c6d2d3c"
+        },
+        {
+          "id": "gravel-path-15",
+          "rgba": "5d923b1b5f09b2140b5c5a3e178b123eaf7ba2b8dc52a038dd0d44833fba7006"
+        },
+        {
+          "id": "weathered-gravel-path-0",
+          "rgba": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+        },
+        {
+          "id": "weathered-gravel-path-1",
+          "rgba": "9164e09f98cffce23162c072c3b0483f6d24e9fc7f62aab0330707edb81158ad"
+        },
+        {
+          "id": "weathered-gravel-path-2",
+          "rgba": "654bca3cac98027a5f769a66089263f926aadfd313daefa9cec9de3aa392cd33"
+        },
+        {
+          "id": "weathered-gravel-path-3",
+          "rgba": "caff311104ca48550c225a10ccb392d968985aa9dcc96b3744fa2a8579e892b5"
+        },
+        {
+          "id": "weathered-gravel-path-4",
+          "rgba": "3b099f4a986ffaf4407974132d46f936eb4f798ff90cd7ae7e89287a755ade8c"
+        },
+        {
+          "id": "weathered-gravel-path-5",
+          "rgba": "bb557a04b43c3ca0b8f4a222a559b977e6a30c4d940cffe4726ad00d8bf7146e"
+        },
+        {
+          "id": "weathered-gravel-path-6",
+          "rgba": "a8d30dfeb02fdef27b70057cc3e0058a37fa3d14d1ce62b9512083bc6af1cd3b"
+        },
+        {
+          "id": "weathered-gravel-path-7",
+          "rgba": "91dac5de8b43ae6b8faf5fe617e6ea46a3865af3722c6fd3189563791fb0b7ad"
+        },
+        {
+          "id": "weathered-gravel-path-8",
+          "rgba": "d61759040c68455b60f1eb3a32dc062baa26de539e1ca369c9f472cf6b7dc04c"
+        },
+        {
+          "id": "weathered-gravel-path-9",
+          "rgba": "944e4a30287270751f879df5118c583ed0252e00cacc85767da80f720eaa1f3a"
+        },
+        {
+          "id": "weathered-gravel-path-10",
+          "rgba": "11bf1a73319c47c32fcc7b1cc35108d98a79966ae65570fcdb5b23df03883863"
+        },
+        {
+          "id": "weathered-gravel-path-11",
+          "rgba": "421856d5ac1f78cd452f385d764304fb1cf5b6bfdadabc53de07dcc6c4bbfe93"
+        },
+        {
+          "id": "weathered-gravel-path-12",
+          "rgba": "ad60777754e3c13e4cb2735a2e97ae0dc1f70f8bb64f15d8619741fcd1202f56"
+        },
+        {
+          "id": "weathered-gravel-path-13",
+          "rgba": "63e3b0e922cda4cd9fad09c95cc2f5454079538f6369fc02e81035c47b3f872a"
+        },
+        {
+          "id": "weathered-gravel-path-14",
+          "rgba": "e9f3bf43a66628addb921a8f97adc5550225a1929adfde298ca5ee2dc26db1e4"
+        },
+        {
+          "id": "weathered-gravel-path-15",
+          "rgba": "16b7ee0a4aa91dcaeca44ad8f868741a9e71f3976d9f155a9b028bbc9134f4eb"
+        }
+      ],
+      "atlases": [
+        "0c35fd404cb38e8995f34d04b2f5fb44fde69ad61a69b4f98c7268bed7e234b9",
+        "0bf9443c82aff9d52cc3dfe29f5b94e76e620f6868015a51d2c362a2051fc510",
+        "7c7ab968f88abde3bb32d446b06f85cf7f2ed6f6bf367f48715d56f7c7b3215f",
+        "7a16afa7aaa7599858aa77d5fdb23ef1da2de323aa2fc79b145d5ea5b7c6e2b1"
+      ]
+    },
+    {
+      "recipe": {
+        "id": "retro-terrain-growth",
+        "seed": 1233,
+        "palette": "riverbed"
+      },
+      "tiles": [
+        {
+          "id": "dirt",
+          "rgba": "81365edb96c9469b9379afae4c044a3f7e73779e0f3d6f93fb3473a42fbc7a97"
+        },
+        {
+          "id": "grass",
+          "rgba": "6646aa51fdcc0b5a0c4a98476ef856b41fa85ec71f6e770916726113005d6e60"
+        },
+        {
+          "id": "gravel",
+          "rgba": "6b6567aee426778ce96e3ceea26a5087329003079101b85f9c160f637a839312"
+        },
+        {
+          "id": "grass-dirt-0",
+          "rgba": "81365edb96c9469b9379afae4c044a3f7e73779e0f3d6f93fb3473a42fbc7a97"
+        },
+        {
+          "id": "grass-dirt-1",
+          "rgba": "dc605f0db48f98b2c9627745879564ec48ed7712d0a3a1f8f5833e71a0f96f62"
+        },
+        {
+          "id": "grass-dirt-2",
+          "rgba": "e02d2e5367a470b3d403f25f7fcdbca5a64c4267e5a18960f03f34699bb360bc"
+        },
+        {
+          "id": "grass-dirt-3",
+          "rgba": "238954522ef301f319bab848281c82f721641fa268af9ef057d900e256e0d1bd"
+        },
+        {
+          "id": "grass-dirt-4",
+          "rgba": "727131ed52414e36723aa9e23a63a8ca00b3f5f76ea4c8316b3d89110d2d1727"
+        },
+        {
+          "id": "grass-dirt-5",
+          "rgba": "84308421e2bd26019275754bfd614c3a085f90bfb05065d745c0206d5495c8e9"
+        },
+        {
+          "id": "grass-dirt-6",
+          "rgba": "e07014c6fdbc0d4e60583edd3d8e624d52e1f0f250d15bf8a968b4afdcf6fc28"
+        },
+        {
+          "id": "grass-dirt-7",
+          "rgba": "d0dab7bea6e40e77f859bb4ec28fba8ee4b7fb8e061c8d22dfaabd4f3c80f872"
+        },
+        {
+          "id": "grass-dirt-8",
+          "rgba": "ee3be32ec5915cea71a6cbbbfe7c23c318a6c81751be6223ad812110e25e18b6"
+        },
+        {
+          "id": "grass-dirt-9",
+          "rgba": "f5cc41659bf8e4c878f51d69ef1f9f4ed2ca373c9ba216c94c2024ea4151c2c7"
+        },
+        {
+          "id": "grass-dirt-10",
+          "rgba": "5c8b725e911686c0721e41565b004d5eeef6ba36a8387c1763b09671d66e46fd"
+        },
+        {
+          "id": "grass-dirt-11",
+          "rgba": "4a386e4e623a92dec0d8e4a9526cfc2f8cdabe03996530996d71cbce5474d8de"
+        },
+        {
+          "id": "grass-dirt-12",
+          "rgba": "49b4eecb4bc638a67ac8442d8440e506a6233df1a331cf50de98ca766c8dd887"
+        },
+        {
+          "id": "grass-dirt-13",
+          "rgba": "b030193c3a1bfecedbf83ba205981cfd879771fe0949995b01e987cc2f1ea154"
+        },
+        {
+          "id": "grass-dirt-14",
+          "rgba": "47076c569347ac95a3e4c05a7560d6262827071e511cf5d6dc67d5d52ff5a077"
+        },
+        {
+          "id": "grass-dirt-15",
+          "rgba": "6646aa51fdcc0b5a0c4a98476ef856b41fa85ec71f6e770916726113005d6e60"
+        },
+        {
+          "id": "weathered-dirt",
+          "rgba": "fae5768b73595330ac090f048fd559dde459d6d60942bec89ba152dc33949a1c"
+        },
+        {
+          "id": "weathered-grass",
+          "rgba": "6b9c9ab941032d1e857a6738146247e831b7f66ebdaf931651676c2b205f7f42"
+        },
+        {
+          "id": "weathered-gravel",
+          "rgba": "f70140eb5d2668bc89b0ab3ef32c9a9bea90a825dca3468d9c10d207715b9fca"
+        },
+        {
+          "id": "weathered-grass-dirt-0",
+          "rgba": "fae5768b73595330ac090f048fd559dde459d6d60942bec89ba152dc33949a1c"
+        },
+        {
+          "id": "weathered-grass-dirt-1",
+          "rgba": "b1d55b7aeb5fea573e8e0fe939ff7f68fbd96e9e70788be0e8eddf98a06ee4d1"
+        },
+        {
+          "id": "weathered-grass-dirt-2",
+          "rgba": "79ca0e0ba5e4e053bd79b4f492a6364990e95b1a369c1411f48a5a6a50e123a4"
+        },
+        {
+          "id": "weathered-grass-dirt-3",
+          "rgba": "d82332a1286d67a07d96137e328e1c797c5e44c987e4a3bd658b8a3ae5f6ecfa"
+        },
+        {
+          "id": "weathered-grass-dirt-4",
+          "rgba": "a99d5ec901e0e85f0dcdde96128b47951a24a786609c44bb67593dd461e66680"
+        },
+        {
+          "id": "weathered-grass-dirt-5",
+          "rgba": "609d560a00da1150208745404f604dc32113c927f84470e02fe9088956539f71"
+        },
+        {
+          "id": "weathered-grass-dirt-6",
+          "rgba": "b575cfe68013a29d1d3a0532740a3954b21a66b339879bf4ca64f47565cc5946"
+        },
+        {
+          "id": "weathered-grass-dirt-7",
+          "rgba": "e03a1799a25dd4b883cbe08d0fce0d1bdcf74d086f9741dcce9e6e82f8fbbe2b"
+        },
+        {
+          "id": "weathered-grass-dirt-8",
+          "rgba": "a3f11b16fa889e7a15aea4a9b57f0ac3691faa6eaa48ac4cfa80ab861c9b1c0a"
+        },
+        {
+          "id": "weathered-grass-dirt-9",
+          "rgba": "37a22107c5ac6f4d2ee0ed86adf0c753ee3ea55701edef5dabe2fde1901dff29"
+        },
+        {
+          "id": "weathered-grass-dirt-10",
+          "rgba": "1d1ecebe601cd53e3edfbdc41db37d15736c350a862a020029815a9cab457adf"
+        },
+        {
+          "id": "weathered-grass-dirt-11",
+          "rgba": "1097a93c06190fd8d2686f5816aea521725a9d110c646c4d4f13a7c4061a0f02"
+        },
+        {
+          "id": "weathered-grass-dirt-12",
+          "rgba": "4ad8e0134b5a4288688bf6fc0e28c8066480b035e7f80634cf0ac938aae9fcea"
+        },
+        {
+          "id": "weathered-grass-dirt-13",
+          "rgba": "4f6ac41b2d5de7907e86beec478f7c34feabdcf94733f64abb00503f63e6de99"
+        },
+        {
+          "id": "weathered-grass-dirt-14",
+          "rgba": "6401d2d8bc324bc3f85cb42caca5c1e6c9a00e004804065840d48628e6c551eb"
+        },
+        {
+          "id": "weathered-grass-dirt-15",
+          "rgba": "6b9c9ab941032d1e857a6738146247e831b7f66ebdaf931651676c2b205f7f42"
+        },
+        {
+          "id": "gravel-path-0",
+          "rgba": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+        },
+        {
+          "id": "gravel-path-1",
+          "rgba": "359da4ed8d762c06ccf691f083de534585ce23638f63c982025126694a1f7db2"
+        },
+        {
+          "id": "gravel-path-2",
+          "rgba": "9e8ea6a45f1301dfa483d8c276677542c58621a7d23dce21807ba37b08433e72"
+        },
+        {
+          "id": "gravel-path-3",
+          "rgba": "54ae3009c2d88d2391813f91124b08ff7c801b6b9ded69d23c21bc072ee9e9e4"
+        },
+        {
+          "id": "gravel-path-4",
+          "rgba": "4c2bca212069987d0f1935b79e7257a4f74b5dae887a2f32a58e0b5c9d0c97f7"
+        },
+        {
+          "id": "gravel-path-5",
+          "rgba": "cef1753d69c727430b6be8aabb9dfbea22ded0aea4f619241778b80895a707b0"
+        },
+        {
+          "id": "gravel-path-6",
+          "rgba": "3abbe2b62c4f628d5f7ee407208d00b5806cba2e9b37385b4c8d420c1f695c1e"
+        },
+        {
+          "id": "gravel-path-7",
+          "rgba": "4657dda92e5321bc5b1a1942d1b4f3a23f18f27a80880e52aa27dc4b7e3b56ba"
+        },
+        {
+          "id": "gravel-path-8",
+          "rgba": "95b5daa20f5574accf1d50d3d035a34e35e7cd9d883fc3fac73bcb7a3689bfaa"
+        },
+        {
+          "id": "gravel-path-9",
+          "rgba": "630bdc7a40171b1682fd5da6e14c253208b4202ed91f54e0184785ada544c680"
+        },
+        {
+          "id": "gravel-path-10",
+          "rgba": "7eb07efaefa30210564483adfb3b335fbb8149ea5c47b53a21a854244749d053"
+        },
+        {
+          "id": "gravel-path-11",
+          "rgba": "98e3de2bc805e0643e1521a2ff5443c17e2b3459a53ec21fe1512fdc6861b689"
+        },
+        {
+          "id": "gravel-path-12",
+          "rgba": "1b5eb2d7881d2854cb36357b08dc45a686511f298031866a0f95b2631ac06601"
+        },
+        {
+          "id": "gravel-path-13",
+          "rgba": "0d726ab7fcf43b42a08e773265937d52e38f3de8407af5dec0bffc9f3eb74c82"
+        },
+        {
+          "id": "gravel-path-14",
+          "rgba": "4eafec250b70c039616d513e24624ed9fab3790adcca2fd56d7edcaff86d886f"
+        },
+        {
+          "id": "gravel-path-15",
+          "rgba": "a30bc379b72682956dec8c3d5c3f32743061b1a9b57ca77da7bdb12caa6cc176"
+        },
+        {
+          "id": "weathered-gravel-path-0",
+          "rgba": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+        },
+        {
+          "id": "weathered-gravel-path-1",
+          "rgba": "2d18d79882dcd14fd81dd1c61880ce4270b117e7f7d5f20996a7d822c5fa2cb5"
+        },
+        {
+          "id": "weathered-gravel-path-2",
+          "rgba": "7c8e0478075107f62bca84bab8c2a754bd5b0094d60d81842ca00863ff983be9"
+        },
+        {
+          "id": "weathered-gravel-path-3",
+          "rgba": "c005b0c1290c17b3e2f40e1a21536a8362ea59908271d5f6af231120b8417481"
+        },
+        {
+          "id": "weathered-gravel-path-4",
+          "rgba": "7a8abf3b0011335abfa5714e8c094f28fc03498cc2a4607c5f850ccf37998dd2"
+        },
+        {
+          "id": "weathered-gravel-path-5",
+          "rgba": "1cd32d3cd3d434d74f1161f1df3aff4e6064a98a718df0d185fa57b510a089c1"
+        },
+        {
+          "id": "weathered-gravel-path-6",
+          "rgba": "3bea9bdd992eb1ef5fe317657d97b4abf2f6c930ccc681455589787c8f7ea7f8"
+        },
+        {
+          "id": "weathered-gravel-path-7",
+          "rgba": "567c3217a3918a3e4e5eef8e5d273737103fd846ccdf0c22b647453096399433"
+        },
+        {
+          "id": "weathered-gravel-path-8",
+          "rgba": "efff564b28f5373e3bf48793c4ba32ad4b0ae0045f0db20bd52d53c008348f32"
+        },
+        {
+          "id": "weathered-gravel-path-9",
+          "rgba": "90b755d7b835d75e7f2fd7e98619b0ff409b16d172e4972953138adbe7246987"
+        },
+        {
+          "id": "weathered-gravel-path-10",
+          "rgba": "5027765f1aa66d166d12c1a74abb928390576110d5ec87b37fce08111390d41b"
+        },
+        {
+          "id": "weathered-gravel-path-11",
+          "rgba": "a2a0bea308019acfe1ed858128874767f4e1dc3f93f750accaa7978c0d744c80"
+        },
+        {
+          "id": "weathered-gravel-path-12",
+          "rgba": "99975e65599c84be2712e5990d87d9b4c0f067a9530313649b41908d14ad8873"
+        },
+        {
+          "id": "weathered-gravel-path-13",
+          "rgba": "86ab9f4e0d36785e32e5e6655240926eeaa66489a700bc3f308d1a8914597577"
+        },
+        {
+          "id": "weathered-gravel-path-14",
+          "rgba": "7ff6ac93f7504ac0bbc54be2efdf7aa675813fed19c43f8f3d351955e8c93a72"
+        },
+        {
+          "id": "weathered-gravel-path-15",
+          "rgba": "5932741645e470ec35825047801853a66fb1d9f2d5e873d3d8b531e7f103e6ba"
+        }
+      ],
+      "atlases": [
+        "20da12fb17ceadcec094f71de6cf87ff242d0eff431d97c74aec8617a420fe9d",
+        "627edeae181abc5d2d64fcc88637fc9a84f759d344f062bf9ba8b49b87932fd3",
+        "aa4bb4c538144e0a0107d2523bf3aad26f3d10b2adaab986568b2a3f563c277b",
+        "38aafe744193f909b4019102f8eb1251c094b2eda403035cd3d0ad8d2b342b71"
+      ]
+    }
+  ]
+}

@@ -264,7 +264,10 @@
         "scripts/bake-retro-terrain.mjs",
         "scripts/bake-retro-terrain-growth.mjs",
         "scripts/bake-retro-terrain.test.mjs",
-        "scripts/bake-retro-terrain-growth.test.mjs"
+        "scripts/bake-retro-terrain-growth.test.mjs",
+        "scripts/bake-retro-terrain-curated.mjs",
+        "scripts/bake-retro-terrain-curated.test.mjs",
+        "scripts/test-retro-terrain-curated-browser.mjs"
       ]
     },
     "project_binding": {
@@ -281,6 +284,24 @@
         "docs/PROJECT_IDENTITY.md",
         "docs/PROJECT_SPEC.md",
         "docs/PROOF.md"
+      ]
+    },
+    "terrain_curated": {
+      "description": "Original native16/64 curated compositions, Grout blob topology, palettes and acceptance. Legacy generators remain separate.",
+      "status": "active",
+      "paths": [
+        "src/shader/retro-terrain-art.mjs",
+        "src/shader/retro-terrain-art.d.mts",
+        "src/shader/retro-autotile.mjs",
+        "src/shader/retro-autotile.d.mts",
+        "src/shader/retro-terrain-curated.mjs",
+        "src/shader/retro-terrain-curated.d.mts",
+        "scripts/retro-autotile.test.mjs",
+        "scripts/retro-terrain-curated.test.mjs",
+        "docs/look-dev/retro-terrain-curated.md",
+        "scripts/study-retro-terrain-curated.mjs",
+        "docs/look-dev/retro-terrain-curated-proof.json",
+        "docs/licenses/grout-autotile-MIT.txt"
       ]
     }
   },

@@ -28,7 +28,10 @@
         "program": "node",
         "args": [
           "--test",
-          "scripts/retro-terrain.test.mjs"
+          "scripts/retro-terrain.test.mjs",
+          "scripts/retro-terrain-growth.test.mjs",
+          "scripts/retro-autotile.test.mjs",
+          "scripts/retro-terrain-curated.test.mjs"
         ],
         "working_directory": ".",
         "timeout_ms": 60000,
