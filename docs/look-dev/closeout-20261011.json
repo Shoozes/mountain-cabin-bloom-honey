@@ -1,0 +1,188 @@
+{
+  "format": "texture-tool-closeout/1",
+  "status": "passed",
+  "completedUtc": "2026-10-11T17:12:02.505Z",
+  "sourceTip": "c26d117c6de03432b469abbfc55e061778512735",
+  "candidate": "Verified working-tree progress snapshot on existing main",
+  "runtime": {
+    "platform": "win32",
+    "node": "v26.5.0",
+    "npm": "11.6.2",
+    "powershell": "7.6.6"
+  },
+  "sourceSha256": {
+    "package.json": "9cdfacbdd529b78ba0192a349ee00729a917afc20d587a10183169faa62d2a35",
+    "scripts/test-local.mjs": "4281007bc07e7fb72ea67094955bfc6d6fb1f0082ddf473687754217a9961eca",
+    "scripts/test-material-browser.mjs": "c9d9452ee92bcf10ca28464ba1b2d8efb3e99efb4fb89883e0578227d43f9475",
+    "scripts/bake-material.mjs": "3b6a7bff1f4a33b0feeabaf7cef4bed7bcb52fe31b84c10a744c8e4bbf8c7b95",
+    "scripts/bake-environment.mjs": "097b1a0a6c3dc9cd7ae94fee1cdd23c0826a627b212f0500d87c29459159a053",
+    "scripts/bake-environment.test.mjs": "0fd498b4070a33944d3748a66d109711b3890a60275bae056c2aafe872f2b87e",
+    "scripts/bake-vertex-colors.mjs": "0f45104bb8caa10a4f5b074c5b4231d4c1f1cb14bd5259353fcda02c20f1ba9c",
+    "src/components/mill-app.tsx": "0824568549fd8ac794b3085306c06069f4178554580b3938d089ee79e00fb52b",
+    "src/components/material-panel.tsx": "4bf1b420d5aad5a232fa7346322f214b166ed1fa4fd4739afb42ca86bcce254e",
+    "src/routes/__root.tsx": "3c13693aed400cadafb3bb6f4677682f8df347459168153f9b589499a5b0157b",
+    "src/shader/material.mjs": "9abd395a8bd538589334ede08c1720a401739873a822d3273af25f13d7868e82",
+    "src/shader/material-browser.mjs": "47f39fb0e2b4f46c3761e6fc66128a963399acf061ed2f3f49d03002fcd65ece",
+    "src/shader/environment.mjs": "3af22b28f87c45b8706ce6bf763afefbf9f5b5285fb7d58d138a98245b0c4f2a",
+    "src/shader/vertex-colors.mjs": "0de50b379d8fbd8993cc5428aa533db09faee2722c55c42f546ec3c0c7633d98"
+  },
+  "commands": [
+    {
+      "command": "npm test",
+      "exitCode": 0,
+      "tests": {
+        "scripts": 233,
+        "source": 80,
+        "total": 313
+      }
+    },
+    {
+      "command": "npm run typecheck",
+      "exitCode": 0
+    },
+    {
+      "command": "npm run lint",
+      "exitCode": 0
+    },
+    {
+      "command": "npm run build",
+      "exitCode": 0
+    },
+    {
+      "command": "npm run build:pages",
+      "exitCode": 0
+    },
+    {
+      "command": "node scripts/test-material-browser.mjs --playwright-root node_modules/playwright",
+      "exitCode": 0
+    },
+    {
+      "command": "node scripts/test-material-browser.mjs --playwright-root node_modules/playwright --dev-url http://127.0.0.1:8080/",
+      "exitCode": 0
+    },
+    {
+      "command": "git diff --check",
+      "exitCode": 0
+    }
+  ],
+  "browsers": [
+    {
+      "retainedLocalReceipt": ".artifacts/proof/material-browser/1791738388485-32596/receipt.json",
+      "exportOnly": false,
+      "mode": "pages",
+      "expectedConsoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ],
+      "approvalMetadata": true,
+      "firstExportReady": true,
+      "sourceReadCacheDisabled": true,
+      "secondExportClickElapsedMs": 53,
+      "heldSourceElapsedMs": 63,
+      "sourceRequestObserved": true,
+      "concurrentEditDispatched": true,
+      "concurrentEditPreserved": true,
+      "persisted": true,
+      "unsavedPersisted": true,
+      "download": true,
+      "styleMaterials": [
+        {
+          "style": "hd2d",
+          "size": 128,
+          "families": 10
+        },
+        {
+          "style": "cel-ink",
+          "size": 256,
+          "families": 10
+        },
+        {
+          "style": "soft-cartoon",
+          "size": 256,
+          "families": 10
+        },
+        {
+          "style": "pbr",
+          "size": 512,
+          "families": 10
+        }
+      ],
+      "catalogPausedDuringMaterial": true,
+      "styleDraft": true,
+      "styleExport": true,
+      "styleErrorRecovery": true,
+      "materialLabels": true,
+      "catalogResumed": true,
+      "judgeMissingReference": true,
+      "judgeCancellation": true,
+      "judgeRetry": true,
+      "storageFailureRecovery": true,
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "retainedLocalReceipt": ".artifacts/proof/material-browser/1791738471168-27400/receipt.json",
+      "exportOnly": false,
+      "mode": "dev",
+      "expectedConsoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ],
+      "approvalMetadata": true,
+      "firstExportReady": true,
+      "sourceReadCacheDisabled": true,
+      "secondExportClickElapsedMs": 27,
+      "heldSourceElapsedMs": 46,
+      "sourceRequestObserved": true,
+      "concurrentEditDispatched": true,
+      "concurrentEditPreserved": true,
+      "persisted": true,
+      "unsavedPersisted": true,
+      "download": true,
+      "styleMaterials": [
+        {
+          "style": "hd2d",
+          "size": 128,
+          "families": 10
+        },
+        {
+          "style": "cel-ink",
+          "size": 256,
+          "families": 10
+        },
+        {
+          "style": "soft-cartoon",
+          "size": 256,
+          "families": 10
+        },
+        {
+          "style": "pbr",
+          "size": 512,
+          "families": 10
+        }
+      ],
+      "catalogPausedDuringMaterial": true,
+      "styleDraft": true,
+      "styleExport": true,
+      "styleErrorRecovery": true,
+      "materialLabels": true,
+      "catalogResumed": true,
+      "judgeMissingReference": true,
+      "judgeCancellation": true,
+      "judgeRetry": true,
+      "storageFailureRecovery": true,
+      "status": "passed",
+      "errors": []
+    }
+  ],
+  "visualInspection": "Desktop and 390x844 mobile captures inspected during the original browser runs",
+  "limitations": [
+    "No art approval or external engine requalification",
+    "Node 22 and hosted deployment not rerun",
+    "Sandbox-only browser-smoke/preview scripts replaced by repository material harness on Windows"
+  ],
+  "proofReuse": "All 14 recorded source hashes matched before closeout; app checks reused without rerunning unchanged code",
+  "localRetention": ".artifacts/proof/review-cleanup and original browser logs/captures retained locally; their paths are not repository links",
+  "resources": {
+    "preview": "Deliberately retained under repository preview contract; identity and shutdown recorded in ignored .runtime/review-cleanup-dev.json",
+    "tests": "Owned test preview servers and browsers closed"
+  }
+}

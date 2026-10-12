@@ -87,6 +87,7 @@ test("committed corpus matches the manifest and the subway example path", () => 
     wear: 0.35,
     repeat: 1,
     path: "textures/pixel/bond/subway.png",
+    visualReview: "unapproved",
   });
 
   const paths = manifest.files.map((file) => file.path);

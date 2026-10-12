@@ -1,0 +1,230 @@
+{
+  "format": "material-visual-study/1",
+  "id": "grass-dirt-20261011",
+  "producer": "Codex/root using the existing material generator, baker and lossless PNG encoder",
+  "lifetime": "Retained visual-study evidence while referenced by docs; no automatic retirement",
+  "visualReview": "unapproved",
+  "sourceTip": "c26d117c6de03432b469abbfc55e061778512735",
+  "candidate": "checked working-tree sources",
+  "recipes": [
+    {
+      "id": "style-surface",
+      "family": "grass",
+      "style": "hd2d",
+      "seed": 1204,
+      "size": 128,
+      "palette": "earth",
+      "strataScale": 4,
+      "fracture": 0.28,
+      "relief": 0.55,
+      "roughness": 0.84
+    },
+    {
+      "id": "style-surface",
+      "family": "dirt",
+      "style": "hd2d",
+      "seed": 1204,
+      "size": 128,
+      "palette": "earth",
+      "strataScale": 4,
+      "fracture": 0.28,
+      "relief": 0.55,
+      "roughness": 0.84
+    }
+  ],
+  "sources": [
+    {
+      "path": "src/shader/material.mjs",
+      "sha256": "9abd395a8bd538589334ede08c1720a401739873a822d3273af25f13d7868e82"
+    },
+    {
+      "path": "scripts/bake-material.mjs",
+      "sha256": "3b6a7bff1f4a33b0feeabaf7cef4bed7bcb52fe31b84c10a744c8e4bbf8c7b95"
+    },
+    {
+      "path": "scripts/material-png.mjs",
+      "sha256": "a8c63520bbbd5eb8d6a5ddf7751a819171c8d49a7b94ae27ca589228e63e31a8"
+    }
+  ],
+  "checks": {
+    "variantSet": "single",
+    "nativeSize": 128,
+    "repeat": "2x2",
+    "nearest": true,
+    "byteExactRepeat": true,
+    "verifiedCacheReuse": true
+  },
+  "cases": [
+    {
+      "family": "grass",
+      "manifest": {
+        "path": "grass/material.json",
+        "bytes": 2767,
+        "sha256": "adcb00fc63b7527fa747bf16aceba0339d5cd67cf78a1189868ceee745a32344"
+      },
+      "identity": "fea7a71e878bc2f20eee2a3e172f6cf50eccdefb0edc72bedf35c7f11f26e833",
+      "native": [
+        {
+          "channel": "albedo",
+          "width": 128,
+          "height": 128,
+          "path": "grass/s1204-albedo.png",
+          "bytes": 1568,
+          "sha256": "79e7514fbd41fea3b7c2a3a2efa9ec6fda245cd7997d33746a04fbfb90522e90"
+        },
+        {
+          "channel": "height",
+          "width": 128,
+          "height": 128,
+          "path": "grass/s1204-height.png",
+          "bytes": 5846,
+          "sha256": "9539500e59b49aca5c5880f543e3f4fdf0cc88266805b67f626ef439b77f920f"
+        },
+        {
+          "channel": "normal",
+          "width": 128,
+          "height": 128,
+          "path": "grass/s1204-normal.png",
+          "bytes": 21574,
+          "sha256": "46ac64fb89276d1cd87490a113a8769c766e8bbd3ee8671489d6aee52c51bc6b"
+        },
+        {
+          "channel": "roughness",
+          "width": 128,
+          "height": 128,
+          "path": "grass/s1204-roughness.png",
+          "bytes": 5557,
+          "sha256": "5a16d12fc6a4fc72676c27c0dd6d622648b089ae6f7e3a0979d749ebef895556"
+        }
+      ],
+      "repeat": [
+        {
+          "channel": "albedo",
+          "width": 256,
+          "height": 256,
+          "path": "grass/grass-albedo-2x2.png",
+          "bytes": 4440,
+          "sha256": "7fb72f7200ecd2c38280954132d94b31e848e47d5e1c81d045605c4871e1f890"
+        },
+        {
+          "channel": "height",
+          "width": 256,
+          "height": 256,
+          "path": "grass/grass-height-2x2.png",
+          "bytes": 13482,
+          "sha256": "6896eb8dabeb989f826048ee605144b0c8c94cf8a68c94634e0c21891708279c"
+        },
+        {
+          "channel": "normal",
+          "width": 256,
+          "height": 256,
+          "path": "grass/grass-normal-2x2.png",
+          "bytes": 46223,
+          "sha256": "8d58209d124e37eefd5aaeaf033c246dbcf4ca90fb58cf88350c3bedcc8d081d"
+        },
+        {
+          "channel": "roughness",
+          "width": 256,
+          "height": 256,
+          "path": "grass/grass-roughness-2x2.png",
+          "bytes": 12918,
+          "sha256": "5bcb4ace28132b6c2a34acdb34ece22e0f739a17569b981f75e42a2013763dc3"
+        }
+      ],
+      "contactSheet": {
+        "path": "grass/channels.png",
+        "bytes": 39367,
+        "sha256": "46ea449619d70ae5b2cb43bfd4059dfec58eabf0e4009d0a49ca236b2c90b89b"
+      }
+    },
+    {
+      "family": "dirt",
+      "manifest": {
+        "path": "dirt/material.json",
+        "bytes": 2766,
+        "sha256": "149a62804e86dc788a1a384b99fb5abeb46cd24019aa5ce4f6c393af78369383"
+      },
+      "identity": "9da6a8f288507fc77289ca22f2e79a8a2c41e20ccfcdcbe5fbe7b9a9c6224b40",
+      "native": [
+        {
+          "channel": "albedo",
+          "width": 128,
+          "height": 128,
+          "path": "dirt/s1204-albedo.png",
+          "bytes": 1859,
+          "sha256": "5050b03223870e2fab90a7a86a6d40641629876cedc8b5b14cc500f045ab30b9"
+        },
+        {
+          "channel": "height",
+          "width": 128,
+          "height": 128,
+          "path": "dirt/s1204-height.png",
+          "bytes": 5708,
+          "sha256": "cd1c58d7a644e2ce8c465540082838dc230cc2cce460d26fdd18765376043e30"
+        },
+        {
+          "channel": "normal",
+          "width": 128,
+          "height": 128,
+          "path": "dirt/s1204-normal.png",
+          "bytes": 21277,
+          "sha256": "3592a424876e7fa71d71cf8ed2d885465274ebc11bea027985370efd861c1cef"
+        },
+        {
+          "channel": "roughness",
+          "width": 128,
+          "height": 128,
+          "path": "dirt/s1204-roughness.png",
+          "bytes": 4656,
+          "sha256": "886f19a9f61e7d268b270680fdc47f9f127ef9f47fddc4e1a7f28cccf8851644"
+        }
+      ],
+      "repeat": [
+        {
+          "channel": "albedo",
+          "width": 256,
+          "height": 256,
+          "path": "dirt/dirt-albedo-2x2.png",
+          "bytes": 4964,
+          "sha256": "c0a67dc7cf10b9861508f66ad24e6030503ee7e2cdbecff0a612e6bdc664b8a8"
+        },
+        {
+          "channel": "height",
+          "width": 256,
+          "height": 256,
+          "path": "dirt/dirt-height-2x2.png",
+          "bytes": 13227,
+          "sha256": "6c0fc7376ea7d88fb4afc9f9968288e43745e4aeee47d3924cab59839affe502"
+        },
+        {
+          "channel": "normal",
+          "width": 256,
+          "height": 256,
+          "path": "dirt/dirt-normal-2x2.png",
+          "bytes": 45907,
+          "sha256": "afddc58f44c8abf8cd21157bfe7f18a8a4ad010db57563fbeee03f69e0eb0a0a"
+        },
+        {
+          "channel": "roughness",
+          "width": 256,
+          "height": 256,
+          "path": "dirt/dirt-roughness-2x2.png",
+          "bytes": 10860,
+          "sha256": "94a6ebd88523b562feb7edb3a361e12042d6b08f6d2522b59f3117b5ce4ab73f"
+        }
+      ],
+      "contactSheet": {
+        "path": "dirt/channels.png",
+        "bytes": 39219,
+        "sha256": "870c2256325dcba199d9c9a2d2cecac57fb43a237c65861565b9f4f5f1a17b55"
+      }
+    }
+  ],
+  "verifierSource": {
+    "path": "verify.mjs",
+    "bytes": 3078,
+    "sha256": "84239df88e64eef77620f2ba1da29f37b0b5f3c09238a6167a4db6617cde776f"
+  },
+  "sourceText": "UTF-8 with LF line endings; verifier normalizes Git CRLF checkouts",
+  "retention": "Repository review fixture copied byte-for-byte from the retained local study for publication; public texture corpus unchanged"
+}

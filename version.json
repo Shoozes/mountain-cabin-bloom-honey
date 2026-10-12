@@ -1,0 +1,17 @@
+{
+  "schema": "gknome_project_version_v1",
+  "app": "mountain-cabin-bloom-honey",
+  "slug": "mountain-cabin-bloom-honey",
+  "version": "0.0.0",
+  "channel": "development",
+  "created_at_utc": "2026-10-11T23:23:04Z",
+  "template": {
+    "id": "gknome-standard",
+    "version": "0.0.005",
+    "canonical_semver": "0.0.5"
+  },
+  "runtime": {
+    "minimum_powershell": "5.1",
+    "python_required": false
+  }
+}

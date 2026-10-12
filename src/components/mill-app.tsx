@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import {
   CATEGORIES,
@@ -30,6 +30,9 @@ import {
 } from "@/shader/judge";
 import { glslText, recipeText } from "@/shader/recipe";
 import { zipStore } from "@/shader/zip-store";
+import { MaterialPanel, type MaterialPreview } from "@/components/material-panel";
+import { RetroTerrainPanel } from "@/components/retro-terrain-panel";
+import { paintMaterialCanvas } from "@/shader/material-browser.mjs";
 
 const STORAGE_KEY = "grout-shader-v1";
 
@@ -235,6 +238,36 @@ function canvasPng(source: HTMLCanvasElement): Promise<Uint8Array | null> {
 }
 
 export function MillApp() {
+  const [materialPreview,setMaterialPreview]=useState<MaterialPreview|null>(null);
+  const [previewOwner,setPreviewOwner]=useState<'material'|'retro'|null>(null);
+  const previewOwnerRef=useRef<'material'|'retro'|null>(null);
+  const changePreviewOwner=useCallback((owner:'material'|'retro',open:boolean)=>{
+    if(!open&&previewOwnerRef.current!==owner)return;
+    previewOwnerRef.current=open?owner:null;setPreviewOwner(open?owner:null);setMaterialPreview(null);
+  },[]);
+  const materialPreviewChanged=useCallback((preview:MaterialPreview|null)=>{if(previewOwnerRef.current==='material')setMaterialPreview(preview);},[]);
+  const retroPreviewChanged=useCallback((preview:MaterialPreview|null)=>{if(previewOwnerRef.current==='retro')setMaterialPreview(preview);},[]);
+  const materialDisplay=useRef<HTMLCanvasElement>(null);
+  const materialActive=useRef(false);
+  materialActive.current=!!materialPreview;
+  useEffect(()=>{
+    const canvas=materialDisplay.current;
+    if(!materialPreview||!canvas){drawRef.current?.();return;}
+    Object.assign(canvas.style,{width:'',height:'',marginLeft:'',marginTop:''});
+    paintMaterialCanvas(canvas,materialPreview.pixels,materialPreview.repeat);
+    if(previewOwnerRef.current!=='retro'||!canvas.parentElement)return;
+    const stage=canvas.parentElement;
+    const fit=()=>{
+      const dpr=window.devicePixelRatio||1;
+      const scale=Math.max(1,Math.floor(Math.min(stage.clientWidth*dpr/canvas.width,stage.clientHeight*dpr/canvas.height)));
+      const width=canvas.width*scale/dpr,height=canvas.height*scale/dpr;
+      Object.assign(canvas.style,{width:width+'px',height:height+'px',
+        marginLeft:Math.max(0,Math.floor((stage.clientWidth-width)*dpr/2)/dpr)+'px',
+        marginTop:Math.max(0,Math.floor((stage.clientHeight-height)*dpr/2)/dpr)+'px'});
+    };
+    fit();const observer=new ResizeObserver(fit);observer.observe(stage);
+    return ()=>observer.disconnect();
+  },[materialPreview]);
   const displayRef = useRef<HTMLCanvasElement>(null);
   const utilRef = useRef<HTMLCanvasElement>(null);
   const millRef = useRef<ShaderMill | null>(null);
@@ -246,12 +279,17 @@ export function MillApp() {
   const [state, setState] = useState<MillState>(INITIAL);
   const [hydrated, setHydrated] = useState(false);
   const [mixOpen, setMixOpen] = useState(false);
+  useEffect(()=>{if(!mixOpen){previewOwnerRef.current=null;setPreviewOwner(null);setMaterialPreview(null);}},[mixOpen]);
   const [judgeOpen, setJudgeOpen] = useState(false);
   const [judgeBusy, setJudgeBusy] = useState(false);
+  const [judgeError, setJudgeError] = useState<string | null>(null);
+  const judgeRun = useRef<AbortController | null>(null);
+  useEffect(() => () => {judgeRun.current?.abort();judgeRun.current=null;}, []);
   const [judgeRows, setJudgeRows] = useState<JudgeRow[] | null>(null);
   const [thumbs, setThumbs] = useState<Record<string, string>>({});
   const [shaderErrors, setShaderErrors] = useState<Record<string, string>>({});
   const [glError, setGlError] = useState<string | null>(null);
+  const [storageError, setStorageError] = useState<string | null>(null);
   const [status, setStatus] = useState("");
   const [fired, setFired] = useState(0);
 
@@ -286,6 +324,7 @@ export function MillApp() {
     };
 
     const paint = (time: number) => {
+      if (materialActive.current || judgeRun.current) return;
       const current = stateRef.current;
       const style = getStyle(current.styleId);
       resize();
@@ -300,7 +339,7 @@ export function MillApp() {
       if (!alive) return;
       const current = stateRef.current;
       const style = getStyle(current.styleId);
-      if (!(current.animate && style.motion) || document.visibilityState === "hidden") return;
+      if (!(current.animate && style.motion) || document.visibilityState === "hidden" || materialActive.current || judgeRun.current) return;
       paint((now - startedAt) / 1000);
       frame = requestAnimationFrame(loop);
     };
@@ -360,7 +399,7 @@ export function MillApp() {
     const step = () => {
       if (!alive) return;
       const gen = generation;
-      if (document.visibilityState === "hidden") {
+      if (document.visibilityState === "hidden" || materialActive.current || judgeRun.current) {
         pumpTimer = window.setTimeout(step, 500);
         return;
       }
@@ -405,6 +444,7 @@ export function MillApp() {
       document.removeEventListener("visibilitychange", draw);
       mill.dispose();
       millRef.current = null;
+      drawRef.current = null;
       restartRef.current = () => {};
     };
   }, []);
@@ -440,7 +480,12 @@ export function MillApp() {
   useEffect(() => {
     if (!hydrated) return;
     const { query: _query, ...rest } = state;
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(rest));
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(rest));
+      setStorageError(null);
+    } catch {
+      setStorageError("Changes could not be saved locally. Keep this tab open or export your recipe.");
+    }
   }, [hydrated, state]);
 
   const style = getStyle(state.styleId);
@@ -509,119 +554,157 @@ export function MillApp() {
   });
   const patch = (partial: Partial<MillState>) => setState((prev) => ({ ...prev, ...partial }));
 
+  const closeJudge = () => {
+    judgeRun.current?.abort();
+    judgeRun.current = null;
+    setJudgeBusy(false);
+    setJudgeOpen(false);
+    drawRef.current?.();
+  };
   const runJudge = async () => {
+    if (judgeRun.current) return;
+    const controller = new AbortController();
+    judgeRun.current = controller;
+    const signal = controller.signal;
+    let timer: ReturnType<typeof setTimeout> | undefined;
     setJudgeOpen(true);
     setMixOpen(false);
     setJudgeBusy(true);
+    setJudgeError(null);
     setJudgeRows([]);
     const display = document.createElement("canvas");
     const util = document.createElement("canvas");
-    const mill = new ShaderMill(display, util);
-    const read = document.createElement("canvas");
-    read.width = 96;
-    read.height = 96;
-    const ctx = read.getContext("2d", { willReadFrequently: true });
-    if (!ctx) {
-      mill.dispose();
-      setJudgeBusy(false);
-      return;
-    }
-    const samples = new Map<string, ReturnType<typeof readFeatures>>();
-    for (const ref of JUDGE_REFS) {
-      const img = new Image();
-      img.src = publicUrl(ref.file);
-      await img.decode();
-      ctx.clearRect(0, 0, 96, 96);
-      ctx.drawImage(img, 0, 0, 96, 96);
-      samples.set(ref.id, readFeatures(ctx.getImageData(0, 0, 96, 96).data, 96, 96));
-    }
-    const rows: JudgeRow[] = [];
-    let unmappedDirty = false;
-    const yieldFrame = () => new Promise((resolve) => setTimeout(resolve, 0));
-    for (const style of STYLES) {
-      const ref = refForStyle(style.id);
-      if (!ref) {
-        rows.push({
-          id: style.id,
-          name: style.name,
-          ref: "—",
-          ...summarizeJudge([], false),
-          cells: [],
-        });
-        unmappedDirty = true;
-        continue;
+    let mill: ShaderMill | null = null;
+    try {
+      mill = new ShaderMill(display, util);
+      const read = document.createElement("canvas");
+      read.width = 96;
+      read.height = 96;
+      const ctx = read.getContext("2d", { willReadFrequently: true });
+      if (!ctx) {
+        throw new Error("Could not read reference pixels");
       }
-      if (unmappedDirty) {
-        setJudgeRows(rows.slice());
-        unmappedDirty = false;
-        await yieldFrame();
+      const samples = new Map<string, ReturnType<typeof readFeatures>>();
+      for (const ref of JUDGE_REFS) {
+        signal.throwIfAborted();
+        timer = setTimeout(() => controller.abort(new Error(`Reference ${ref.file} did not load within 30 seconds`)), 30000);
+        const response = await fetch(publicUrl(ref.file), { signal });
+        if (!response.ok) throw new Error(`Could not load reference ${ref.file} (${response.status})`);
+        const url = URL.createObjectURL(await response.blob());
+        try {
+          const img = new Image();
+          img.src = url;
+          await img.decode();
+          signal.throwIfAborted();
+          ctx.clearRect(0, 0, 96, 96);
+          ctx.drawImage(img, 0, 0, 96, 96);
+          samples.set(ref.id, readFeatures(ctx.getImageData(0, 0, 96, 96).data, 96, 96));
+        } finally {
+          URL.revokeObjectURL(url);
+        }
+        clearTimeout(timer);
+        timer = undefined;
       }
-      util.width = 96;
-      util.height = 96;
-      const colors = style.palette.map(hexToRgb) as DrawParams["colors"];
-      const refSample = samples.get(ref.id);
-      const cells: JudgeCell[] = [];
-      let compiled = true;
-      for (const spec of JUDGE_MATRIX) {
-        if (!compiled) {
-          const result = verdict(1, null, true, false);
+      const rows: JudgeRow[] = [];
+      let unmappedDirty = false;
+      const yieldFrame = () => new Promise((resolve) => setTimeout(resolve, 0));
+      for (const style of STYLES) {
+        signal.throwIfAborted();
+        const ref = refForStyle(style.id);
+        if (!ref) {
+          rows.push({
+            id: style.id,
+            name: style.name,
+            ref: "—",
+            ...summarizeJudge([], false),
+            cells: [],
+          });
+          unmappedDirty = true;
+          continue;
+        }
+        if (unmappedDirty) {
+          setJudgeRows(rows.slice());
+          unmappedDirty = false;
+          await yieldFrame();
+        }
+        util.width = 96;
+        util.height = 96;
+        const colors = style.palette.map(hexToRgb) as DrawParams["colors"];
+        const refSample = samples.get(ref.id);
+        const cells: JudgeCell[] = [];
+        let compiled = true;
+        for (const spec of JUDGE_MATRIX) {
+          if (!compiled) {
+            const result = verdict(1, null, true, false);
+            cells.push({
+              look: spec.look,
+              lookLabel: spec.lookLabel,
+              pixels: spec.pixels,
+              sizeLabel: spec.sizeLabel,
+              seam: 1,
+              match: null,
+              pass: result.pass,
+              reason: result.reason,
+            });
+            continue;
+          }
+          const ok = mill.drawUtil(util, style, {
+            seed: 7,
+            scale: 1,
+            pixels: spec.pixels,
+            wear: 0.08,
+            repeat: 1,
+            time: 0,
+            look: spec.lookValue,
+            colors,
+          });
+          ctx.clearRect(0, 0, 96, 96);
+          if (ok) ctx.drawImage(util, 0, 0, 96, 96);
+          const data = ctx.getImageData(0, 0, 96, 96).data;
+          const sample = readFeatures(data, 96, 96);
+          const seam = ok ? seamError(data, 96, 96) : 1;
+          const match = ok && refSample ? matchScore(sample, refSample) : null;
+          const result = verdict(seam, match, sample.std < 6, ok);
+          if (!ok) compiled = false;
           cells.push({
             look: spec.look,
             lookLabel: spec.lookLabel,
             pixels: spec.pixels,
             sizeLabel: spec.sizeLabel,
-            seam: 1,
-            match: null,
+            seam,
+            match,
             pass: result.pass,
             reason: result.reason,
           });
-          continue;
         }
-        const ok = mill.drawUtil(util, style, {
-          seed: 7,
-          scale: 1,
-          pixels: spec.pixels,
-          wear: 0.08,
-          repeat: 1,
-          time: 0,
-          look: spec.lookValue,
-          colors,
+        rows.push({
+          id: style.id,
+          name: style.name,
+          ref: ref.label,
+          ...summarizeJudge(cells, true),
+          cells,
         });
-        ctx.clearRect(0, 0, 96, 96);
-        if (ok) ctx.drawImage(util, 0, 0, 96, 96);
-        const data = ctx.getImageData(0, 0, 96, 96).data;
-        const sample = readFeatures(data, 96, 96);
-        const seam = ok ? seamError(data, 96, 96) : 1;
-        const match = ok && refSample ? matchScore(sample, refSample) : null;
-        const result = verdict(seam, match, sample.std < 6, ok);
-        if (!ok) compiled = false;
-        cells.push({
-          look: spec.look,
-          lookLabel: spec.lookLabel,
-          pixels: spec.pixels,
-          sizeLabel: spec.sizeLabel,
-          seam,
-          match,
-          pass: result.pass,
-          reason: result.reason,
-        });
+        setJudgeRows(rows.slice());
+        await yieldFrame();
       }
-      rows.push({
-        id: style.id,
-        name: style.name,
-        ref: ref.label,
-        ...summarizeJudge(cells, true),
-        cells,
-      });
-      setJudgeRows(rows.slice());
-      await yieldFrame();
+      signal.throwIfAborted();
+      if (unmappedDirty) setJudgeRows(rows.slice());
+    } catch (error) {
+      if (!signal.aborted || signal.reason?.name !== "AbortError") {
+        setJudgeError(error instanceof Error ? error.message : "Reference judge failed");
+      }
+    } finally {
+      clearTimeout(timer);
+      mill?.dispose();
+      for (const canvas of [display, util]) {
+        canvas.getContext("webgl")?.getExtension("WEBGL_lose_context")?.loseContext();
+      }
+      if (judgeRun.current === controller) {
+        judgeRun.current = null;
+        setJudgeBusy(false);
+        drawRef.current?.();
+      }
     }
-    if (unmappedDirty) setJudgeRows(rows.slice());
-    mill.dispose();
-    for (const canvas of [display, util]) {
-      canvas.getContext("webgl")?.getExtension("WEBGL_lose_context")?.loseContext();
-    }
-    setJudgeBusy(false);
   };
   const fileBase = `grout-${style.id}-s${state.seed}-${state.pixels || "smooth"}`;
 
@@ -728,35 +811,37 @@ export function MillApp() {
               {fired > 0 && fired < STYLE_COUNT
                 ? `Firing ${fired} / ${STYLE_COUNT}`
                 : style.preset
-                  ? "Reviewed"
+                  ? "Catalog study"
                   : style.category}
             </p>
             <Link to="/gallery" className="mark-link" data-testid="app-gallery-link">
               PNG gallery
             </Link>
           </div>
-          <h1>{style.name}</h1>
+          <h1>{materialPreview?materialPreview.label+' · '+materialPreview.channel:style.name}</h1>
         </div>
         <div className="top-actions">
-          <button type="button" aria-expanded={judgeOpen} onClick={() => (judgeOpen ? setJudgeOpen(false) : void runJudge())}>
+          <button type="button" aria-expanded={judgeOpen} onClick={() => (judgeOpen ? closeJudge() : void runJudge())}>
             {judgeBusy ? "Judging" : "Judge"}
           </button>
           <button type="button" aria-expanded={mixOpen} onClick={() => setMixOpen((open) => !open)}>
             Adjust
           </button>
-          <button type="button" className="primary" onClick={exportPng}>
+          <button type="button" className="primary" onClick={exportPng} hidden={!!materialPreview}>
             Save
           </button>
         </div>
       </header>
 
-      <section className="stage" aria-label="Texture preview">
+      <section className={previewOwner==='retro'&&materialPreview?'stage native-stage':'stage'} aria-label="Texture preview">
         <canvas
           ref={displayRef}
+          style={materialPreview?{display:'none'}:undefined}
           className={chunky ? "pixelated" : undefined}
           aria-label={`${style.name} texture preview`}
         />
-        {glError ? <p className="stage-error">{glError}</p> : null}
+        {materialPreview?<canvas ref={materialDisplay} className="pixelated" style={{objectFit:'contain'}} aria-label="Active material preview"/>:null}
+        {glError || storageError ? <p className="stage-error" role="alert">{[glError, storageError].filter(Boolean).join(" ")}</p> : null}
       </section>
 
       <div className="finder">
@@ -864,7 +949,7 @@ export function MillApp() {
       <section className="judge" data-open={judgeOpen} inert={!judgeOpen} aria-label="Reference judge">
         <div className="judge-head">
           <h2>Reference judge</h2>
-          <button type="button" onClick={() => setJudgeOpen(false)}>
+          <button type="button" onClick={closeJudge}>
             Close
           </button>
         </div>
@@ -872,8 +957,8 @@ export function MillApp() {
           Mapped textures are scored on all four looks at Smooth, 32×32, and 16×16. A style passes only when
           every cell does. Anything without a reference stays no reference.
         </p>
-        <p className="judge-sum" data-judge-sum="true">
-          {judgeRows ? judgeSummaryText(judgeRows, judgeBusy) : "Running…"}
+        <p className="judge-sum" data-judge-sum="true" role={judgeError ? "alert" : "status"}>
+          {judgeError ? `${judgeError}. Close and reopen Judge to retry.` : judgeRows ? judgeSummaryText(judgeRows, judgeBusy) : "Running…"}
         </p>
         <ul className="judge-list">
           {(judgeRows ?? [])
@@ -951,6 +1036,9 @@ export function MillApp() {
       </section>
 
       <section className="details" data-open={mixOpen} inert={!mixOpen} aria-label="Adjust texture">
+        <RetroTerrainPanel onPreview={retroPreviewChanged} open={mixOpen&&previewOwner==='retro'} onOpenChange={open=>changePreviewOwner('retro',open)}/>
+        <MaterialPanel onPreview={materialPreviewChanged} active={mixOpen&&previewOwner!=='retro'} open={mixOpen&&previewOwner==='material'} onOpenChange={open=>changePreviewOwner('material',open)}/>
+        <div style={materialPreview?{display:'none'}:undefined}>
         <h2>{style.name}</h2>
         <p className="lede">{style.blurb}</p>
         {activeError ? <p className="shader-fault">{activeError}</p> : null}
@@ -1113,6 +1201,7 @@ export function MillApp() {
         </div>
         <p className="drawer-status">{status}</p>
         <pre>{recipe}</pre>
+        </div>
         <button type="button" className="done" onClick={() => setMixOpen(false)}>
           Done
         </button>

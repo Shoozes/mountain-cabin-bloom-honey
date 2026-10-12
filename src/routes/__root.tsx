@@ -1,5 +1,4 @@
 import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-router";
-import { AuthProvider } from "@/lib/auth/provider";
 import { PreviewHostBridge } from "@/components/preview-host-bridge";
 import appCss from "../styles.css?url";
 
@@ -21,7 +20,7 @@ export const Route = createRootRoute({
       {
         name: "description",
         content:
-          "Seamless shader textures for Grout. Reviewed cookbook presets plus a large approved mill catalog, exported as reusable tiles.",
+          "Seamless shader texture studies and original material candidates, exported as reusable tiles and matched channels. Artwork remains unapproved.",
       },
       { name: "theme-color", content: "#11100e" },
     ],
@@ -44,9 +43,7 @@ export const Route = createRootRoute({
       </head>
       <body>
         <PreviewHostBridge />
-        <AuthProvider>
-          <Outlet />
-        </AuthProvider>
+        <Outlet />
         <Scripts />
       </body>
     </html>

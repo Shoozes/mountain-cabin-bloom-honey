@@ -4,4 +4,15 @@ node_modules/
 .env
 .env.*
 dist/
+.artifacts/
+.runtime/
+/.tools/.secrets/
+/.tools/secrets/
 .vercel/
+/.tools/local/
+/.agents/local/
+/runtime-data/
+/.tanstack/
+/.node_modules.lock
+/.grok/preview.pid
+/.grok/preview.log

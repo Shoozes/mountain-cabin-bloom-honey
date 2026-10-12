@@ -1,0 +1,186 @@
+{
+  "generator": "retro-terrain-growth/1",
+  "visualReview": "unapproved",
+  "restrictedInputs": [],
+  "seeds": [
+    1204,
+    1215,
+    1233
+  ],
+  "terrainCorners": [
+    [
+      0,
+      0,
+      0,
+      1,
+      1
+    ],
+    [
+      0,
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      0,
+      1,
+      0,
+      0,
+      1
+    ],
+    [
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      1,
+      1,
+      0,
+      0
+    ]
+  ],
+  "pathPorts": [
+    [
+      0,
+      4,
+      0,
+      0
+    ],
+    [
+      2,
+      15,
+      10,
+      12
+    ],
+    [
+      0,
+      5,
+      0,
+      5
+    ],
+    [
+      0,
+      3,
+      10,
+      9
+    ]
+  ],
+  "sources": [
+    {
+      "path": "src/shader/retro-terrain.mjs",
+      "sha256": "76fa9fb6e1053954828cbb35f893a29160c8e4cd92a7ef125fa40ff7aa10f9d2"
+    },
+    {
+      "path": "src/shader/retro-terrain-growth.mjs",
+      "sha256": "d6be8ef56ae23de66d8849b7bf40d0940404aa0ce718eeba75835bcb39db3040"
+    },
+    {
+      "path": "scripts/material-png.mjs",
+      "sha256": "a8c63520bbbd5eb8d6a5ddf7751a819171c8d49a7b94ae27ca589228e63e31a8"
+    },
+    {
+      "path": "docs/look-dev/studies/retro-terrain-growth-20261011/verify.mjs",
+      "sha256": "b250c754d0657a0e954c4c888601bb23ecc1755d6ce8d3ad3ee08e9cbae251cf"
+    }
+  ],
+  "files": [
+    {
+      "path": "weathered-dirt.png",
+      "bytes": 360,
+      "sha256": "bdf49711a109b5eaced71fda25551ce5722411985a0f56f14e2e909027d7944a",
+      "width": 64,
+      "height": 64
+    },
+    {
+      "path": "weathered-grass.png",
+      "bytes": 479,
+      "sha256": "556b5501e347a85119898814b01f5be3d185e5fb4b7e46dadb63943e8bb90d10",
+      "width": 64,
+      "height": 64
+    },
+    {
+      "path": "weathered-gravel.png",
+      "bytes": 601,
+      "sha256": "394796691944e144ecc337067084557f19556a45d8441a22d06be1b0df20915d",
+      "width": 64,
+      "height": 64
+    },
+    {
+      "path": "curated-surfaces.png",
+      "bytes": 2423,
+      "sha256": "b5b307554eef9cb1cc2db1d2274391b20e52b6bb882ef04292fd5653246b3fc2",
+      "width": 192,
+      "height": 128
+    },
+    {
+      "path": "gravel-path-atlas.png",
+      "bytes": 3225,
+      "sha256": "24d69c6a2356620a7f69f7b0395ccf3f9cd327fb54e129d886184bccde4abdb5",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "path": "connected-paths.png",
+      "bytes": 4568,
+      "sha256": "089b9041eeaaf8afe3ed2ad33944fae0f60318016015dbaa0b48e3f15cc00d62",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "path": "weathered-paths.png",
+      "bytes": 5012,
+      "sha256": "80b1c8f93c91f41621ccb4b05995597fed7b9b1977291d65128ac6cedc1cedcc",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "path": "varied-weathered-paths.png",
+      "bytes": 5411,
+      "sha256": "476cabb2de0cc9e53e8dc24c6974defdeba903be70ce5744b0bb21be8979bd14",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "path": "weathered-seeds.png",
+      "bytes": 3500,
+      "sha256": "c30568d4893fa9237733b5d89e4f6385b61e00c0d68efdcca97ce68df19eaece",
+      "width": 192,
+      "height": 192
+    },
+    {
+      "path": "surface-repeats.png",
+      "bytes": 17262,
+      "sha256": "46bf659bf7bce4c5b6b1129dc43768d6e8be9ac87a8dd451c71c92394c0382ce",
+      "width": 768,
+      "height": 512
+    },
+    {
+      "path": "varied-surfaces.png",
+      "bytes": 11654,
+      "sha256": "fb7ad61b9bb99f69bba404b38690adf7de2d7ee4952a80c478719ab176163abb",
+      "width": 768,
+      "height": 256
+    },
+    {
+      "path": "riverbed-colors.png",
+      "bytes": 1292,
+      "sha256": "027fadd8b07918a76db41fd9e997e36c8de824cda1375b72d06f69f01233f60d",
+      "width": 192,
+      "height": 64
+    }
+  ],
+  "palette": "heath",
+  "alternatePalette": "riverbed",
+  "variationSeeds": [
+    1204,
+    1215,
+    1233,
+    1251
+  ],
+  "drawing": "Native symbol maps and stepped color-role planes. Pixel-art consultation fixes applied: open grass colonies, interrupted soil rims, connected stone faces, earth-filled paths and asymmetric shoulders. Phase variation remains diagnostic."
+}

@@ -1,0 +1,39 @@
+{
+  "schema": "gknome_task_registry_v1",
+  "tasks": [
+    {
+      "id": "operator-self-test",
+      "description": "Run the generated foundation regression as a declared check.",
+      "spec": {
+        "kind": "check",
+        "program": "powershell.exe",
+        "args": [
+          "-NoProfile",
+          "-ExecutionPolicy",
+          "Bypass",
+          "-File",
+          "tests\\foundation\\Test-Template.ps1",
+          "-AsJson"
+        ],
+        "working_directory": ".",
+        "timeout_ms": 600000,
+        "max_output_bytes": 1048576
+      }
+    },
+    {
+      "id": "project-test-terrain",
+      "description": "Execute the existing authored terrain contract without auth source.",
+      "spec": {
+        "kind": "check",
+        "program": "node",
+        "args": [
+          "--test",
+          "scripts/retro-terrain.test.mjs"
+        ],
+        "working_directory": ".",
+        "timeout_ms": 60000,
+        "max_output_bytes": 1048576
+      }
+    }
+  ]
+}

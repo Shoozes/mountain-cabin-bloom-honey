@@ -1,0 +1,112 @@
+{
+  "schema": "gknome_project_v2",
+  "alias": "texture-mill",
+  "name": "Grout Shader",
+  "slug": "mountain-cabin-bloom-honey",
+  "description": "React/TanStack Start/Vite texture authoring, multi-channel materials and original native pixel terrain.",
+  "profile": "app",
+  "created_at_utc": "2026-10-11T23:23:04Z",
+  "git": {
+    "remote": "https://github.com/Shoozes/mountain-cabin-bloom-honey.git",
+    "default_branch": "main"
+  },
+  "paths": {
+    "source": "src",
+    "docs": "docs",
+    "artifacts": ".artifacts",
+    "runtime_data": ".runtime",
+    "secrets_dir": ".tools/secrets",
+    "context_bank": "summary_bank.json",
+    "lifecycle_state": ".tools/project-state.json"
+  },
+  "runtime": {
+    "minimum_powershell": "5.1",
+    "python_required": false
+  },
+  "template": {
+    "id": "gknome-standard",
+    "version": "0.0.005"
+  },
+  "context": {
+    "schema": "gknome_context_pack_v1",
+    "default_budget_kb": 128,
+    "max_file_bytes": 1048576,
+    "text_extensions": [
+      ".md",
+      ".txt",
+      ".json",
+      ".ps1",
+      ".psm1",
+      ".cmd",
+      ".bat",
+      ".yml",
+      ".yaml",
+      ".toml",
+      ".ini",
+      ".cfg",
+      ".js",
+      ".mjs",
+      ".ts",
+      ".tsx",
+      ".jsx",
+      ".html",
+      ".css",
+      ".rs",
+      ".gml",
+      ".py",
+      ".pyi",
+      ".sh",
+      ".bash",
+      ".zsh",
+      ".fish",
+      ".c",
+      ".h",
+      ".cc",
+      ".cpp",
+      ".cxx",
+      ".hpp",
+      ".cs",
+      ".java",
+      ".kt",
+      ".kts",
+      ".go",
+      ".rb",
+      ".php",
+      ".swift",
+      ".dart",
+      ".sql",
+      ".xml",
+      ".svg",
+      ".vue",
+      ".svelte",
+      ".properties",
+      ".gradle",
+      ".make",
+      ".mk",
+      ".tf",
+      ".tfvars",
+      ".graphql",
+      ".gql",
+      ".proto",
+      ".dockerfile",
+      ".mts"
+    ],
+    "text_file_names": [
+      ".gitignore",
+      ".gitattributes",
+      "Cargo.lock",
+      "LICENSE",
+      ".env.example"
+    ]
+  },
+  "capabilities": [
+    "web-ui",
+    "texture-authoring",
+    "material-export",
+    "pixel-terrain",
+    "browser-preview"
+  ],
+  "task_adapter": {
+    "script": "scripts/project-tasks.ps1"
+  }
+}

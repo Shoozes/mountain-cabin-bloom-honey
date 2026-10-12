@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "completedUtc": "2026-10-11T17:38:13.143Z",
+  "command": "node docs/look-dev/studies/grass-dirt-20261011/verify.mjs",
+  "exitCode": 0,
+  "references": 21,
+  "nativeMaps": 8,
+  "repeatedMaps": 8,
+  "repeatedBytes": 152021,
+  "retainedAssetBytes": 304185,
+  "priorProofSourcesMatched": 14,
+  "artwork": "unapproved",
+  "lint": {
+    "command": "npm run lint",
+    "exitCode": 0,
+    "warnings": 0
+  },
+  "ownership": "Original procedural review fixture; no purchased inputs or public corpus promotion",
+  "repositoryDocumentLinks": 48
+}

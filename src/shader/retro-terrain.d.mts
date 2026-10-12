@@ -1,0 +1,12 @@
+export type RetroRecipe = {id: 'retro-terrain'; seed: number};
+export type RetroPixels = {width: number; height: number; data: Uint8Array};
+export type RetroTile = RetroPixels & {id: string; role: string; family: string; cornerMask?: number; terrainMask?: Uint8Array};
+export type RetroKit = {recipe: RetroRecipe; tiles: RetroTile[]; atlas: RetroPixels};
+export const RETRO_VERSION: string;
+export const RETRO_SIZE: number;
+export const RETRO_PALETTES: Record<string, string[]>;
+export function validateRetroRecipe(input?: unknown): RetroRecipe;
+export function retroTransitionMask(mask: number, seed?: number): Uint8Array;
+export function generateRetroTerrain(input?: unknown): RetroKit;
+export function describeRetroTerrain(kit: RetroKit): Record<string, unknown>;
+export function composeRetroTerrain(kit: RetroKit, corners: number[][]): RetroPixels;

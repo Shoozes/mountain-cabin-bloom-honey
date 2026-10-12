@@ -1,0 +1,112 @@
+{
+  "schema": "gknome_controller_v2",
+  "title": "Grout Shader // Texture Mill",
+  "task_schema": "gknome_controller_task_v1",
+  "groups": [
+    {
+      "label": "Main",
+      "actions": [
+        {
+          "label": "Open work queue",
+          "task": "sprint",
+          "description": "Open the selected queue item, queue, or work guide."
+        },
+        {
+          "label": "Open project specification",
+          "task": "spec",
+          "description": "Open the project-owned specification."
+        },
+        {
+          "label": "Project status",
+          "task": "stage",
+          "description": "Show current lifecycle stage and next gate."
+        },
+        {
+          "label": "Foundation check",
+          "task": "doctor",
+          "description": "Validate the generated foundation."
+        },
+        {
+          "label": "Foundation tests",
+          "task": "test",
+          "description": "Run generated foundation tests."
+        }
+      ]
+    },
+    {
+      "label": "Git",
+      "actions": [
+        {
+          "label": "Git status",
+          "task": "git-status",
+          "description": "Show branch and working tree."
+        },
+        {
+          "label": "Fast-forward pull",
+          "task": "git-pull",
+          "description": "Pull only a clean fast-forward branch."
+        },
+        {
+          "label": "Reviewed push",
+          "task": "git-push",
+          "description": "Publish existing committed main through the qualified local helper after exact confirmation; no implicit remote creation. Candidate commits require explicit Path/Message."
+        }
+      ]
+    },
+    {
+      "label": "Scripts",
+      "actions": [
+        {
+          "label": "Git log",
+          "task": "git-log",
+          "description": "Show the latest ten local commits."
+        },
+        {
+          "label": "User guide",
+          "task": "user-docs",
+          "description": "Open safe daily commands."
+        },
+        {
+          "label": "Developer guide",
+          "task": "developer-docs",
+          "description": "Open source and verification guidance."
+        },
+        {
+          "label": "Agent route",
+          "task": "agent-docs",
+          "description": "Open agent routing and handoff guidance."
+        },
+        {
+          "label": "Scan secrets",
+          "task": "secrets",
+          "description": "Scan source without exposing values."
+        },
+        {
+          "label": "Pitfall ledger",
+          "task": "pitfalls",
+          "description": "Open recurring failure records."
+        },
+        {
+          "label": "Integrity guide",
+          "task": "integrity",
+          "description": "Open integrity and closeout guidance."
+        },
+        {
+          "label": "Context status",
+          "task": "context-status",
+          "description": "Show context configuration."
+        },
+        {
+          "label": "Audit context bank",
+          "task": "context-audit",
+          "description": "Report context matches and bytes."
+        },
+        {
+          "label": "Build focused context",
+          "task": "context",
+          "description": "Build configured default groups."
+        }
+      ]
+    }
+  ]
+}

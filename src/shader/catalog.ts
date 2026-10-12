@@ -43,6 +43,8 @@ export type StyleDef = {
   motion?: boolean;
   palette: [string, string, string, string];
   glsl: string;
+  /** Catalog retention is independent of game-art approval. */
+  visualReview?: "unapproved";
 };
 
 export type PaletteChoice = {
@@ -68,7 +70,7 @@ export const PALETTES: PaletteChoice[] = [
 
 const g = (
   partial: Omit<StyleDef, "glsl"> & { glsl: string },
-): StyleDef => partial;
+): StyleDef => ({ ...partial, visualReview: "unapproved" });
 
 function toonWood(o: {
   cols: number;

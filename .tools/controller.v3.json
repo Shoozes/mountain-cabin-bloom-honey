@@ -1,0 +1,576 @@
+{
+  "schema": "gknome_controller_v3",
+  "title": "Grout Shader // Texture Mill",
+  "operation_schema": "gknome_operation_v1",
+  "compatibility": {
+    "legacy_controller": ".tools/controller.json",
+    "legacy_page_id": "scripts",
+    "task_id_policy": "stable",
+    "missing_task_policy": "show-legacy"
+  },
+  "pages": [
+    {
+      "id": "main",
+      "label": "Main",
+      "description": "Setup, status, run, build, test, clean, and daily project actions.",
+      "operations": [
+        "app.status",
+        "app.setup",
+        "app.run",
+        "app.build-pages",
+        "app.test",
+        "app.typecheck",
+        "app.lint",
+        "start.spec",
+        "start.status"
+      ]
+    },
+    {
+      "id": "git",
+      "label": "Git",
+      "description": "Repository status, pull, and push.",
+      "operations": [
+        "git.status",
+        "git.pull",
+        "git.push"
+      ]
+    },
+    {
+      "id": "scripts",
+      "label": "Scripts",
+      "description": "All other project, maintenance, documentation, proof, context, and release actions.",
+      "operations": [
+        "app.terrain-check",
+        "git.log",
+        "share.export",
+        "tools.user-docs",
+        "tools.developer-docs",
+        "tools.agent-docs",
+        "tools.secrets",
+        "tools.pitfalls",
+        "tools.integrity",
+        "run.context-status",
+        "run.context-list",
+        "run.context-audit",
+        "run.context",
+        "run.context-full",
+        "run.context-verify",
+        "run.context-rebuild",
+        "run.context-clean"
+      ]
+    }
+  ],
+  "operations": [
+    {
+      "schema": "gknome_operation_v1",
+      "id": "app.status",
+      "page_id": "main",
+      "label": "Project status",
+      "task": "project-status",
+      "description": "Project status through the existing product command; no framework or source migration.",
+      "owner": "project",
+      "role": "read",
+      "maturity": "stable",
+      "network": "off",
+      "confirmation": "none",
+      "availability": {
+        "commands": [
+          "node",
+          "npm"
+        ]
+      }
+    },
+    {
+      "schema": "gknome_operation_v1",
+      "id": "app.setup",
+      "page_id": "main",
+      "label": "Install pinned dependencies",
+      "task": "project-setup",
+      "description": "Install pinned dependencies through the existing product command; no framework or source migration.",
+      "owner": "project",
+      "role": "mutate",
+      "maturity": "stable",
+      "network": "read",
+      "confirmation": "typed",
+      "availability": {
+        "commands": [
+          "node",
+          "npm"
+        ]
+      }
+    },
+    {
+      "schema": "gknome_operation_v1",
+      "id": "app.run",
+      "page_id": "main",
+      "label": "Run app in foreground",
+      "task": "project-dev",
+      "description": "Run app in foreground through the existing product command; no framework or source migration.",
+      "owner": "project",
+      "role": "mutate",
+      "maturity": "stable",
+      "network": "off",
+      "confirmation": "none",
+      "availability": {
+        "commands": [
+          "node",
+          "npm"
+        ]
+      }
+    },
+    {
+      "schema": "gknome_operation_v1",
+      "id": "app.build-pages",
+      "page_id": "main",
+      "label": "Build Pages output",
+      "task": "project-build-pages",
+      "description": "Build Pages output through the existing product command; no framework or source migration.",
+      "owner": "project",
+      "role": "mutate",
+      "maturity": "stable",
+      "network": "off",
+      "confirmation": "none",
+      "availability": {
+        "commands": [
+          "node",
+          "npm"
+        ]
+      }
+    },
+    {
+      "schema": "gknome_operation_v1",
+      "id": "app.test",
+      "page_id": "main",
+      "label": "Product tests",
+      "task": "project-test",
+      "description": "Product tests through the existing product command; no framework or source migration.",
+      "owner": "project",
+      "role": "read",
+      "maturity": "stable",
+      "network": "off",
+      "confirmation": "none",
+      "availability": {
+        "commands": [
+          "node",
+          "npm"
+        ]
+      }
+    },
+    {
+      "schema": "gknome_operation_v1",
+      "id": "app.typecheck",
+      "page_id": "main",
+      "label": "Typecheck",
+      "task": "project-typecheck",
+      "description": "Typecheck through the existing product command; no framework or source migration.",
+      "owner": "project",
+      "role": "read",
+      "maturity": "stable",
+      "network": "off",
+      "confirmation": "none",
+      "availability": {
+        "commands": [
+          "node",
+          "npm"
+        ]
+      }
+    },
+    {
+      "schema": "gknome_operation_v1",
+      "id": "app.lint",
+      "page_id": "main",
+      "label": "Lint",
+      "task": "project-lint",
+      "description": "Lint through the existing product command; no framework or source migration.",
+      "owner": "project",
+      "role": "read",
+      "maturity": "stable",
+      "network": "off",
+      "confirmation": "none",
+      "availability": {
+        "commands": [
+          "node",
+          "npm"
+        ]
+      }
+    },
+    {
+      "schema": "gknome_operation_v1",
+      "id": "app.terrain-check",
+      "page_id": "scripts",
+      "label": "Focused terrain contract",
+      "task": "project-test-terrain",
+      "description": "Run the existing deterministic terrain tests without auth/broker source.",
+      "owner": "project",
+      "role": "read",
+      "maturity": "stable",
+      "network": "off",
+      "confirmation": "none",
+      "availability": {
+        "commands": [
+          "node"
+        ]
+      },
+      "task_spec_ref": "project-test-terrain"
+    },
+    {
+      "schema": "gknome_operation_v1",
+      "id": "start.sprint",
+      "page_id": "main",
+      "label": "Open work queue",
+      "task": "sprint",
+      "description": "Open the only selected queue item, the queue when several exist, or the work guide when none exist.",
+      "owner": "foundation",
+      "role": "open",
+      "maturity": "stable",
+      "network": "off",
+      "confirmation": "none",
+      "availability": {}
+    },
+    {
+      "schema": "gknome_operation_v1",
+      "id": "start.spec",
+      "page_id": "main",
+      "label": "Open project specification",
+      "task": "spec",
+      "description": "Open the project-owned product specification.",
+      "owner": "foundation",
+      "role": "open",
+      "maturity": "stable",
+      "network": "off",
+      "confirmation": "none",
+      "availability": {}
+    },
+    {
+      "schema": "gknome_operation_v1",
+      "id": "start.status",
+      "page_id": "main",
+      "label": "Project status",
+      "task": "stage",
+      "description": "Show current lifecycle stage, next gate, and state.",
+      "owner": "foundation",
+      "role": "read",
+      "maturity": "stable",
+      "network": "off",
+      "confirmation": "none",
+      "availability": {}
+    },
+    {
+      "schema": "gknome_operation_v1",
+      "id": "start.foundation-check",
+      "page_id": "main",
+      "label": "Foundation check",
+      "task": "doctor",
+      "description": "Validate the generated foundation before project work.",
+      "owner": "foundation",
+      "role": "read",
+      "maturity": "stable",
+      "network": "off",
+      "confirmation": "none",
+      "availability": {}
+    },
+    {
+      "schema": "gknome_operation_v1",
+      "id": "git.status",
+      "page_id": "git",
+      "label": "Git status",
+      "task": "git-status",
+      "description": "Show branch and working tree without changing files.",
+      "owner": "foundation",
+      "role": "read",
+      "maturity": "stable",
+      "network": "off",
+      "confirmation": "none",
+      "availability": {
+        "commands": [
+          "git"
+        ]
+      }
+    },
+    {
+      "schema": "gknome_operation_v1",
+      "id": "git.log",
+      "page_id": "scripts",
+      "label": "Git log",
+      "task": "git-log",
+      "description": "Show the latest ten local commits.",
+      "owner": "foundation",
+      "role": "read",
+      "maturity": "stable",
+      "network": "off",
+      "confirmation": "none",
+      "availability": {
+        "commands": [
+          "git"
+        ]
+      }
+    },
+    {
+      "schema": "gknome_operation_v1",
+      "id": "git.pull",
+      "page_id": "git",
+      "label": "Fast-forward pull",
+      "task": "git-pull",
+      "description": "Pull the configured upstream only when the repository is clean and fast-forwardable.",
+      "owner": "foundation",
+      "role": "mutate",
+      "maturity": "review",
+      "network": "read",
+      "confirmation": "typed",
+      "availability": {
+        "commands": [
+          "git"
+        ]
+      }
+    },
+    {
+      "schema": "gknome_operation_v1",
+      "id": "git.push",
+      "page_id": "git",
+      "label": "Reviewed local main publication",
+      "task": "project-publish",
+      "description": "Qualified local gitpush: explicit Path/Message for CommitOnly, then push-only after clean proof; no implicit remote creation. Uses project.json and preserves guards.",
+      "owner": "project",
+      "role": "mutate",
+      "maturity": "review",
+      "network": "write",
+      "confirmation": "typed",
+      "availability": {
+        "commands": [
+          "git"
+        ]
+      }
+    },
+    {
+      "schema": "gknome_operation_v1",
+      "id": "tools.user-docs",
+      "page_id": "scripts",
+      "label": "User guide",
+      "task": "user-docs",
+      "description": "Open safe daily commands and setup guidance.",
+      "owner": "foundation",
+      "role": "open",
+      "maturity": "stable",
+      "network": "off",
+      "confirmation": "none",
+      "availability": {}
+    },
+    {
+      "schema": "gknome_operation_v1",
+      "id": "tools.developer-docs",
+      "page_id": "scripts",
+      "label": "Developer guide",
+      "task": "developer-docs",
+      "description": "Open source ownership and local verification guidance.",
+      "owner": "foundation",
+      "role": "open",
+      "maturity": "stable",
+      "network": "off",
+      "confirmation": "none",
+      "availability": {}
+    },
+    {
+      "schema": "gknome_operation_v1",
+      "id": "tools.agent-docs",
+      "page_id": "scripts",
+      "label": "Agent route",
+      "task": "agent-docs",
+      "description": "Open concise agent routing and handoff guidance.",
+      "owner": "foundation",
+      "role": "open",
+      "maturity": "stable",
+      "network": "off",
+      "confirmation": "none",
+      "availability": {}
+    },
+    {
+      "schema": "gknome_operation_v1",
+      "id": "tools.secrets",
+      "page_id": "scripts",
+      "label": "Scan secrets",
+      "task": "secrets",
+      "description": "Scan tracked and eligible untracked source without exposing values.",
+      "owner": "foundation",
+      "role": "read",
+      "maturity": "stable",
+      "network": "off",
+      "confirmation": "none",
+      "availability": {}
+    },
+    {
+      "schema": "gknome_operation_v1",
+      "id": "tools.pitfalls",
+      "page_id": "scripts",
+      "label": "Pitfall ledger",
+      "task": "pitfalls",
+      "description": "Open recurring failure and guard records.",
+      "owner": "foundation",
+      "role": "open",
+      "maturity": "stable",
+      "network": "off",
+      "confirmation": "none",
+      "availability": {}
+    },
+    {
+      "schema": "gknome_operation_v1",
+      "id": "tools.integrity",
+      "page_id": "scripts",
+      "label": "Integrity guide",
+      "task": "integrity",
+      "description": "Open the current integrity and closeout guidance.",
+      "owner": "foundation",
+      "role": "open",
+      "maturity": "stable",
+      "network": "off",
+      "confirmation": "none",
+      "availability": {}
+    },
+    {
+      "schema": "gknome_operation_v1",
+      "id": "tools.test",
+      "page_id": "main",
+      "label": "Foundation tests",
+      "task": "test",
+      "description": "Run the generated foundation regression.",
+      "owner": "foundation",
+      "role": "read",
+      "maturity": "review",
+      "network": "off",
+      "confirmation": "none",
+      "availability": {}
+    },
+    {
+      "schema": "gknome_operation_v1",
+      "id": "share.export",
+      "page_id": "scripts",
+      "label": "Export runtime share",
+      "task": "share",
+      "description": "Stage, scan, inventory, and promote the selected project share profile to a sibling directory.",
+      "owner": "foundation",
+      "role": "mutate",
+      "maturity": "review",
+      "network": "off",
+      "confirmation": "typed",
+      "availability": {
+        "paths": [
+          ".tools/share.json",
+          "scripts/share.ps1"
+        ]
+      },
+      "hidden_when_unavailable": true,
+      "result_schema": "gknome_project_share_result_v1"
+    },
+    {
+      "schema": "gknome_operation_v1",
+      "id": "run.context-status",
+      "page_id": "scripts",
+      "label": "Context status",
+      "task": "context-status",
+      "description": "Show context configuration, default groups, and latest pack.",
+      "owner": "foundation",
+      "role": "read",
+      "maturity": "stable",
+      "network": "off",
+      "confirmation": "none",
+      "availability": {}
+    },
+    {
+      "schema": "gknome_operation_v1",
+      "id": "run.context-list",
+      "page_id": "scripts",
+      "label": "List context groups",
+      "task": "context-list",
+      "description": "List summary-bank groups and routing.",
+      "owner": "foundation",
+      "role": "read",
+      "maturity": "stable",
+      "network": "off",
+      "confirmation": "none",
+      "availability": {}
+    },
+    {
+      "schema": "gknome_operation_v1",
+      "id": "run.context-audit",
+      "page_id": "scripts",
+      "label": "Audit context bank",
+      "task": "context-audit",
+      "description": "Report group matches plus source and serialized-pack budget pressure.",
+      "owner": "foundation",
+      "role": "read",
+      "maturity": "stable",
+      "network": "off",
+      "confirmation": "none",
+      "availability": {}
+    },
+    {
+      "schema": "gknome_operation_v1",
+      "id": "run.context",
+      "page_id": "scripts",
+      "label": "Build focused context",
+      "task": "context",
+      "description": "Build the configured default groups within budget.",
+      "owner": "foundation",
+      "role": "preview",
+      "maturity": "stable",
+      "network": "off",
+      "confirmation": "none",
+      "availability": {}
+    },
+    {
+      "schema": "gknome_operation_v1",
+      "id": "run.context-full",
+      "page_id": "scripts",
+      "label": "Build full context",
+      "task": "context-full",
+      "description": "Build all eligible text source within budget.",
+      "owner": "foundation",
+      "role": "preview",
+      "maturity": "review",
+      "network": "off",
+      "confirmation": "none",
+      "availability": {}
+    },
+    {
+      "schema": "gknome_operation_v1",
+      "id": "run.context-verify",
+      "page_id": "scripts",
+      "label": "Verify context pack",
+      "task": "context-verify",
+      "description": "Verify paths, counts, and hashes in the latest pack.",
+      "owner": "foundation",
+      "role": "read",
+      "maturity": "stable",
+      "network": "off",
+      "confirmation": "none",
+      "availability": {}
+    },
+    {
+      "schema": "gknome_operation_v1",
+      "id": "run.context-rebuild",
+      "page_id": "scripts",
+      "label": "Preview context rebuild",
+      "task": "context-rebuild",
+      "description": "Rebuild into ignored staging without changing source.",
+      "owner": "foundation",
+      "role": "preview",
+      "maturity": "stable",
+      "network": "off",
+      "confirmation": "none",
+      "availability": {}
+    },
+    {
+      "schema": "gknome_operation_v1",
+      "id": "run.context-clean",
+      "page_id": "scripts",
+      "label": "Clean context output",
+      "task": "context-clean",
+      "description": "Remove ignored generated context output only.",
+      "owner": "foundation",
+      "role": "mutate",
+      "maturity": "review",
+      "network": "off",
+      "confirmation": "typed",
+      "availability": {}
+    }
+  ]
+}

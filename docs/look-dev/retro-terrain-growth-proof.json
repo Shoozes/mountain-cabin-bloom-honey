@@ -1,0 +1,638 @@
+{
+  "recordedAt": "2026-10-11T22:10:03.775Z",
+  "status": "Complete with verified limitations",
+  "scope": "Original retro terrain growth: curated native surfaces, gravel paths, weathered counterparts, original palettes, deterministic exports and integer preview",
+  "runtime": {
+    "os": "Windows",
+    "shell": "PowerShell 7.6.6",
+    "node": "26.5.0",
+    "npm": "11.6.2",
+    "browser": "Installed Chrome through Playwright 1.63.0"
+  },
+  "baseline": "c26d117c6de03432b469abbfc55e061778512735",
+  "branch": "main",
+  "sources": [
+    {
+      "path": "src/shader/retro-terrain.mjs",
+      "sha256": "76fa9fb6e1053954828cbb35f893a29160c8e4cd92a7ef125fa40ff7aa10f9d2"
+    },
+    {
+      "path": "src/shader/retro-terrain.d.mts",
+      "sha256": "a95fac368ac13568cf24afc500e789bc9bd36d2f2d2bb8a55894e455bb394e48"
+    },
+    {
+      "path": "src/shader/retro-terrain-growth.mjs",
+      "sha256": "d6be8ef56ae23de66d8849b7bf40d0940404aa0ce718eeba75835bcb39db3040"
+    },
+    {
+      "path": "src/shader/retro-terrain-growth.d.mts",
+      "sha256": "0028f8d7df20bce454ae0f90139eeefa59f273e21e17896dfebb6030c41a72cf"
+    },
+    {
+      "path": "src/shader/retro-terrain-browser.mjs",
+      "sha256": "ae65dbeec6a43f11c8d0d3e88a9bdfdc759bce0329571d2ba5ef0a055cc08438"
+    },
+    {
+      "path": "src/shader/retro-terrain-browser.d.mts",
+      "sha256": "20ca2ab1fa7a88d9a5052ffa43904896c22c39c0409e8a931fe6ce7598fadd19"
+    },
+    {
+      "path": "src/components/retro-terrain-panel.tsx",
+      "sha256": "44978939be5e3891910533d0e7b95ebdb23b8cac71396e75af1bad4b15e2e14a"
+    },
+    {
+      "path": "src/components/mill-app.tsx",
+      "sha256": "4d5988c5f4b3de1db78071ef9df432d2ca4d70fd2ec19b4cb4dec34697cdf0cb"
+    },
+    {
+      "path": "src/components/material-panel.tsx",
+      "sha256": "267d499aef7a0b99aaafd348639ce51ecd842c6bf3aa598abfd3f0a88468fcdc"
+    },
+    {
+      "path": "src/styles.css",
+      "sha256": "a2d5ab6ec094a26cf51390cbf09f4070b412605764c3304ea9bb09831c1eb099"
+    },
+    {
+      "path": "scripts/bake-retro-terrain.mjs",
+      "sha256": "3131e8c0050a0c57fbe89e7df260ad6b3b069d95c368312cf6f2a6cf8e861247"
+    },
+    {
+      "path": "scripts/bake-retro-terrain-growth.mjs",
+      "sha256": "62a9221afa1ca049d7b3aeab0ad25f54400e226c3ca51863f9638d5b14b90d2e"
+    },
+    {
+      "path": "scripts/material-png.mjs",
+      "sha256": "a8c63520bbbd5eb8d6a5ddf7751a819171c8d49a7b94ae27ca589228e63e31a8"
+    },
+    {
+      "path": "scripts/retro-terrain.test.mjs",
+      "sha256": "b34801e2239d4765bd102c46410dd7c08318595b0b7abf1a27f435bf6c854580"
+    },
+    {
+      "path": "scripts/retro-terrain-growth.test.mjs",
+      "sha256": "015f50e148b7a966fbe43fe1d4d2d2b197330a7fabe549af2166a6f6ba9a12e6"
+    },
+    {
+      "path": "scripts/bake-retro-terrain.test.mjs",
+      "sha256": "02844c520d281d1f49667f41beb530a09e7265ad36f25777981e5c733cfa765e"
+    },
+    {
+      "path": "scripts/bake-retro-terrain-growth.test.mjs",
+      "sha256": "c98c985cf65b736f4397cf365364f2ec0246632d3611e8097727fd71df3ee708"
+    },
+    {
+      "path": "scripts/test-retro-terrain-browser.mjs",
+      "sha256": "745ec019eb54b6fd4b027ce3cd6fe16a9aaf3bd55e82c3551ad21d5481c409a4"
+    },
+    {
+      "path": "scripts/fixtures/retro-terrain-v1.json",
+      "sha256": "e9e43db17619d8f85e3692e5d35c458d917bfd4c6f0f33ade6cc1adb77b5933e"
+    },
+    {
+      "path": "package.json",
+      "sha256": "fc040301c9ec82fa1df8387f70ac6b83c4d71e60811b6ea6d87d5fba7fd45ada"
+    }
+  ],
+  "sourceTextNormalization": "LF",
+  "preservation": {
+    "stagedFiles": 58,
+    "stagedSnapshotUnchanged": true,
+    "classicFixtureAndSevenImageVerifier": "passed; unchanged classic generator, 19 tiles and atlas for 1204/1215/1233",
+    "purchasedImages": "Not read, copied or used in source/fixtures/exports during growth",
+    "gitMutation": "No staging, commit, branch change or push"
+  },
+  "checks": [
+    {
+      "command": "npm run test",
+      "exitCode": 0,
+      "log": ".artifacts/proof/retro-terrain-growth/test-final.log",
+      "logSha256": "ca9ac709522e3492fc6cacea4852af6aab58c752b3999d05e23b7e49c1f161a2",
+      "passed": 341,
+      "scriptTests": 261,
+      "sourceTests": 80
+    },
+    {
+      "command": "npm run typecheck",
+      "exitCode": 0,
+      "log": ".artifacts/proof/retro-terrain-growth/typecheck-final.log",
+      "logSha256": "e5046545a3a9fcc0cf6950c9402c78a2b227f07a6a658d2a0c1fbc5f4a194da0"
+    },
+    {
+      "command": "npm run lint",
+      "exitCode": 0,
+      "log": ".artifacts/proof/retro-terrain-growth/lint-current.log",
+      "logSha256": "9e26cc9ff4b569e5db90454732fd10fd7539c03822105285e1736826ed26fc0f"
+    },
+    {
+      "command": "npm run build",
+      "exitCode": 0,
+      "log": ".artifacts/proof/retro-terrain-growth/build-final.log",
+      "logSha256": "54dc899cde88cf4582a056c4c384a17d04f7063545785c25da5256b0bc32ec5d",
+      "databaseMigration": "Skipped: DATABASE_URL not set"
+    },
+    {
+      "command": "npm run build:pages",
+      "exitCode": 0,
+      "log": ".artifacts/proof/retro-terrain-growth/motif-polish-20261011/build-pages.log",
+      "logSha256": "35e71bffc4c86653624afdc3adbee75c008b20e00092102aa4f2a9c010593b10",
+      "reused": "Postdates final drawing source; final built browser checks used this build"
+    },
+    {
+      "exitCode": 0,
+      "originalReviewImages": 12,
+      "command": "node docs/look-dev/studies/retro-terrain-growth-20261011/verify.mjs"
+    },
+    {
+      "exitCode": 0,
+      "originalReviewImages": 7,
+      "command": "node docs/look-dev/studies/retro-terrain-20261011/verify.mjs"
+    },
+    {
+      "exitCode": 0,
+      "command": "git diff --check"
+    }
+  ],
+  "browsers": [
+    {
+      "command": "node scripts/test-retro-terrain-browser.mjs --playwright-root node_modules/playwright --kit growth --dev-url http://127.0.0.1:8080/",
+      "exitCode": 0,
+      "kit": "growth",
+      "mode": "dev",
+      "reuse": false,
+      "exportContents": {
+        "entries": 76,
+        "pngs": 74,
+        "tiles": 70,
+        "atlases": 4,
+        "decodedPixelMatches": 74
+      },
+      "integerStageScaling": {
+        "desktop": {
+          "dpr": 1,
+          "source": {
+            "width": 256,
+            "height": 256
+          },
+          "rect": {
+            "width": 768,
+            "height": 768
+          },
+          "deviceScale": {
+            "x": 3,
+            "y": 3
+          }
+        },
+        "mobile": {
+          "dpr": 1,
+          "source": {
+            "width": 64,
+            "height": 64
+          },
+          "rect": {
+            "width": 192,
+            "height": 192
+          },
+          "deviceScale": {
+            "x": 3,
+            "y": 3
+          }
+        },
+        "dpr2Mobile": {
+          "target": "http://127.0.0.1:8080/",
+          "sourceSelector": ".stage canvas[aria-label=\"Active material preview\"]",
+          "dpr": 2,
+          "source": {
+            "width": 256,
+            "height": 256
+          },
+          "rect": {
+            "width": 128,
+            "height": 128
+          },
+          "deviceScale": {
+            "x": 1,
+            "y": 1
+          },
+          "closed": true
+        },
+        "sourceSelector": ".stage canvas[aria-label=\"Active material preview\"]"
+      },
+      "exclusivePanels": true,
+      "missingSourceRetry": true,
+      "cancelAndRetry": true,
+      "seedPersistence": true,
+      "paletteSwitch": {
+        "riverbedChangesPreview": true,
+        "heathRestoresPreview": true
+      },
+      "palettePersistence": true,
+      "mobileFits": true,
+      "touchTargets": true,
+      "errors": [],
+      "expectedConsoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ],
+      "retainedFiles": [
+        {
+          "path": ".artifacts/proof/retro-terrain-browser/1791756183640-48708/receipt.json",
+          "sha256": "b0214f6f181465c7b904e821d671e17742e0aacf122a880b7d9cf0ae8ae49280"
+        },
+        {
+          "path": ".artifacts/proof/retro-terrain-browser/1791756183640-48708/retro-terrain.zip",
+          "sha256": "62e86532bda21aac9b77abb7a4206da3ba4a8502a0e6c3c7ef7ecb29fe8747bf"
+        },
+        {
+          "path": ".artifacts/proof/retro-terrain-browser/1791756183640-48708/retro-terrain-desktop.png",
+          "sha256": "ca0518e8e715e1deeab441bb8957d2769ce237e605f3faf30d3d97118a0a04a2"
+        },
+        {
+          "path": ".artifacts/proof/retro-terrain-browser/1791756183640-48708/retro-terrain-mobile.png",
+          "sha256": "f251d65d5d5c7e63eb010963c53a1a5930cf06fa05eedf5c4598d0ea459904a3"
+        }
+      ]
+    },
+    {
+      "command": "node scripts/test-retro-terrain-browser.mjs --playwright-root node_modules/playwright --kit growth",
+      "exitCode": 0,
+      "kit": "growth",
+      "mode": "pages",
+      "reuse": false,
+      "exportContents": {
+        "entries": 76,
+        "pngs": 74,
+        "tiles": 70,
+        "atlases": 4,
+        "decodedPixelMatches": 74
+      },
+      "integerStageScaling": {
+        "desktop": {
+          "dpr": 1,
+          "source": {
+            "width": 256,
+            "height": 256
+          },
+          "rect": {
+            "width": 768,
+            "height": 768
+          },
+          "deviceScale": {
+            "x": 3,
+            "y": 3
+          }
+        },
+        "mobile": {
+          "dpr": 1,
+          "source": {
+            "width": 64,
+            "height": 64
+          },
+          "rect": {
+            "width": 192,
+            "height": 192
+          },
+          "deviceScale": {
+            "x": 3,
+            "y": 3
+          }
+        },
+        "dpr2Mobile": {
+          "target": "http://127.0.0.1:61989/mountain-cabin-bloom-honey/",
+          "sourceSelector": ".stage canvas[aria-label=\"Active material preview\"]",
+          "dpr": 2,
+          "source": {
+            "width": 256,
+            "height": 256
+          },
+          "rect": {
+            "width": 128,
+            "height": 128
+          },
+          "deviceScale": {
+            "x": 1,
+            "y": 1
+          },
+          "closed": true
+        },
+        "sourceSelector": ".stage canvas[aria-label=\"Active material preview\"]"
+      },
+      "exclusivePanels": true,
+      "missingSourceRetry": true,
+      "cancelAndRetry": true,
+      "seedPersistence": true,
+      "paletteSwitch": {
+        "riverbedChangesPreview": true,
+        "heathRestoresPreview": true
+      },
+      "palettePersistence": true,
+      "mobileFits": true,
+      "touchTargets": true,
+      "errors": [],
+      "expectedConsoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ],
+      "retainedFiles": [
+        {
+          "path": ".artifacts/proof/retro-terrain-browser/1791756401243-48392/receipt.json",
+          "sha256": "51a7c1fa81094807aa3615041745a7967c592df6380a48f0e1a91da09ad9d87e"
+        },
+        {
+          "path": ".artifacts/proof/retro-terrain-browser/1791756401243-48392/retro-terrain.zip",
+          "sha256": "c3238ce5238de3af947c9567562965268a05319a5f6885983ebe35fe97a78190"
+        },
+        {
+          "path": ".artifacts/proof/retro-terrain-browser/1791756401243-48392/retro-terrain-desktop.png",
+          "sha256": "b3a8896b125e6fb35e54bf85f52f5a7f0c32809f36636c6fd05d2121703bd46b"
+        },
+        {
+          "path": ".artifacts/proof/retro-terrain-browser/1791756401243-48392/retro-terrain-mobile.png",
+          "sha256": "f251d65d5d5c7e63eb010963c53a1a5930cf06fa05eedf5c4598d0ea459904a3"
+        }
+      ]
+    },
+    {
+      "command": "node scripts/test-retro-terrain-browser.mjs --playwright-root node_modules/playwright --kit classic",
+      "exitCode": 0,
+      "kit": "classic",
+      "mode": "pages",
+      "reuse": false,
+      "exportContents": {
+        "entries": 22,
+        "pngs": 20,
+        "decodedPixelMatches": 20
+      },
+      "integerStageScaling": {
+        "desktop": {
+          "dpr": 1,
+          "source": {
+            "width": 256,
+            "height": 256
+          },
+          "rect": {
+            "width": 768,
+            "height": 768
+          },
+          "deviceScale": {
+            "x": 3,
+            "y": 3
+          }
+        },
+        "mobile": {
+          "dpr": 1,
+          "source": {
+            "width": 64,
+            "height": 64
+          },
+          "rect": {
+            "width": 192,
+            "height": 192
+          },
+          "deviceScale": {
+            "x": 3,
+            "y": 3
+          }
+        },
+        "dpr2Mobile": {
+          "target": "http://127.0.0.1:58392/mountain-cabin-bloom-honey/",
+          "sourceSelector": ".stage canvas[aria-label=\"Active material preview\"]",
+          "dpr": 2,
+          "source": {
+            "width": 256,
+            "height": 256
+          },
+          "rect": {
+            "width": 128,
+            "height": 128
+          },
+          "deviceScale": {
+            "x": 1,
+            "y": 1
+          },
+          "closed": true
+        },
+        "sourceSelector": ".stage canvas[aria-label=\"Active material preview\"]"
+      },
+      "exclusivePanels": true,
+      "missingSourceRetry": true,
+      "cancelAndRetry": true,
+      "seedPersistence": true,
+      "mobileFits": true,
+      "touchTargets": true,
+      "errors": [],
+      "expectedConsoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ],
+      "retainedFiles": [
+        {
+          "path": ".artifacts/proof/retro-terrain-browser/1791756438300-48880/receipt.json",
+          "sha256": "22cc81b4f28d2389f1d835211da9acd9a3c2b833e7951fa64fba85b2d8ea2575"
+        },
+        {
+          "path": ".artifacts/proof/retro-terrain-browser/1791756438300-48880/retro-terrain.zip",
+          "sha256": "31130bce66704e3af1a67505ebb5003c5e418a08e6602c8f12f5ef2b48640d51"
+        },
+        {
+          "path": ".artifacts/proof/retro-terrain-browser/1791756438300-48880/retro-terrain-desktop.png",
+          "sha256": "674c84c95236bae4751549ab5c1005f6cdf310c55ab8aaec9a761ee729e8a03d"
+        },
+        {
+          "path": ".artifacts/proof/retro-terrain-browser/1791756438300-48880/retro-terrain-mobile.png",
+          "sha256": "e26d91253bc65df2e3750555c5827d78fb932dcadeabbed02a1da9535f58a271"
+        }
+      ]
+    },
+    {
+      "command": "node scripts/test-retro-terrain-browser.mjs --playwright-root node_modules/playwright --kit classic --dev-url http://127.0.0.1:8080/",
+      "exitCode": 0,
+      "kit": "classic",
+      "mode": "dev",
+      "reuse": "Earlier pass reused: classic pixels, integration and stage fitting unchanged; final Pages pass covers current bundle",
+      "exportContents": {
+        "entries": 22,
+        "pngs": 20,
+        "decodedPixelMatches": 20
+      },
+      "integerStageScaling": {
+        "desktop": {
+          "dpr": 1,
+          "source": {
+            "width": 256,
+            "height": 256
+          },
+          "rect": {
+            "width": 768,
+            "height": 768
+          },
+          "deviceScale": {
+            "x": 3,
+            "y": 3
+          }
+        },
+        "mobile": {
+          "dpr": 1,
+          "source": {
+            "width": 64,
+            "height": 64
+          },
+          "rect": {
+            "width": 192,
+            "height": 192
+          },
+          "deviceScale": {
+            "x": 3,
+            "y": 3
+          }
+        },
+        "dpr2Mobile": {
+          "target": "http://127.0.0.1:8080/",
+          "sourceSelector": ".stage canvas[aria-label=\"Active material preview\"]",
+          "dpr": 2,
+          "source": {
+            "width": 256,
+            "height": 256
+          },
+          "rect": {
+            "width": 128,
+            "height": 128
+          },
+          "deviceScale": {
+            "x": 1,
+            "y": 1
+          },
+          "closed": true
+        },
+        "sourceSelector": ".stage canvas[aria-label=\"Active material preview\"]"
+      },
+      "exclusivePanels": true,
+      "missingSourceRetry": true,
+      "cancelAndRetry": true,
+      "seedPersistence": true,
+      "mobileFits": true,
+      "touchTargets": true,
+      "errors": [],
+      "expectedConsoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ],
+      "retainedFiles": [
+        {
+          "path": ".artifacts/proof/retro-terrain-browser/1791754393213-55784/receipt.json",
+          "sha256": "280f30ce1f9b48d9e31a46c8e0449f176383ef1c284faaae98f5896a8e12f45d"
+        },
+        {
+          "path": ".artifacts/proof/retro-terrain-browser/1791754393213-55784/retro-terrain.zip",
+          "sha256": "d57d6e82878cab43b98b4beeb856842a28f7257aa368a93d51755f8c1edac9c7"
+        },
+        {
+          "path": ".artifacts/proof/retro-terrain-browser/1791754393213-55784/retro-terrain-desktop.png",
+          "sha256": "674c84c95236bae4751549ab5c1005f6cdf310c55ab8aaec9a761ee729e8a03d"
+        },
+        {
+          "path": ".artifacts/proof/retro-terrain-browser/1791754393213-55784/retro-terrain-mobile.png",
+          "sha256": "e26d91253bc65df2e3750555c5827d78fb932dcadeabbed02a1da9535f58a271"
+        }
+      ]
+    }
+  ],
+  "bakes": [
+    {
+      "command": "npm run bake:retro-terrain-growth -- --seed 1204 --palette heath --out .artifacts/retro-terrain-growth",
+      "exitCode": 0,
+      "identity": "e28266e2e64b4ed79097a5b339d95109b4cd87a070c0f61e3b99a7843bd763c2",
+      "directory": ".artifacts/retro-terrain-growth/retro-terrain-growth-e28266e2e64b",
+      "pngs": 74,
+      "manifestFiles": 75,
+      "reused": false,
+      "publicationAttempts": 1,
+      "log": ".artifacts/proof/retro-terrain-growth/bake-heath-1204-current.log"
+    },
+    {
+      "command": "npm run bake:retro-terrain-growth -- --seed 1215 --palette heath --out .artifacts/retro-terrain-growth",
+      "exitCode": 0,
+      "identity": "da556ad8f9223b5c7ff38edc09e748ce3a62e61665bdb4b68120678ae96e2891",
+      "directory": ".artifacts/retro-terrain-growth/retro-terrain-growth-da556ad8f922",
+      "pngs": 74,
+      "manifestFiles": 75,
+      "reused": false,
+      "publicationAttempts": 1,
+      "log": ".artifacts/proof/retro-terrain-growth/bake-heath-1215-current.log"
+    },
+    {
+      "command": "npm run bake:retro-terrain-growth -- --seed 1233 --palette heath --out .artifacts/retro-terrain-growth",
+      "exitCode": 0,
+      "identity": "1212399adee814c87545316c39cb21b84582b7384a9dd5e47a19d321fad32af0",
+      "directory": ".artifacts/retro-terrain-growth/retro-terrain-growth-1212399adee8",
+      "pngs": 74,
+      "manifestFiles": 75,
+      "reused": false,
+      "publicationAttempts": 2,
+      "log": ".artifacts/proof/retro-terrain-growth/bake-heath-1233-current.log"
+    },
+    {
+      "command": "npm run bake:retro-terrain-growth -- --seed 1204 --palette riverbed --out .artifacts/retro-terrain-growth",
+      "exitCode": 0,
+      "identity": "c55ba5db11608d23ca58c6cb3189f38c1a3fffc2e7072245696e687f5f2b8fed",
+      "directory": ".artifacts/retro-terrain-growth/retro-terrain-growth-c55ba5db1160",
+      "pngs": 74,
+      "manifestFiles": 75,
+      "reused": false,
+      "publicationAttempts": 3,
+      "log": ".artifacts/proof/retro-terrain-growth/bake-riverbed-1204-current.log"
+    },
+    {
+      "command": "npm run bake:retro-terrain-growth -- --seed 1204 --palette heath --out .artifacts/retro-terrain-growth",
+      "exitCode": 0,
+      "identity": "e28266e2e64b4ed79097a5b339d95109b4cd87a070c0f61e3b99a7843bd763c2",
+      "directory": ".artifacts/retro-terrain-growth/retro-terrain-growth-e28266e2e64b",
+      "pngs": 74,
+      "manifestFiles": 75,
+      "reused": true,
+      "publicationAttempts": 0,
+      "log": ".artifacts/proof/retro-terrain-growth/bake-heath-1204-current-reuse.log"
+    }
+  ],
+  "structuralProof": "64x64 dimensions, deterministic RGBA, authored 8/12/12 ramps, 38 opaque terrain tiles, 32 hard-alpha path cutouts, sixteen corner/path masks, disconnected diagonal grass, connected path footprints, compatible twenty-pixel ports and four atlas mappings",
+  "visualProof": {
+    "consultation": "codex://threads/01a10aa2-1783-7521-937e-2d3145e85f24",
+    "consultationTitle": "Review repository and pass down",
+    "completed": "Critique and read-only recheck received. Accepted fixes implemented; separate owner-requested grass/soil motif polish applied by linked agent.",
+    "reviewed": "Native surfaces, exact 3x board, 4x4 repeats, connected normal/weathered paths, diagnostic seed phases, current dev/Pages desktop and mobile captures",
+    "study": "docs/look-dev/studies/retro-terrain-growth-20261011/study.json",
+    "files": 12,
+    "bytes": 55787,
+    "visualReview": "unapproved"
+  },
+  "limitations": [
+    "Owner visual acceptance remains open; recognizable periodic 64px landmarks remain",
+    "Seed phase previews are diagnostic, not independent authored layout variants or a runtime anti-tiling sampler",
+    "No engine receiving, PBR channels, public corpus promotion, hosted verification or Node 22 compatibility claim",
+    "Earlier publication blocker and guarded-helper constraints remain; publication was not part of this growth batch"
+  ],
+  "repairedFailures": "Windows atomic rename transient locks reproduced and bounded retries tested. Browser locator timing failures retained; final harness preserves actual click errors and uses bounded native pointer retries. Final dev and built checks passed.",
+  "resources": {
+    "retainedOwnerState": ".runtime/review-cleanup-dev.json",
+    "retainedOwner": "Codex review-recheck-cleanup",
+    "livePreview": "HTTP 200, port 8080 PID 27188; exact Get-Process start time and executable identities verified for server and wrapper",
+    "cleanup": "Browser contexts and temporary Pages servers closed in harness finally; no owned pending bake directories",
+    "retention": "Twelve compact original-only PNGs plus source-bound index/verifier; local logs and failed captures retained under ignored artifacts. No bulk deletion."
+  },
+  "bakeSourceIdentity": {
+    "sources": [
+      {
+        "path": "src/shader/retro-terrain.mjs",
+        "sha256": "76fa9fb6e1053954828cbb35f893a29160c8e4cd92a7ef125fa40ff7aa10f9d2"
+      },
+      {
+        "path": "src/shader/retro-terrain-growth.mjs",
+        "sha256": "d6be8ef56ae23de66d8849b7bf40d0940404aa0ce718eeba75835bcb39db3040"
+      },
+      {
+        "path": "scripts/bake-retro-terrain-growth.mjs",
+        "sha256": "62a9221afa1ca049d7b3aeab0ad25f54400e226c3ca51863f9638d5b14b90d2e"
+      },
+      {
+        "path": "scripts/material-png.mjs",
+        "sha256": "a8c63520bbbd5eb8d6a5ddf7751a819171c8d49a7b94ae27ca589228e63e31a8"
+      }
+    ],
+    "normalization": "raw bytes"
+  }
+}

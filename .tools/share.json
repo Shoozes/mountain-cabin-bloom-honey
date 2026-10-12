@@ -1,0 +1,59 @@
+{
+  "schema": "gknome_share_v1",
+  "version": 1,
+  "profiles": {
+    "developer": {
+      "mode": "tracked",
+      "description": "Ordinary tracked repository content without ignored operator or live-state trees."
+    },
+    "runtime": {
+      "mode": "manifest",
+      "description": "Runnable recipient bundle with the portable controller fallback and without development-only surfaces.",
+      "controller": {
+        "foundation_tasks": ["stage", "doctor", "user-docs", "root"],
+        "project_roles": ["read", "open", "preview"],
+        "project_tasks": []
+      },
+      "include": [
+        "run.cmd",
+        "README.md",
+        "version.json",
+        ".gitignore",
+        ".tools/**",
+        "scripts/**",
+        "source/**",
+        "docs/README.md",
+        "docs/user/**"
+      ],
+      "exclude": [
+        ".agents/**",
+        "tests/**",
+        "docs/dev/**",
+        ".tools/local/**",
+        ".tools/secrets/**",
+        ".tools/.secrets/**",
+        ".agents/local/**",
+        ".artifacts/**",
+        ".runtime/**",
+        "runtime-data/**",
+        "node_modules/**",
+        ".venv/**",
+        "venv/**",
+        "__pycache__/**",
+        "coverage/**",
+        "test-results/**",
+        ".tools/context.ps1",
+        ".tools/git.ps1",
+        ".tools/git-remote.ps1",
+        ".tools/git-state.ps1",
+        ".tools/gitpull.ps1",
+        ".tools/gitpush.ps1",
+        ".tools/scan-secrets.ps1",
+        ".tools/share.json",
+        "scripts/share.ps1",
+        "*.log"
+      ],
+      "additional_include": []
+    }
+  }
+}

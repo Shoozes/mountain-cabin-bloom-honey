@@ -1,0 +1,329 @@
+{
+  "canonical_semver": "0.0.5",
+  "derived_from": {
+    "commit": "c207dc5a74dd8121e9b196d39bfe3c78e282050e",
+    "note": "Repo layout, runner, controller, summary bank, and artifact-context workflow design donor.",
+    "repository": "Shoozes/PROJECT_NAME"
+  },
+  "files": [
+    {
+      "bytes": 2088,
+      "path": ".agents/README.md",
+      "sha256": "29a2ff4ef6e0ffd8ae25224f39a02d7da2f8d7c2ddfe2fa8684bffdea9321eea"
+    },
+    {
+      "bytes": 4956,
+      "path": ".agents/skill-routes.json",
+      "sha256": "a644040392f75bce8f24f92bec7d75e5fb039c148a0b0e04e58d98a41b100721"
+    },
+    {
+      "bytes": 10561,
+      "path": ".agents/skills/gknome-sprint/SKILL.md",
+      "sha256": "793e3302af4cd9f44bdb3755c05d48249653261625e0403b64b68c6e84aa9eed"
+    },
+    {
+      "bytes": 337,
+      "path": ".agents/skills/gknome-sprint/agents/openai.yaml",
+      "sha256": "9127c4af3291c8f02056da286497a33b3fe6969acbff285f3e30514d3ca38e15"
+    },
+    {
+      "bytes": 916,
+      "path": ".agents/workflows/project-handoff.md",
+      "sha256": "1dc0a010a3f9eef8a46607bb881e680997b41c3d1580c6392b3164f02a1adcee"
+    },
+    {
+      "bytes": 59,
+      "path": ".gitattributes",
+      "sha256": "f389c60cab509224a92f0b92b6d198e9e909fe500b9ca2a576f439b5639c80a5"
+    },
+    {
+      "bytes": 14765,
+      "path": ".tools/StrictJson.ps1",
+      "sha256": "51d094cd19576b88fa572c95210b023ae7c544caeaa0f7e4a4f5747dc19153d1"
+    },
+    {
+      "bytes": 95506,
+      "path": ".tools/context.ps1",
+      "sha256": "6552022c0409049cee51cbfb4c1dc74fc0bb5a5c3b185f4619035f33299c4e6e"
+    },
+    {
+      "bytes": 2525,
+      "path": ".tools/controller.json",
+      "sha256": "1206b334b2b77bc3afb31b9f97611184e6e5948495cca6e2795de77cfa9118c8"
+    },
+    {
+      "bytes": 9650,
+      "path": ".tools/controller.v3.json",
+      "sha256": "d2dee7f72c87ff9d2343d4d1b3faedf1d5ef0a45990a0265e9368f2c06dc3804"
+    },
+    {
+      "bytes": 8299,
+      "path": ".tools/git-remote.ps1",
+      "sha256": "b4c2edb169f23833208392e0de4b7e6a553e03250361d1e5fdd33a1cf1bd7b24"
+    },
+    {
+      "bytes": 2727,
+      "path": ".tools/git-state.ps1",
+      "sha256": "0202b3f25a41b146362079e2b4910940f6b1ac93888042fee9d70ac981359885"
+    },
+    {
+      "bytes": 4895,
+      "path": ".tools/git.ps1",
+      "sha256": "af892b8ca18e8951dd440a651126560c7d5167e31308c31c76528e0b5c3eac56"
+    },
+    {
+      "bytes": 7037,
+      "path": ".tools/gitpull.ps1",
+      "sha256": "a00c9d82ceff7f1a94f84e29abca54539073fc047619e424ba24d603339f48da"
+    },
+    {
+      "bytes": 24371,
+      "path": ".tools/lifecycle.ps1",
+      "sha256": "427f22abf326f9ef2f80045fd542fff26a38daa828b2bad5f85d5fdcb6b480e4"
+    },
+    {
+      "bytes": 2343,
+      "path": ".tools/project-spec.json",
+      "sha256": "a0d6bffc6162b22f45dce7e1d9bb55ddcc01bf483b309a45546c3219bdf57ef8"
+    },
+    {
+      "bytes": 730,
+      "path": ".tools/project-state.json",
+      "sha256": "4579fa63e1c45e1f4f94d4d6fcf0137cea5f228621454358e96d245c5bade3a8"
+    },
+    {
+      "bytes": 1861,
+      "path": ".tools/project.json",
+      "sha256": "1c3def9b0625c37d8de4abaca014339c78c9545b1d36530df59ea53d0bb80ff0"
+    },
+    {
+      "bytes": 43243,
+      "path": ".tools/project.ps1",
+      "sha256": "ef8c6a2fe7136e0bff509d84513eb1567e87691c5cc62c21255b914c349217d9"
+    },
+    {
+      "bytes": 20026,
+      "path": ".tools/scan-secrets-history.ps1",
+      "sha256": "25e2fe0ade3258da1beb36a72d9619a88bcfc4146aa5f46a326e26134a16ba67"
+    },
+    {
+      "bytes": 17868,
+      "path": ".tools/scan-secrets.ps1",
+      "sha256": "5cf962ba48542690cf754dc7bd4fd49e12a89f4430f023b519c639b898b66123"
+    },
+    {
+      "bytes": 1111,
+      "path": ".tools/secret-scan-core.ps1",
+      "sha256": "2cc1b6c8170b74578e81615a11f795b72f8ee5ed2c6a7590003db972be2f3479"
+    },
+    {
+      "bytes": 1558,
+      "path": ".tools/share.json",
+      "sha256": "3ac14795a94b866629f715a559f6d2fba30c2b8e5f39469ddffb25c50242ddc6"
+    },
+    {
+      "bytes": 46759,
+      "path": ".tools/task-runner.ps1",
+      "sha256": "905dc9878d1a2ef90477f856c50e95c0905d5897c0e8d436525456d1475cb4e4"
+    },
+    {
+      "bytes": 499,
+      "path": ".tools/task-specs.json",
+      "sha256": "8b7cb523b82fb83c6023c9b3566fcb27c2fb2a62dd41f9a4ba4ff32e68e5fd3a"
+    },
+    {
+      "bytes": 23861,
+      "path": ".tools/ui/Gknome.Menu.Ansi.psm1",
+      "sha256": "aed1cdf82c2aabcb455369784e6cc848ceaaa5eda43cf0c3bb56a4aada56ebd4"
+    },
+    {
+      "bytes": 24414,
+      "path": ".tools/ui/Gknome.Menu.Basic.psm1",
+      "sha256": "2eb8f3cd66004f4b2f0ac4dedbdd45b42e5424a4cac2beb40a51ec7726a57d27"
+    },
+    {
+      "bytes": 68211,
+      "path": ".tools/ui/Gknome.Menu.Core.psm1",
+      "sha256": "c8cf35c1f96bf51ff1b0c5af9eadacbfa4e70cf00ee981de2f6b9c17cf36e345"
+    },
+    {
+      "bytes": 36968,
+      "path": ".tools/ui/Gknome.Menu.Input.Windows.psm1",
+      "sha256": "453acf9272f0b0e36c426c289443ea2097689ac75757e0af7b0a1ee01f99b71e"
+    },
+    {
+      "bytes": 5374,
+      "path": ".tools/ui/themes.v1.json",
+      "sha256": "707514b0ba9949ce9b97154a11a121d9d4008085ab2e033dd39d1aaf45724f17"
+    },
+    {
+      "bytes": 7111,
+      "path": "docs/CODING_PHILOSOPHY.md",
+      "sha256": "f4ee90750d4dc40310e8b9e9159d6e54c6ec3294f26d8d43993dc5ca0ab63eea"
+    },
+    {
+      "bytes": 6438,
+      "path": "docs/DEVELOPMENT_LIFECYCLE.md",
+      "sha256": "bfe639d5b5dec19f3e0720d11ee8bcdce5de431200555e7b73be875889b54445"
+    },
+    {
+      "bytes": 2468,
+      "path": "docs/INTEGRITY_PASS.md",
+      "sha256": "b7d4bb839542cdaa8605f4c267bfb0c43c6dba2226226ed94939350da1bef7fa"
+    },
+    {
+      "bytes": 6998,
+      "path": "docs/PITFALL_LEDGER.md",
+      "sha256": "c752cdb85994a66226641a242f0396740da59152b55e6712bb4642f8cb37108a"
+    },
+    {
+      "bytes": 1469,
+      "path": "docs/PROJECT_IDENTITY.md",
+      "sha256": "346ce5cfa36ef9a57083033db1f21e516b3859f60564a0857c4b707162d64553"
+    },
+    {
+      "bytes": 3198,
+      "path": "docs/PROJECT_REVIEW.md",
+      "sha256": "e28c2e03667357b22b18246f2fa556ecdd3352225e43091b8a5843d6f642afb4"
+    },
+    {
+      "bytes": 2452,
+      "path": "docs/PROJECT_SPEC.md",
+      "sha256": "a47372cdc5e0a03d1032b7dde3da268d18f16510a6d3ad15e2f77040e68cae52"
+    },
+    {
+      "bytes": 554,
+      "path": "docs/PROOF.md",
+      "sha256": "cfe3511af6652a2c5bd2df91d058c0dfe68fed12e1731a4b8861f611a384e117"
+    },
+    {
+      "bytes": 909,
+      "path": "docs/README.md",
+      "sha256": "0e0ad1fac9a64f682189c5a1a9e0358abe478e029edd8eb5a5cfc21dbf66390e"
+    },
+    {
+      "bytes": 1353,
+      "path": "docs/agents/README.md",
+      "sha256": "14544600ba7263afecf5af25d590276fbf53f445bc2005f750f7399aa15078d7"
+    },
+    {
+      "bytes": 2964,
+      "path": "docs/dev/README.md",
+      "sha256": "cacd0dd35acfc867adc4b12c3c4f4ec7c0611d89d5b3c1a03de0c14fd72490db"
+    },
+    {
+      "bytes": 3244,
+      "path": "docs/dev/RUNTIME_LIFECYCLE.md",
+      "sha256": "e7f431299167dec5e0c8bdedb68a85617efda0d0dafe1c77f02be58aba4822c3"
+    },
+    {
+      "bytes": 2531,
+      "path": "docs/research-inbox/README.md",
+      "sha256": "640590d6428c4c51d2e8f5f50a29b010904642c77478067db470e015e3a435d4"
+    },
+    {
+      "bytes": 2906,
+      "path": "docs/user/README.md",
+      "sha256": "94683fd6aa62933025c62ef30b31f7135b1d8a4818fca987839bcff05567dbc5"
+    },
+    {
+      "bytes": 7286,
+      "path": "docs/user/SETUP.md",
+      "sha256": "7d2d6a69f7264b4f81d82c1657f9617e6645731e865c6f87dd4f36c385b065fb"
+    },
+    {
+      "bytes": 774,
+      "path": "docs/work/README.md",
+      "sha256": "a2ff9ed5d5e585c93319996e97181623469a4e598e34088bc59203e3076cf418"
+    },
+    {
+      "bytes": 150,
+      "path": "docs/work/done/README.md",
+      "sha256": "720fd2c2c1e8d41da9c25b64946a6ea7dc47591fb0a9582ef57ae796d10712b9"
+    },
+    {
+      "bytes": 548,
+      "path": "run.cmd",
+      "sha256": "3708bf8b3bd88775f9f4c60fec5c42d3dc32df4819bb32116028540800898eaa"
+    },
+    {
+      "bytes": 919,
+      "path": "scripts/README.md",
+      "sha256": "7539bde6dca888df0e5146310117ef80e809649605c279ef4f08ffec53726b06"
+    },
+    {
+      "bytes": 1108,
+      "path": "scripts/run.ps1",
+      "sha256": "6dfae5f2de2cf24644ead544e7123b8ff127ed63da1313dfc9be47b36382837d"
+    },
+    {
+      "bytes": 247,
+      "path": "scripts/run.sh",
+      "sha256": "79b6a16ce87d7cff6e5611a97b3246d472b1d387aab42da683df81d6e9e48e75"
+    },
+    {
+      "bytes": 31524,
+      "path": "scripts/share.ps1",
+      "sha256": "5ad876d7a00817ccfe0b54c8fada18e34ce03640aa22d5d7957ee1ed3be279c5"
+    },
+    {
+      "bytes": 643,
+      "path": "source/README.md",
+      "sha256": "6bf35a1527c6d3f7ba650a5839bf009524ea42b711686e293ea3d37afbf5836e"
+    },
+    {
+      "bytes": 7646,
+      "path": "summary_bank.json",
+      "sha256": "e70298c80f0bfe55159e00e819db2d6d1100f5eaa15c996f28b6396af0587055"
+    },
+    {
+      "bytes": 767,
+      "path": "tests/README.md",
+      "sha256": "f5e3111957d6a69f0c7a9b3a67df609276eecabd1e1e3a6479b3c6a82c3cbab6"
+    },
+    {
+      "bytes": 156,
+      "path": "tests/fixtures/README.md",
+      "sha256": "99d611a14ae9ed9c5db6dc3a1ee0b1fd28f1fefadd9a5857507744c84d22c027"
+    },
+    {
+      "bytes": 10569,
+      "path": "tests/foundation/Test-ContextFallback.ps1",
+      "sha256": "8db30348673adb6282e71ec99fd83ee841e0c22a214ddce3814019959c2c6fd7"
+    },
+    {
+      "bytes": 78998,
+      "path": "tests/foundation/Test-Template.ps1",
+      "sha256": "949fa987e265986aa2acab27a67cfe094c5a273e3cff3ece37138081b6cff1cf"
+    },
+    {
+      "bytes": 151,
+      "path": "tests/product/README.md",
+      "sha256": "34013216d22f1b106ea266e84f4a8baec81923859bc6e696aaf605f0b59a205a"
+    },
+    {
+      "bytes": 407,
+      "path": "version.json",
+      "sha256": "9dccefcf29a08210bb5c8e45904f7a39afe6ab5d3cdbe89e81d7546955abafb3"
+    }
+  ],
+  "generated_at_utc": "2026-10-11T23:23:04Z",
+  "policy_reference": {
+    "commit": "39da14ddcd7144535440e2c9be2f14c16e56205b",
+    "note": "Safety, explicit versioning, bounded state, proof, and coordination conventions.",
+    "repository": "Shoozes/three-sisters"
+  },
+  "project": {
+    "description": "mountain-cabin-bloom-honey project.",
+    "name": "mountain-cabin-bloom-honey",
+    "slug": "mountain-cabin-bloom-honey"
+  },
+  "runtime": {
+    "minimum_powershell": "5.1",
+    "python_required": false
+  },
+  "schema": "gknome_template_provenance_v1",
+  "template_id": "gknome-standard",
+  "template_payload_sha256": "491c0c4a20ab093f4852a045ae1d13c3f0bd17dc9cb46c37ca1eb95b346092c2",
+  "template_version": "0.0.005"
+}

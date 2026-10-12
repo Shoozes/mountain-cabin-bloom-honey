@@ -301,14 +301,14 @@ test("cli: a non-game with a compliant card passes", () => {
   assert.deepEqual(JSON.parse(run.stdout).messages, []);
 });
 
-// --- the prompts are the only enforcement here, so pin them to the code ---
+// --- retained Grok platform guidance; current project workflow lives in Gknome ---
 
 const readDoc = (rel) => readFileSync(join(TEMPLATE_ROOT, rel), "utf8");
 
-test("SKILL.md and AGENTS.md name the marker path and bound this script uses", () => {
+test("retained Grok skill and sandbox contract name the marker path and bound", () => {
   // Prose wraps, so the minute count may straddle a line break.
   const bound = new RegExp(`${OG_PENDING_MAX_AGE_MS / 60_000}\\s+minutes`);
-  for (const rel of [".grok/skills/og/SKILL.md", "AGENTS.md"]) {
+  for (const rel of [".grok/skills/og/SKILL.md", "docs/platform/grok-sandbox-origin.md"]) {
     const doc = readDoc(rel);
     assert.ok(doc.includes(`/workspace/${OG_PENDING_REL_PATH}`), `${rel}: marker path`);
     assert.ok(bound.test(doc), `${rel}: staleness bound`);
@@ -316,7 +316,7 @@ test("SKILL.md and AGENTS.md name the marker path and bound this script uses", (
 });
 
 // The two places that own "never wait on the brand task". Scanning the whole
-// of AGENTS.md instead would make every unrelated `wait_tasks` mention a future
+// of the historical contract instead would make every unrelated `wait_tasks` mention a future
 // feature adds to it this test's business.
 const PROHIBITION_SECTIONS = [
   {
@@ -326,7 +326,7 @@ const PROHIBITION_SECTIONS = [
     until: /\n## /,
   },
   {
-    rel: "AGENTS.md",
+    rel: "docs/platform/grok-sandbox-origin.md",
     label: "execution loop step 6",
     from: "6. **Brand-asset pass",
     until: /\n7\. /,

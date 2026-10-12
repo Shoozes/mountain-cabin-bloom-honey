@@ -170,6 +170,7 @@ function manifestEntry(job, drawn) {
     wear: job.wear,
     repeat: job.repeat,
     path,
+    visualReview: "unapproved",
   };
 }
 

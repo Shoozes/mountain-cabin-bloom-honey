@@ -14,7 +14,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/reviewed/brick.png"
+      "path": "textures/pixel/reviewed/brick.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "stone",
@@ -28,7 +29,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/reviewed/stone.png"
+      "path": "textures/pixel/reviewed/stone.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "metal",
@@ -42,7 +44,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/reviewed/metal.png"
+      "path": "textures/pixel/reviewed/metal.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "wood",
@@ -56,7 +59,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/reviewed/wood.png"
+      "path": "textures/pixel/reviewed/wood.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "grass",
@@ -70,7 +74,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/reviewed/grass.png"
+      "path": "textures/pixel/reviewed/grass.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "water",
@@ -84,7 +89,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/reviewed/water.png"
+      "path": "textures/pixel/reviewed/water.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "sand",
@@ -98,7 +104,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/reviewed/sand.png"
+      "path": "textures/pixel/reviewed/sand.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "sawn-oak",
@@ -112,7 +119,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/fiber/sawn-oak.png"
+      "path": "textures/pixel/fiber/sawn-oak.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "toon-plank",
@@ -126,7 +134,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/fiber/toon-plank.png"
+      "path": "textures/pixel/fiber/toon-plank.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "knot-comic",
@@ -140,7 +149,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/fiber/knot-comic.png"
+      "path": "textures/pixel/fiber/knot-comic.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "crack-comic",
@@ -154,7 +164,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/fiber/crack-comic.png"
+      "path": "textures/pixel/fiber/crack-comic.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "dark-panels",
@@ -168,7 +179,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/fiber/dark-panels.png"
+      "path": "textures/pixel/fiber/dark-panels.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "buttered",
@@ -182,7 +194,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/bond/buttered.png"
+      "path": "textures/pixel/bond/buttered.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "herringbone",
@@ -196,7 +209,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/bond/herringbone.png"
+      "path": "textures/pixel/bond/herringbone.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "basket",
@@ -210,7 +224,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/bond/basket.png"
+      "path": "textures/pixel/bond/basket.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "subway",
@@ -224,7 +239,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/bond/subway.png"
+      "path": "textures/pixel/bond/subway.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "chevron",
@@ -238,7 +254,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/bond/chevron.png"
+      "path": "textures/pixel/bond/chevron.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "diamond",
@@ -252,7 +269,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/bond/diamond.png"
+      "path": "textures/pixel/bond/diamond.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "mosaic",
@@ -266,7 +284,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/bond/mosaic.png"
+      "path": "textures/pixel/bond/mosaic.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "cobble",
@@ -280,7 +299,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/bond/cobble.png"
+      "path": "textures/pixel/bond/cobble.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "hex-bond",
@@ -294,7 +314,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/bond/hex-bond.png"
+      "path": "textures/pixel/bond/hex-bond.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "honeycomb",
@@ -308,7 +329,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/bond/honeycomb.png"
+      "path": "textures/pixel/bond/honeycomb.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "dirt",
@@ -322,7 +344,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/ground/dirt.png"
+      "path": "textures/pixel/ground/dirt.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "gravel",
@@ -336,7 +359,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/ground/gravel.png"
+      "path": "textures/pixel/ground/gravel.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "mud",
@@ -350,7 +374,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/ground/mud.png"
+      "path": "textures/pixel/ground/mud.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "snow",
@@ -364,7 +389,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/ground/snow.png"
+      "path": "textures/pixel/ground/snow.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "ash",
@@ -378,7 +404,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/ground/ash.png"
+      "path": "textures/pixel/ground/ash.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "clay",
@@ -392,7 +419,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/ground/clay.png"
+      "path": "textures/pixel/ground/clay.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "peat",
@@ -406,7 +434,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/ground/peat.png"
+      "path": "textures/pixel/ground/peat.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "moss",
@@ -420,7 +449,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/ground/moss.png"
+      "path": "textures/pixel/ground/moss.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "granite",
@@ -434,7 +464,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/ground/granite.png"
+      "path": "textures/pixel/ground/granite.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "asphalt",
@@ -448,7 +479,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/ground/asphalt.png"
+      "path": "textures/pixel/ground/asphalt.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "erosion",
@@ -462,7 +494,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/ground/erosion.png"
+      "path": "textures/pixel/ground/erosion.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "concrete",
@@ -476,7 +509,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/built/concrete.png"
+      "path": "textures/pixel/built/concrete.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "stucco",
@@ -490,7 +524,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/built/stucco.png"
+      "path": "textures/pixel/built/stucco.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "cinder",
@@ -504,7 +539,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/built/cinder.png"
+      "path": "textures/pixel/built/cinder.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "shingle",
@@ -518,7 +554,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/built/shingle.png"
+      "path": "textures/pixel/built/shingle.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "pantile",
@@ -532,7 +569,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/built/pantile.png"
+      "path": "textures/pixel/built/pantile.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "plaster",
@@ -546,7 +584,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/built/plaster.png"
+      "path": "textures/pixel/built/plaster.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "terrazzo",
@@ -560,7 +599,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/built/terrazzo.png"
+      "path": "textures/pixel/built/terrazzo.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "slate",
@@ -574,7 +614,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/built/slate.png"
+      "path": "textures/pixel/built/slate.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "rebar",
@@ -588,7 +629,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/built/rebar.png"
+      "path": "textures/pixel/built/rebar.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "ceramic",
@@ -602,7 +644,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/built/ceramic.png"
+      "path": "textures/pixel/built/ceramic.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "brushed",
@@ -616,7 +659,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/metal/brushed.png"
+      "path": "textures/pixel/metal/brushed.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "tread",
@@ -630,7 +674,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/metal/tread.png"
+      "path": "textures/pixel/metal/tread.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "vent",
@@ -644,7 +689,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/metal/vent.png"
+      "path": "textures/pixel/metal/vent.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "anodized",
@@ -658,7 +704,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/metal/anodized.png"
+      "path": "textures/pixel/metal/anodized.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "bark",
@@ -672,7 +719,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/nature/bark.png"
+      "path": "textures/pixel/nature/bark.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "cork",
@@ -686,7 +734,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/pixel/nature/cork.png"
+      "path": "textures/pixel/nature/cork.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "brick",
@@ -700,7 +749,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/painted/reviewed/brick.png"
+      "path": "textures/painted/reviewed/brick.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "brick",
@@ -714,7 +764,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/real/reviewed/brick.png"
+      "path": "textures/real/reviewed/brick.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "brick",
@@ -728,7 +779,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/poster/reviewed/brick.png"
+      "path": "textures/poster/reviewed/brick.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "stone",
@@ -742,7 +794,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/painted/reviewed/stone.png"
+      "path": "textures/painted/reviewed/stone.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "stone",
@@ -756,7 +809,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/real/reviewed/stone.png"
+      "path": "textures/real/reviewed/stone.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "stone",
@@ -770,7 +824,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/poster/reviewed/stone.png"
+      "path": "textures/poster/reviewed/stone.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "subway",
@@ -784,7 +839,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/painted/bond/subway.png"
+      "path": "textures/painted/bond/subway.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "subway",
@@ -798,7 +854,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/real/bond/subway.png"
+      "path": "textures/real/bond/subway.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "subway",
@@ -812,7 +869,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/poster/bond/subway.png"
+      "path": "textures/poster/bond/subway.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "mosaic",
@@ -826,7 +884,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/painted/bond/mosaic.png"
+      "path": "textures/painted/bond/mosaic.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "mosaic",
@@ -840,7 +899,8 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/real/bond/mosaic.png"
+      "path": "textures/real/bond/mosaic.png",
+      "visualReview": "unapproved"
     },
     {
       "id": "mosaic",
@@ -854,7 +914,9 @@
       "scale": 1,
       "wear": 0.35,
       "repeat": 1,
-      "path": "textures/poster/bond/mosaic.png"
+      "path": "textures/poster/bond/mosaic.png",
+      "visualReview": "unapproved"
     }
-  ]
+  ],
+  "visualReview": "unapproved"
 }

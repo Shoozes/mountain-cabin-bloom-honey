@@ -1,0 +1,683 @@
+{
+  "format": "standalone-gknome-closeout/1",
+  "recordedAt": "2026-10-12T00:06:13.373Z",
+  "status": "Complete with verified limitations",
+  "scope": "Standalone texture tool, scoped root organization, Gknome binding and guarded progress preservation",
+  "baseline": "c26d117c6de03432b469abbfc55e061778512735",
+  "sourceNormalization": "LF text",
+  "sources": [
+    {
+      "path": "src/shader/retro-terrain.mjs",
+      "sha256": "76fa9fb6e1053954828cbb35f893a29160c8e4cd92a7ef125fa40ff7aa10f9d2"
+    },
+    {
+      "path": "src/shader/retro-terrain.d.mts",
+      "sha256": "a95fac368ac13568cf24afc500e789bc9bd36d2f2d2bb8a55894e455bb394e48"
+    },
+    {
+      "path": "src/shader/retro-terrain-growth.mjs",
+      "sha256": "d6be8ef56ae23de66d8849b7bf40d0940404aa0ce718eeba75835bcb39db3040"
+    },
+    {
+      "path": "src/shader/retro-terrain-growth.d.mts",
+      "sha256": "0028f8d7df20bce454ae0f90139eeefa59f273e21e17896dfebb6030c41a72cf"
+    },
+    {
+      "path": "src/shader/retro-terrain-browser.mjs",
+      "sha256": "ae65dbeec6a43f11c8d0d3e88a9bdfdc759bce0329571d2ba5ef0a055cc08438"
+    },
+    {
+      "path": "src/shader/retro-terrain-browser.d.mts",
+      "sha256": "20ca2ab1fa7a88d9a5052ffa43904896c22c39c0409e8a931fe6ce7598fadd19"
+    },
+    {
+      "path": "src/components/retro-terrain-panel.tsx",
+      "sha256": "44978939be5e3891910533d0e7b95ebdb23b8cac71396e75af1bad4b15e2e14a"
+    },
+    {
+      "path": "src/components/mill-app.tsx",
+      "sha256": "4d5988c5f4b3de1db78071ef9df432d2ca4d70fd2ec19b4cb4dec34697cdf0cb"
+    },
+    {
+      "path": "src/components/material-panel.tsx",
+      "sha256": "267d499aef7a0b99aaafd348639ce51ecd842c6bf3aa598abfd3f0a88468fcdc"
+    },
+    {
+      "path": "src/styles.css",
+      "sha256": "a2d5ab6ec094a26cf51390cbf09f4070b412605764c3304ea9bb09831c1eb099"
+    },
+    {
+      "path": "scripts/bake-retro-terrain.mjs",
+      "sha256": "3131e8c0050a0c57fbe89e7df260ad6b3b069d95c368312cf6f2a6cf8e861247"
+    },
+    {
+      "path": "scripts/bake-retro-terrain-growth.mjs",
+      "sha256": "62a9221afa1ca049d7b3aeab0ad25f54400e226c3ca51863f9638d5b14b90d2e"
+    },
+    {
+      "path": "scripts/material-png.mjs",
+      "sha256": "a8c63520bbbd5eb8d6a5ddf7751a819171c8d49a7b94ae27ca589228e63e31a8"
+    },
+    {
+      "path": "scripts/retro-terrain.test.mjs",
+      "sha256": "b34801e2239d4765bd102c46410dd7c08318595b0b7abf1a27f435bf6c854580"
+    },
+    {
+      "path": "scripts/retro-terrain-growth.test.mjs",
+      "sha256": "015f50e148b7a966fbe43fe1d4d2d2b197330a7fabe549af2166a6f6ba9a12e6"
+    },
+    {
+      "path": "scripts/bake-retro-terrain.test.mjs",
+      "sha256": "02844c520d281d1f49667f41beb530a09e7265ad36f25777981e5c733cfa765e"
+    },
+    {
+      "path": "scripts/bake-retro-terrain-growth.test.mjs",
+      "sha256": "c98c985cf65b736f4397cf365364f2ec0246632d3611e8097727fd71df3ee708"
+    },
+    {
+      "path": "scripts/test-retro-terrain-browser.mjs",
+      "sha256": "b039dbb1048d5ab43858c5a14d14df5d1c1941d65f8409c4c69ba0e987888678"
+    },
+    {
+      "path": "scripts/fixtures/retro-terrain-v1.json",
+      "sha256": "e9e43db17619d8f85e3692e5d35c458d917bfd4c6f0f33ade6cc1adb77b5933e"
+    },
+    {
+      "path": "package.json",
+      "sha256": "272330a224e970acf9371ffdecf08ba24f4512b789fc64e7f838fac9d6c885aa"
+    },
+    {
+      "path": ".tools/project.json",
+      "sha256": "d12d572d2bd97606e2e72c9b334e1ad0c04d34a6ba819bfe9a8363e2f64fa3a7"
+    },
+    {
+      "path": ".tools/project-spec.json",
+      "sha256": "5b02de711c760b5e28a0c2e7aa67b2b05548d41a7b43b16299f248e9c75a91fc"
+    },
+    {
+      "path": ".tools/project-state.json",
+      "sha256": "756768e648ff5d4da2403113a1713cb1debec48f409952ad29bf6b60ef60798d"
+    },
+    {
+      "path": ".tools/controller.v3.json",
+      "sha256": "e742872343cf342238dc7a58ee5d7147a74ffc560b1e733df7ea77fcf94330d2"
+    },
+    {
+      "path": ".tools/controller.json",
+      "sha256": "94b0086cb3f25ed99dcf8f0654eb93f5db33d68c2da6063ae162a8b6c0c5ec84"
+    },
+    {
+      "path": ".tools/task-specs.json",
+      "sha256": "21d20ed9af9bed3d40dfde8199b0a45c8b38bd9df0c63ece506f90b6c096a49b"
+    },
+    {
+      "path": "summary_bank.json",
+      "sha256": "d2cd43a11894672a95d72cece6f4693fab045453f632b5d19a4c6099050020ed"
+    },
+    {
+      "path": "scripts/project-tasks.ps1",
+      "sha256": "a2d1ae89a5226661d8ed2672359b0afaf14bec768d15823c9d00d0956fd21d79"
+    },
+    {
+      "path": "tests/foundation/Test-ProjectBinding.ps1",
+      "sha256": "59d2998d6a0b3d7a990bd3702d296c5382890809266c07cc017ccdd1fc7b9492"
+    },
+    {
+      "path": ".tools/gitpush.ps1",
+      "sha256": "265d886645f2004c0aaff4336c5a953e4b85ebc79f5d024cc64c69bc3f9e6f4c"
+    },
+    {
+      "path": ".tools/git-remote.ps1",
+      "sha256": "187093aa6e2c4f1cb0668cb18e249c1eb78350d928286806c07e2c6e65cc0d27"
+    },
+    {
+      "path": ".tools/StrictJson.ps1",
+      "sha256": "51d094cd19576b88fa572c95210b023ae7c544caeaa0f7e4a4f5747dc19153d1"
+    },
+    {
+      "path": ".tools/secret-scan-core.ps1",
+      "sha256": "2cc1b6c8170b74578e81615a11f795b72f8ee5ed2c6a7590003db972be2f3479"
+    },
+    {
+      "path": ".tools/scan-secrets.ps1",
+      "sha256": "5cf962ba48542690cf754dc7bd4fd49e12a89f4430f023b519c639b898b66123"
+    },
+    {
+      "path": ".tools/scan-secrets-history.ps1",
+      "sha256": "25e2fe0ade3258da1beb36a72d9619a88bcfc4146aa5f46a326e26134a16ba67"
+    },
+    {
+      "path": ".tools/git-state.ps1",
+      "sha256": "0202b3f25a41b146362079e2b4910940f6b1ac93888042fee9d70ac981359885"
+    },
+    {
+      "path": ".tools/gitpull.ps1",
+      "sha256": "a00c9d82ceff7f1a94f84e29abca54539073fc047619e424ba24d603339f48da"
+    },
+    {
+      "path": ".tools/git.ps1",
+      "sha256": "ad3030d17e42956ce2f90aa079e37d95dfa36dd69d5ebd3bdbd04ce701e387f0"
+    },
+    {
+      "path": ".tools/project.ps1",
+      "sha256": "f6f65e3c4d1bc1dda1193cc70227d2921ae046a13050593b629bda5d8a15dbf4"
+    },
+    {
+      "path": "docs/PROJECT_IDENTITY.md",
+      "sha256": "21ea17a26ee78bbd02bc873ed3bd39bac0237523d1664f498f42aa921d291c58"
+    },
+    {
+      "path": "docs/PROJECT_SPEC.md",
+      "sha256": "f0a255e53df2ecd67dd10b2c2d6cb31fb3724a276defe5596e53df8d027206eb"
+    },
+    {
+      "path": "docs/PROOF.md",
+      "sha256": "996dd973fdd1f5df76d85ca86d6e5fa7d96be44f260566303b49fa82205407b4"
+    },
+    {
+      "path": "scripts/README.md",
+      "sha256": "0822f4cfdd39e9d152b4a176c97a2ae0be3bc5e70f65df78747995b8489519e8"
+    },
+    {
+      "path": "docs/dev/README.md",
+      "sha256": "30d6712446275d65ddbc3bf8fe36f300914f7a27da3be1afc6f0c18e931d3e38"
+    },
+    {
+      "path": "docs/user/SETUP.md",
+      "sha256": "cbdcaa2868e039c06954cd93e2d91132f30d0e52eabd00d70131266d00de5817"
+    },
+    {
+      "path": "source/README.md",
+      "sha256": "caf80fdd55aa699a32d144070ea610d510f63b0341d7f4ee9df708a6d417bffc"
+    },
+    {
+      "path": "tests/product/README.md",
+      "sha256": "95561b91f07c83613f632971f903756a19e534a62c6f2485df05f2173a375fec"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "b66ac231addf9258de1726c96b6b9cb5dceae23eae390488e477fb8c0b78f7d3"
+    },
+    {
+      "path": "README.md",
+      "sha256": "01b8deeda09c04a5ed688ad9145cc7c8107e7022e21c26ac31d7df08ba03d876"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "5f55d80c63d0bc40f275d8f45a63d63bce42252b22de96df862b5dd6eacbb61a"
+    },
+    {
+      "path": "tsconfig.json",
+      "sha256": "7f49695cf194cd221717ca199a64e84611a2859f4e323f06be3a5ec0bbd66749"
+    },
+    {
+      "path": "vite.config.ts",
+      "sha256": "331e77372bde49be751575ec267dd87fce10da5e69c8f44f8a64a47fd575aa14"
+    },
+    {
+      "path": "startup.sh",
+      "sha256": "9ae6387193cb7b4edd6dc5bc4e7b613d3cf2ddfe786e3ab44a2078c411e684f3"
+    },
+    {
+      "path": "src/routes/__root.tsx",
+      "sha256": "2b3c7ae8c3a88b68c03578ecfda53fffebf00a7b330b45b579da87e99e06063f"
+    },
+    {
+      "path": "src/lib/preview-host-bridge.ts",
+      "sha256": "05b8e27258982071acb2abc2a9a13565adcc76d87a191e75b5e75ec465f2183c"
+    },
+    {
+      "path": "scripts/with-app-env.mjs",
+      "sha256": "8159a2c1d787323a8e429eb36506734ca33a883b6e2eca354ce37b083b9a6e1e"
+    },
+    {
+      "path": "scripts/with-app-env.test.mjs",
+      "sha256": "b24c381238ad2f55d80420cd05004765674e8538cd57e906041add78271aad77"
+    },
+    {
+      "path": "scripts/check-auth-invariant.mjs",
+      "sha256": "e9855ed0d61d404a06015c7950d4a7cc4bbb508b5021142a6b44aeb38ce207fd"
+    },
+    {
+      "path": "scripts/check-auth-invariant.test.mjs",
+      "sha256": "70b8f3f9172ce2161205d4b81f7f2a26e0aaf15e56ae0b4c9c8e87e1fbdf4e03"
+    },
+    {
+      "path": "scripts/brand-check.test.mjs",
+      "sha256": "3e585231863e5bdf23fea3551f36799062802091373fa2409ce8986815d70bd2"
+    },
+    {
+      "path": "scripts/test-local.mjs",
+      "sha256": "b02e1409ab4498d60f2aa7ec5bb599f5a1f56bdedf92fa0fc42d1c8f2d0b3c80"
+    }
+  ],
+  "checks": [
+    {
+      "command": "npm test",
+      "exitCode": 0,
+      "log": ".artifacts/root-organization-20261011/test-current.log",
+      "sha256": "b751a83306f6b9eaf8c2b7e681850c05416424f51c55667362c77b5fa7f147f5",
+      "tests": 261,
+      "scriptTests": 236,
+      "shaderTests": 25
+    },
+    {
+      "command": "npm run typecheck",
+      "exitCode": 0,
+      "log": ".artifacts/root-organization-20261011/typecheck.log",
+      "sha256": "e5046545a3a9fcc0cf6950c9402c78a2b227f07a6a658d2a0c1fbc5f4a194da0"
+    },
+    {
+      "command": "npm run lint",
+      "exitCode": 0,
+      "log": ".artifacts/root-organization-20261011/lint-current.log",
+      "sha256": "9e26cc9ff4b569e5db90454732fd10fd7539c03822105285e1736826ed26fc0f"
+    },
+    {
+      "command": "npm run build",
+      "exitCode": 0,
+      "log": ".artifacts/root-organization-20261011/build.log",
+      "sha256": "e5687baeac348c497a5de980df1600c09460c407ed0c948cc455de21553ca4a0"
+    },
+    {
+      "command": "npm run build:pages",
+      "exitCode": 0,
+      "log": ".artifacts/root-organization-20261011/build-pages.log",
+      "sha256": "67aa87b8ff3e16e92e6032ba42c9b42686dfbc188c20e06777c0517d44b64f9b"
+    },
+    {
+      "command": "node --test scripts/brand-check.test.mjs",
+      "exitCode": 0,
+      "log": ".artifacts/root-organization-20261011/brand-check.log",
+      "sha256": "a066461a101e063c434c16945237e83ed729d504343e5d13c4cab789b8cbae4b",
+      "tests": 29
+    },
+    {
+      "command": "wsl --distribution Codex-Compat --exec sh -n /mnt/c/DevStuff/mountain-cabin-bloom-honey/startup.sh",
+      "exitCode": 0,
+      "proof": "POSIX syntax only; no new service launch"
+    },
+    {
+      "command": "node docs/look-dev/studies/retro-terrain-growth-20261011/verify.mjs",
+      "exitCode": 0,
+      "images": 12
+    },
+    {
+      "command": "node docs/look-dev/studies/retro-terrain-20261011/verify.mjs",
+      "exitCode": 0,
+      "images": 7
+    }
+  ],
+  "browsers": [
+    {
+      "mode": "dev",
+      "scope": "growth",
+      "command": "node scripts/test-retro-terrain-browser.mjs --playwright-root node_modules/playwright --kit growth --dev-url http://127.0.0.1:8080/",
+      "exitCode": 0,
+      "receipt": ".artifacts/proof/retro-terrain-browser/1791762039672-6356/receipt.json",
+      "receiptSha256": "5badc22c0e102242cc0a6ac7f6577a20e4bdcfc4b51ff7ae9557f7446befb092",
+      "authTraffic": 0,
+      "exportContents": {
+        "entries": 76,
+        "pngs": 74,
+        "tiles": 70,
+        "atlases": 4,
+        "decodedPixelMatches": 74
+      },
+      "integerStageScaling": {
+        "desktop": {
+          "dpr": 1,
+          "source": {
+            "width": 256,
+            "height": 256
+          },
+          "rect": {
+            "width": 768,
+            "height": 768
+          },
+          "deviceScale": {
+            "x": 3,
+            "y": 3
+          }
+        },
+        "mobile": {
+          "dpr": 1,
+          "source": {
+            "width": 64,
+            "height": 64
+          },
+          "rect": {
+            "width": 192,
+            "height": 192
+          },
+          "deviceScale": {
+            "x": 3,
+            "y": 3
+          }
+        },
+        "dpr2Mobile": {
+          "target": "http://127.0.0.1:8080/",
+          "sourceSelector": ".stage canvas[aria-label=\"Active material preview\"]",
+          "dpr": 2,
+          "source": {
+            "width": 256,
+            "height": 256
+          },
+          "rect": {
+            "width": 128,
+            "height": 128
+          },
+          "deviceScale": {
+            "x": 1,
+            "y": 1
+          },
+          "closed": true
+        },
+        "sourceSelector": ".stage canvas[aria-label=\"Active material preview\"]"
+      },
+      "cancelAndRetry": true,
+      "errors": []
+    },
+    {
+      "mode": "pages",
+      "scope": "growth",
+      "command": "node scripts/test-retro-terrain-browser.mjs --playwright-root node_modules/playwright --kit growth",
+      "exitCode": 0,
+      "receipt": ".artifacts/proof/retro-terrain-browser/1791761937149-31440/receipt.json",
+      "receiptSha256": "bbaaedf231655465b768820bdf7b8656c95bd77813266c103894938417117333",
+      "authTraffic": 0,
+      "exportContents": {
+        "entries": 76,
+        "pngs": 74,
+        "tiles": 70,
+        "atlases": 4,
+        "decodedPixelMatches": 74
+      },
+      "integerStageScaling": {
+        "desktop": {
+          "dpr": 1,
+          "source": {
+            "width": 256,
+            "height": 256
+          },
+          "rect": {
+            "width": 768,
+            "height": 768
+          },
+          "deviceScale": {
+            "x": 3,
+            "y": 3
+          }
+        },
+        "mobile": {
+          "dpr": 1,
+          "source": {
+            "width": 64,
+            "height": 64
+          },
+          "rect": {
+            "width": 192,
+            "height": 192
+          },
+          "deviceScale": {
+            "x": 3,
+            "y": 3
+          }
+        },
+        "dpr2Mobile": {
+          "target": "http://127.0.0.1:50100/mountain-cabin-bloom-honey/",
+          "sourceSelector": ".stage canvas[aria-label=\"Active material preview\"]",
+          "dpr": 2,
+          "source": {
+            "width": 256,
+            "height": 256
+          },
+          "rect": {
+            "width": 128,
+            "height": 128
+          },
+          "deviceScale": {
+            "x": 1,
+            "y": 1
+          },
+          "closed": true
+        },
+        "sourceSelector": ".stage canvas[aria-label=\"Active material preview\"]"
+      },
+      "cancelAndRetry": true,
+      "errors": []
+    },
+    {
+      "mode": "pages",
+      "scope": "classic",
+      "command": "node scripts/test-retro-terrain-browser.mjs --playwright-root node_modules/playwright --kit classic",
+      "exitCode": 0,
+      "receipt": ".artifacts/proof/retro-terrain-browser/1791762138067-51392/receipt.json",
+      "receiptSha256": "1b28f396f535bd2b1534d0988f00a5a52c82d1032684f2e81b96640b04cf4966",
+      "authTraffic": 0,
+      "exportContents": {
+        "entries": 22,
+        "pngs": 20,
+        "decodedPixelMatches": 20
+      },
+      "integerStageScaling": {
+        "desktop": {
+          "dpr": 1,
+          "source": {
+            "width": 256,
+            "height": 256
+          },
+          "rect": {
+            "width": 768,
+            "height": 768
+          },
+          "deviceScale": {
+            "x": 3,
+            "y": 3
+          }
+        },
+        "mobile": {
+          "dpr": 1,
+          "source": {
+            "width": 64,
+            "height": 64
+          },
+          "rect": {
+            "width": 192,
+            "height": 192
+          },
+          "deviceScale": {
+            "x": 3,
+            "y": 3
+          }
+        },
+        "dpr2Mobile": {
+          "target": "http://127.0.0.1:62588/mountain-cabin-bloom-honey/",
+          "sourceSelector": ".stage canvas[aria-label=\"Active material preview\"]",
+          "dpr": 2,
+          "source": {
+            "width": 256,
+            "height": 256
+          },
+          "rect": {
+            "width": 128,
+            "height": 128
+          },
+          "deviceScale": {
+            "x": 1,
+            "y": 1
+          },
+          "closed": true
+        },
+        "sourceSelector": ".stage canvas[aria-label=\"Active material preview\"]"
+      },
+      "cancelAndRetry": true,
+      "errors": []
+    },
+    {
+      "mode": "dev",
+      "scope": "export-only",
+      "command": "node scripts/test-material-browser.mjs --playwright-root node_modules/playwright --export-only --dev-url http://127.0.0.1:8080/",
+      "exitCode": 0,
+      "receipt": ".artifacts/proof/material-browser/1791762297452-10188/receipt.json",
+      "receiptSha256": "7a577ead743f785b5face6a41f7862a52b2086508d329657fcfbd58baf80e3e2",
+      "authTraffic": 0,
+      "errors": []
+    },
+    {
+      "mode": "pages",
+      "scope": "export-only",
+      "command": "node scripts/test-material-browser.mjs --playwright-root node_modules/playwright --export-only",
+      "exitCode": 0,
+      "receipt": ".artifacts/proof/material-browser/1791762353707-54792/receipt.json",
+      "receiptSha256": "0867dbd30e2c6f0cb39191ba39a6dd0becb86bb61d2a3c62e7a941670ae8adec",
+      "authTraffic": 0,
+      "errors": []
+    }
+  ],
+  "foundation": {
+    "receipt": ".artifacts/proof/gknome-foundation-binding-20261011.json",
+    "receiptSha256": "317957c7907a18e9ec91a44bdee14baa14d3a7afd4cf38bebcf211ff90db93e9",
+    "checks": [
+      {
+        "command": "pwsh -NoProfile -File tests/foundation/Test-ProjectBinding.ps1 -AsJson",
+        "exit_code": 0,
+        "schema": "texture_mill_project_binding_v1",
+        "status": "pass",
+        "assertions": 57,
+        "runtime": "7.6.6",
+        "proof": "Semantic configuration, actual status dispatch and nonexecuted npm/publication plans; no product build, credential reads or publication."
+      },
+      {
+        "command": "powershell.exe -NoProfile -File tests/foundation/Test-ProjectBinding.ps1 -AsJson",
+        "exit_code": 0,
+        "schema": "texture_mill_project_binding_v1",
+        "status": "pass",
+        "assertions": 57,
+        "runtime": "5.1.26100.9444",
+        "proof": "Semantic configuration, actual status dispatch and nonexecuted npm/publication plans; no product build, credential reads or publication."
+      },
+      {
+        "command": "Offline Python Draft202012Validator with local referencing.Registry against source/contracts/schemas",
+        "status": "pass",
+        "exit_code": 0,
+        "documents": 7,
+        "result": ".tools/local/gknome-onboarding-20261011/schema-result.json"
+      },
+      {
+        "command": ".tools/context.ps1 -Mode Audit -AsJson",
+        "status": "pass",
+        "exit_code": 0,
+        "groups": 22,
+        "unmatched_patterns": 0,
+        "active_default_budget_overruns": 0,
+        "final_audit": true
+      },
+      {
+        "command": ".tools/project.ps1 -Task project-test-terrain -ArgumentList '-AsJson'",
+        "status": "pass",
+        "exit_code": 0,
+        "tests": 8,
+        "execution": "observed-earlier-in-this-qualification",
+        "complete_capture": true,
+        "process_ownership": "job-object"
+      },
+      {
+        "command": "<PS7 and PS5.1> -NoProfile -File .tools/local/gknome-onboarding-20261011/Test-PublisherDeletion.ps1 -SourceTools <canonical template/.tools> -FixtureParent .artifacts/foundation-publisher-fixtures",
+        "status": "pass",
+        "runtimes": [
+          "7.6.6",
+          "5.1.26100.9444"
+        ],
+        "execution": "observed-earlier-in-this-qualification",
+        "named_deletion": true,
+        "exact_allowlist": true,
+        "unrelated_index_preserved": true,
+        "credential_free_commit_only": true,
+        "guard_refused_before_mutation": true,
+        "target_git_mutated": false
+      },
+      {
+        "command": "<PS7 and PS5.1> -NoProfile -File .tools/local/gknome-onboarding-20261011/Test-GuardedDispatch.ps1 -Dispatcher .tools/git.ps1 -FixtureParent .artifacts/foundation-publisher-fixtures",
+        "status": "pass",
+        "runtimes": [
+          "7.6.6",
+          "5.1.26100.9444"
+        ],
+        "execution": "observed-earlier-in-this-qualification",
+        "guarded_push_pull_owners": true,
+        "no_raw_mutation": true,
+        "no_force_or_implicit_creation": true
+      },
+      {
+        "command": ".tools/scan-secrets.ps1 -RepositoryRoot <target> -ExpectedDeletionPath <exact 37 retirement paths plus .node_modules.lock> -AsJson -FailOnFindings",
+        "status": "pass",
+        "exit_code": 0,
+        "execution": "observed-earlier-in-this-qualification",
+        "scanned": 289,
+        "reviewed_deletions": 38,
+        "findings": 0,
+        "missing": 0,
+        "incomplete": 0,
+        "values_exposed": false,
+        "deletion_authority": ".artifacts/root-organization-20261011/retired.json plus .node_modules.lock"
+      },
+      {
+        "command": ".tools/git-state.ps1 -RepositoryRoot <target> -Branch main -AsJson",
+        "status": "pass",
+        "execution": "observed-earlier-in-this-qualification",
+        "local_origin_main_equal": true
+      },
+      {
+        "command": "git diff --check -- <27 named owned paths>",
+        "status": "pass",
+        "exit_code": 0
+      }
+    ],
+    "originalProvenance": "Preserved; partial qualified helper migration recorded separately",
+    "canonicalPublisherSource": "b6884e70e4559cd93c7f187aaae92dfcd2562a0c"
+  },
+  "standalone": {
+    "retiredFiles": 37,
+    "rootMarkerRetired": ".node_modules.lock",
+    "opaqueCredentialDeletion": "src/lib/auth/preview.ts; no value read, hash or copy",
+    "nonsecretRecovery": ".artifacts/root-organization-20261011/retired.json",
+    "automaticMigration": false,
+    "hostAuthFlag": "Always false in wrapped commands",
+    "removedDirectDependencies": 6,
+    "removedLockEntries": 33,
+    "retainedPackageVersionsUnchanged": true,
+    "existingTextures": "Preserved, original-only study verifiers pass"
+  },
+  "publication": {
+    "helper": ".tools/gitpush.ps1",
+    "candidateMethod": "CommitOnly with exact reviewed Path array; push-only after candidate verification",
+    "permission": "Explicit current user request for this repo and verified progress",
+    "remote": "https://github.com/Shoozes/mountain-cabin-bloom-honey.git",
+    "branch": "main",
+    "implicitRemoteCreation": false,
+    "rawPush": false,
+    "allowlist": ".artifacts/standalone-publication-paths.json",
+    "result": "Recorded separately in ignored publication receipt; the saved commit binds these source records"
+  },
+  "resources": {
+    "livePreviewOwner": ".runtime/review-cleanup-dev.json",
+    "livePreview": "Existing wrapper/server PID 28372/27188, exact start time/executable and port ownership verified, HTTP 200; deliberately retained",
+    "testBrowsers": "Closed in harness finally paths",
+    "recovery": "Old nonsecret modules and helper versions retained once in ignored ownership records",
+    "blockedCleanup": "Automatic approval review rejected removal of .artifacts/foundation-publisher-fixtures/publisher-1d343d5628df468fb2fa802f624da16f with blocked by policy; retained ignored and outside publication scope"
+  },
+  "limitations": [
+    "Artwork remains unapproved; periodic motifs and future material/engine work remain in TODO",
+    "Node 26.5/Chrome local proof; no Node22 or hosted/deployment verification claim",
+    "Original older foundation provenance is retained; this is scoped semantic/helper adoption, not a full global update",
+    "Canonical legacy Git-dispatch defect fixed locally; canonical Gknome follow-up is separate",
+    "One interrupted ignored fixture retained after automatic approval review rejection"
+  ],
+  "repairedFailures": [
+    "Brand guidance assertions now target the preserved historical sandbox contract",
+    "Removed auth flag override expectations corrected to standalone behavior",
+    "Browser open-state completion recognized even when a frame-based locator wait lags",
+    "POSIX startup CRLF normalized to LF and syntax rechecked"
+  ]
+}

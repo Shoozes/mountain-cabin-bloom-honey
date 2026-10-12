@@ -1,0 +1,4 @@
+interface:
+  display_name: "Gknome Sprint"
+  short_description: "Complete one selected project queue item"
+  default_prompt: "Use $gknome-sprint to complete the selected queue item. Continue through its required slices until Done when is verified, then archive or remove it from active routing. Handoff and publication remain separate."

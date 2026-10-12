@@ -9,12 +9,9 @@
  *
  * Only `VITE_`-prefixed keys are honored: the file is a build flag carrier, not
  * a secret store, and only `VITE_` vars reach the browser anyway. A real
- * `process.env` entry always wins, so an explicit override still works.
- *
- * That precedence also means the file governs this workspace only. A deployed
- * build runs with the provider's project env, where the deployer sets
- * `VITE_AUTH_ENABLED` itself (today unconditionally `"true"`), so the deployed
- * flag is the platform's, not this file's.
+ * `process.env` entry wins for public application flags. This standalone tool
+ * always keeps its legacy auth flag false; removed account scaffolding cannot
+ * be re-enabled by a host-provided environment value.
  *
  * Vite picks the values up because `loadEnv` prefix-matches entries already in
  * `process.env`, which is why the merge has to happen before Vite starts.
@@ -32,7 +29,7 @@ const VITE_PREFIX = "VITE_";
 /**
  * Parse an app-env document, keeping only `VITE_`-prefixed string entries.
  * Anything unparseable is an empty environment — a workspace without the file
- * must behave exactly like today (auth on, no overrides).
+ * has no file overrides; mergeAppEnv still enforces the standalone auth boundary.
  */
 export function parseAppEnv(text) {
   let parsed;
@@ -60,9 +57,9 @@ export function readAppEnv(root) {
   }
 }
 
-/** File values under the process environment: an explicit override wins. */
+/** Public file flags under process flags; sign-in stays off in this standalone tool. */
 export function mergeAppEnv(appEnv, processEnv) {
-  return { ...appEnv, ...processEnv };
+  return { ...appEnv, ...processEnv, VITE_AUTH_ENABLED: "false" };
 }
 
 /**
@@ -111,7 +108,12 @@ function main(argv) {
     process.exit(2);
   }
   const env = mergeAppEnv(readAppEnv(projectRoot()), process.env);
-  const child = spawn(command, args, { stdio: "inherit", env });
+  // Windows cannot spawn npm's .cmd shim without a shell. Keep Vite under
+  // this environment wrapper and invoke its locked JS entrypoint directly.
+  const program = process.platform === "win32" && command === "vite" ? process.execPath : command;
+  const childArgs = process.platform === "win32" && command === "vite"
+    ? [join(projectRoot(), "node_modules/vite/bin/vite.js"), ...args] : args;
+  const child = spawn(program, childArgs, { stdio: "inherit", env, windowsHide: true });
   // The dev server is long-running and is stopped by signalling this wrapper.
   for (const signal of ["SIGINT", "SIGTERM", "SIGHUP"]) {
     process.on(signal, () => child.kill(signal));

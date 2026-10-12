@@ -26,7 +26,7 @@ function appEnvFetch(env) {
   });
 }
 
-test("the flag predicate matches src/lib/auth", () => {
+test("the legacy host-flag detector distinguishes on, off and absent", () => {
   assert.equal(authEnabledFromEnvValue("false"), false);
   assert.equal(authEnabledFromEnvValue("true"), true);
   assert.equal(authEnabledFromEnvValue(undefined), true);
@@ -92,7 +92,7 @@ test("only a divergence warns the smoke verdict", () => {
 
 test("the build side resolves the template's shipped app-env", () => {
   assert.equal(buildAuthEnabled(projectRoot(), {}), false);
-  assert.equal(buildAuthEnabled(projectRoot(), { VITE_AUTH_ENABLED: "true" }), true);
+  assert.equal(buildAuthEnabled(projectRoot(), { VITE_AUTH_ENABLED: "true" }), false);
 });
 
 test("the CLI reports rather than silently passing when run via a symlink", async () => {

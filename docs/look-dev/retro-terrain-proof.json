@@ -1,0 +1,219 @@
+{
+  "format": "retro-terrain-closeout/1",
+  "status": "passed",
+  "completedUtc": "2026-10-11T20:27:27.707Z",
+  "baseline": "c26d117c6de03432b469abbfc55e061778512735",
+  "candidate": "Current working-tree implementation over preserved58-file staged snapshot",
+  "runtime": {
+    "platform": "win32",
+    "node": "v26.5.0",
+    "npm": "11.6.2",
+    "powershell": "7.6.6"
+  },
+  "sourceSha256": {
+    "package.json": "02bec88ee09b38806ecadf1ccf49334b6463ab0b8d6ffc845f55265a2e1eeee3",
+    "src/shader/retro-terrain.mjs": "76fa9fb6e1053954828cbb35f893a29160c8e4cd92a7ef125fa40ff7aa10f9d2",
+    "src/shader/retro-terrain.d.mts": "a95fac368ac13568cf24afc500e789bc9bd36d2f2d2bb8a55894e455bb394e48",
+    "src/shader/retro-terrain-browser.mjs": "23a3d99e7164d2ec9008968cd0102af4e476831a294da365f3f3e6c1ebe5b9dd",
+    "src/shader/retro-terrain-browser.d.mts": "6af7a249425774987277879738f33d9f6d84fc9001009a6df53d2bee34c1e603",
+    "src/components/retro-terrain-panel.tsx": "5db8551d43822b2981860b8be916ad3701454bfce3937a17f72001c621dc5b97",
+    "src/components/material-panel.tsx": "267d499aef7a0b99aaafd348639ce51ecd842c6bf3aa598abfd3f0a88468fcdc",
+    "src/components/mill-app.tsx": "9e46c750c536d7666c08d925993c3082b65f89fa678b0af8b49f419fb0432278",
+    "src/styles.css": "8cc6b69f0b202368cff2eac6c430f5d31a26740b9a3754d988ef0bfc8e3b92e0",
+    "scripts/bake-retro-terrain.mjs": "3131e8c0050a0c57fbe89e7df260ad6b3b069d95c368312cf6f2a6cf8e861247",
+    "scripts/bake-retro-terrain.test.mjs": "02844c520d281d1f49667f41beb530a09e7265ad36f25777981e5c733cfa765e",
+    "scripts/retro-terrain.test.mjs": "b34801e2239d4765bd102c46410dd7c08318595b0b7abf1a27f435bf6c854580",
+    "scripts/test-retro-terrain-browser.mjs": "776f38116baffd857d98b2a6c38aa52de4754cb1aa5348ea94b0291157267688",
+    "scripts/material-png.mjs": "a8c63520bbbd5eb8d6a5ddf7751a819171c8d49a7b94ae27ca589228e63e31a8"
+  },
+  "commands": [
+    {
+      "command": "npm test",
+      "exitCode": 0,
+      "scriptTests": 245,
+      "sourceTests": 80,
+      "total": 325,
+      "retainedLocalLog": ".artifacts/proof/retro-terrain/tests-final.log",
+      "reuse": "Unit-tested source unchanged by subsequent retro-only browser encoding/CSS polish"
+    },
+    {
+      "command": "npm run typecheck",
+      "exitCode": 0,
+      "retainedLocalLog": ".artifacts/proof/retro-terrain/typecheck.log",
+      "reuse": "Typed source and declarations unchanged by subsequent browser encoding/CSS polish"
+    },
+    {
+      "command": "npm run lint",
+      "exitCode": 0,
+      "warnings": 0,
+      "retainedLocalLog": ".artifacts/proof/retro-terrain/lint-final.log"
+    },
+    {
+      "command": "npm run build",
+      "exitCode": 0,
+      "retainedLocalLog": ".artifacts/proof/retro-terrain/build-final.log"
+    },
+    {
+      "command": "npm run build:pages",
+      "exitCode": 0,
+      "prerenderedRoutes": 2,
+      "retainedLocalLog": ".artifacts/proof/retro-terrain/build-pages-final.log"
+    },
+    {
+      "command": "node scripts/test-retro-terrain-browser.mjs --playwright-root node_modules/playwright --dev-url http://127.0.0.1:8080/",
+      "exitCode": 0
+    },
+    {
+      "command": "node scripts/test-retro-terrain-browser.mjs --playwright-root node_modules/playwright",
+      "exitCode": 0
+    },
+    {
+      "command": "node scripts/test-material-browser.mjs --playwright-root node_modules/playwright",
+      "exitCode": 0,
+      "retainedLocalReceipt": ".artifacts/proof/material-browser/1791749707455-26104/receipt.json",
+      "scope": "Full legacy matrix before final retro-only browser encoding/CSS polish; shared panel control unchanged"
+    },
+    {
+      "command": "npm run bake:retro-terrain -- --seed 1204 --out .artifacts/retro-terrain",
+      "exitCode": 0
+    },
+    {
+      "command": "npm run bake:retro-terrain -- --seed 1215 --out .artifacts/retro-terrain",
+      "exitCode": 0
+    },
+    {
+      "command": "npm run bake:retro-terrain -- --seed 1233 --out .artifacts/retro-terrain",
+      "exitCode": 0
+    },
+    {
+      "command": "node docs/look-dev/studies/retro-terrain-20261011/verify.mjs",
+      "exitCode": 0,
+      "originalImages": 7
+    },
+    {
+      "command": "git diff --check",
+      "exitCode": 0
+    }
+  ],
+  "browsers": [
+    {
+      "kind": "dev",
+      "retainedLocalReceipt": ".artifacts/proof/retro-terrain-browser/1791750221647-38732/receipt.json",
+      "expectedFailures": [
+        {
+          "url": "http://127.0.0.1:8080/src/shader/retro-terrain.mjs",
+          "status": 404
+        }
+      ],
+      "mode": "dev",
+      "sourceFetchCacheDisabled": true,
+      "adjustExpanded": "true",
+      "exclusivePanels": true,
+      "exportContents": {
+        "entries": 22,
+        "pngs": 20,
+        "decodedPixelMatches": 20
+      },
+      "missingSourceRetry": true,
+      "retrySucceeded": true,
+      "seedInputBeforeReload": "1206",
+      "seedStorageBeforeReload": "{\"id\":\"retro-terrain\",\"seed\":1206}",
+      "seedStorageAfterReload": "{\"id\":\"retro-terrain\",\"seed\":1206}",
+      "seedInputAfterReload": "1206",
+      "touchTargets": true,
+      "seedPersistence": true,
+      "mobileFits": true,
+      "cancelAndRetry": true,
+      "staleRouteReleases": 1,
+      "expectedConsoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ],
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "kind": "pages",
+      "retainedLocalReceipt": ".artifacts/proof/retro-terrain-browser/1791750227580-52476/receipt.json",
+      "expectedFailures": [
+        {
+          "url": "http://127.0.0.1:49486/mountain-cabin-bloom-honey/assets/retro-terrain-07hofsgK.mjs",
+          "status": 404
+        }
+      ],
+      "mode": "pages",
+      "sourceFetchCacheDisabled": true,
+      "adjustExpanded": "true",
+      "exclusivePanels": true,
+      "exportContents": {
+        "entries": 22,
+        "pngs": 20,
+        "decodedPixelMatches": 20
+      },
+      "missingSourceRetry": true,
+      "retrySucceeded": true,
+      "seedInputBeforeReload": "1206",
+      "seedStorageBeforeReload": "{\"id\":\"retro-terrain\",\"seed\":1206}",
+      "seedStorageAfterReload": "{\"id\":\"retro-terrain\",\"seed\":1206}",
+      "seedInputAfterReload": "1206",
+      "touchTargets": true,
+      "seedPersistence": true,
+      "mobileFits": true,
+      "cancelAndRetry": true,
+      "staleRouteReleases": 1,
+      "expectedConsoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ],
+      "status": "passed",
+      "errors": []
+    }
+  ],
+  "cli": [
+    {
+      "directory": ".artifacts/retro-terrain/retro-terrain-c9f3dc1a5b12",
+      "seed": 1204,
+      "identity": "c9f3dc1a5b12bc1aed3f08603acdd92dcf33672da366db11e737f93f96d983ac",
+      "tiles": 19,
+      "pngs": 20
+    },
+    {
+      "directory": ".artifacts/retro-terrain/retro-terrain-76e0ad54414f",
+      "seed": 1215,
+      "identity": "76e0ad54414f8b0b0001189ec23734b1432a82b76308cffe068a07a92032db3a",
+      "tiles": 19,
+      "pngs": 20
+    },
+    {
+      "directory": ".artifacts/retro-terrain/retro-terrain-16790f68ce1b",
+      "seed": 1233,
+      "identity": "16790f68ce1be9fc38c1b9998edc8d981daeaf733819dab5682247294b069b6d",
+      "tiles": 19,
+      "pngs": 20
+    }
+  ],
+  "visualReview": {
+    "artwork": "unapproved",
+    "inspected": [
+      "native tiles",
+      "exact3x enlargement",
+      "4x4 surface repeats",
+      "transition atlas",
+      "connected patch",
+      "final desktop and390x844 mobile dev captures",
+      "final desktop and390x844 mobile built captures"
+    ],
+    "retainedStudy": "docs/look-dev/studies/retro-terrain-20261011/study.json"
+  },
+  "ownership": {
+    "originalStagedBlobsPreserved": 58,
+    "newGitMutation": false,
+    "purchasedInputs": "not imported, converted, traced or used for training",
+    "resources": "Test-owned browser/preview processes closed; live preview deliberately retained with .runtime/review-cleanup-dev.json owner/identity/stop route",
+    "proof": "Original-only fixture retained; full source-bound packages, logs and diagnostic failures remain local"
+  },
+  "limitations": [
+    "Visual acceptance pending",
+    "No external engine receiving or hosted deployment",
+    "Node22 lane not rerun",
+    "Older guarded-publication blocker unchanged; no publication attempted for this implementation"
+  ]
+}

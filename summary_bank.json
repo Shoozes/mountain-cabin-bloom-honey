@@ -1,0 +1,313 @@
+{
+  "schema": "gknome_summary_bank_v2",
+  "defaults": {
+    "groups": [
+      "project_start"
+    ],
+    "tree": true,
+    "max_kb": 128,
+    "skip_dirs": [
+      ".agents/local",
+      ".artifacts",
+      ".git",
+      ".idea",
+      ".runtime",
+      ".secrets",
+      ".tools/.secrets",
+      ".tools/local",
+      ".tools/secrets",
+      ".venv",
+      ".vscode",
+      "__pycache__",
+      "build",
+      "coverage",
+      "dist",
+      "node_modules",
+      "output",
+      "playwright-report",
+      "release",
+      "runtime-data",
+      "target",
+      "test-results",
+      "venv",
+      "src/lib/auth"
+    ]
+  },
+  "groups": {
+    "runtime_lifecycle": {
+      "description": "Optional process and output ownership guidance; read for background workers, IPC or recurring generated data.",
+      "status": "active",
+      "last_seen": "2026-10-11T23:23:04Z",
+      "paths": [
+        "docs/dev/RUNTIME_LIFECYCLE.md"
+      ]
+    },
+    "project_start": {
+      "description": "Small first-load route for policy, project state, and the selected queue item.",
+      "status": "active",
+      "last_seen": "2026-10-11T23:23:04Z",
+      "paths": [
+        "AGENTS.md",
+        "README.md",
+        ".tools/project.json",
+        ".tools/project-state.json",
+        "docs/work/README.md"
+      ]
+    },
+    "sprint": {
+      "description": "Selected project work and real npm task adapter; load the relevant product owner group, not a second source tree.",
+      "status": "active",
+      "last_seen": "2026-10-11T23:23:04Z",
+      "paths": [
+        ".tools/project-spec.json",
+        "docs/PROJECT_IDENTITY.md",
+        "docs/PROJECT_SPEC.md",
+        "docs/work/README.md",
+        "scripts/project-tasks.ps1"
+      ]
+    },
+    "research_inbox": {
+      "description": "Project-owned temporary research and review intake; opt in only while processing actual notes, then move decisions into the active queue, future backlog, status, pitfalls, focused docs, tests, or context routes.",
+      "status": "active",
+      "last_seen": "2026-10-11T23:23:04Z",
+      "paths": [
+        "docs/research-inbox/**"
+      ]
+    },
+    "controller_and_runtime": {
+      "description": "PowerShell controller metadata, provenance-bound public runners, dynamic project-task help, built-in option forwarding, project ownership, and the fail-closed retired-native boundary; menu and task execution have focused groups.",
+      "status": "active",
+      "last_seen": "2026-10-11T23:23:04Z",
+      "paths": [
+        ".tools/project.ps1",
+        ".tools/project.json",
+        ".tools/controller.json",
+        ".tools/controller.v3.json",
+        "scripts/run.ps1",
+        "scripts/run.sh",
+        "run.cmd"
+      ]
+    },
+    "project_share": {
+      "description": "Developer/runtime share policy, direct or typed-menu confirmation, recipient controller closure, and operator guidance.",
+      "status": "active",
+      "last_seen": "2026-10-11T23:23:04Z",
+      "paths": [
+        ".tools/share.json",
+        "scripts/share.ps1",
+        ".tools/controller.v3.json",
+        "docs/user/SETUP.md"
+      ]
+    },
+    "menu_and_input": {
+      "description": "Menu model, renderer selection, responsive wide/action-first viewports, theme-owned hover, input reduction, and Windows mouse adaptation; load menu_renderers for VT/color/soft-repaint implementations.",
+      "status": "active",
+      "last_seen": "2026-10-11T23:23:04Z",
+      "paths": [
+        ".tools/ui/Gknome.Menu.Core.psm1",
+        ".tools/ui/Gknome.Menu.Input.Windows.psm1",
+        ".tools/ui/themes.v1.json"
+      ]
+    },
+    "menu_renderers": {
+      "description": "ANSI, Basic, and Plain renderer implementations; load with menu_and_input when changing their shared model or input contracts.",
+      "status": "active",
+      "last_seen": "2026-10-11T23:23:04Z",
+      "paths": [
+        ".tools/ui/Gknome.Menu.Basic.psm1",
+        ".tools/ui/Gknome.Menu.Ansi.psm1"
+      ]
+    },
+    "task_execution": {
+      "description": "Declarative foundation task registry, bounded serial task runner, and project-adapter authoring guidance.",
+      "status": "active",
+      "last_seen": "2026-10-11T23:23:04Z",
+      "paths": [
+        ".tools/task-runner.ps1",
+        ".tools/task-specs.json",
+        "scripts/README.md",
+        "scripts/project-tasks.ps1",
+        "package.json"
+      ]
+    },
+    "context_and_rebuild": {
+      "description": "Summary-bank routing, extension/exact-name text eligibility, and bounded context build/verify implementation; foundation regression stays in proof and integrity.",
+      "status": "active",
+      "last_seen": "2026-10-11T23:23:04Z",
+      "paths": [
+        "summary_bank.json",
+        ".tools/context.ps1",
+        ".tools/project.json"
+      ]
+    },
+    "lifecycle_and_safety": {
+      "description": "Lifecycle state, exact-path candidate preparation before clean evidence checks, approved push-only gitpush.ps1 handoffs, managed-workspace-compatible publication, safe defaults, secret scanning, and integrity boundaries.",
+      "status": "active",
+      "last_seen": "2026-10-11T23:23:04Z",
+      "paths": [
+        ".gitignore",
+        ".tools/git.ps1",
+        ".tools/git-remote.ps1",
+        ".tools/git-state.ps1",
+        ".tools/gitpull.ps1",
+        ".tools/gitpush.ps1",
+        ".tools/lifecycle.ps1",
+        ".tools/scan-secrets.ps1",
+        ".tools/project-state.json",
+        "docs/DEVELOPMENT_LIFECYCLE.md",
+        "docs/INTEGRITY_PASS.md"
+      ]
+    },
+    "proof_and_integrity": {
+      "description": "Local verification, proof claims, recurring pitfalls, and focused context fallback evidence; inspect the large foundation regression by relevant symbol only.",
+      "status": "active",
+      "last_seen": "2026-10-11T23:23:04Z",
+      "paths": [
+        "docs/INTEGRITY_PASS.md",
+        "docs/PROOF.md",
+        "docs/PITFALL_LEDGER.md",
+        "tests/README.md",
+        "tests/foundation/Test-ContextFallback.ps1"
+      ]
+    },
+    "user_onboarding": {
+      "description": "Operator first-run, safe commands, and handoff boundary.",
+      "status": "active",
+      "last_seen": "2026-10-11T23:23:04Z",
+      "paths": [
+        "README.md",
+        "docs/README.md",
+        "docs/user/**",
+        "scripts/run.ps1",
+        "scripts/run.sh",
+        "run.cmd"
+      ]
+    },
+    "developer_onboarding": {
+      "description": "Developer ownership and local verification guidance; controller implementation and foundation proof stay in focused groups.",
+      "status": "active",
+      "last_seen": "2026-10-11T23:23:04Z",
+      "paths": [
+        "AGENTS.md",
+        "docs/dev/**",
+        "docs/CODING_PHILOSOPHY.md"
+      ]
+    },
+    "agent_onboarding": {
+      "description": "Summary Bank first-load routing, actual content reads, freshness and omission coverage, foundation sprint skill, and project-skill preservation.",
+      "status": "active",
+      "last_seen": "2026-10-11T23:23:04Z",
+      "paths": [
+        "AGENTS.md",
+        "docs/agents/**",
+        ".agents/README.md",
+        ".agents/skill-routes.json",
+        ".agents/skills/gknome-sprint/**",
+        ".agents/workflows/project-handoff.md",
+        "summary_bank.json"
+      ]
+    },
+    "product_ui": {
+      "description": "Selective product ui ownership; credential-bearing auth code is excluded from context.",
+      "status": "active",
+      "paths": [
+        "src/components/mill-app.tsx",
+        "src/components/material-panel.tsx",
+        "src/components/retro-terrain-panel.tsx"
+      ]
+    },
+    "shader_recipes": {
+      "description": "Selective shader recipes ownership; credential-bearing auth code is excluded from context.",
+      "status": "active",
+      "paths": [
+        "src/shader/recipe.ts",
+        "src/shader/catalog.ts"
+      ]
+    },
+    "material_engine": {
+      "description": "Selective material engine ownership; credential-bearing auth code is excluded from context.",
+      "status": "active",
+      "paths": [
+        "src/shader/material.mjs",
+        "src/shader/material.d.mts",
+        "src/shader/material-browser.mjs",
+        "src/shader/material-browser.d.mts",
+        "src/shader/environment.mjs",
+        "src/shader/vertex-colors.mjs",
+        "src/shader/material.test.mjs"
+      ]
+    },
+    "terrain_core": {
+      "description": "Selective terrain core ownership; credential-bearing auth code is excluded from context.",
+      "status": "active",
+      "paths": [
+        "src/shader/retro-terrain.mjs",
+        "src/shader/retro-terrain.d.mts",
+        "src/shader/retro-terrain-browser.mjs",
+        "src/shader/retro-terrain-browser.d.mts",
+        "scripts/retro-terrain.test.mjs"
+      ]
+    },
+    "terrain_growth": {
+      "description": "Selective terrain growth ownership; credential-bearing auth code is excluded from context.",
+      "status": "active",
+      "paths": [
+        "src/shader/retro-terrain-growth.mjs",
+        "src/shader/retro-terrain-growth.d.mts",
+        "scripts/retro-terrain-growth.test.mjs"
+      ]
+    },
+    "product_bakes": {
+      "description": "Selective product bakes ownership; credential-bearing auth code is excluded from context.",
+      "status": "active",
+      "paths": [
+        "scripts/bake-retro-terrain.mjs",
+        "scripts/bake-retro-terrain-growth.mjs",
+        "scripts/bake-retro-terrain.test.mjs",
+        "scripts/bake-retro-terrain-growth.test.mjs"
+      ]
+    },
+    "project_binding": {
+      "description": "Selective project binding ownership; credential-bearing auth code is excluded from context.",
+      "status": "active",
+      "paths": [
+        ".tools/project.json",
+        ".tools/project-spec.json",
+        ".tools/project-state.json",
+        ".tools/controller.v3.json",
+        ".tools/task-specs.json",
+        "scripts/project-tasks.ps1",
+        "tests/foundation/Test-ProjectBinding.ps1",
+        "docs/PROJECT_IDENTITY.md",
+        "docs/PROJECT_SPEC.md",
+        "docs/PROOF.md"
+      ]
+    }
+  },
+  "exclusions": {
+    ".artifacts": {
+      "note": "[generated and ignored]"
+    },
+    ".tools": {
+      "note": "[load controller, context, lifecycle, or proof groups when needed]"
+    },
+    ".runtime": {
+      "note": "[preferred mutable and ignored application state]"
+    },
+    "runtime-data": {
+      "note": "[legacy or project-owned mutable and ignored application state]"
+    },
+    ".tools/local": {
+      "note": "[operator-only developer and LLM harness implementations]"
+    },
+    ".agents/local": {
+      "note": "[host-specific agent overlays]"
+    },
+    "source": {
+      "note": "[load sprint source only when needed]"
+    },
+    "src/lib/auth": {
+      "note": "Credential-bearing platform/auth source; metadata-only guard findings and owning broker remediation remain separate. This context exclusion never changes secret scanning."
+    }
+  }
+}

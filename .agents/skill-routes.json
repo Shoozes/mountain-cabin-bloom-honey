@@ -1,0 +1,81 @@
+{
+  "schema": "gknome_skill_routes_v1",
+  "revision": 1,
+  "default_policy": {
+    "network": "off",
+    "mutation": "none",
+    "git": "no-write"
+  },
+  "routes": [
+    {
+      "id": "sprint",
+      "purpose": "Complete one selected queue item as a bounded, runnable, verified project outcome.",
+      "triggers": ["fresh project", "continue sprint", "adapt project", "complete queue item", "full project specification", "broken import", "incomplete logic"],
+      "applicable_stages": ["repo-foundation", "direction-identity", "implementation", "snapshot", "integrity-pass"],
+      "context_groups": ["project_start", "sprint", "controller_and_runtime"],
+      "preferred_host_skills": ["gknome-sprint", "project-scope-understanding", "curtail"],
+      "fallback_documents": ["AGENTS.md", "docs/work/README.md", "docs/PROJECT_SPEC.md"],
+      "fallback_commands": ["run.cmd -Task doctor", "run.cmd -Task context-status", "run.cmd -Task test"],
+      "network_policy": "off",
+      "mutation_policy": "reviewed",
+      "git_policy": "no-write",
+      "expected_output": "The selected queue outcome implemented end to end with exact local verification and completion evidence."
+    },
+    {
+      "id": "context-review",
+      "purpose": "Review summary-bank groups, paths, budgets, and first-load context without mutating them.",
+      "triggers": ["summary bank", "context pack", "context audit", "group organization", "progress doc consolidation"],
+      "applicable_stages": ["repo-foundation", "direction-identity", "implementation", "snapshot", "integrity-pass"],
+      "context_groups": ["project_start", "context_and_rebuild", "proof_and_integrity"],
+      "preferred_host_skills": ["summary-bank-context", "structured-workspace-maintenance", "curtail"],
+      "fallback_documents": ["summary_bank.json", "AGENTS.md", "docs/work/README.md"],
+      "fallback_commands": ["run.cmd -Task context-status", "run.cmd -Task context-audit", "run.cmd -Task context-verify"],
+      "network_policy": "off",
+      "mutation_policy": "none",
+      "git_policy": "no-write",
+      "expected_output": "A minimal, matched context selection within its byte budget."
+    },
+    {
+      "id": "proof",
+      "purpose": "Run local build, test, failure-path, and evidence checks without overstating static or mocked proof.",
+      "triggers": ["test request", "audit results", "proof refresh", "release check", "error catching", "timing check"],
+      "applicable_stages": ["implementation", "snapshot", "integrity-pass"],
+      "context_groups": ["proof_and_integrity", "lifecycle_and_safety", "controller_and_runtime"],
+      "preferred_host_skills": ["repo-integrity-pass", "sandbox-checkup"],
+      "fallback_documents": ["docs/PROOF.md", "docs/INTEGRITY_PASS.md", "docs/PITFALL_LEDGER.md"],
+      "fallback_commands": ["run.cmd -Task test", "run.cmd -Task context-verify"],
+      "network_policy": "off",
+      "mutation_policy": "reviewed",
+      "git_policy": "no-write",
+      "expected_output": "Local proof with exact commands, source identity, truthful skips, and actionable failures."
+    },
+    {
+      "id": "handoff",
+      "purpose": "Provide an optional person-to-person handoff after local state is accurate; never own queue completion or publication.",
+      "triggers": ["handoff", "closeout", "same page", "session close", "release handoff"],
+      "applicable_stages": ["repo-foundation", "direction-identity", "implementation", "snapshot", "integrity-pass"],
+      "context_groups": ["agent_onboarding", "developer_onboarding", "proof_and_integrity"],
+      "preferred_host_skills": ["repo-steward", "repo-integrity-pass"],
+      "fallback_documents": ["AGENTS.md", "docs/work/README.md", "docs/PROJECT_REVIEW.md", "docs/PROOF.md", ".agents/workflows/project-handoff.md"],
+      "fallback_commands": ["run.cmd -Task git-status", "run.cmd -Task test"],
+      "network_policy": "off",
+      "mutation_policy": "reviewed",
+      "git_policy": "no-write",
+      "expected_output": "One concise requested person-to-person handoff with verified outcomes and real blockers or next work only when any remain."
+    },
+    {
+      "id": "publish-main",
+      "purpose": "Publish an already verified branch through the repository-owned Git handoff as a separate explicit action.",
+      "triggers": ["publish main explicitly", "push verified main explicitly"],
+      "applicable_stages": ["implementation", "snapshot", "integrity-pass"],
+      "context_groups": ["lifecycle_and_safety", "proof_and_integrity"],
+      "preferred_host_skills": ["repo-steward"],
+      "fallback_documents": ["AGENTS.md", "docs/PROOF.md"],
+      "fallback_commands": ["run.cmd -Task git-status", "run.cmd -Task git-push"],
+      "network_policy": "explicit",
+      "mutation_policy": "none",
+      "git_policy": "explicit-confirmation",
+      "expected_output": "The verified commit and remote main state, or an Already done result, without exposing credentials."
+    }
+  ]
+}

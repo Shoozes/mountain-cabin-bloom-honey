@@ -1,0 +1,81 @@
+{
+  "generator": "retro-terrain/1",
+  "sourceSha256": "76fa9fb6e1053954828cbb35f893a29160c8e4cd92a7ef125fa40ff7aa10f9d2",
+  "cases": [
+    {
+      "seed": 1204,
+      "tiles": {
+        "dirt": "b045009c61e8f5384d9d864da77f0c8b6411a9d64ee3b1c1e3ac97974e9684b3",
+        "grass": "2c900b6a9b08f032bee1fdff7840226de03c9f2fd94b282ae3ea2aaa3099e21e",
+        "gravel": "f1fa501325bf7a60d1a99f53cb835fb25257a7f60e2efe99a18290c8b202311d",
+        "grass-dirt-0": "b045009c61e8f5384d9d864da77f0c8b6411a9d64ee3b1c1e3ac97974e9684b3",
+        "grass-dirt-1": "0a177ea43cd84fdfde2b706edf428d2735e190960e487c40a1e5d42628670af9",
+        "grass-dirt-2": "5de7e655668a75792c81d6651c76dd21b9ce927fca2879451424302e9d915867",
+        "grass-dirt-3": "8a87482acad132ab2273e562d21f37be34ec1b7bf6709b277504f28b4a67d5c7",
+        "grass-dirt-4": "30c930255c4dc96798efa71ee819f176c4da857acf7f8d545e3bc6019674afae",
+        "grass-dirt-5": "cda5805e003c77172de36fbf399933c5cc122ddd02227a49edb823b745099ae9",
+        "grass-dirt-6": "793e0afbe445652d40c02882ff80736e415a2c068f0551249bef80c3ee2b13e0",
+        "grass-dirt-7": "d0446613882fb3da06eb218fcf61340716ee1c27d22001c2bdcb1e2b14e4d3eb",
+        "grass-dirt-8": "b78c3428eb01cef566b91fe6fb9a83a9ae6e1f7b1a2202b8e86cbc090f0e1963",
+        "grass-dirt-9": "bfbf838087d8d84a6e5b3c47fd68206a0b67943009b08afd91b386bd1f69ee48",
+        "grass-dirt-10": "02ca781ef86cbbca359a1fbea2c9d427efcc4443c1d45e496d7a010ba4425eb4",
+        "grass-dirt-11": "c08484bbddda116f7a9aacaa19500d216db857cb58d22fabe93291b0ffb3dcfa",
+        "grass-dirt-12": "fee385ec84feca112cb3224c7d1744b37f7f95a8fc6f5635c0568836593d1702",
+        "grass-dirt-13": "4500cdbd18337000b175f0bdaf6f1a8976bb94cd2dc7132eb6488383077a466e",
+        "grass-dirt-14": "f14b43f7cbb6e2f0e182dd8a3686b0919ec51698d6db3403d7ba9ee0078772f1",
+        "grass-dirt-15": "2c900b6a9b08f032bee1fdff7840226de03c9f2fd94b282ae3ea2aaa3099e21e"
+      },
+      "atlas": "d88d59b66a3b88e3ea8f8c8738235fe9b48866c51aae7731a175647e8c5ec9d7"
+    },
+    {
+      "seed": 1215,
+      "tiles": {
+        "dirt": "421ae5dfb6e462eb0afdcc3324504f72b24a61a90bcb34844ac08806d2f39cdc",
+        "grass": "4755e484544d2a610be0d44260d747918775f082e0ce3c2f752aaf1d405668c2",
+        "gravel": "3d5446cf2d61aa770c7c171b741de80f36ccda7b0af2a9389f12c4390c9458ef",
+        "grass-dirt-0": "421ae5dfb6e462eb0afdcc3324504f72b24a61a90bcb34844ac08806d2f39cdc",
+        "grass-dirt-1": "81c210c3e21245ea6377a6b3d6c96d0be5bcb16d56f95ad3f6938c591f382b7f",
+        "grass-dirt-2": "02b30da282e743b074a4d81b0ae60d751e2ab9c87d5138166b5d973ef4c577e5",
+        "grass-dirt-3": "dd1bc4ef62b94f9065dddbc9163c9315d672a172c574bdf89519fe186e1c2443",
+        "grass-dirt-4": "e876801014399d34e222154799400173ecdf03a78e8e961532ebd2b2cc41269c",
+        "grass-dirt-5": "a1600327e2d915c8739de57cd85be475e0a7e19e0a7e97f0cc40a25fde9adf01",
+        "grass-dirt-6": "7a02d3424084358700a00749001acb3fa95361e815503598d2fdc14eff9f4870",
+        "grass-dirt-7": "fe9b869863616a5f9db66e51e27945dcb93bf96bd8ae8b000005b5d24ffb5ae7",
+        "grass-dirt-8": "5aebd6573a13fa3b17c18156413b10f30a24e654fcef3e30e699d06eb902ac83",
+        "grass-dirt-9": "bfa2b53768782539f7f7cb930d0d33d0b5c0cf2ec26e14dc906d3b4de4f801ba",
+        "grass-dirt-10": "5359edfbfcb90b03148652660f4503e777f7deeb50e58b931f2358e7f6a76fb2",
+        "grass-dirt-11": "7566b5fd5debd7510ea839db45f257be651d74d5ab235068424c3ca18b8cf2d6",
+        "grass-dirt-12": "cf10ef0c32328280f7a43e51189b83c0661b3647d49eb8c878f873ff2c8de8de",
+        "grass-dirt-13": "b0437802dc6e3ed04f8d16d64fdd641a366bad18886d6a2de0886a8becca197a",
+        "grass-dirt-14": "5a6200c85e164ea1e378f4ab0b28efff26d55416925bd58a6402c1dc6e50acb0",
+        "grass-dirt-15": "4755e484544d2a610be0d44260d747918775f082e0ce3c2f752aaf1d405668c2"
+      },
+      "atlas": "cb4ba27cbd484a236201e9546be11db21b99ac8b4bdcffc09d4bb1b1c86b5490"
+    },
+    {
+      "seed": 1233,
+      "tiles": {
+        "dirt": "1d6f294413f51ccfc42a0184292649ef5ab2a52b09a395bec7113af3645d6830",
+        "grass": "148f0c94aa80e2c388b30c8b242bd96c820c578db3e5e5a283a4a4cb36d47671",
+        "gravel": "a0e6563f4e16fd79ebc80e94863762f6d4fb2d19ef7acbd7f4a5b5ba1dd06906",
+        "grass-dirt-0": "1d6f294413f51ccfc42a0184292649ef5ab2a52b09a395bec7113af3645d6830",
+        "grass-dirt-1": "eddedca0bb22ed775a0510e5680393fe8ab095dbb88a39d4fbda1857510303ce",
+        "grass-dirt-2": "21b68a88c3d7d3fb84f35b3bcf76a886e340719acc2e45711bc402d742bc059e",
+        "grass-dirt-3": "2f52f3e37ebd8b386430401671846fc6e3454280894a96b092fb93f30c767815",
+        "grass-dirt-4": "106f68c32ef9d9449517afb1a7e925998114c042e108675af38b45ae6d7c9fe0",
+        "grass-dirt-5": "757a0a985f49df4aa1e65518f2a9b9cdc6958b3e211d2ba3652ee86740813679",
+        "grass-dirt-6": "0ba3a408e835b027af28d78bbdbcc12fdcbf36243293342b01cb8b09d9d0f82b",
+        "grass-dirt-7": "7a918e83b912730b0b76aaaf1cc1ad7aeb47821024508ca1be116904150a4984",
+        "grass-dirt-8": "839658afd72e35b638f35a578d0a4c4373e1ca1449f673d3028f757c769d712f",
+        "grass-dirt-9": "9e756878b19ca1a4ff0813301018ca29d582e8853bced247d1735c0e6b75308b",
+        "grass-dirt-10": "251088b4d38c4817f3865296597bc20ca76987f5e2ec2af017a81ef7ded15c8d",
+        "grass-dirt-11": "a7616006baa7df4918ad00916a8d8f4ab50292299b3622bae131a872b6979043",
+        "grass-dirt-12": "ac5dc2cd7afa640bd6c85dcef4ae262dcdf2d2fef0bae490ba36b1966caa5fe3",
+        "grass-dirt-13": "709ad44a2245ce9e4005cd69a076d0365d0e66349bd96679444059f9175cef52",
+        "grass-dirt-14": "0ef44a778e8f249d50e2d300dc36a27ca4c31f26752fd259545871768253bda9",
+        "grass-dirt-15": "148f0c94aa80e2c388b30c8b242bd96c820c578db3e5e5a283a4a4cb36d47671"
+      },
+      "atlas": "0c4be86c24294daafafdcf07d1575b52038f80a54e5d445376f8900dec2e5b7e"
+    }
+  ]
+}

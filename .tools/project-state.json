@@ -1,0 +1,35 @@
+{
+  "schema": "gknome_project_state_v1",
+  "state_revision": 2,
+  "project": "Grout Shader",
+  "profile": "app",
+  "capabilities": [
+    "web-ui",
+    "texture-authoring",
+    "material-export",
+    "pixel-terrain",
+    "browser-preview"
+  ],
+  "current_stage": "repo-foundation",
+  "stage_number": 4,
+  "origin": {
+    "source_stage": "demo",
+    "adopted_existing": false
+  },
+  "snapshot": {
+    "target": "mvp",
+    "status": "not-started",
+    "version": null,
+    "frozen_at_utc": null
+  },
+  "stage_history": [
+    {
+      "stage": "repo-foundation",
+      "stage_number": 4,
+      "entered_at_utc": "2026-10-11T23:23:04Z",
+      "reason": "gknome created the repository foundation.",
+      "regression": false
+    }
+  ],
+  "updated_at_utc": "2026-10-11T23:33:32.158231+00:00"
+}

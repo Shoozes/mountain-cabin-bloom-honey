@@ -1,0 +1,101 @@
+{
+  "format": "texture-material/1",
+  "identity": "9da6a8f288507fc77289ca22f2e79a8a2c41e20ccfcdcbe5fbe7b9a9c6224b40",
+  "generator": "style-surface/1",
+  "sourceTip": "c26d117c6de03432b469abbfc55e061778512735",
+  "sources": [
+    {
+      "path": "src/shader/material.mjs",
+      "sha256": "9abd395a8bd538589334ede08c1720a401739873a822d3273af25f13d7868e82"
+    },
+    {
+      "path": "scripts/bake-material.mjs",
+      "sha256": "3b6a7bff1f4a33b0feeabaf7cef4bed7bcb52fe31b84c10a744c8e4bbf8c7b95"
+    },
+    {
+      "path": "scripts/material-png.mjs",
+      "sha256": "a8c63520bbbd5eb8d6a5ddf7751a819171c8d49a7b94ae27ca589228e63e31a8"
+    }
+  ],
+  "recipe": {
+    "id": "style-surface",
+    "family": "dirt",
+    "style": "hd2d",
+    "seed": 1204,
+    "size": 128,
+    "palette": "earth",
+    "strataScale": 4,
+    "fracture": 0.28,
+    "relief": 0.55,
+    "roughness": 0.84
+  },
+  "variantSet": "single",
+  "visualReview": "unapproved",
+  "provenance": {
+    "author": "original procedural work for our projects",
+    "restrictedInputs": [],
+    "training": false
+  },
+  "files": [
+    {
+      "path": "s1204-albedo.png",
+      "channel": "albedo",
+      "seed": 1204,
+      "width": 128,
+      "height": 128,
+      "colorSpace": "srgb",
+      "semantic": "unlit pigment",
+      "filter": "nearest",
+      "wrap": "repeat",
+      "bytes": 1859,
+      "sha256": "5050b03223870e2fab90a7a86a6d40641629876cedc8b5b14cc500f045ab30b9"
+    },
+    {
+      "path": "s1204-height.png",
+      "channel": "height",
+      "seed": 1204,
+      "width": 128,
+      "height": 128,
+      "colorSpace": "linear",
+      "semantic": "surface height; authoring only",
+      "filter": "nearest",
+      "wrap": "repeat",
+      "bytes": 5708,
+      "sha256": "cd1c58d7a644e2ce8c465540082838dc230cc2cce460d26fdd18765376043e30"
+    },
+    {
+      "path": "s1204-normal.png",
+      "channel": "normal",
+      "seed": 1204,
+      "width": 128,
+      "height": 128,
+      "colorSpace": "linear",
+      "semantic": "tangent-space +Y",
+      "filter": "nearest",
+      "wrap": "repeat",
+      "bytes": 21277,
+      "sha256": "3592a424876e7fa71d71cf8ed2d885465274ebc11bea027985370efd861c1cef"
+    },
+    {
+      "path": "s1204-roughness.png",
+      "channel": "roughness",
+      "seed": 1204,
+      "width": 128,
+      "height": 128,
+      "colorSpace": "linear",
+      "semantic": "roughness repeated in RGB",
+      "filter": "nearest",
+      "wrap": "repeat",
+      "bytes": 4656,
+      "sha256": "886f19a9f61e7d268b270680fdc47f9f127ef9f47fddc4e1a7f28cccf8851644"
+    },
+    {
+      "path": "channels.png",
+      "channel": "contact-sheet",
+      "width": 512,
+      "height": 128,
+      "bytes": 39219,
+      "sha256": "870c2256325dcba199d9c9a2d2cecac57fb43a237c65861565b9f4f5f1a17b55"
+    }
+  ]
+}

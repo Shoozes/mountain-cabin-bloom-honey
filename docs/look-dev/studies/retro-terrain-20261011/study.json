@@ -1,0 +1,95 @@
+{
+  "format": "retro-terrain-study/1",
+  "generator": "retro-terrain/1",
+  "sources": [
+    {
+      "path": "src/shader/retro-terrain.mjs",
+      "sha256": "76fa9fb6e1053954828cbb35f893a29160c8e4cd92a7ef125fa40ff7aa10f9d2"
+    },
+    {
+      "path": "scripts/bake-retro-terrain.mjs",
+      "sha256": "3131e8c0050a0c57fbe89e7df260ad6b3b069d95c368312cf6f2a6cf8e861247"
+    },
+    {
+      "path": "scripts/material-png.mjs",
+      "sha256": "a8c63520bbbd5eb8d6a5ddf7751a819171c8d49a7b94ae27ca589228e63e31a8"
+    },
+    {
+      "path": "docs/look-dev/studies/retro-terrain-20261011/verify.mjs",
+      "sha256": "d7d29516e77e9947ba77ba9cb36773bace11806a64cf7e020936e27feae0280e"
+    }
+  ],
+  "sourceText": "UTF-8 LF",
+  "recipes": [
+    {
+      "id": "retro-terrain",
+      "seed": 1204
+    },
+    {
+      "id": "retro-terrain",
+      "seed": 1215
+    },
+    {
+      "id": "retro-terrain",
+      "seed": 1233
+    }
+  ],
+  "visualReview": "unapproved",
+  "provenance": {
+    "author": "original procedural work for our projects",
+    "restrictedInputs": [],
+    "training": false
+  },
+  "retention": "Compact original-only repository review evidence; full candidate packages and diagnostics retained locally",
+  "files": [
+    {
+      "path": "dirt.png",
+      "width": 64,
+      "height": 64,
+      "bytes": 2139,
+      "sha256": "c22119aa246f4fe0a1763be99d9b339fd727287a57abef0d73706e996eb3113d"
+    },
+    {
+      "path": "grass.png",
+      "width": 64,
+      "height": 64,
+      "bytes": 1776,
+      "sha256": "ec2051abc8d7fd5d95347f01c2599211c97f974f72abd9b877d9bbd0d50e483d"
+    },
+    {
+      "path": "gravel.png",
+      "width": 64,
+      "height": 64,
+      "bytes": 2268,
+      "sha256": "c80780f31a2c8f42169c133be9662e5de7c82719b9f32f9c6ff5cb83956b684f"
+    },
+    {
+      "path": "grass-dirt-atlas.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 16666,
+      "sha256": "f6031b7363f312885f7f7e3307de11f9b58c9bf85b85b2c560c5ce70cb9eb64a"
+    },
+    {
+      "path": "connected-patch.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 18027,
+      "sha256": "42b1ab7cfa1e5fbe9970d52d400642946e017220ed81f1c4c56eb9a14527aa06"
+    },
+    {
+      "path": "seed-variants.png",
+      "width": 192,
+      "height": 192,
+      "bytes": 18662,
+      "sha256": "70e76c1e22b08c3bcabb6e223791893748afe9658fa57c6d0e4814ec09b64fd6"
+    },
+    {
+      "path": "surface-repeats.png",
+      "width": 768,
+      "height": 256,
+      "bytes": 32571,
+      "sha256": "ea85d8c53692e1f19e8cc865aeaaa9860a8bec1d2f60d5a03376f6b8dfe56644"
+    }
+  ]
+}

@@ -50,12 +50,13 @@ test("reads the app env from a workspace", () => {
   assert.deepEqual(readAppEnv(root), { VITE_AUTH_ENABLED: "false" });
 });
 
-test("an explicit process-env override wins over the file", () => {
+test("host flags preserve the standalone auth boundary and other overrides", () => {
   const merged = mergeAppEnv(
-    { VITE_AUTH_ENABLED: "false" },
-    { VITE_AUTH_ENABLED: "true", PATH: "/usr/bin" },
+    { VITE_AUTH_ENABLED: "false", VITE_LABEL: "file" },
+    { VITE_AUTH_ENABLED: "true", VITE_LABEL: "host", PATH: "/usr/bin" },
   );
-  assert.equal(merged.VITE_AUTH_ENABLED, "true");
+  assert.equal(merged.VITE_AUTH_ENABLED, "false");
+  assert.equal(merged.VITE_LABEL, "host");
   assert.equal(merged.PATH, "/usr/bin");
 });
 
@@ -83,13 +84,13 @@ test("the wrapped command runs with the app env applied", async () => {
   assert.equal(stdout, "false");
 });
 
-test("the wrapped command sees an explicit override, not the file value", async () => {
+test("the wrapped command cannot re-enable removed auth through host env", async () => {
   const { stdout } = await execFileAsync(
     process.execPath,
     [WRAPPER, process.execPath, "-e", PRINT_FLAG],
     { env: { ...process.env, VITE_AUTH_ENABLED: "true" } },
   );
-  assert.equal(stdout, "true");
+  assert.equal(stdout, "false");
 });
 
 test("the wrapper propagates the command's exit code", async () => {

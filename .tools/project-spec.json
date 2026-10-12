@@ -1,0 +1,143 @@
+{
+  "schema": "gknome_project_spec_v2",
+  "spec_revision": 2,
+  "template": {
+    "id": "gknome-standard",
+    "version": "0.0.005"
+  },
+  "project": "Grout Shader",
+  "project_version": "0.0.0",
+  "profile": "app",
+  "status": "standalone-existing-app-foundation-binding",
+  "lifecycle": {
+    "current_stage": "repo-foundation",
+    "source_stage": "demo",
+    "snapshot_target": "mvp"
+  },
+  "identity": {
+    "audience": [
+      "Texture and material authors",
+      "Pixel terrain artists",
+      "Local developers and browser users"
+    ],
+    "product_promise": "A standalone local/browser texture-authoring tool for deterministic shader tiles, multi-channel materials and original native pixel terrain, with portable exports.",
+    "primary_use_cases": [
+      "Author shader and material recipes",
+      "Inspect channel, repeat, seam and terrain connectivity behavior",
+      "Bake and export reviewed original textures",
+      "Browse the committed PNG corpus"
+    ],
+    "non_goals": [
+      "Accounts, sign-in, connectors and databases",
+      "Credential and broker operations as product behavior",
+      "Receiving-engine/PBR runtime implementation",
+      "A second product tree or framework migration",
+      "Artwork acceptance from technical proof alone"
+    ]
+  },
+  "capabilities": [
+    "web-ui",
+    "texture-authoring",
+    "material-export",
+    "pixel-terrain",
+    "browser-preview"
+  ],
+  "targets": {
+    "platforms": [
+      "windows",
+      "browser",
+      "linux-hosting-adapter"
+    ],
+    "hardware": [
+      "cpu",
+      "browser-gpu"
+    ],
+    "interfaces": [
+      "browser",
+      "npm",
+      "cmd",
+      "powershell"
+    ],
+    "display": [
+      "desktop",
+      "mobile"
+    ]
+  },
+  "what": "A standalone local/browser texture-authoring tool for deterministic shader tiles, multi-channel materials and original native pixel terrain, with portable exports.",
+  "why": "Give texture authoring one accurate project/workflow identity around the working app while retaining its framework and hosting integrations.",
+  "where": [
+    "src/",
+    "scripts/",
+    "public/",
+    "docs/",
+    ".tools/",
+    ".agents/",
+    ".artifacts/",
+    ".runtime/"
+  ],
+  "how": [
+    "Keep actual product implementation in src/ and existing npm scripts.",
+    "Use project-owned Gknome operations and a bounded argument-array adapter; do not launch background services during onboarding.",
+    "Use selective Summary Bank groups and keep credential-bearing auth source outside context packing.",
+    "Use the reviewed local Gknome publisher with explicit paths and separate clean-proof/push boundaries; no implicit remote creation.",
+    "Exclude accounts/connectors/database behavior from the standalone product; keep repository publication credentials separate and operator-owned."
+  ],
+  "scope": {
+    "in": [
+      "Accurate identity/source/runtime metadata",
+      "Real npm task/controller bindings",
+      "Selective product and foundation context routes",
+      "Foundation guidance and safe publication handoff"
+    ],
+    "out": [
+      "Accounts, connectors and databases",
+      "Credential/broker product operations",
+      "Receiving-engine/PBR implementation",
+      "Global operator state or deployment",
+      "Implicit publication or remote creation",
+      "Unreviewed provenance or source-control history rewriting"
+    ]
+  },
+  "quality": {
+    "priority_order": [
+      "safety",
+      "courtesy",
+      "show",
+      "efficiency"
+    ],
+    "safety": [
+      "Preserve staged/modified/untracked owner work and secret guard failures.",
+      "Never pack credential-bearing src/lib/auth source.",
+      "Require explicit publication arguments; never substitute raw Git push."
+    ],
+    "courtesy": [
+      "Keep existing npm/Vite/env/hosting commands and paths."
+    ],
+    "show": [
+      "Distinguish static foundation proof, executed focused product checks and unrun visual acceptance."
+    ],
+    "efficiency": [
+      "Use bounded groups, existing tests and synchronous checks; no duplicate product tree."
+    ]
+  },
+  "done_when": [
+    "Identity, typed metadata and source roots describe the existing standalone app.",
+    "Declared operations reach real npm commands through supported dispatch.",
+    "Semantic contracts, selective context audit and the focused product check pass without credential contents in context.",
+    "Publication uses explicit reviewed task scope and the qualified local helper, preserves security guards and named deletions, and follows required local proof."
+  ],
+  "tests": [
+    "powershell -NoProfile -File tests/foundation/Test-ProjectBinding.ps1 -AsJson",
+    "pwsh -NoProfile -File tests/foundation/Test-ProjectBinding.ps1 -AsJson",
+    "run.cmd -Task project-test-terrain -AsJson",
+    "run.cmd -Task context-audit -AsJson"
+  ],
+  "benchmarks": [],
+  "constraints": {
+    "minimum_powershell": "5.1",
+    "python_required_by_template": false,
+    "secrets_must_remain_untracked": true,
+    "stage_transitions_must_be_explicit": true,
+    "remote_push_requires_explicit_operator_action": true
+  }
+}

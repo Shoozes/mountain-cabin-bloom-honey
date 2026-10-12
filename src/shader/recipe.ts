@@ -30,6 +30,7 @@ export function recipeText(style: StyleDef, settings: TileSettings): string {
       look: settings.look,
       colors: settings.colors,
       repeatSafe: true,
+      visualReview: style.visualReview ?? "unapproved",
     },
     null,
     2,
