@@ -112,33 +112,42 @@ class Target {
 function compile(gl: GL, type: number, source: string): WebGLShader {
   const shader = gl.createShader(type);
   if (!shader) throw new Error("Could not create a shader.");
-  gl.shaderSource(shader, source);
-  gl.compileShader(shader);
-  if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-    const log = gl.getShaderInfoLog(shader) || "compile failed";
+  try {
+    gl.shaderSource(shader, source);
+    gl.compileShader(shader);
+    if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+      throw new Error(gl.getShaderInfoLog(shader) || "compile failed");
+    }
+    return shader;
+  } catch (error) {
     gl.deleteShader(shader);
-    throw new Error(log);
+    throw error;
   }
-  return shader;
 }
 
 function linkProgram(gl: GL, fragment: string): WebGLProgram {
   const program = gl.createProgram();
   if (!program) throw new Error("Could not create a program.");
-  const vs = compile(gl, gl.VERTEX_SHADER, VERTEX);
-  const fs = compile(gl, gl.FRAGMENT_SHADER, fragment);
-  gl.attachShader(program, vs);
-  gl.attachShader(program, fs);
-  gl.bindAttribLocation(program, 0, "aPos");
-  gl.linkProgram(program);
-  gl.deleteShader(vs);
-  gl.deleteShader(fs);
-  if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
-    const log = gl.getProgramInfoLog(program) || "link failed";
+  let vs: WebGLShader | undefined;
+  let fs: WebGLShader | undefined;
+  try {
+    vs = compile(gl, gl.VERTEX_SHADER, VERTEX);
+    fs = compile(gl, gl.FRAGMENT_SHADER, fragment);
+    gl.attachShader(program, vs);
+    gl.attachShader(program, fs);
+    gl.bindAttribLocation(program, 0, "aPos");
+    gl.linkProgram(program);
+    if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+      throw new Error(gl.getProgramInfoLog(program) || "link failed");
+    }
+    return program;
+  } catch (error) {
     gl.deleteProgram(program);
-    throw new Error(log);
+    throw error;
+  } finally {
+    if (vs) gl.deleteShader(vs);
+    if (fs) gl.deleteShader(fs);
   }
-  return program;
 }
 
 export class ShaderMill {

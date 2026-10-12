@@ -316,3 +316,41 @@ test('all 64px grass/dirt corner transitions preserve shared boundary material p
     }
   }
 });
+
+for (const tileSize of [16, 64]) {
+  test(`${tileSize}px boundary soil follows its own selected composition`, () => {
+    for (const seed of [1204, 1215, 1233]) {
+      const kit = generateCuratedTerrain({tileSize, seed}), cells = tileSize === 16 ? 8 : 7;
+      const paths = Array.from({length: cells}, () => Array(cells).fill(0));
+      const grassColors = new Set(describeCuratedTerrain(kit).palettes.grass.map(hex => [1, 3, 5].map(at => parseInt(hex.slice(at, at + 2), 16)).join(',')));
+      for (const weathered of [false, true]) {
+        const connected = composeCuratedTerrain(kit, {paths, weathered});
+        const selectedSoil = composeCuratedSurface(kit, 'dirt', {weathered});
+        for (let y = 0; y < selectedSoil.height; y++) for (let x = 0; x < selectedSoil.width; x++) {
+          const actual = pixel(connected.data, connected.width, x, y);
+          if (!grassColors.has(actual.slice(0, 3).join(','))) assert.deepEqual(actual, pixel(selectedSoil.data, selectedSoil.width, x, y), `seed ${seed} weathered ${weathered} soil (${x},${y})`);
+        }
+      }
+    }
+  });
+
+  test(`${tileSize}px path overlays retain or omit complete visible grass clusters`, () => {
+    for (const seed of [1204, 1215, 1233]) {
+      const kit = generateCuratedTerrain({tileSize, seed}), cells = tileSize === 16 ? 8 : 7;
+      const paths = Array.from({length: cells}, () => Array(cells).fill(0));
+      const grass = tile(kit, 'grass-0'), detailColors = colors(grass.data);
+      detailColors.delete(grass.ground.join(','));
+      for (const weathered of [false, true]) {
+        const before = composeCuratedTerrain(kit, {paths, weathered}), after = composeCuratedTerrain(kit, {weathered});
+        const isolated = before.data.slice();
+        for (let at = 0; at < isolated.length; at += 4) if (!detailColors.has(isolated.subarray(at, at + 3).join(','))) isolated.set([...grass.ground, 255], at);
+        const groups = featureGroups({data: isolated}, before.width, grass.ground);
+        assert.ok(groups.length > 0);
+        for (const group of groups) {
+          const remaining = group.filter(at => detailColors.has(after.data.subarray(at * 4, at * 4 + 3).join(','))).length;
+          assert.ok(remaining === 0 || remaining === group.length, `seed ${seed} weathered ${weathered}: path left ${remaining}/${group.length} pixels at ${group[0] % before.width},${Math.floor(group[0] / before.width)}`);
+        }
+      }
+    }
+  });
+}

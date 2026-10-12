@@ -184,6 +184,7 @@ export function composeCuratedTerrain(kit,{weathered=false,scene=CURATED_SCENE,p
     if(y+1<rows&&Boolean(paths[y][x]&4)!==Boolean(paths[y+1][x]&1))throw Error('Mismatched north/south path ports');
   }
   const out={width:cols*n,height:rows*n,data:new Uint8Array(cols*rows*n*n*4)},prefix=weathered?'weathered-':'',foreground=relationship.split('-')[0];
+  const foregroundColors=new Set(colorsFor(kit.recipe)[foreground].map(c=>c.join(',')));
   for(let y=0;y<rows;y++)for(let x=0;x<cols;x++) {
     let tile;const pick=family=>kit.tiles.find(t=>t.id===prefix+family+'-'+(composition==='mixed'?variant(kit.recipe.seed,x,y,families.indexOf(family)):composition));
     if(n===16) {
@@ -200,14 +201,19 @@ export function composeCuratedTerrain(kit,{weathered=false,scene=CURATED_SCENE,p
     // canonical exported sheet remains composition zero.
     if(tile.role==='transition') {
       const material=pick(foreground);
-      if(material.composition!==0) {
-        const allowed=new Set(colorsFor(kit.recipe)[foreground].map(c=>c.join(','))),coverage=tile.terrainMask??Uint8Array.from({length:n*n},(_,i)=>Number(allowed.has([...tile.data.subarray(i*4,i*4+3)].join(','))));
-        const fg=maskedMaterial(material,coverage),background=pick('dirt'),pixels=background.data.slice();
-        for(let i=0;i<coverage.length;i++)if(coverage[i])pixels.set(fg.data.subarray(i*4,i*4+4),i*4);
-        terrain={...tile,data:pixels};
-      }
+      const coverage=tile.terrainMask??Uint8Array.from({length:n*n},(_,i)=>Number(foregroundColors.has(tile.data.subarray(i*4,i*4+3).join(','))));
+      const fg=maskedMaterial(material,coverage),background=pick('dirt'),pixels=background.data.slice();
+      for(let i=0;i<coverage.length;i++)if(coverage[i])pixels.set(fg.data.subarray(i*4,i*4+4),i*4);
+      terrain={...tile,data:pixels};
     }
     const path=kit.tiles.find(t=>t.id===prefix+'gravel-path-'+paths[y][x]),data=terrain.data.slice();
+    if(paths[y][x]&&tile.family!=='dirt') {
+      // A path is another cutout boundary: omit the entire affected feature,
+      // leaving ground where its uncovered tips would otherwise survive.
+      const visible=Uint8Array.from({length:n*n},(_,i)=>Number(!path.data[i*4+3]&&foregroundColors.has(data.subarray(i*4,i*4+3).join(','))));
+      const fg=maskedMaterial(pick(foreground),visible);
+      for(let i=0;i<visible.length;i++)if(visible[i])data.set(fg.data.subarray(i*4,i*4+4),i*4);
+    }
     for(let at=0;at<data.length;at+=4)if(path.data[at+3])data.set(path.data.subarray(at,at+4),at);
     stamp(out,pixel(n,data),x*n,y*n);
   }

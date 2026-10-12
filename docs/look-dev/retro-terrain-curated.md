@@ -22,7 +22,8 @@ Compositions and weathering share two-pixel seam bands at 16px and four-pixel
 bands at 64px. Seeds select authored compositions by cell, without sampling
 noise or interpolation, including boundary cells. Canonical topology sheets use
 composition zero; connected previews place the exported surface alternatives
-inside those same silhouettes. Weathering removes complete features. Boundary masks
+inside those same silhouettes, with soil selected independently at every boundary.
+Weathering removes complete features. Terrain and path boundary masks
 keep complete decorative clusters or omit them, preserving the terrain shape.
 Straight small paths use quiet compressed earth; occasional whole chips belong
 to other pieces rather than repeating at every cell center.
@@ -54,7 +55,9 @@ mouths are six pixels at 16px and twenty pixels at 64px.
 
 Open **Adjust → Retro terrain → Curated edition**. Choose native size,
 palette and seed. Compare individual compositions, mixed 4×4 repeats, sheets,
-connected grass or gravel terrain, and weathered paths. The two earlier kits
+connected grass or gravel terrain, and weathered paths. Preview canvases use
+integer device-pixel scales; large scenes scroll horizontally when needed.
+The two earlier kits
 remain selectable; old local drafts recover without migration.
 
 ```json
@@ -91,17 +94,22 @@ The additional polish shortened the showcase path before the isolated grass
 cell, replaced 64px noisy scallops with authored broad corner runs, and regrouped
 the existing grass/soil marks. Quiet grass/soil seam planes replace fixed repeated
 landmarks; gravel keeps a small compatible crossing. No extra compositions were
-added. The [current source-bound study](studies/retro-terrain-curated-20261011-r3/study.json)
-retains ten original-only figures; earlier studies remain historical.
+added. The [current source-bound study](studies/retro-terrain-curated-20261011-cleanup/study.json)
+retains ten original-only figures after independent boundary soil selection and
+whole-cluster path occlusion fixes. The r1/r2/r3 studies remain historical.
 
 ```powershell
-node scripts/study-retro-terrain-curated.mjs --verify --out docs/look-dev/studies/retro-terrain-curated-20261011-r3
+node scripts/study-retro-terrain-curated.mjs --verify --out docs/look-dev/studies/retro-terrain-curated-20261011-cleanup
 ```
 
-Technical verification does not approve the artwork. The [integration receipt](retro-terrain-curated-proof.json)
-records checks and source identity.
+Technical verification does not approve the artwork. The [cleanup receipt](retro-terrain-cleanup-proof.json)
+records current checks and source identity. The earlier
+[integration receipt](retro-terrain-curated-proof.json) retains the published
+batch's evidence at its own source identity.
 
 Engine receiving, PBR channels and runtime shader anti-tiling remain separate.
 Current acceptance and proof are linked from [TODO](../TODO.md).
 
 AI-created: 2026-10-11 | agent=Codex/root | model=unknown | effort=unknown | task=curated-retro-terrain | change=documented additive native drawings, Grout topology and original exports
+
+AI-edited: 2026-10-11 | agent=Codex/root | model=unknown | effort=unknown | task=review-recheck-cleanup | change=linked current compositor study and integer preview behavior while retaining historical proof

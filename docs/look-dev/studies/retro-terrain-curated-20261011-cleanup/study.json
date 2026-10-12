@@ -1,0 +1,126 @@
+{
+  "format": "retro-terrain-curated-study/1",
+  "visualReview": "unapproved",
+  "seeds": [
+    1204,
+    1215,
+    1233
+  ],
+  "palettes": [
+    "woodland",
+    "dry-trail",
+    "cool-moor"
+  ],
+  "sources": [
+    {
+      "file": "src/shader/retro-terrain-art.mjs",
+      "sha256": "57a979cec30a67285ae8306f00178f2212264e3df4a94f00fc4d4fcccbe454ba"
+    },
+    {
+      "file": "src/shader/retro-autotile.mjs",
+      "sha256": "a38828427a26e7409885eaf1ded6874351b0a29f87532821ca3c21ceae745a9e"
+    },
+    {
+      "file": "src/shader/retro-terrain-curated.mjs",
+      "sha256": "a0d4e46537ec1269285e34ee433269f36cc345e598dd5adba2c94cf75ffdd207"
+    },
+    {
+      "file": "src/shader/retro-terrain.mjs",
+      "sha256": "76fa9fb6e1053954828cbb35f893a29160c8e4cd92a7ef125fa40ff7aa10f9d2"
+    },
+    {
+      "file": "src/shader/retro-terrain-growth.mjs",
+      "sha256": "d6be8ef56ae23de66d8849b7bf40d0940404aa0ce718eeba75835bcb39db3040"
+    },
+    {
+      "file": "scripts/material-png.mjs",
+      "sha256": "a8c63520bbbd5eb8d6a5ddf7751a819171c8d49a7b94ae27ca589228e63e31a8"
+    },
+    {
+      "file": "scripts/study-retro-terrain-curated.mjs",
+      "sha256": "619da03c0530681712fc3af7eb7c35989d56fa9bd00cbfab961ff4d8aedf7f18"
+    }
+  ],
+  "files": [
+    {
+      "path": "surfaces-16.png",
+      "width": 48,
+      "height": 96,
+      "bytes": 612,
+      "sha256": "129e3479347575b9661c85932fe74f06b27db28183498b7d50da140e4bfff0d7",
+      "rgbaSha256": "47fe9bb6251dced6bc8f6316b73ecdef771099f24de37af410ee024e0a085d20"
+    },
+    {
+      "path": "repeats-16.png",
+      "width": 192,
+      "height": 64,
+      "bytes": 1279,
+      "sha256": "e2c22dde9a89dc13f5490a7027573607e3ea5707b68fcbb6565e619f38c6543c",
+      "rgbaSha256": "412d5ea86500fe7f02bca8b5c053cd35554fe7ea7216c6ab47ce735c021094b4"
+    },
+    {
+      "path": "connected-terrain-16.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 1413,
+      "sha256": "d07d2b38e865a3b2b28ef198c0ce8369de479fd519740e311d6bb16b97887b52",
+      "rgbaSha256": "a39458384dc79d8c2c0f12d79d599096ec1df7f9b0c341bf24cffd08f9a0a001"
+    },
+    {
+      "path": "weathered-connected-terrain-16.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 1177,
+      "sha256": "3980c9731aa29c5064081427c81941134ac7fa1e86815da05cc8d95599afd427",
+      "rgbaSha256": "c4fabe9b9498d45762405ba9ae48c1a23210a69fc83bd55ac6c11ba5bdf73c4d"
+    },
+    {
+      "path": "blob-cases.png",
+      "width": 192,
+      "height": 128,
+      "bytes": 1882,
+      "sha256": "22f50c838404993e9c133c682e2de997f5cf430a7abc312a910b99d889466554",
+      "rgbaSha256": "621f005b8ca72a6a242ee302f7e9bde5fdc26e6c947c1819dc4dde5a960503de"
+    },
+    {
+      "path": "palettes-16.png",
+      "width": 384,
+      "height": 128,
+      "bytes": 4376,
+      "sha256": "a3cbc83f773c83261e93f44c3b414661ba6d190cb81fcff34a3a56a0eff66a18",
+      "rgbaSha256": "8ad18c5bc563c4c07faba744e39218b30436381efa1184e6cb5ce825d88f4ef6"
+    },
+    {
+      "path": "surfaces-64.png",
+      "width": 192,
+      "height": 384,
+      "bytes": 3513,
+      "sha256": "e2c73bee270b62f87b8d35394bff4c7795839faa4b2172ae1b7a812afebcc998",
+      "rgbaSha256": "8e29eb014e2435d727fc6731e917d89bdfde7dd73a922bdc5fde2418154a8b8d"
+    },
+    {
+      "path": "repeats-64.png",
+      "width": 768,
+      "height": 256,
+      "bytes": 6503,
+      "sha256": "81e3a1246401da9d1ae0bc26d7c506608954449218f5dc81460b00fe3c67432f",
+      "rgbaSha256": "0768942b65d94d9a872bdecbb2d55f4d58abd308891a66882ea7e09245533336"
+    },
+    {
+      "path": "connected-terrain-64.png",
+      "width": 448,
+      "height": 448,
+      "bytes": 7861,
+      "sha256": "db510376899ce87b149bd5aa251eb5e78cc677bb751942610e18d4728929d572",
+      "rgbaSha256": "3ba6fc75ab28dbc7de63ae991cc1c813e040ceb9895761ca2bc5c0cc6ad68eec"
+    },
+    {
+      "path": "weathered-connected-terrain-64.png",
+      "width": 448,
+      "height": 448,
+      "bytes": 7246,
+      "sha256": "7333ed0dc5928b9c4740a331f19aa3031b660e23f0076fda7eab277ad08ebe7d",
+      "rgbaSha256": "fae4cfde75f9141b6e51cae8d4aaa499185b01b458c5693fc5659d7fe5403238"
+    }
+  ]
+}

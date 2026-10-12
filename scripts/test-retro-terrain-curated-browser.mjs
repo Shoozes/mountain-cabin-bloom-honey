@@ -21,9 +21,32 @@ async function openAdjust(page){await readUntil(page,()=>Boolean(document.queryS
 async function openRetro(page){await openAdjust(page);for(let attempt=0;attempt<3;attempt++){if(await page.evaluate(()=>document.querySelector('.retro-terrain-panel')?.open))break;await page.locator('.details').evaluate(e=>{e.scrollTop=0;});await pointerAt(page,'.retro-terrain-panel summary');try{await readUntil(page,()=>document.querySelector('.retro-terrain-panel')?.open===true);break;}catch(error){if(attempt===2)throw error;}}await page.getByLabel('Retro terrain preview',{exact:true}).waitFor({state:'visible'});}
 async function canvasHash(page){return page.getByLabel('Retro terrain preview',{exact:true}).evaluate(async c=>{const pixels=c.getContext('2d').getImageData(0,0,c.width,c.height).data;return [...new Uint8Array(await crypto.subtle.digest('SHA-256',pixels))].map(v=>v.toString(16).padStart(2,'0')).join('');});}
 async function stageScale(page){const m=await page.locator('.stage canvas[aria-label="Active material preview"]').evaluate(c=>{const r=c.getBoundingClientRect();return {x:r.width*devicePixelRatio/c.width,y:r.height*devicePixelRatio/c.height,width:r.width,height:r.height};});for(const v of [m.x,m.y])assert.ok(v>=1&&Math.abs(v-Math.round(v))<1e-8,JSON.stringify(m));assert.equal(m.x,m.y);return m;}
+async function sideScale(page,expectedWidth){
+  await page.waitForFunction(expected=>{const c=document.querySelector('.retro-preview'),r=c?.getBoundingClientRect(),scale=r?.width*devicePixelRatio/c?.width;return (!expected||c?.width===expected)&&scale>=1&&Math.abs(scale-Math.round(scale))<1e-8;},expectedWidth);
+  const m=await page.locator('.retro-preview').evaluate(c=>{const r=c.getBoundingClientRect(),v=c.parentElement;return {sourceWidth:c.width,x:r.width*devicePixelRatio/c.width,y:r.height*devicePixelRatio/c.height,viewportWidth:v.clientWidth,scrollWidth:v.scrollWidth};});
+  assert.equal(m.x,m.y);assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));return m;
+}
+async function shaderFailureCleanup(page){
+  const result=await page.evaluate(async()=>{
+    const {ShaderMill}=await import('/src/shader/engine.ts'),{STYLES}=await import('/src/shader/catalog.ts');
+    const d=document.createElement('canvas'),u=document.createElement('canvas'),counts={createProgram:0,deleteProgram:0,createShader:0,deleteShader:0},proto=WebGLRenderingContext.prototype,originals={};
+    for(const key of Object.keys(counts)){originals[key]=proto[key];proto[key]=function(...args){if(this.canvas===d||this.canvas===u)counts[key]++;return originals[key].apply(this,args);};}
+    let mill;
+    try {
+      mill=new ShaderMill(d,u);const params={seed:1,scale:1,pixels:16,wear:0,repeat:1,time:0,look:0,colors:[[0,0,0],[.2,.2,.2],[.5,.5,.5],[1,1,1]]},invalid={id:'review-invalid-shader',glsl:'intentional invalid %% shader'};
+      const failed=mill.drawDisplay(d,invalid,params),cachedFailure=mill.drawDisplay(d,invalid,params),message=mill.error(invalid.id),afterFailure={...counts};
+      const valid=mill.drawUtil(u,STYLES[0],params);mill.dispose();mill=undefined;
+      return {failed,cachedFailure,message,afterFailure,valid,afterDispose:counts};
+    } finally {mill?.dispose();for(const key of Object.keys(counts))proto[key]=originals[key];}
+  });
+  assert.equal(result.failed,false);assert.equal(result.cachedFailure,false);assert.ok(result.message);assert.equal(result.valid,true);
+  assert.deepEqual(result.afterFailure,{createProgram:1,deleteProgram:1,createShader:2,deleteShader:2});
+  assert.deepEqual(result.afterDispose,{createProgram:2,deleteProgram:2,createShader:4,deleteShader:4});return result;
+}
 async function downloadFiles(page){const pending=page.waitForEvent('download',{timeout:60000});await page.getByRole('button',{name:'Save terrain kit',exact:true}).click();const dl=await pending;const files=unzip(await fs.readFile(await dl.path()));await dl.delete();return files;}
 Object.assign(process.env,mergeAppEnv(readAppEnv(root),process.env));
 let server,browser,page,failure,injecting=false;const errors=[],proof={mode:dev?'dev':'pages',cases:[],screenshots:[],expectedFaults:[]},cleanup=[];
+proof.sources=await Promise.all(['src/components/retro-terrain-panel.tsx','src/components/mill-app.tsx','src/styles.css','src/shader/engine.ts','src/shader/retro-terrain-art.mjs','src/shader/retro-autotile.mjs','src/shader/retro-terrain-curated.mjs','src/shader/retro-terrain-browser.mjs','scripts/test-retro-terrain-curated-browser.mjs','scripts/bake-retro-terrain-curated.mjs'].map(async file=>({file,sha256:hash(await fs.readFile(path.join(root,file)))})));
 try {
   if(!dev)server=await preview({root,mode:'pages',preview:{host:'127.0.0.1',port:0,open:false}});
   proof.url=dev??`http://127.0.0.1:${server.httpServer.address().port}/mountain-cabin-bloom-honey/`;
@@ -31,6 +54,7 @@ try {
   browser=await chromium.launch({channel:'chrome',headless:true});page=await browser.newPage({viewport:{width:1440,height:1080}});page.setDefaultTimeout(12000);
   page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error'&&!injecting)errors.push(m.text());});
   await page.goto(proof.url);const cdp=await page.context().newCDPSession(page);await cdp.send('Network.setCacheDisabled',{cacheDisabled:true});await openRetro(page);
+  if(dev)proof.shaderFailureCleanup=await shaderFailureCleanup(page);
   await page.getByLabel('Terrain kit',{exact:true}).selectOption('retro-terrain-curated');
   proof.matrixSkipped=process.argv.includes('--flows-only');
   for(const tileSize of (proof.matrixSkipped?[]:[16,64]))for(const palette of ['woodland','dry-trail','cool-moor'])for(const seed of [1204,1215,1233]) {
@@ -46,7 +70,10 @@ try {
     proof.cases.push({recipe,decodedPngs:images.length,browserIdentity:manifest.identity,cliIdentity:baked.manifest.identity});console.log(`${proof.mode}: ${tileSize}px ${palette} s${seed}: ${images.length} PNG pairs match`);
   }
   await page.getByLabel('Terrain size',{exact:true}).selectOption('16');await page.getByLabel('Terrain palette',{exact:true}).selectOption('woodland');await page.getByLabel('Terrain seed',{exact:true}).fill('1204');
-  for(const view of ['patch','weathered-patch','gravel-patch','mixed-grass','mixed-dirt','mixed-gravel','grass-dirt-atlas','gravel-dirt-atlas','grass-grout-source',...Array.from({length:16},(_,m)=>'gravel-path-'+m)]){await page.getByLabel('Terrain tile',{exact:true}).selectOption(view);await stageScale(page);}
+  for(const view of ['patch','weathered-patch','gravel-patch','mixed-grass','mixed-dirt','mixed-gravel','grass-dirt-atlas','gravel-dirt-atlas','grass-grout-source',...Array.from({length:16},(_,m)=>'gravel-path-'+m)]){await page.getByLabel('Terrain tile',{exact:true}).selectOption(view);await stageScale(page);await sideScale(page);}
+  await page.getByLabel('Terrain tile',{exact:true}).selectOption('grass-grout-source');proof.previewScales=[{device:'desktop',dpr:1,view:'grass-grout-source',...await sideScale(page,96)}];
+  await page.getByLabel('Terrain size',{exact:true}).selectOption('64');await page.getByLabel('Terrain tile',{exact:true}).selectOption('patch');proof.previewScales.push({device:'desktop',dpr:1,view:'64px-patch',...await sideScale(page,448)});
+  await page.getByLabel('Terrain size',{exact:true}).selectOption('16');
   await page.getByLabel('Terrain tile',{exact:true}).selectOption('mixed-grass');const mixed=await canvasHash(page);await page.getByLabel('Terrain composition',{exact:true}).selectOption('1');assert.notEqual(await canvasHash(page),mixed);await page.getByLabel('Terrain composition',{exact:true}).selectOption('mixed');
   // Existing recipes remain selectable and old drafts recover without migration.
   for(const id of ['retro-terrain','retro-terrain-growth']){await page.getByLabel('Terrain kit',{exact:true}).selectOption(id);assert.equal(await page.getByLabel('Terrain tile',{exact:true}).inputValue(),'dirt');}
@@ -58,7 +85,15 @@ try {
   await holdSource();const capturedDownload=page.waitForEvent('download',{timeout:60000});await page.getByRole('button',{name:'Save terrain kit',exact:true}).click();for(let i=0;!release&&i<60;i++)await page.waitForTimeout(50);assert.ok(release);await page.getByLabel('Terrain seed',{exact:true}).fill('1215');release();const captured=await capturedDownload,previous=unzip(await fs.readFile(await captured.path()));assert.equal(JSON.parse(previous.get('recipe.json')).seed,1204);await captured.delete();await page.getByText('Unsaved changes — the previous terrain seed was exported',{exact:true}).waitFor();await page.unroute('**/*retro-terrain-art*.mjs*');proof.capturedRevision=true;
   await page.getByLabel('Terrain seed',{exact:true}).fill('1204');await holdSource();await page.getByRole('button',{name:'Save terrain kit',exact:true}).click();for(let i=0;!release&&i<60;i++)await page.waitForTimeout(50);assert.ok(release);await page.locator('.retro-terrain-panel summary').click();release();await page.unroute('**/*retro-terrain-art*.mjs*');await openRetro(page);await downloadFiles(page);proof.cancelRetry=true;
   await page.getByLabel('Terrain tile',{exact:true}).selectOption('patch');await page.screenshot({path:path.join(out,'desktop.png')});proof.screenshots.push('desktop.png');
-  for(const dpr of [1,2]){const phone=await browser.newPage({viewport:{width:390,height:844},deviceScaleFactor:dpr});phone.on('pageerror',e=>errors.push(e.message));await phone.goto(proof.url);await openRetro(phone);await phone.getByLabel('Terrain kit',{exact:true}).selectOption('retro-terrain-curated');await phone.getByLabel('Terrain tile',{exact:true}).selectOption('patch');proof['mobileScale'+dpr]=await stageScale(phone);assert.ok(await phone.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));for(const label of ['Terrain size','Terrain palette','Terrain composition','Terrain seed','Terrain tile'])assert.ok(await phone.getByLabel(label,{exact:true}).evaluate(e=>e.getBoundingClientRect().height)>=44);await phone.screenshot({path:path.join(out,`mobile-dpr${dpr}.png`)});proof.screenshots.push(`mobile-dpr${dpr}.png`);await phone.close();}
+  for(const {device,dpr,viewport}of [{device:'desktop',dpr:2,viewport:{width:1440,height:1080}},... [1,2].map(dpr=>({device:'mobile',dpr,viewport:{width:390,height:844}}))]){
+    const phone=await browser.newPage({viewport,deviceScaleFactor:dpr});phone.on('pageerror',e=>errors.push(e.message));await phone.goto(proof.url);await openRetro(phone);await phone.getByLabel('Terrain kit',{exact:true}).selectOption('retro-terrain-curated');
+    await phone.getByLabel('Terrain tile',{exact:true}).selectOption('grass-grout-source');proof.previewScales.push({device,dpr,view:'grass-grout-source',...await sideScale(phone,96)});
+    await phone.getByLabel('Terrain size',{exact:true}).selectOption('64');await phone.getByLabel('Terrain tile',{exact:true}).selectOption('patch');proof.previewScales.push({device,dpr,view:'64px-patch',...await sideScale(phone,448)});await stageScale(phone);
+    await phone.getByLabel('Terrain tile',{exact:true}).selectOption('weathered-patch');await sideScale(phone,448);
+    await phone.getByLabel('Terrain size',{exact:true}).selectOption('16');await phone.getByLabel('Terrain tile',{exact:true}).selectOption('patch');proof[device+'Scale'+dpr]=await stageScale(phone);
+    for(const label of ['Terrain size','Terrain palette','Terrain composition','Terrain seed','Terrain tile'])assert.ok(await phone.getByLabel(label,{exact:true}).evaluate(e=>e.getBoundingClientRect().height)>=44);
+    const capture=`${device}-dpr${dpr}.png`;await phone.screenshot({path:path.join(out,capture)});proof.screenshots.push(capture);await phone.close();
+  }
   assert.deepEqual(errors,[]);
 } catch(error){failure=error;proof.failure=error.message;await page?.screenshot({path:path.join(out,'failure.png')}).catch(()=>{});}
 finally{await page?.unrouteAll({behavior:'ignoreErrors'}).catch(()=>{});await browser?.close();if(server)await new Promise(resolve=>server.httpServer.close(resolve));for(const cache of cleanup)if(cache.startsWith(out+path.sep))await fs.rm(cache,{recursive:true,force:true});proof.resourcesReleased=true;await fs.writeFile(path.join(out,'receipt.json'),JSON.stringify({...proof,errors,status:failure?'failed':'passed'},null,2)+'\n');}

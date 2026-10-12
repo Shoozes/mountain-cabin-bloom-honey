@@ -62,11 +62,16 @@
   image-rendering: pixelated;
 }
 
+.retro-preview-viewport {
+  max-width: 100%;
+  overflow-x: auto;
+  margin-block: 12px;
+}
+
 .retro-preview {
   display: block;
-  max-width: 100%;
+  max-width: none;
   height: auto;
-  margin-block: 12px;
 }
 
 .retro-terrain-panel summary {

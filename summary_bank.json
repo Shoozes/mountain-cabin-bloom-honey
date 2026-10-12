@@ -208,12 +208,21 @@
       ]
     },
     "product_ui": {
-      "description": "Selective product ui ownership; credential-bearing auth code is excluded from context.",
+      "description": "Mill authoring panels, exclusive preview ownership and responsive pixel viewing.",
       "status": "active",
       "paths": [
         "src/components/mill-app.tsx",
         "src/components/material-panel.tsx",
-        "src/components/retro-terrain-panel.tsx"
+        "src/components/retro-terrain-panel.tsx",
+        "src/styles.css"
+      ]
+    },
+    "shader_preview": {
+      "description": "WebGL shader drawing, compilation resources and generated fragment contracts. Browser regression lives in product_bakes.",
+      "status": "active",
+      "paths": [
+        "src/shader/engine.ts",
+        "src/shader/glsl.ts"
       ]
     },
     "shader_recipes": {
@@ -301,6 +310,8 @@
         "docs/look-dev/retro-terrain-curated.md",
         "scripts/study-retro-terrain-curated.mjs",
         "docs/look-dev/retro-terrain-curated-proof.json",
+        "docs/look-dev/retro-terrain-cleanup-proof.json",
+        "docs/work/done/RETRO-TERRAIN-REVIEW-CLEANUP-20261011.md",
         "docs/licenses/grout-autotile-MIT.txt"
       ]
     }

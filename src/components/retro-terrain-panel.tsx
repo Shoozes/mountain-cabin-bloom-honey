@@ -17,6 +17,7 @@ export function RetroTerrainPanel({open, onOpenChange, onPreview}: {
   const [ready, setReady] = useState(false), [busy, setBusy] = useState(false);
   const [status, setStatus] = useState('Original retro color — visual approval pending');
   const canvas = useRef<HTMLCanvasElement>(null), revision = useRef(0), exportRun = useRef<AbortController | null>(null);
+  const previewViewport = useRef<HTMLDivElement>(null);
   const downloads = useRef(new Map<string, ReturnType<typeof setTimeout>>());
   const generated = useMemo(() => {
     try {
@@ -67,6 +68,20 @@ export function RetroTerrainPanel({open, onOpenChange, onPreview}: {
     if (result.pixels && canvas.current) paintMaterialCanvas(canvas.current, result.pixels, result.repeat);
     onPreview(result.pixels ? {pixels: result.pixels, repeat: result.repeat, channel: 'color', label: 'Retro terrain · ' + (view === 'atlas' ? 'transition sheet' : view === 'patch' ? 'connected patch' : view)} : null);
   }, [open, result, view, onPreview]);
+  const previewWidth = result.pixels ? result.pixels.width * result.repeat : 192;
+  useEffect(() => {
+    const viewport = previewViewport.current, target = canvas.current;
+    if (!open || !viewport || !target) return;
+    const resize = () => {
+      const dpr = window.devicePixelRatio || 1;
+      const fit = Math.floor(viewport.clientWidth * dpr / previewWidth);
+      const scale = Math.max(1, Math.min(fit, Math.floor(3 * dpr)));
+      target.style.width = `${previewWidth * scale / dpr}px`;
+    };
+    const observer = new ResizeObserver(resize);
+    observer.observe(viewport); window.addEventListener('resize', resize); resize();
+    return () => {observer.disconnect(); window.removeEventListener('resize', resize);};
+  }, [open, previewWidth]);
   useEffect(() => () => {
     exportRun.current?.abort();
     for (const [url, timer] of downloads.current) {clearTimeout(timer); URL.revokeObjectURL(url);}
@@ -88,7 +103,9 @@ export function RetroTerrainPanel({open, onOpenChange, onPreview}: {
   return <details className="retro-terrain-panel" open={open} onToggle={event => onOpenChange(event.currentTarget.open)}>
     <summary>Retro terrain · {recipe.id==='retro-terrain-curated'?recipe.tileSize:64} px</summary>
     <p className="lede">Native drawings, worn surfaces and earthen gravel paths. Compare compositions and connected terrain.</p>
-    <canvas ref={canvas} className="pixelated retro-preview" style={{width: result.pixels ? Math.min(256, result.pixels.width * result.repeat < 192 ? result.pixels.width * result.repeat * 3 : result.pixels.width * result.repeat) : 192}} aria-label="Retro terrain preview" />
+    <div ref={previewViewport} className="retro-preview-viewport" tabIndex={0} role="region" aria-label="Retro terrain preview viewport">
+      <canvas ref={canvas} className="pixelated retro-preview" style={{width: previewWidth}} aria-label="Retro terrain preview" />
+    </div>
     <div className="fields">
       <label className="field">Kit<select aria-label="Terrain kit" value={recipe.id} onChange={event=>{revision.current++;const id=event.target.value;setRecipe(id==='retro-terrain'?{id:'retro-terrain',seed:recipe.seed}:id==='retro-terrain-growth'?{id:'retro-terrain-growth',seed:recipe.seed,palette:'heath'}:{id:'retro-terrain-curated',tileSize:16,seed:recipe.seed,palette:'woodland'});setView(id==='retro-terrain-curated'?'dirt-0':'dirt');setStatus('Unsaved retro terrain changes');}}>
         <option value="retro-terrain-curated">Curated edition</option><option value="retro-terrain-growth">Paths and weathering</option><option value="retro-terrain">Original tiles</option>
