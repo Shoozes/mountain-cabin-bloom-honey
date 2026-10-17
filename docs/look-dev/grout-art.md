@@ -38,6 +38,12 @@ included. Visible draft state, local recovery and source errors stay in the
 workbench. Recipe JSON and shader diagnostics are behind disclosure. Export
 packs the current valid recipe; cancellation retains the editable document.
 
+Unreadable Sprite and Example recovery documents keep both their original draft
+and source bytes. A fresh starter opens with local saving paused, including after
+edits and reloads. **Replace saved draft** explicitly saves the current recipe and
+source to that workspace only. Exports remain available while saving is paused.
+An unreadable example never writes into the ordinary Sprite draft.
+
 Open **Clothing & hats** beside the canvas to combine the travel coat, linen
 tunic or trail vest with the wool cap, round cap or trail hat. **Colors** offers
 Fern (original green), Cinder (teal/rust), Heather (violet/ochre), and Harbor
@@ -199,7 +205,7 @@ receive launch actions; partial ports do not claim donor parity.
 | RGBA packing, trim, extrusion, extraction | Adapted donor algorithm; delivered | Consumer engine receiving |
 | Painting, fill, selection, undo/redo | New Studio state; delivered | Larger-canvas interaction study |
 | Seeded variations and measured compactness | Initial graph/measurement examples; delivered | Rich variation, lossless optimization |
-| Conversion and sprite extraction | PNG/GIF grid and aligned layer imports delivered | Irregular extraction and broader conversion |
+| Conversion and sprite extraction | PNG/GIF grids, aligned layers and reviewed transparent-sheet components delivered | Broader conversion workflows |
 | GIF/SVG/CSS workflows | Animated GIF import qualified; other formats/export retained in donor | Per-format animation/export fidelity |
 | Fonts, UI atlases and remaining examples | Inventoried; donor retained | Native layout and consumer parity |
 | Engine adapters and compact runtime delivery | Donor retained | Actual receiving application proof |
@@ -291,6 +297,10 @@ AI-edited: 2026-10-16 | agent=Codex/root | task=traveler-style | change=recorded
 AI-edited: 2026-10-16 | agent=Codex/root | task=traveler-wardrobe | change=recorded accepted base, additive apparel combinations, editable exports and reversible wardrobe controls
 
 AI-edited: 2026-10-16 | agent=Codex/root | task=traveler-palette-feet | change=documented apparel palettes, authored gait, centered pack and explicit draft upgrade
+
+AI-edited: 2026-10-17 | agent=Codex/root | task=character-review-cleanup | change=documented protected unreadable Sprite and Example drafts and explicit replacement
+
+AI-edited: 2026-10-17 | agent=Codex/root | task=sprite-components | change=recorded the delivered transparent-sheet extraction capability
 
 AI-edited: 2026-10-16 | agent=Codex/root | task=traveler-profile-import | change=added layered import route and far-shoe qualification boundaries
 

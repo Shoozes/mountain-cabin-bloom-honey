@@ -1,5 +1,6 @@
 import {
   importSpriteLayers,
+  type Pixels,
   type SpriteImportLayer,
   type SpriteImportOptions,
 } from "../../packages/grout-art/index.mjs";
@@ -26,6 +27,30 @@ export async function importSpriteFiles(
   options: SpriteImportOptions,
   signal: AbortSignal,
 ) {
+  const layers = await decodeSpriteFiles(files, signal);
+  return importSpriteLayers(
+    layers,
+    { ...options, name: options.name ?? files[0].name.replace(/\.(png|gif)$/i, "").slice(0, 120) },
+    { signal },
+  );
+}
+
+/** Component extraction reviews a single static PNG; no timeline is inferred. */
+export async function readSpriteComponentFile(file: File, signal: AbortSignal): Promise<{
+  pixels: Pixels;
+  sourceName: string;
+  sourceSha256: string;
+}> {
+  const [source] = await decodeSpriteFiles([file], signal, true);
+  const frame = source.frames[0];
+  return {
+    pixels: { width: frame.width, height: frame.height, data: new Uint8Array(frame.data) },
+    sourceName: source.sourceName!,
+    sourceSha256: source.sourceSha256!,
+  };
+}
+
+async function decodeSpriteFiles(files: File[], signal: AbortSignal, pngOnly = false) {
   signal.throwIfAborted();
   if (!files.length || files.length > 16) throw new Error("Choose 1–16 aligned PNG or GIF layers");
   if (files.reduce((n, f) => n + f.size, 0) > 16 * 1024 * 1024)
@@ -41,6 +66,7 @@ export async function importSpriteFiles(
     const gif =
       bytes.length >= 13 && /^GIF8[79]a$/.test(String.fromCharCode(...bytes.subarray(0, 6)));
     if (!png && !gif) throw new Error(`${file.name}: choose a valid PNG or GIF`);
+    if (pngOnly && !png) throw new Error("Loose sprites require one static PNG; use Grid sheet for GIF animation.");
     const width = png ? view.getUint32(16) : view.getUint16(6, true),
       height = png ? view.getUint32(20) : view.getUint16(8, true);
     if (!width || !height || width > 8192 || height > 8192 || width * height > 1048576)
@@ -132,9 +158,6 @@ export async function importSpriteFiles(
       ...(frames.length > 1 ? { durationsMs } : {}),
     });
   }
-  return importSpriteLayers(
-    layers,
-    { ...options, name: options.name ?? files[0].name.replace(/\.(png|gif)$/i, "").slice(0, 120) },
-    { signal },
-  );
+  signal.throwIfAborted();
+  return layers;
 }

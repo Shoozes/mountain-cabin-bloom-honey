@@ -36,6 +36,60 @@ stay in `importedSprite`; export provenance identifies user-supplied artwork
 rather than claiming independent authorship. Rights and attribution remain
 with those sources. Reference files are not bundled into the repository.
 
+## Loose sprites from a PNG
+
+Choose **Loose sprites (transparent PNG)** and one static PNG, then **Find
+pieces**. Detection defaults to eight neighbors (edges and diagonals); four
+neighbors keeps diagonal pixels separate. The sheet preview marks the detected
+pieces at integer enlargement. IDs follow the first opaque pixel in row order.
+
+Each piece starts in its own sprite group. Give detached pieces the same group
+number to join them; ascending group numbers set frame order. Every piece is
+retained exactly once. Detection does not identify body parts, directions or
+walk poses, remove backgrounds, or discard isolated pixels. An opaque background
+is ordinary source coverage and can connect otherwise separate sprites.
+
+Choose 0–32 pixels of padding. All output frames use the largest group's bounds
+plus padding and place each crop at `[padding,padding]` without scaling. The
+display shows shared dimensions and the default bottom-center anchor; **Custom
+anchor** applies explicit frame-space coordinates to every frame. Crops include
+only their group members, even when boxes overlap or a separate sprite lies
+inside a ring. **Convert pieces to recipe** commits the reviewed result. Undo
+restores the previous drawing; completed imports retain their recipes on reload.
+Cancellation, rejected input and unapplied source edits preserve the current
+drawing. The temporary file/review selection itself is not a saved draft.
+
+The headless SDK uses the same deterministic conversion:
+
+```js
+import {detectSpriteComponents, importSpriteComponents} from './packages/grout-art/index.mjs';
+
+const analysis = await detectSpriteComponents(pixels, {connectivity: 8}, {signal});
+const recipe = await importSpriteComponents(pixels, {
+  connectivity: 8,
+  groups: analysis.components.map(piece => [piece.id]), // explicitly join IDs here
+  padding: 2,
+  anchor: [8, 15],
+  sourceName: 'my-sheet.png',
+}, {signal});
+```
+
+Both APIs yield for cancellation. Input must be tightly packed RGBA8 with binary
+alpha, at most 1,048,576 source pixels and 256 connected pieces. Conversion keeps
+the existing 256-color/mask/run budgets, limits shared frames to 512×512 and total
+output frame pixels to 1,048,576. Empty sheets, partial alpha and missing,
+duplicate or invalid group IDs reject explicitly. Transparent RGB becomes zero.
+
+The editable recipe remains `grout-art/1`; its import metadata uses the additive
+`sprite-components/1` format. It records the original source name/hash/dimensions,
+connectivity, pieces, ordered groups, crop bounds, padding and frame offsets.
+Reconstruct source positions as `region.x/y + framePixel - region.offset`; holes
+stay transparent. A generic eight-fps frame sequence is provided for inspection,
+with no inferred animation semantics. Atlas export retains this metadata,
+original anchors and exact trim reconstruction. SDK and browser export identities
+include the component generator source. Existing `sprite-import/1` grid/GIF
+metadata and commands remain unchanged.
+
 ## Outlines
 
 Open **Outline** in Studio and enable **Preview & export outline**. Choose a
@@ -72,6 +126,15 @@ choice; normally these borders are finished before export.
 
 ## Qualification
 
+The component extraction batch passed 411 tests, typecheck, SDK runtime/type
+consumers, lint and both builds. Dev/built browser checks qualified grouping,
+anchors, exact source and atlas reconstruction, malformed input, cancellation
+during decoding/conversion, source guards, undo/recovery and decoded browser/CLI
+exports. Twenty new component CPU/GPU comparisons and 164 neighboring
+grid/GIF/outline comparisons are exact. Desktop/narrow captures and source-bound
+receipts are retained under `sprite-components-20261017` in the qualification
+index. See [the completed batch](../work/done/SPRITE-COMPONENTS-20261017.md).
+
 The Studio outline follow-up passed 388 tests, typecheck, lint and both builds.
 Dev/built browser checks include 144 animated outline CPU/GPU comparisons and
 3,516 neighboring sprite/import comparisons, all exact. Controls, playback,
@@ -101,3 +164,5 @@ remain editable and unaltered.
 AI-edited: 2026-10-16 | agent=Codex/root | task=traveler-profile-import | change=documented exact layered sprite conversion and optional pre-export outlines
 
 AI-edited: 2026-10-16 | agent=Codex/root | task=studio-outline | change=documented reversible outline controls, fixed bounds and baked exports preserving editable source
+
+AI-edited: 2026-10-17 | agent=Codex/root | task=sprite-components | change=documented explicit lossless loose-sheet detection, grouping, anchors and source reconstruction

@@ -217,7 +217,7 @@
         "browser": "Chrome155.0.8059.80",
         "device": "NVIDIA RTX4090"
       },
-      "behavior": "Optional composite outline controls in Studio; native width 1\u20133, stepped/square footprint and independent RGB color. CPU and direct GLSL/WGSL evaluate identical coverage. Source layers, parts, colors, frame order, anchors and clip timing remain unchanged. Paint/fill/selection operate on source pixels. Export bakes the effect into atlas/sheet PNGs and preserves the editable recipe.",
+      "behavior": "Optional composite outline controls in Studio; native width 1–3, stepped/square footprint and independent RGB color. CPU and direct GLSL/WGSL evaluate identical coverage. Source layers, parts, colors, frame order, anchors and clip timing remain unchanged. Paint/fill/selection operate on source pixels. Export bakes the effect into atlas/sheet PNGs and preserves the editable recipe.",
       "preservation": "Original imported layers, clips and palette roles intact; no traveler/terrain drawing edits. User study: all 36 frames retain original opaque pixels.",
       "limits": [
         "Fixed source-frame bounds: border clips at edges; dimensions and anchors do not shift.",
@@ -244,11 +244,162 @@
         "build:pages"
       ],
       "browser": "Final dev controls and feedback passed before source-key timeout; full final dev/built character qualification remains open. Earlier 324 frames per backend and export equality are historical.",
-      "continuation": "docs/work/queue/CHARACTER-CREATOR-20261017.md",
+      "continuation": "docs/work/done/CHARACTER-CREATOR-20261017.md",
       "limitations": [
         "Unequal profile contact stride and eye/contour spacing identified by pixel-art peer.",
         "Owner requested usage-limit closeout before final character browser milestone."
       ]
+    },
+    {
+      "run": "character-recovery-art-20261017",
+      "status": "Complete with verified limitations",
+      "visualReview": "unapproved",
+      "summary": "D:\\Compact_Evidence\\mountain-cabin-bloom-honey\\runs\\character-recovery-art-20261017\\summary.json",
+      "sourceInventorySha256": "0f3cafb3120d6c46855aeedbd5b58b4b585c28f4d8877171e5b044f9245d5c83",
+      "tests": {
+        "passed": 400,
+        "failed": 0,
+        "focusedCharacter": 12
+      },
+      "gpu": {
+        "comparisons": 1296,
+        "differingBytes": 0,
+        "backends": [
+          "webgl2",
+          "webgpu"
+        ],
+        "browser": "155.0.8059.80"
+      },
+      "browserLanes": [
+        "dev desktop/mobile viewport",
+        "built Pages desktop/mobile viewport"
+      ],
+      "behavior": "Hydration/recovery readiness protects editing; malformed source and last-valid documents survive switching/reload. Four-direction playback, in-flight export cancellation/retry and decoded browser/CLI pixels qualified.",
+      "preservation": "Accepted traveler and all eleven protected source/fixture hashes unchanged.",
+      "art": "New creator only: eye clearance and balanced side contacts with alternating near/far shoes; peer reviewed nine defaults, owner acceptance pending.",
+      "workRecord": "docs/work/done/CHARACTER-CREATOR-20261017.md"
+    },
+    {
+      "run": "character-motion-20261017",
+      "status": "Complete with verified limitations",
+      "visualReview": "unapproved",
+      "summary": "D:\\Compact_Evidence\\mountain-cabin-bloom-honey\\runs\\character-motion-20261017\\summary.json",
+      "sourceInventorySha256": "f9b572baef54b180f3e80883e2872fd5d479d6e91c89519e7c656957ba389296",
+      "tests": {
+        "passed": 403,
+        "failed": 0,
+        "characterTests": 15
+      },
+      "gpu": {
+        "comparisons": 1296,
+        "differingBytes": 0,
+        "backends": [
+          "webgl2",
+          "webgpu"
+        ],
+        "browser": "155.0.8059.80"
+      },
+      "behavior": "Stable creator walk with compact articulated feet and smaller counter-swinging arms; even centered head widths; exact front/rear idle symmetry across built-in options and generation modes. Odd v1 rig widths recover to even values.",
+      "preservation": "Accepted traveler and eleven protected source/fixtures unchanged; custom/imported source pixels retained.",
+      "browser": "Dev/built desktop/mobile viewport checks: width controls, source synchronization, recovery, playback, editing and export error/cancel/retry with decoded CLI equality.",
+      "preview": "D:\\Compact_Evidence\\mountain-cabin-bloom-honey\\runs\\character-motion-20261017\\art\\walk.gif",
+      "workRecord": "docs/work/done/CHARACTER-CREATOR-20261017.md",
+      "ownerReview": "Rejected: profile shoes, floating face pixel, inconsistent contours and skin-like pack stripe; superseded by character-contours-20261017."
+    },
+    {
+      "run": "character-contours-20261017",
+      "status": "Complete with verified limitations",
+      "visualReview": "unapproved",
+      "summary": "D:\\Compact_Evidence\\mountain-cabin-bloom-honey\\runs\\character-contours-20261017\\summary.json",
+      "sourceInventorySha256": "0bf43ac36ccdd36a81630c95b873938e4be972386ec82f6c9af0556fd21edc4f",
+      "tests": {
+        "passed": 404,
+        "failed": 0,
+        "characterTests": 16
+      },
+      "gpu": {
+        "comparisons": 1296,
+        "differingBytes": 0,
+        "backends": [
+          "webgl2",
+          "webgpu"
+        ],
+        "browser": "155.0.8059.80"
+      },
+      "behavior": "Closed built-in contours after fills; removed profile nose override; leather-only pack; explicit toe/heel shoe keys, alternating support and passing sole gap. Existing ink shadow preserves imported eighth colors.",
+      "preservation": "Accepted traveler and eleven protected source/fixtures unchanged; even heads, symmetrical facing idles and custom/imported source pixels retained.",
+      "browser": "Dev/built desktop/mobile viewport, exact playback, recovery, editing and export cancellation/retry with decoded CLI equality.",
+      "preview": "D:\\Compact_Evidence\\mountain-cabin-bloom-honey\\runs\\character-contours-20261017\\art\\walk.gif",
+      "workRecord": "docs/work/done/CHARACTER-CREATOR-20261017.md",
+      "ownerReview": "Accepted on 2026-10-17: displayed Classic/Outlined 8-bit/Fern default and walk cycle only; other creator designs remain candidates."
+    },
+    {
+      "run": "character-review-cleanup-20261017",
+      "status": "Complete with verified limitations",
+      "visualReview": "accepted displayed default; other designs unapproved",
+      "summary": "D:/Compact_Evidence/mountain-cabin-bloom-honey/runs/character-review-cleanup-20261017/summary.json",
+      "sourceInventorySha256": "271cb65d598966fd2050e6a8e1a965ccc37ef4babe47cd07d6337fafad715cba",
+      "tests": {
+        "passed": 406,
+        "failed": 0,
+        "focusedCharacter": 18
+      },
+      "gpu": {
+        "comparisons": 1296,
+        "differingBytes": 0,
+        "browser": "155.0.8059.80"
+      },
+      "behavior": "Protected unreadable Sprite/Example draft/source bytes through edits/reload and explicit scope-local replacement; full outline-free arm coverage; accepted default pixel pin.",
+      "preservation": "Eleven traveler/terrain source and fixtures unchanged",
+      "browser": "Dev/built recovery/playback/exports and decoded CLI parity; desktop/mobile recovery notice with touch emulation.",
+      "workRecord": "docs/work/done/CHARACTER-CREATOR-20261017.md"
+    },
+    {
+      "run": "sprite-components-20261017",
+      "status": "Complete with verified limitations",
+      "visualReview": "lossless conversion; existing art acceptance unchanged",
+      "summary": "D:/Compact_Evidence/mountain-cabin-bloom-honey/runs/sprite-components-20261017/summary.json",
+      "sourceInventorySha256": "4428566f920f9c1961cb57fa401b24666b0935c0477b4a9499e9b86aae547ff8",
+      "tests": {
+        "passed": 411,
+        "failed": 0,
+        "scriptTests": 386,
+        "sourceTests": 25,
+        "focusedComponentsAndImports": 13
+      },
+      "gpu": {
+        "newComponentComparisons": 20,
+        "neighboringGridGifOutline": 164,
+        "total": 184,
+        "differingBytes": 0,
+        "browser": "155.0.8059.80"
+      },
+      "behavior": "Explicit component detection, grouping, padding and anchors; overlapping crop isolation, exact source/atlas reconstruction, cancellable Studio review, undo/recovery and browser/CLI decoded pixels.",
+      "preservation": "14 protected creator/traveler/terrain source and fixture hashes unchanged",
+      "browser": "Dev/built desktop/narrow controls, failures/cancel/retry, source guards and 184 exact GPU comparisons; zero page errors.",
+      "workRecord": "docs/work/done/SPRITE-COMPONENTS-20261017.md"
+    },
+    {
+      "run": "sprite-publish-20261017",
+      "status": "Complete with verified limitations",
+      "visualReview": "accepted creator default retained; other art review unchanged",
+      "summary": "D:/Compact_Evidence/mountain-cabin-bloom-honey/runs/sprite-components-20261017/publication.json",
+      "candidateSources": "D:/Compact_Evidence/mountain-cabin-bloom-honey/runs/sprite-components-20261017/closeout-sources.json",
+      "tests": {
+        "passed": 411,
+        "failed": 0,
+        "reused": "Current relevant inputs match the extraction milestone"
+      },
+      "gpu": {
+        "freshCharacter": 1296,
+        "componentAndNeighbors": 184,
+        "total": 1480,
+        "differingBytes": 0
+      },
+      "browser": "Fresh dev/built character recovery, playback, editing/imports and export error/cancel/retry; both backends match CPU. Component dev/built receipts remain current.",
+      "resources": "Owned previews stopped; browsers closed; compact proof/SDK output retained.",
+      "publication": "Explicit paired request; guarded exact-path helper result and remote main commit retained in publication.json",
+      "workRecord": "docs/work/done/SPRITE-COMPONENTS-20261017.md"
     }
   ]
 }

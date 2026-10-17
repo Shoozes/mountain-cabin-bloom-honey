@@ -1,6 +1,10 @@
 import {
   importSpritePixels,
   importSpriteLayers,
+  detectSpriteComponents,
+  importSpriteComponents,
+  type SpriteComponentAnalysis,
+  type SpriteComponentOptions,
   createTravelerRecipe,
   getTravelerWardrobe,
   setTravelerWardrobe,
@@ -29,6 +33,10 @@ void restored;
 const imported: ArtRecipe = await importSpritePixels(pixels);
 const layered: ArtRecipe = await importSpriteLayers([{name: "Source", frames: [pixels]}]);
 void imported; void layered;
+const componentAnalysis: SpriteComponentAnalysis = await detectSpriteComponents(pixels, {connectivity: 8});
+const componentOptions: SpriteComponentOptions = {groups: componentAnalysis.components.map((component) => [component.id]), padding: 1};
+const components: ArtRecipe = await importSpriteComponents(pixels, componentOptions);
+void components;
 
 const outlined: ArtRecipe = {...layered, outline: {enabled: true, color: "#26323f", width: 1, corners: "stepped"}};
 void renderFrame(outlined);

@@ -1215,6 +1215,13 @@
 .art-import-layers span { flex: 1; min-width: 0; overflow-wrap: anywhere; }
 .art-import-layers button { min-width: 32px; min-height: 32px; }
 .art-import-error { color: #ff9b89; font-size: 12px; overflow-wrap: anywhere; }
+.art-component-preview { overflow: auto; max-height: 220px; margin-block: 10px; background: repeating-conic-gradient(#3e3b34 0% 25%, #514d43 0% 50%) 0 / 12px 12px; }
+.art-component-preview canvas { display: block; image-rendering: pixelated; }
+.art-component-groups { max-height: 240px; overflow-y: auto; margin-block: 10px; }
+.art-component-groups label { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.art-component-groups input { width: 64px; min-height: 32px; }
+.art-sprite-import .art-component-anchor { display: flex; align-items: center; gap: 8px; min-height: 32px; }
+.art-component-anchor input[type=checkbox] { width: 18px; min-height: 18px; height: 18px; margin: 0; }
 .art-outline-toggle { display: flex; align-items: center; gap: 8px; margin-block: 12px; font-size: 12px; }
 .art-outline-controls { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .art-outline-controls label, .art-outline-corners { display: grid; gap: 6px; margin-block: 8px; font-size: 12px; }

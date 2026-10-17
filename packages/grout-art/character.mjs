@@ -45,7 +45,7 @@ export function createCharacterCreator() {
     builds: [
       {id:"chibi",name:"Compact chibi",headWidth:10,headHeight:8,headY:2,torsoY:10,torsoWidth:6},
       {id:"classic",name:"Classic adventurer",headWidth:8,headHeight:7,headY:3,torsoY:10,torsoWidth:6},
-      {id:"slim",name:"Tall / slim",headWidth:7,headHeight:6,headY:3,torsoY:9,torsoWidth:4},
+      {id:"slim",name:"Tall / slim",headWidth:8,headHeight:6,headY:3,torsoY:9,torsoWidth:4},
     ],
     palettes: [
       {id:"fern",name:"Fern",cloth:"#6b9b60",hat:"#6b9b60",accent:"#edc17f"},
@@ -75,7 +75,11 @@ export function parseCharacterCreator(input) {
   for (const s of c.styles) { check(typeof s.outline === "boolean" && typeof s.shaded === "boolean", "invalid style flags"); int(s.budget,1,256,"style budget"); }
   for (const b of c.builds) {
     int(b.headWidth,6,10,"head width"); int(b.headHeight,5,8,"head height"); int(b.headY,1,4,"head position");
+    // v1 drafts allowed odd widths. Canonicalize their rig without touching any
+    // imported/custom frame pixels, so recovery remains available.
+    b.headWidth += b.headWidth % 2;
     int(b.torsoWidth,4,6,"torso width"); int(b.torsoY,8,11,"torso position");
+    b.torsoWidth += b.torsoWidth % 2;
   }
   for (const p of c.palettes) check([p.cloth,p.hat,p.accent].every(rgb), "palette needs RGB cloth, hat and accent colors");
   for (const key of ["skinRamps","hairRamps"]) check(Array.isArray(c[key]) && c[key].length > 0 && c[key].length <= 32 && c[key].every(r => Array.isArray(r) && r.length === 3 && r.every(rgb)), `${key}: expected three-color ramps`);
@@ -177,7 +181,13 @@ export function compileCharacter(input) {
     side:["rear-hair","bag","far-arm","far-leg","far-shoe","torso","clothing","near-leg","near-shoe","near-arm","head","front-hair","hat"],
   };
   for (const name of CHARACTER_FRAMES) {
-    const dir = name.split("-")[0], ids = layers.map(l=>l.id), ranked = order[dir] ?? order.side;
+    const dir = name.split("-")[0], ids = layers.map(l=>l.id), ranked = [...(order[dir] ?? order.side)];
+    // Facing idle cuffs must occlude both arms equally. Walking keeps the near
+    // arm in front so its counter-swing can cross the torso.
+    if (name.endsWith("-0") && (dir === "south" || dir === "north")) {
+      ranked.splice(ranked.indexOf("near-arm"),1);
+      ranked.splice(ranked.indexOf("torso"),0,"near-arm");
+    }
     frames.push({name,anchor:[8+pad,15+pad],order:[...ranked.filter(id=>ids.includes(id)),...ids.filter(id=>!ranked.includes(id))],layers:frameLayers[name]});
   }
   const clips = {};

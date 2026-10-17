@@ -123,6 +123,7 @@ export function ArtStudio() {
   const [characterCreator, setCharacterCreator] = useState<CharacterCreator>(() => createCharacterCreator());
   const [characterDocument, setCharacterDocument] = useState<CharacterDocument>(() => createCharacterDocument());
   const [characterRecoveryCorrupt, setCharacterRecoveryCorrupt] = useState(false);
+  const [spriteRecoveryCorrupt, setSpriteRecoveryCorrupt] = useState(false);
   const [importedCharacterRecipe, setImportedCharacterRecipe] = useState<ArtRecipe | null>(null);
   const [booted, setBooted] = useState(false);
   const [exampleId, setExampleId] = useState<string | null>(null);
@@ -254,6 +255,9 @@ export function ArtStudio() {
     }
     const requestedExample = params.get("example");
     if (requestedExample && getWorkbenchExample(requestedExample)) {
+      // Select the persistence scope before parsing its draft. A broken example
+      // must never fall through to saving over the ordinary sprite workspace.
+      setExampleId(requestedExample);
       try {
         const stored = window.localStorage.getItem(exampleDraftKey(requestedExample));
         const savedSource = window.localStorage.getItem(draftSourceKey(requestedExample));
@@ -268,7 +272,13 @@ export function ArtStudio() {
         setRecipeTextDirty(source !== JSON.stringify(next, null, 2));
         if (stored) setDirty(true);
       } catch (loadError) {
-        setError(`Could not load this example: ${errorMessage(loadError)}`);
+        const starter = createExampleRecipe(requestedExample);
+        recipeRef.current = starter;
+        setRecipe(starter);
+        activateFirstClip(starter);
+        setRecipeText(JSON.stringify(starter, null, 2));
+        setSpriteRecoveryCorrupt(true);
+        setError(`Could not recover this example draft. A fresh example is open; the saved bytes are preserved. ${errorMessage(loadError)}`);
       }
     } else {
       try {
@@ -289,7 +299,9 @@ export function ArtStudio() {
           setRecipeText(JSON.stringify(recipeRef.current, null, 2));
         }
       } catch (loadError) {
-        setError(`The saved draft could not be recovered. The starter recipe is still open. ${errorMessage(loadError)}`);
+        setSpriteRecoveryCorrupt(true);
+        activateFirstClip(recipeRef.current);
+        setError(`The saved draft could not be recovered. A fresh starter is open; the saved bytes are preserved. ${errorMessage(loadError)}`);
         setRecipeText(JSON.stringify(recipeRef.current, null, 2));
       }
     }
@@ -313,22 +325,22 @@ export function ArtStudio() {
   }, [activeRole, clipId, clipNames, clips, currentFrameName, firstVisibleLayer, frameIndex, recipe, roles, selectedLayer]);
 
   useEffect(() => {
-    if (!booted || characterWorkspace) return;
+    if (!booted || characterWorkspace || spriteRecoveryCorrupt) return;
     try {
       window.localStorage.setItem(exampleDraftKey(exampleId), JSON.stringify(recipe));
     } catch (saveError) {
       setError(`Could not save the local recovery draft: ${errorMessage(saveError)}`);
     }
-  }, [booted, characterWorkspace, exampleId, recipe]);
+  }, [booted, characterWorkspace, exampleId, recipe, spriteRecoveryCorrupt]);
 
   useEffect(() => {
-    if (!booted || (characterWorkspace && characterRecoveryCorrupt)) return;
+    if (!booted || (characterWorkspace ? characterRecoveryCorrupt : spriteRecoveryCorrupt)) return;
     try {
       window.localStorage.setItem(characterWorkspace ? "grout-character-studio/1:source" : draftSourceKey(exampleId), recipeText);
     } catch (saveError) {
       setError(`Could not save the editable recipe source: ${errorMessage(saveError)}`);
     }
-  }, [booted, characterWorkspace, characterRecoveryCorrupt, exampleId, recipeText]);
+  }, [booted, characterWorkspace, characterRecoveryCorrupt, spriteRecoveryCorrupt, exampleId, recipeText]);
 
   useEffect(() => {
     if (!booted || !characterWorkspace || characterRecoveryCorrupt) return;
@@ -817,7 +829,7 @@ export function ArtStudio() {
   const visibleSelection = selection;
 
   return (
-    <main className="art-studio">
+    <main className="art-studio" aria-busy={!booted}>
       <header className="art-studio-head">
         <div className="art-studio-title">
           <p className="art-eyebrow">Grout Art · {characterWorkspace ? "character bench" : "sprite bench"}</p>
@@ -830,19 +842,23 @@ export function ArtStudio() {
           <a href={appPath("")}>Texture mill</a>
         </nav>
         {exporting && <button className="art-cancel-export" type="button" onClick={() => activeExport.current?.abort()}>Cancel export</button>}
-        <button className="art-export-button" type="button" onClick={() => void downloadExport()} disabled={exporting}>
+        <button className="art-export-button" type="button" onClick={() => void downloadExport()} disabled={!booted || exporting}>
           {exporting ? "Packing…" : "Export atlas kit"}
         </button>
       </header>
 
       <div className="art-studio-status" aria-live="polite">
         <span className="art-status-led" aria-hidden="true" />
-          <span>{dirty ? "Draft saved locally · artwork still needs approval" : "Original recipe · artwork still needs approval"}</span>
+          <span>{!characterWorkspace && spriteRecoveryCorrupt ? "Recovery paused · saved bytes protected; new edits are not saved locally" : dirty ? "Draft saved locally · artwork still needs approval" : "Original recipe · artwork still needs approval"}</span>
         <span className="art-status-backend">Preview: {actualBackend}</span>
       </div>
       {(error || message) && <p className={error ? "art-notice art-notice-error" : "art-notice"} role={error ? "alert" : "status"}>{error || message}</p>}
+      {!characterWorkspace && spriteRecoveryCorrupt && <p className="art-notice" role="status">
+        The unreadable draft and its source remain saved. Export any new work before leaving, or explicitly replace this workspace's saved draft.
+        {" "}<button type="button" onClick={() => { setSpriteRecoveryCorrupt(false); setDirty(true); setError(""); setMessage("Replaced this workspace's unreadable draft with the current recipe and source."); }}>Replace saved draft</button>
+      </p>}
 
-      <section className="art-workbench" aria-label="Sprite editor">
+      <section className="art-workbench" aria-label="Sprite editor" inert={!booted}>
         <aside className="art-tool-rail" aria-label="Drawing tools">
           {(Object.keys(TOOL_LABELS) as Tool[]).map((id) => (
             <button key={id} type="button" className="art-tool-button" aria-pressed={tool === id} onClick={() => setTool(id)} title={TOOL_LABELS[id]}>

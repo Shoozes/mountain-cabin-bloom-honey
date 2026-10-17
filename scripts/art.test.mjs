@@ -642,7 +642,10 @@ test("source-bound CLI cache verifies PNG pixels, metadata, tampering and cancel
     assert.equal(baked.reused, false);
     assert.equal((await bakeArt({ recipe: r, output })).reused, true);
     assert.equal(baked.manifest.format, "grout-atlas/1");
-    assert.equal(baked.manifest.sources.length, 13);
+    assert.deepEqual(baked.manifest.sources.map(source => source.path), [
+      ...ART_SOURCE_PATHS, "scripts/bake-art.mjs", "scripts/material-png.mjs",
+    ]);
+    assert.ok(baked.manifest.sources.some(source => source.path === "packages/grout-art/components.mjs"));
     const png = decodePng(await fs.readFile(path.join(baked.directory, "sheet.png")));
     assert.deepEqual(png, kit.sheet);
     const manifest = path.join(baked.directory, "atlas.json"),

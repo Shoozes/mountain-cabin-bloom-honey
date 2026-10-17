@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { verifyOutlineControls } from "./verify-art-outline-browser.mjs";
+import { verifyComponentImport } from "./verify-art-components-browser.mjs";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { createHash } from "node:crypto";
@@ -22,6 +23,8 @@ const sourceFiles = [
   ...ART_SOURCE_PATHS,
   "src/art/sprite-import.ts",
   "src/components/art-sprite-import.tsx",
+  "src/components/art-sprite-components.tsx",
+  "scripts/verify-art-components-browser.mjs",
   "src/components/art-outline.tsx",
   "scripts/verify-art-outline-browser.mjs",
   "src/components/art-studio.tsx",
@@ -131,6 +134,7 @@ try {
   });
   const page = await context.newPage();
   const errors = [];
+  receipt.pageErrors = errors;
   page.on("pageerror", (e) => errors.push(e.message));
   await page.goto(url + "studio");
   await page.getByText("Import sprites & layers", { exact: true }).click();
@@ -307,6 +311,8 @@ try {
   assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
   await page.screenshot({ path: path.join(proof, mode + "-import-mobile.png"), fullPage: true });
   receipt.checks.push("mobile 390x844 import, layer reorder, no horizontal overflow");
+  receipt.components = await verifyComponentImport({ page, previous: reordered, readRecipe, waitPixels, bakeArt, pngPixels, proof, mode });
+  receipt.checks.push("loose PNG detection/connectivity, explicit groups/padding/anchors, source and atlas reconstruction; undo/recovery, failure/cancel/retry, CPU/GLSL/WGSL and browser/CLI parity; desktop/mobile");
   // Optional local supplied assets: exact conversion, retained outside fixtures.
   const supplied = arg("--user-layers");
   if (supplied) {

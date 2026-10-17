@@ -24,9 +24,14 @@ const root = path.resolve(import.meta.dirname, ".."),
 if (devUrl && !/^http:\/\/(127\.0\.0\.1|localhost):\d+\/$/.test(devUrl))
   throw Error("Expected --dev-url http://127.0.0.1:<port>/");
 const sha = (bytes) => createHash("sha256").update(bytes).digest("hex"),
-  sourceFiles = [...ART_SOURCE_PATHS, "src/components/art-studio.tsx", "src/components/art-character-creator.tsx", "src/art/studio.css", "scripts/test-character-browser.mjs"],
+  sourceFiles = [...ART_SOURCE_PATHS, "src/components/art-studio.tsx", "src/components/art-character-creator.tsx", "src/components/art-character-feedback.tsx", "src/art/studio.css", "scripts/test-character-browser.mjs"],
   receipt = { mode, started: new Date().toISOString(), checks: [], sources: [], renderers: [] };
-let server, browser;
+let server, browser, releaseExportFetch;
+
+function recordCheck(message) {
+  receipt.checks.push(message);
+  console.error(`[character/${mode}] ${message}`);
+}
 
 function bounded(label, promise, timeout = 20000) {
   let timer;
@@ -51,6 +56,60 @@ async function recipeFromStudio(page) {
   const details = page.locator(".art-advanced");
   if (!(await details.evaluate((node) => node.hasAttribute("open")))) await details.locator("summary").first().click();
   return JSON.parse(await page.getByLabel("Recipe JSON, including custom technique source").inputValue());
+}
+
+async function waitForWorkspace(page, workspace) {
+  await page.locator('.art-studio[aria-busy="false"]').waitFor();
+  await page.locator(".art-eyebrow").filter({ hasText: `${workspace} bench` }).waitFor();
+  await page.locator(".art-status-backend").filter({ hasText: /Preview: (webgpu|webgl2|cpu)/ }).waitFor();
+}
+
+async function authoringSnapshot(page) {
+  return page.evaluate(async () => {
+    const canvas = document.querySelector(".art-main-canvas");
+    const bytes = canvas.getContext("2d").getImageData(0, 0, canvas.width, canvas.height).data;
+    return {
+      character: JSON.parse(localStorage.getItem("grout-character-studio/1")),
+      source: localStorage.getItem("grout-character-studio/1:source"),
+      pixels: [...new Uint8Array(await crypto.subtle.digest("SHA-256", bytes))].map(n => n.toString(16).padStart(2, "0")).join(""),
+      url: location.href,
+    };
+  });
+}
+
+async function verifyWalkCycle(page) {
+  const recipe = compileCharacter(JSON.parse(await page.evaluate(() => localStorage.getItem("grout-character-studio/1"))));
+  for (const direction of ["south", "west", "east", "north"]) {
+    const clip = recipe.clips[`walk-${direction}`];
+    assert.equal(clip.fps, 8);
+    await page.getByRole("combobox", { name: "Clip", exact: true }).selectOption(`walk-${direction}`);
+    for (let slot = 0; slot < clip.frames.length; slot++) {
+      await page.locator(".art-frame-button").nth(slot).click();
+      const expected = sha(renderFrame(recipe, recipe.frames.findIndex(frame => frame.name === clip.frames[slot])).data);
+      await page.waitForFunction(async expected => {
+        const canvas = document.querySelector(".art-main-canvas");
+        const bytes = canvas.getContext("2d").getImageData(0, 0, canvas.width, canvas.height).data;
+        return [...new Uint8Array(await crypto.subtle.digest("SHA-256", bytes))].map(n => n.toString(16).padStart(2, "0")).join("") === expected;
+      }, expected);
+      assert.equal(await page.locator(".art-anchor-mark").getAttribute("title"), "Feet anchor 12, 19");
+    }
+    await page.getByRole("button", { name: "Play", exact: true }).click();
+    const observed = await page.evaluate(() => new Promise(resolve => {
+      const start = performance.now(), slots = [];
+      const tick = () => {
+        const slot = [...document.querySelectorAll(".art-frame-button")].findIndex(button => button.getAttribute("aria-current") === "true");
+        if (slots.at(-1) !== slot) slots.push(slot);
+        if (performance.now() - start >= 1100) resolve(slots);
+        else requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    }));
+    await page.getByRole("button", { name: "Pause", exact: true }).click();
+    assert.equal(new Set(observed).size, 4, `${direction} must play every slot`);
+    for (let i = 1; i < observed.length; i++) assert.equal(observed[i], (observed[i - 1] + 1) % 4);
+  }
+  await page.getByRole("combobox", { name: "Clip", exact: true }).selectOption("walk-south");
+  recordCheck("four 8 fps creator walk cycles: exact CPU poses, ordered playback and stable feet anchor");
 }
 
 async function decodedPngHash(page, bytes) {
@@ -91,11 +150,15 @@ try {
     await route.fulfill({ status: bytes ? 200 : 404, headers: { "Content-Type": bytes ? "application/javascript; charset=utf-8" : "application/octet-stream", "X-Content-Type-Options": "nosniff" }, body: bytes ?? Buffer.from("Not found") });
   });
   const page = await context.newPage(), errors = [];
+  receipt.navigations = [];
+  page.on("framenavigated", frame => {
+    if (frame === page.mainFrame()) receipt.navigations.push({ url: frame.url(), at: new Date().toISOString() });
+  });
+  page.on("crash", () => errors.push("authoring page crashed"));
   page.on("pageerror", (error) => errors.push(error.message));
   page.on("console", (message) => { if (message.type() === "error" && !message.text().includes("503 (Service Unavailable)")) errors.push(message.text()); });
   await bounded("studio navigation", page.goto(`${url}studio?workspace=character`), 30000);
-  await page.getByLabel("Character name").waitFor();
-  await page.getByText(/Character workspace ready|Recovered your character workspace/).waitFor();
+  await waitForWorkspace(page, "character");
   await page.getByRole("combobox", { name: /Renderer/ }).selectOption("cpu");
   await page.locator(".art-status-backend").filter({ hasText: "Preview: cpu" }).waitFor();
   const api = await page.evaluate(async () => {
@@ -104,9 +167,31 @@ try {
   });
   assert.equal(api.format, "grout-character/1");
   assert.equal(api.frames.length, 12);
-  receipt.checks.push("dev/built SDK dynamic import, MIME and twelve-pose contract");
+  recordCheck("dev/built SDK dynamic import, MIME and twelve-pose contract");
+
+  // Hold client scripts so server-rendered controls cannot accept edits which
+  // recovery would overwrite. Release the hold even when an assertion fails.
+  const loadingContext = await browser.newContext();
+  let releaseHydration;
+  const clientScripts = new Promise(resolve => { releaseHydration = resolve; });
+  try {
+    await loadingContext.route("**/*", async route => {
+      if (route.request().resourceType() === "script") await clientScripts;
+      await route.continue().catch(() => {});
+    });
+    const loadingPage = await loadingContext.newPage();
+    await loadingPage.goto(`${url}studio`, { waitUntil: "commit" });
+    await loadingPage.locator('.art-studio[aria-busy="true"]').waitFor();
+    assert.equal(await loadingPage.locator(".art-workbench").evaluate(node => node.inert), true);
+    assert.equal(await loadingPage.getByRole("button", { name: "Export atlas kit" }).isDisabled(), true);
+    releaseHydration();
+    await waitForWorkspace(loadingPage, "sprite");
+    assert.equal(await loadingPage.locator(".art-workbench").evaluate(node => node.inert), false);
+  } finally { releaseHydration(); await loadingContext.close(); }
+  recordCheck("delayed hydration keeps authoring inert and export disabled until draft recovery is ready");
 
   await page.screenshot({ path: path.join(proof, `${mode}-character-desktop.png`), fullPage: true });
+  await verifyWalkCycle(page);
   for (const [label, value] of [["Build", "chibi"], ["Style", "shaded"], ["Frame size", "32"], ["Palette", "cinder"], ["Skin ramp", "1"], ["Hair ramp", "2"], ["Mode", "procedural"]])
     await page.locator(".art-character-selectors label").nth([["Build", "Style", "Frame size", "Palette", "Skin ramp", "Hair ramp", "Mode"].indexOf(label)]).locator("select").selectOption(value);
   const seedInput = page.locator(".art-character-selectors label").filter({ hasText: "Seed" }).locator("input");
@@ -125,7 +210,7 @@ try {
   const lockedHead = JSON.parse(await page.evaluate(() => localStorage.getItem("grout-character-studio/1"))).selections.head;
   assert.equal(lockedHead, rerolled, "locked head selection must survive randomize");
   receipt.seed = { typed: 1215, preReroll: beforeReroll, rerolled, lockedAfterRandomize: lockedHead };
-  receipt.checks.push("build/style/size/palette/skin/hair/procedural selectors; seed generation, slot reroll and lock");
+  recordCheck("build/style/size/palette/skin/hair/procedural selectors; seed generation, slot reroll and lock");
 
   const partSelect = page.locator(".art-character-option-detail label").filter({ hasText: "Selected part" }).locator("select");
   await partSelect.selectOption("clothing");
@@ -146,9 +231,22 @@ try {
   const redoneDoc = JSON.parse(await page.evaluate(() => localStorage.getItem("grout-character-studio/1")));
   assert.equal(redoneDoc.selections.clothing, paintedDoc.selections.clothing, "redo restores custom clothing option");
   receipt.drawing = { activeLayer, pixel: [px, py], beforeHash };
-  receipt.checks.push("selected slot layer, custom-part drawing, undo and redo document synchronization");
+  recordCheck("selected slot layer, custom-part drawing, undo and redo document synchronization");
 
   await page.getByRole("button", { name: "Edit creator", exact: true }).click();
+  const buildDisclosure = page.locator("details").filter({ has: page.locator("summary").filter({ hasText: /^Builds$/ }) });
+  await buildDisclosure.locator("summary").first().click();
+  const headWidth = page.getByRole("group", { name: "Classic adventurer", exact: true }).getByLabel("headWidth", { exact: true });
+  assert.equal(await headWidth.getAttribute("step"), "2");
+  await headWidth.fill("7");
+  await page.waitForFunction(() => JSON.parse(localStorage.getItem("grout-character-studio/1")).creator.builds.find(b => b.id === "classic").headWidth === 8);
+  assert.equal(await headWidth.inputValue(), "8", "odd input canonicalizes to the next even head width");
+  const torsoWidth = page.getByRole("group", { name: "Classic adventurer", exact: true }).getByLabel("torsoWidth", { exact: true });
+  assert.equal(await torsoWidth.getAttribute("step"), "2");
+  await torsoWidth.fill("5");
+  await page.waitForFunction(() => JSON.parse(localStorage.getItem("grout-character-studio/1")).creator.builds.find(b => b.id === "classic").torsoWidth === 6);
+  assert.equal(await torsoWidth.inputValue(), "6");
+  recordCheck("creator head width controls step by two and keep document, source and controls on the same even value");
   const creatorDisclosure = page.locator(".art-character-source");
   await creatorDisclosure.locator("summary").click();
   const creatorEditor = creatorDisclosure.locator("textarea");
@@ -160,7 +258,7 @@ try {
   const creatorDraft = JSON.parse(await page.evaluate(() => localStorage.getItem("grout-character-studio/1"))).creator; creatorDraft.name = "Browser proof creator"; await creatorEditor.fill(JSON.stringify(creatorDraft));
   await page.getByRole("button", { name: "Apply definition", exact: true }).click();
   await page.waitForFunction(() => JSON.parse(localStorage.getItem("grout-character-studio/1"))?.creator?.name === "Browser proof creator");
-  receipt.checks.push("creator JSON invalid draft retained; valid creator JSON applied"); await page.getByRole("button", { name: "Close creator", exact: true }).click();
+  recordCheck("creator JSON invalid draft retained; valid creator JSON applied"); await page.getByRole("button", { name: "Close creator", exact: true }).click();
 
   await page.getByRole("button", { name: "Keep this look", exact: true }).click();
   await page.waitForFunction(() => JSON.parse(localStorage.getItem("grout-character-studio/1"))?.creator?.feedback?.ratings?.length === 1);
@@ -179,34 +277,39 @@ try {
   assert.equal(await reviewHistory.locator("li").count(), 2);
   await page.getByRole("button", { name: "Remove review 1", exact: true }).click();
   await page.waitForFunction(() => JSON.parse(localStorage.getItem("grout-character-studio/1"))?.creator?.feedback?.ratings?.length === 1);
-  receipt.checks.push("generation feedback keep/reject, preference toggle and review history removal");
+  recordCheck("generation feedback keep/reject, preference toggle and review history removal");
 
   await page.getByRole("link", { name: "Sprite", exact: true }).click();
-  await page.locator(".art-studio-title .art-eyebrow").filter({ hasText: "sprite bench" }).waitFor();
+  await waitForWorkspace(page, "sprite");
   const recipeDetails = page.locator(".art-advanced"); if (!(await recipeDetails.evaluate((node) => node.hasAttribute("open")))) await recipeDetails.locator("summary").first().click();
   const sourceEditor = page.locator(".art-advanced textarea");
+  const spriteBeforeSourceEdit = JSON.parse(await page.evaluate(() => localStorage.getItem("grout-art-studio/1")));
   await sourceEditor.fill("{invalid");
   const draftBeforeNavigation = await sourceEditor.inputValue();
-  let legacySourcePersisted = false;
-  try { await bounded("legacy source recovery key", page.waitForFunction(() => localStorage.getItem("grout-art-studio/1:source") === "{invalid", { timeout: 5000 }), 7000); legacySourcePersisted = true; }
-  catch { receipt.sourceLegacyProbe = await page.evaluate(() => ({ keys: Object.keys(localStorage), sourceLength: localStorage.getItem("grout-art-studio/1:source")?.length ?? null, draftMatches: document.querySelector(".art-advanced textarea")?.value === "{invalid" })); }
+  await bounded("legacy source recovery key", page.waitForFunction(() => localStorage.getItem("grout-art-studio/1:source") === "{invalid", null, { timeout: 5000 }), 7000);
   const sourceKeyBeforeSwitch = await page.evaluate(() => localStorage.getItem("grout-art-studio/1:source"));
   await page.getByRole("link", { name: "Character", exact: true }).click();
-  await page.getByText(/Character workspace ready|Recovered your character workspace/).waitFor();
+  await waitForWorkspace(page, "character");
   const sourceGuard = await page.getByLabel("Character name").isDisabled();
   await page.getByRole("link", { name: "Sprite", exact: true }).click();
-  await page.locator(".art-studio-title .art-eyebrow").filter({ hasText: "sprite bench" }).waitFor();
+  await waitForWorkspace(page, "sprite");
   const sourceRecoveredDetails = page.locator(".art-advanced");
   if (!(await sourceRecoveredDetails.evaluate((node) => node.hasAttribute("open")))) await sourceRecoveredDetails.locator("summary").first().click();
   const sourceRecovered = sourceRecoveredDetails.locator("textarea");
   await sourceRecovered.waitFor();
   const sourceKeyAfterSwitch = await page.evaluate(() => localStorage.getItem("grout-art-studio/1:source"));
   const sourceTextAfterSwitch = await sourceRecovered.inputValue();
-  receipt.sourceRecovery = { characterControlsEnabled: !sourceGuard, legacyKeyPersisted: legacySourcePersisted, keyBefore: sourceKeyBeforeSwitch ? "present" : "missing", keyAfter: sourceKeyAfterSwitch ? "present" : "missing", draftBeforeNavigation: draftBeforeNavigation === "{invalid", draftAfterNavigation: sourceTextAfterSwitch === "{invalid" };
-  receipt.checks.push("independent workspace source recovery inspected; pending draft preservation=" + receipt.sourceRecovery.draftAfterNavigation);
+  assert.equal(sourceGuard, false, "Sprite's pending source must not disable independent Character controls");
+  assert.equal(sourceKeyBeforeSwitch, "{invalid");
+  assert.equal(sourceKeyAfterSwitch, "{invalid");
+  assert.equal(draftBeforeNavigation, "{invalid");
+  assert.equal(sourceTextAfterSwitch, "{invalid");
+  assert.deepEqual(JSON.parse(await page.evaluate(() => localStorage.getItem("grout-art-studio/1"))), spriteBeforeSourceEdit, "malformed source retains the last valid sprite recipe");
+  receipt.sourceRecovery = { characterControlsEnabled: true, legacyKeyPersisted: true, draftAfterNavigation: true, lastValidRecipePreserved: true };
+  recordCheck("Sprite malformed source survives Character round trip with independent controls and last-valid recipe preserved");
 
   await page.getByRole("link", { name: "Character", exact: true }).click();
-  await page.getByText(/Character workspace ready|Recovered your character workspace/).waitFor();
+  await waitForWorkspace(page, "character");
   if (!(await page.getByRole("button", { name: "Close creator", exact: true }).count())) await page.getByRole("button", { name: "Edit creator", exact: true }).click();
   const importDetails = page.locator(".art-sprite-import");
   await importDetails.locator("summary").click();
@@ -225,28 +328,37 @@ try {
   await mappingDetails.getByRole("button", { name: "Add mapped custom option" }).click();
   character = JSON.parse(await page.evaluate(() => localStorage.getItem("grout-character-studio/1")));
   assert.ok(character.creator.slots.some((slot) => slot.options.some((option) => option.kind === "custom" && option.imported)));
-  receipt.checks.push("PNG source import; twelve poses require explicit mapping; custom option retained");
+  recordCheck("PNG source import; twelve poses require explicit mapping; custom option retained");
 
   await page.setViewportSize({ width: 390, height: 844 });
   assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, "mobile workspace must not overflow horizontally");
   await page.screenshot({ path: path.join(proof, `${mode}-character-mobile.png`), fullPage: true });
   await page.getByRole("link", { name: "Sprite", exact: true }).click();
-  await page.getByText("sprite bench", { exact: false }).waitFor();
+  await waitForWorkspace(page, "sprite");
   await page.getByRole("link", { name: "Character", exact: true }).click();
-  await page.getByLabel("Character name").waitFor();
-  receipt.checks.push("mobile layout and workspace switching preserve separate character route");
+  await waitForWorkspace(page, "character");
+  recordCheck("mobile layout and workspace switching preserve separate character route");
 
   await page.setViewportSize({ width: 1440, height: 1000 });
   const characterSourceDetails = page.locator(".art-advanced");
   if (!(await characterSourceDetails.evaluate((node) => node.hasAttribute("open")))) await characterSourceDetails.locator("summary").first().click();
   const characterSource = characterSourceDetails.locator("textarea");
+  const characterBeforeSourceEdit = JSON.parse(await page.evaluate(() => localStorage.getItem("grout-character-studio/1")));
   await characterSource.fill("{invalid character source");
-  await bounded("character source recovery persistence", page.waitForFunction(() => localStorage.getItem("grout-character-studio/1:source") === "{invalid character source", { timeout: 5000 }), 7000);
+  await bounded("character source recovery persistence", page.waitForFunction(() => localStorage.getItem("grout-character-studio/1:source") === "{invalid character source", null, { timeout: 5000 }), 7000);
   assert.equal(await page.getByLabel("Character name").isDisabled(), true, "same-workspace pending character source disables controls");
+  await characterSourceDetails.getByRole("button", { name: "Apply recipe", exact: true }).click();
+  await page.getByRole("alert").waitFor();
+  await page.reload();
+  await waitForWorkspace(page, "character");
+  await characterSourceDetails.locator("summary").first().click();
+  assert.equal(await characterSource.inputValue(), "{invalid character source");
+  assert.equal(await page.getByLabel("Character name").isDisabled(), true);
+  assert.deepEqual(JSON.parse(await page.evaluate(() => localStorage.getItem("grout-character-studio/1"))), characterBeforeSourceEdit);
   await characterSourceDetails.getByRole("button", { name: "Reset text", exact: true }).click();
   await page.waitForFunction(() => localStorage.getItem("grout-character-studio/1:source") !== "{invalid character source");
   assert.equal(await page.getByLabel("Character name").isDisabled(), false);
-  receipt.checks.push("same-workspace character source recovery key, edit guard and reset");
+  recordCheck("Character malformed source survives apply failure and reload; last-valid document, edit guard and reset preserved");
 
   // Corrupt character recovery must show a starter while preserving saved bytes.
   const corrupt = "{not-json-keep-me}", corruptContext = await browser.newContext({ viewport: { width: 1000, height: 800 } });
@@ -262,16 +374,78 @@ try {
   const legacyContext = await browser.newContext();
   try {
     const legacy = createCharacterDocument();
+    legacy.build = "slim";
+    legacy.creator.builds.find(build => build.id === "slim").headWidth = 7;
+    legacy.creator.builds.find(build => build.id === "slim").torsoWidth = 5;
     await legacyContext.addInitScript((doc) => localStorage.setItem("grout-character-studio/1", JSON.stringify(doc)), legacy);
     const legacyPage = await legacyContext.newPage(); await legacyPage.goto(`${url}studio?workspace=character`);
-    await legacyPage.getByLabel("Character name").waitFor();
-    await legacyPage.waitForFunction(() => JSON.parse(localStorage.getItem("grout-character-studio/1")).format === "grout-character/1");
+    await waitForWorkspace(legacyPage, "character");
+    await legacyPage.waitForFunction(() => JSON.parse(localStorage.getItem("grout-character-studio/1")).creator.builds.find(build => build.id === "slim").headWidth === 8);
+    assert.equal((await legacyPage.evaluate(() => JSON.parse(localStorage.getItem("grout-character-studio/1")))).creator.builds.find(build => build.id === "slim").torsoWidth, 6);
     assert.equal((await legacyPage.evaluate(() => JSON.parse(localStorage.getItem("grout-character-studio/1")))).name, legacy.name);
+    assert.equal(await legacyPage.getByRole("alert").count(), 0, "odd-width v1 draft remains recoverable");
   } finally { await legacyContext.close(); }
-  receipt.checks.push("valid and corrupt recovery; corrupt bytes preserved while starter remains usable");
+  recordCheck("odd-width v1 draft recovers with even head; corrupt bytes preserved while starter remains usable");
+
+  // Bad Sprite/Example documents must protect both recovery keys and must not
+  // redirect an example's autosave into the ordinary sprite workspace.
+  for (const example of [null, "geometry"]) {
+    const draftKey = example ? `grout-art-studio/1:example:${example}` : "grout-art-studio/1";
+    const ordinary = JSON.stringify(compileCharacter(createCharacterDocument()));
+    const saved = {
+      "grout-art-studio/1": ordinary,
+      "grout-art-studio/1:source": "ordinary source left intact",
+      "grout-art-studio/1:example:geometry": ordinary,
+      "grout-art-studio/1:example:geometry:source": "example source left intact",
+      [draftKey]: corrupt,
+      [`${draftKey}:source`]: "{unfinished source retained",
+    };
+    const recoveryContext = await browser.newContext({ viewport: { width: 1000, height: 800 } });
+    try {
+      await recoveryContext.addInitScript(values => {
+        if (sessionStorage.getItem("recovery-seeded")) return;
+        for (const [key, value] of Object.entries(values)) localStorage.setItem(key, value);
+        sessionStorage.setItem("recovery-seeded", "true");
+      }, saved);
+      const recoveryPage = await recoveryContext.newPage();
+      recoveryPage.on("pageerror", error => errors.push(error.message));
+      await recoveryPage.goto(`${url}studio${example ? `?example=${example}` : ""}`);
+      await waitForWorkspace(recoveryPage, "sprite");
+      const replace = recoveryPage.getByRole("button", { name: "Replace saved draft", exact: true });
+      await replace.waitFor();
+      for (const reload of [false, true]) {
+        if (reload) { await recoveryPage.reload(); await waitForWorkspace(recoveryPage, "sprite"); }
+        await recoveryPage.getByLabel("Seed", { exact: true }).fill("1215");
+        await recoveryPage.waitForTimeout(150);
+        assert.deepEqual(await recoveryPage.evaluate(keys => Object.fromEntries(keys.map(key => [key, localStorage.getItem(key)])), Object.keys(saved)), saved);
+        await recoveryPage.getByText(/Recovery paused/).waitFor();
+      }
+      await replace.click();
+      await recoveryPage.waitForFunction(key => {
+        try { return JSON.parse(localStorage.getItem(key)).seed === 1215; } catch { return false; }
+      }, draftKey);
+      const after = await recoveryPage.evaluate(keys => Object.fromEntries(keys.map(key => [key, localStorage.getItem(key)])), Object.keys(saved));
+      assert.equal(JSON.parse(after[`${draftKey}:source`]).seed, 1215);
+      for (const key of Object.keys(saved).filter(key => key !== draftKey && key !== `${draftKey}:source`)) assert.equal(after[key], saved[key], key);
+      await recoveryPage.reload();
+      await waitForWorkspace(recoveryPage, "sprite");
+      assert.equal(await replace.count(), 0);
+      assert.equal(await recoveryPage.getByLabel("Seed", { exact: true }).inputValue(), "1215");
+    } finally { await recoveryContext.close(); }
+  }
+  recordCheck("corrupt Sprite/Example drafts and source bytes survive edits/reload; explicit replacement saves only the selected workspace");
 
   // Matrix uses compiled creator docs and exact CPU output for every backend that is truly available.
-  receipt.renderers = await bounded("character renderer matrix", page.evaluate(async () => {
+  // Its test-owned page has no authoring navigation or development HMR client.
+  await context.route("**/__character-matrix", route => route.fulfill({
+    status: 200, contentType: "text/html; charset=utf-8", body: "<!doctype html><title>Character SDK verification</title>",
+  }));
+  const matrixPage = await context.newPage(), beforeMatrixNavigations = receipt.navigations.length;
+  const beforeMatrixDocument = await authoringSnapshot(page);
+  matrixPage.on("pageerror", error => errors.push(error.message));
+  try {
+  await matrixPage.goto(`${url}__character-matrix`);
+  receipt.renderers = await bounded("character renderer matrix", matrixPage.evaluate(async () => {
     const s = await import("/__character-sdk/index.mjs"), result = [];
     for (const backend of ["cpu", "webgl2", "webgpu"]) {
       let renderer;
@@ -296,27 +470,40 @@ try {
     }
     return result;
   }), 240000);
+  } finally { await matrixPage.close(); }
+  // Development HMR/history events can occur while the SDK page owns focus.
+  // Qualify document recovery itself rather than treating a same-URL event as loss.
+  await waitForWorkspace(page, "character");
+  assert.deepEqual(await authoringSnapshot(page), beforeMatrixDocument, "background SDK verification must preserve the character, raw source and preview pixels");
+  receipt.backgroundRecovery = { navigationEvents: receipt.navigations.length - beforeMatrixNavigations, documentAndPixelsPreserved: true };
   assert.equal(receipt.renderers.find((item) => item.backend === "cpu")?.frames, 324);
-  receipt.checks.push("all 9 build/style combinations × 3 seeds × 12 frames; procedural mode and palette changes; unsupported GPUs reported explicitly");
+  recordCheck("all 9 build/style combinations × 3 seeds × 12 frames; procedural mode and palette changes; unsupported GPUs reported explicitly");
 
   // Export error, cancellation and retry; compare decoded browser ZIP assets with the CLI bake.
-  let fault = true, release;
+  const isSourceFetch = request => request.resourceType() === "fetch" && /\.(mjs|js)(\?|$)/.test(request.url());
+  const faultUrls = [];
   await page.route("**/*", async (route) => {
     const request = route.request();
-    if (request.resourceType() === "fetch" && request.url().includes("/packages/grout-art/") && fault) await route.fulfill({ status: 503, body: "test source identity failure" });
+    if (isSourceFetch(request)) {
+      faultUrls.push(request.url());
+      await route.fulfill({ status: 503, body: "test source identity failure" });
+    }
     else await route.continue().catch(() => {});
   });
   await page.getByRole("button", { name: "Export atlas kit", exact: true }).click();
   await page.getByText(/Export failed/).waitFor();
-  fault = false;
+  assert.ok(faultUrls.length, "fault must intercept a real dev or built source URL");
   await page.unroute("**/*");
-  const pending = new Promise((resolve) => { release = resolve; });
+  let markBlocked;
+  const pending = new Promise((resolve) => { releaseExportFetch = resolve; });
+  const blocked = new Promise(resolve => { markBlocked = resolve; });
   await page.route("**/*", async (route) => {
-    if (route.request().resourceType() === "fetch" && route.request().url().includes("/packages/grout-art/")) await pending;
+    if (isSourceFetch(route.request())) { markBlocked(); await pending; }
     await route.continue().catch(() => {});
   });
   await page.getByRole("button", { name: "Export atlas kit", exact: true }).click();
-  await page.getByRole("button", { name: "Cancel export", exact: true }).click(); release();
+  await bounded("in-flight export source request", blocked);
+  await page.getByRole("button", { name: "Cancel export", exact: true }).click(); releaseExportFetch();
   await page.getByText(/Export cancelled/).waitFor();
   await page.unroute("**/*");
   const downloadPromise = page.waitForEvent("download");
@@ -330,13 +517,15 @@ try {
     const browserPixels = await decodedPngHash(page, bytes), cliPixels = await decodedPngHash(page, await fs.readFile(path.join(cli.directory, name)));
     assert.deepEqual(browserPixels, cliPixels, `${name} decoded browser/CLI mismatch`);
   }
-  receipt.checks.push("export error/cancel/retry; creator.json and character.json included; all decoded browser PNGs equal CLI bake");
+  recordCheck("export error/cancel/retry; creator.json and character.json included; all decoded browser PNGs equal CLI bake");
+  receipt.exportFaults = { injectedSourceFailures: faultUrls.length, cancelledInFlightRequest: true };
   assert.deepEqual(errors, [], "browser console/page errors");
   receipt.success = true;
 } catch (error) {
   receipt.error = error.stack ?? String(error);
   throw error;
 } finally {
+  releaseExportFetch?.();
   if (browser) await browser.close().catch(() => {});
   if (server) await server.close().catch(() => {});
   receipt.finished = new Date().toISOString();

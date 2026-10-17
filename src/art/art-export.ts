@@ -19,6 +19,7 @@ const sourceUrls = [
   new URL("../../packages/grout-art/traveler.mjs", import.meta.url),
   new URL("../../packages/grout-art/metrics.mjs", import.meta.url),
   new URL("../../packages/grout-art/import.mjs", import.meta.url),
+  new URL("../../packages/grout-art/components.mjs", import.meta.url),
   new URL("../../packages/grout-art/character.mjs", import.meta.url),
   new URL("../../packages/grout-art/character-art.mjs", import.meta.url),
 ];

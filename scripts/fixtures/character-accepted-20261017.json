@@ -1,0 +1,207 @@
+{
+  "accepted": "Owner accepted the displayed classic/outlined/Fern base and walk cycle on 2026-10-17.",
+  "scope": {
+    "build": "classic",
+    "style": "adventure",
+    "palette": "fern",
+    "seed": 1204,
+    "frameSize": 24,
+    "selections": {
+      "head": "round",
+      "hair": "crop",
+      "hat": "cap",
+      "body": "base",
+      "clothing": "shirt",
+      "legs": "trousers",
+      "shoes": "boots",
+      "bag": "pack"
+    }
+  },
+  "palette": {
+    "outline": "#28303c",
+    "skin": "#edc17f",
+    "skinLight": "#edc17f",
+    "skinShadow": "#925b3f",
+    "hair": "#925b3f",
+    "hairLight": "#925b3f",
+    "hairShadow": "#28303c",
+    "cloth": "#6b9b60",
+    "clothLight": "#6b9b60",
+    "clothShadow": "#28303c",
+    "hat": "#6b9b60",
+    "hatLight": "#6b9b60",
+    "accent": "#edc17f",
+    "leather": "#705746",
+    "leatherShadow": "#28303c",
+    "shoeLight": "#705746"
+  },
+  "frames": [
+    {
+      "name": "south-0",
+      "anchor": [
+        12,
+        19
+      ],
+      "sha256": "98e8e40d9331198941ed7e8c1660aec70c9d01ff2903ba7569be6c100dc5419b"
+    },
+    {
+      "name": "south-1",
+      "anchor": [
+        12,
+        19
+      ],
+      "sha256": "c309b6b62686293cb6ace5ccb1eddaedfcccee912a6482e8a8ca84d0d25e96f3"
+    },
+    {
+      "name": "south-2",
+      "anchor": [
+        12,
+        19
+      ],
+      "sha256": "0653f857010232933fa5430e82d5c881c69988cd7386f2ae46fe2655833cf39a"
+    },
+    {
+      "name": "west-0",
+      "anchor": [
+        12,
+        19
+      ],
+      "sha256": "7e4515d520206b037ea6bedcc0e447a5cefb4f16f2e9c53d1f27429282f3d4ac"
+    },
+    {
+      "name": "west-1",
+      "anchor": [
+        12,
+        19
+      ],
+      "sha256": "cb1e4fdb4a6687c4755464f490873f5261fd25467cd40a77dad01d5e55c9fdf1"
+    },
+    {
+      "name": "west-2",
+      "anchor": [
+        12,
+        19
+      ],
+      "sha256": "4359a02377e9b733ab74d0e79d03a9b84f80166bc18e8289cf120dae79879e69"
+    },
+    {
+      "name": "east-0",
+      "anchor": [
+        12,
+        19
+      ],
+      "sha256": "1488dd5d1628554c6a4271081b4d1ebe67513ccc1171eece21fa6b1829ac98fd"
+    },
+    {
+      "name": "east-1",
+      "anchor": [
+        12,
+        19
+      ],
+      "sha256": "1721709d78d38b5b587a9c9095652c4f584ff6d40813aabd6a8eae7118bd48f9"
+    },
+    {
+      "name": "east-2",
+      "anchor": [
+        12,
+        19
+      ],
+      "sha256": "18d4d8698bd9d03a210c3fec9536813e6013e3f844ae71b52578fa1aea7a5606"
+    },
+    {
+      "name": "north-0",
+      "anchor": [
+        12,
+        19
+      ],
+      "sha256": "14a05bf22929a1987688c383cb2aa4a4d688d99606db643fbf15db91939fcab6"
+    },
+    {
+      "name": "north-1",
+      "anchor": [
+        12,
+        19
+      ],
+      "sha256": "81884cbfc48c80f823e33f8291b0b833549cd360c8f82dc45c2c8bad26714e8d"
+    },
+    {
+      "name": "north-2",
+      "anchor": [
+        12,
+        19
+      ],
+      "sha256": "44179c66c204836976c0fe911d7d08bc059b80a585f29053c22abf5ae652346a"
+    }
+  ],
+  "clips": {
+    "idle-south": {
+      "frames": [
+        "south-0"
+      ],
+      "fps": 1
+    },
+    "walk-south": {
+      "frames": [
+        "south-1",
+        "south-0",
+        "south-2",
+        "south-0"
+      ],
+      "fps": 8
+    },
+    "idle-west": {
+      "frames": [
+        "west-0"
+      ],
+      "fps": 1
+    },
+    "walk-west": {
+      "frames": [
+        "west-1",
+        "west-0",
+        "west-2",
+        "west-0"
+      ],
+      "fps": 8
+    },
+    "idle-east": {
+      "frames": [
+        "east-0"
+      ],
+      "fps": 1
+    },
+    "walk-east": {
+      "frames": [
+        "east-1",
+        "east-0",
+        "east-2",
+        "east-0"
+      ],
+      "fps": 8
+    },
+    "idle-north": {
+      "frames": [
+        "north-0"
+      ],
+      "fps": 1
+    },
+    "walk-north": {
+      "frames": [
+        "north-1",
+        "north-0",
+        "north-2",
+        "north-0"
+      ],
+      "fps": 8
+    },
+    "turntable": {
+      "frames": [
+        "south-0",
+        "west-0",
+        "north-0",
+        "east-0"
+      ],
+      "fps": 2
+    }
+  }
+}

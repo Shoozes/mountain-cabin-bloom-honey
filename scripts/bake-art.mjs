@@ -15,6 +15,7 @@ export const ART_SOURCE_PATHS = [
   "traveler.mjs",
   "metrics.mjs",
   "import.mjs",
+  "components.mjs",
   "character.mjs",
   "character-art.mjs",
   "index.mjs",

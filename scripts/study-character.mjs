@@ -27,6 +27,17 @@ export async function studyCharacters(output) {
     large.data.set(data.subarray(at,at+4),(x+y*large.width)*4);
   }
   await fs.writeFile(path.join(output,"integer-4x.png"),encodeMaterialPng(large));
+  // Review the actual temporal order, including the repeated passing key.
+  const walkColumns=[0,1,2,3].flatMap(direction=>[1,0,2,0].map(pose=>direction*3+pose)),
+    walk={width:16*26,height,data:new Uint8Array(16*26*height*4)};
+  for(let i=0;i<walk.data.length;i+=4)walk.data.set([78,75,68,255],i);
+  for(let row=0;row<9;row++)for(let column=0;column<16;column++) {
+    const p=all[row][walkColumns[column]];
+    for(let y=0;y<24;y++)for(let x=0;x<24;x++) {
+      const at=(x+y*24)*4;if(p.data[at+3])walk.data.set(p.data.subarray(at,at+4),((row*28+y)*walk.width+column*26+x)*4);
+    }
+  }
+  await fs.writeFile(path.join(output,"walk-order.png"),encodeMaterialPng(walk));
   await fs.writeFile(path.join(output,"study.json"),JSON.stringify({labels,columns:["south-0","south-1","south-2","west-0","west-1","west-2","east-0","east-1","east-2","north-0","north-1","north-2"],visualReview:"unapproved"},null,2));
   return {count:all.length,output};
 }

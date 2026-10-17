@@ -3,7 +3,10 @@
 Open `/studio?workspace=character` using Studio's **Character** link. This
 workspace assembles characters and edits reusable creator definitions. Ordinary
 sprite editing, traveler recipes, terrain and their recovery state are preserved.
-New artwork is **unapproved pending owner visual acceptance**.
+The owner accepted the displayed Classic adventurer / Outlined 8-bit / Fern
+base and walk cycle on 2026-10-17. Its twelve frames, palette and clips are pinned
+in `scripts/fixtures/character-accepted-20261017.json`. Other builds, styles,
+variants and generated/custom designs remain unapproved pending owner review.
 
 ## Assemble and draw
 
@@ -22,11 +25,36 @@ frames share dimensions and an anchor. Walking uses contact, passing, opposite
 contact, passing at 8 fps; idle references the passing pose. Direction-specific
 ordering handles head, hair and gear; the backpack is hidden in front.
 
+Generated heads have even widths in every direction: 6, 8 or 10 pixels in the
+front/rear rig, with profiles narrowed by two pixels down to a minimum of six.
+Torso widths are 4 or 6. Odd widths from older v1 creators round up during
+parsing; their custom/imported drawings remain unchanged. The editor steps by
+two and displays the same canonical values saved in the character document.
+
+Built-in front and rear idle frames are exactly symmetrical, including hands,
+feet, fringe, centered ponytails, hat contours and shading planes. This applies
+to authored, adjustable and procedural designs. Custom pixels and attachment
+edits remain under the author's control. Walking retains alternating contact
+poses, stable head/torso height, counter-swinging arms and a fixed feet anchor.
+Profile contacts alternate a planted toe and lifted trailing heel. The gathered
+passing key keeps a floor gap between its soles. Three native shoe rows describe
+shaft, leather plane and sole; heel articulation changes at most one silhouette
+pixel instead of exchanging identical block stamps.
+
 Choose a part thumbnail to select its drawing layer. Painting, erasing, filling
 or moving pixels creates a custom option and locks its slot. Other poses and
 the original option survive. Custom drawings retain build/style compatibility;
 custom hair and hats also retain head compatibility. Undo/redo restores whole
 creator documents. Use the layer list to select rear or far layers.
+
+Built-in outlined styles finish their contours after fills and material planes.
+The profile face keeps its outer ink; the inner hair plane joins the head without
+replacing its perimeter. Backpacks use leather and leather-shadow roles, never
+skin or clothing accents. The shadow reuses existing ink so a previously valid
+eighth imported color still fits flat styles. Outline-free styles remain an
+explicit alternative; custom/imported pixels bypass this built-in finishing.
+Outline-free arms retain the complete authored contour as skin coverage rather
+than dropping boundary pixels when ink is disabled.
 
 ## Generate and build a creator
 
@@ -102,14 +130,30 @@ node scripts/test-character-browser.mjs --dev-url http://127.0.0.1:8080/ --proof
 
 Recovery uses `grout-character-studio/1`, separate from legacy drafts. Invalid
 source keeps the last valid preview; pending source edits block conflicting
-controls. Download creator or character JSON for a portable save.
+controls. Studio waits for local recovery before enabling drawing and export.
+Unapplied recipe text survives reloads and workspace switches; malformed text
+does not replace the last valid character or sprite. Download creator or
+character JSON for a portable save.
 
-Original-only studies and local receipts are retained at
-`D:/Compact_Evidence/mountain-cabin-bloom-honey/runs/character-creator-20261017/`.
+Current cleanup receipts and outline-free studies are retained at
+`D:/Compact_Evidence/mountain-cabin-bloom-honey/runs/character-review-cleanup-20261017/`.
+The accepted original-only contour/feet studies remain at
+`D:/Compact_Evidence/mountain-cabin-bloom-honey/runs/character-contours-20261017/`.
+Recovery and earlier motion studies remain historical under
+`character-recovery-art-20261017`, `character-motion-20261017` and
+`character-creator-20261017`. The owner reported defects in those motion
+candidates; the owner subsequently accepted the displayed contour/feet default.
 Technical qualification is separate from artwork acceptance and publication.
 
-The current session is a progress snapshot. See the
-[continuation record](../work/queue/CHARACTER-CREATOR-20261017.md) for the exact
-passed checks and remaining visual/browser acceptance criteria.
+See the current [qualification record](../work/done/CHARACTER-CREATOR-20261017.md) for the exact
+passed checks and the scope of owner visual acceptance.
 
 AI-created: 2026-10-17 | agent=Codex/root | task=character-creator
+
+AI-edited: 2026-10-17 | agent=Codex/root | task=character-recovery-art | change=qualified startup recovery and linked the completed eye/stride pass
+
+AI-edited: 2026-10-17 | agent=Codex/root | task=character-motion | change=recorded even rigs, symmetrical facing idles and revised walk candidate
+
+AI-edited: 2026-10-17 | agent=Codex/root | task=character-contours | change=recorded closed contours, leather roles and articulated profile shoes
+
+AI-edited: 2026-10-17 | agent=Codex/root | task=character-review-cleanup | change=recorded accepted default pixel contract and outline-free coverage repair

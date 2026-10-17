@@ -6,13 +6,38 @@
   deterministic compatible randomization, template edits/imports and exports.
 - [x] Add reversible local Keep/Reject feedback, review history and unbiased
   sampling toggle. Verify feedback, locks and seeded reproduction.
-- [x] Current local gates: 398 tests, typecheck, SDK consumers, lint and both builds.
-- [ ] Finish final dev/built character browser qualification after diagnosing the
-  legacy source-recovery harness timeout; earlier GPU proof is historical.
-- [ ] Apply pending pixel-art peer feedback and obtain owner visual acceptance.
+- [x] Recovery milestone: 400 tests, typecheck, SDK consumers, lint and both builds.
+- [x] Fix pre-hydration draft loss, preserve malformed source and last-valid
+  documents across independent workspaces, and add delayed-hydration guards.
+- [x] Qualify dev/built recovery, four-direction playback, in-flight export
+  cancellation/retry and browser/CLI pixels; 1,296 exact GPU frame comparisons.
+- [x] Apply pixel-art peer corrections to profile eye clearance, slim face opening
+  and balanced side contacts with visible near/far shoes and a raised passing foot.
+- [x] Replace the rejected creator hop with a steady upper body, compact contact/
+  passing feet and smaller counter-swinging arms; preserve the accepted traveler.
+- [x] Keep generated heads even-width and front/rear idle frames pixel-symmetrical;
+  recover older odd-width rigs and preserve custom/imported source drawings.
+- [x] Motion/symmetry milestone: 403 tests, typecheck, SDK consumers, lint, both
+  builds and dev/built browser recovery/playback/export checks; 1,296 GPU matches.
+- [x] Correct the reported profile face pixel, overwritten hair contours and
+  skin-colored backpack stripe; finish built-in outlines after authored fills.
+- [x] Draw planted/toe-off profile shoes with alternating support and a passing
+  sole gap. Preserve even heads, symmetrical facing idles and imported palettes.
+- [x] Contour/feet verification: 404 tests, typecheck, lint, SDK consumers, both
+  builds, dev/built recovery/export/playback and 1,296 exact GPU frame matches.
+- [x] Owner accepted the displayed Classic/Outlined 8-bit/Fern creator base and
+  walk cycle on 2026-10-17. Pin its twelve decoded frames, palette and clips;
+  other builds, styles and generated/custom designs retain their review boundary.
+- [x] Review/recheck cleanup: preserve unreadable Sprite/Example recovery bytes,
+  isolate example persistence, and restore outline-free arm silhouettes.
+- [x] Cleanup qualification: 406 tests, typecheck, SDK consumers, lint and both
+  builds; dev/built recovery/export/playback and 1,296 exact GPU comparisons.
+- [x] Paired closeout refreshes character dev/built proof after extraction changed
+  shared imports. Current suite: 411 tests; combined browser lanes: 1,480 exact
+  GPU comparisons. Preserve scoped art acceptance and later roadmap work.
 
-Paused at the owner's usage-limit closeout request. The full accepted plan and
-next bounded steps are in [the continuation record](work/queue/CHARACTER-CREATOR-20261017.md).
+Draft recovery is verified. Earlier creator motion candidates remain rejected;
+the accepted default and scoped cleanup are in [the continuation record](work/done/CHARACTER-CREATOR-20261017.md).
 
 ## Grout Art successor
 
@@ -69,8 +94,13 @@ both builds, dev/built GPU equality and desktop/mobile authoring/export proof.
   Qualified with 388 tests, typecheck, lint, both builds and 3,660 exact CPU/GPU
   comparisons; dev/built desktop/mobile controls, playback, recovery and exports.
   See the `studio-outline-20261016` qualification entry.
-- [ ] Next migration: irregular sprite extraction, richer variation and lossless
-  optimization. PNG/GIF grid conversion is now implemented.
+- [x] Transparent PNG component extraction: explicit grouping, padding and anchors,
+  isolated editable pixels, exact source/atlas reconstruction and browser/CLI
+  exports. Qualified SDK and desktop/mobile dev/built flows, cancellation,
+  undo/recovery and source guards; 411 tests, both builds and 184 exact neighboring
+  GPU comparisons. See [the completed batch](work/done/SPRITE-COMPONENTS-20261017.md).
+- [ ] Later migration: richer variation and lossless optimization. PNG/GIF grid
+  conversion is already implemented.
 - [ ] Qualify GIF/SVG/CSS, fonts/UI atlases, remaining donor demos, engine adapters
   and compact runtime delivery through the guide's capability matrix.
 - [ ] Transfer Grout13 ownership or retire parent synchronization only after the
@@ -233,3 +263,13 @@ AI-edited: 2026-10-16 | agent=Codex/root | task=traveler-palette-feet | change=r
 AI-edited: 2026-10-16 | agent=Codex/root | task=traveler-profile-import | change=recorded far-shoe correction and exact layered conversion
 
 AI-edited: 2026-10-16 | agent=Codex/root | task=studio-outline | change=recorded Studio outline controls and preserved source ownership
+
+AI-edited: 2026-10-17 | agent=Codex/root | task=character-motion | change=recorded owner motion rejection, symmetry requirements and replacement candidate
+
+AI-edited: 2026-10-17 | agent=Codex/root | task=character-contours | change=recorded owner-reported face, outline, pack and gait repairs
+
+AI-edited: 2026-10-17 | agent=Codex/root | task=character-review-cleanup | change=recorded scoped owner acceptance, recovery and arm fixes, and bounded extraction pass-down
+
+AI-edited: 2026-10-17 | agent=Codex/root | task=sprite-components | change=completed the bounded extraction migration and retained later conversion/variation work
+
+AI-edited: 2026-10-17 | agent=Codex/root | task=sprite-closeout-publish | change=recorded final shared-workspace qualification and scoped progress saving

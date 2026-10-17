@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { type ArtRecipe } from "../../packages/grout-art/index.mjs";
 import { importSpriteFiles } from "@/art/sprite-import";
+import { ArtSpriteComponents } from "@/components/art-sprite-components";
 
 export function ArtSpriteImport({
   recipe,
@@ -12,7 +13,7 @@ export function ArtSpriteImport({
   onImport: (recipe: ArtRecipe) => void;
 }) {
   const [files, setFiles] = useState<File[]>([]);
-  const [sheet, setSheet] = useState(false);
+  const [layout, setLayout] = useState<"single" | "grid" | "components">("single");
   const [width, setWidth] = useState(16),
     [height, setHeight] = useState(16);
   const [margin, setMargin] = useState(0),
@@ -31,7 +32,7 @@ export function ArtSpriteImport({
     try {
       const next = await importSpriteFiles(
         files,
-        sheet ? { frameWidth: width, frameHeight: height, margin, spacing } : {},
+        layout === "grid" ? { frameWidth: width, frameHeight: height, margin, spacing } : {},
         controller.signal,
       );
       controller.signal.throwIfAborted();
@@ -63,7 +64,7 @@ export function ArtSpriteImport({
           aria-label="Sprite images"
           type="file"
           multiple
-          accept="image/png,image/gif,.png,.gif"
+          accept={layout === "components" ? "image/png,.png" : "image/png,image/gif,.png,.gif"}
           disabled={busy || disabled}
           onChange={(event) => {
             setFiles(Array.from(event.currentTarget.files ?? []));
@@ -71,7 +72,7 @@ export function ArtSpriteImport({
           }}
         />
       </label>
-      {files.length > 1 && (
+      {files.length > 1 && layout !== "components" && (
         <div className="art-import-layers">
           <p>Layer order: bottom to top</p>
           {files.map((file, index) => (
@@ -113,15 +114,16 @@ export function ArtSpriteImport({
         Layout
         <select
           aria-label="Sprite layout"
-          value={sheet ? "grid" : "single"}
+          value={layout}
           disabled={busy || disabled}
-          onChange={(event) => setSheet(event.currentTarget.value === "grid")}
+          onChange={(event) => setLayout(event.currentTarget.value as typeof layout)}
         >
           <option value="single">Single sprite</option>
           <option value="grid">Grid sheet</option>
+          <option value="components">Loose sprites (transparent PNG)</option>
         </select>
       </label>
-      {sheet && (
+      {layout === "grid" && (
         <div className="art-import-grid">
           <label>
             Frame width
@@ -173,7 +175,7 @@ export function ArtSpriteImport({
           </label>
         </div>
       )}
-      <p className="art-craft-note">
+      {layout === "components" ? <ArtSpriteComponents files={files} recipe={recipe} disabled={disabled} onImport={onImport} onBusyChange={setBusy} /> : <><p className="art-craft-note">
         {disabled
           ? "Apply or reset your source edits before importing."
           : "Preserves colors, hard transparency, layers and GIF timing. Creates editable masks; no automatic cleanup or outline. Undo restores your current drawing."}
@@ -195,6 +197,7 @@ export function ArtSpriteImport({
           {error}
         </p>
       )}
+      </>}
     </details>
   );
 }

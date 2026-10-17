@@ -17,6 +17,7 @@ export type CharacterCreator = {
   format: "grout-character-creator/1"; id: string; name: string; techniqueVersion: "character-drawings/1";
   feedback?: { enabled: boolean; ratings: {key: string; decision: "keep" | "reject"; selection: Partial<Omit<CharacterDocument,"creator">>}[] };
   styles: { id: string; name: string; outline: boolean; shaded: boolean; budget: number }[];
+  /** Parsed headWidth is 6/8/10 and torsoWidth is 4/6; odd v1 inputs round up without editing custom pixels. */
   builds: { id: string; name: string; headWidth: number; headHeight: number; headY: number; torsoY: number; torsoWidth: number }[];
   palettes: { id: string; name: string; cloth: string; hat: string; accent: string }[];
   skinRamps: string[][]; hairRamps: string[][]; slots: CharacterSlot[]; provenance: unknown;

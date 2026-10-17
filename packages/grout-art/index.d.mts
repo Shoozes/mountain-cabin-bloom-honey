@@ -37,23 +37,40 @@ export type ArtRecipe = {
   }[];
   clips: Record<string, { frames: string[]; fps: number }>;
   techniques?: Technique[];
-  importedSprite?: {
-    format: "sprite-import/1";
-    sources: { name: string; sha256?: string; frames: number }[];
-    width: number;
-    height: number;
-    frameWidth: number;
-    frameHeight: number;
-    columns: number;
-    rows: number;
-    margin: number;
-    spacing: number;
-    animationFrames: number;
-    durationsMs?: number[];
-    frameOrder: "time-then-row-major";
-    transparentRgb: "zeroed";
-    attribution: string;
-  };
+  importedSprite?: SpriteImportMetadata | SpriteComponentMetadata;
+};
+export type SpriteImportMetadata = {
+  format: "sprite-import/1";
+  sources: { name: string; sha256?: string; frames: number }[];
+  width: number;
+  height: number;
+  frameWidth: number;
+  frameHeight: number;
+  columns: number;
+  rows: number;
+  margin: number;
+  spacing: number;
+  animationFrames: number;
+  durationsMs?: number[];
+  frameOrder: "time-then-row-major";
+  transparentRgb: "zeroed";
+  attribution: string;
+};
+export type SpriteComponentMetadata = {
+  format: "sprite-components/1";
+  source: { name: string; sha256?: string; width: number; height: number; frames: 1 };
+  width: number;
+  height: number;
+  frameWidth: number;
+  frameHeight: number;
+  animationFrames: 1;
+  frameOrder: "component-row-major" | "component-groups";
+  transparentRgb: "zeroed";
+  connectivity: 4 | 8;
+  padding: number;
+  components: { id: number; x: number; y: number; width: number; height: number; pixels: number }[];
+  regions: { frame: string; components: number[]; x: number; y: number; width: number; height: number; offset: [number, number] }[];
+  attribution: string;
 };
 export type Pixels = { width: number; height: number; data: Uint8Array };
 export type Backend = "auto" | "cpu" | "webgl2" | "webgpu";
@@ -100,6 +117,32 @@ export type SpriteImportLayer = {
 export function importSpriteLayers(
   layers: SpriteImportLayer[],
   options?: Omit<SpriteImportOptions, "sourceName" | "sourceSha256">,
+  control?: { signal?: AbortSignal },
+): Promise<ArtRecipe>;
+export type SpriteComponentOptions = {
+  name?: string;
+  sourceName?: string;
+  sourceSha256?: string;
+  connectivity?: 4 | 8;
+  groups?: number[][];
+  padding?: number;
+  anchor?: [number, number];
+};
+export type SpriteComponentPixels = { width: number; height: number; data: Uint8Array | Uint8ClampedArray };
+export type SpriteComponentAnalysis = {
+  width: number;
+  height: number;
+  connectivity: 4 | 8;
+  components: { id: number; x: number; y: number; width: number; height: number; pixels: number }[];
+};
+export function detectSpriteComponents(
+  pixels: SpriteComponentPixels,
+  options?: Pick<SpriteComponentOptions, "connectivity">,
+  control?: { signal?: AbortSignal },
+): Promise<SpriteComponentAnalysis>;
+export function importSpriteComponents(
+  pixels: SpriteComponentPixels,
+  options?: SpriteComponentOptions,
   control?: { signal?: AbortSignal },
 ): Promise<ArtRecipe>;
 export type TravelerClothing = "coat" | "tunic" | "vest";
