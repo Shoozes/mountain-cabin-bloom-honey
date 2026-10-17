@@ -2,7 +2,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { createHash, randomUUID } from "node:crypto";
-import { parseRecipe, buildArtExport, measureRecipe } from "../packages/grout-art/index.mjs";
+import { parseRecipe, buildArtExport, measureRecipe, optimizeRecipe } from "../packages/grout-art/index.mjs";
 import { encodeMaterialPng } from "./material-png.mjs";
 const root = path.resolve(import.meta.dirname, ".."),
   hash = (b) => createHash("sha256").update(b).digest("hex");
@@ -18,6 +18,9 @@ export const ART_SOURCE_PATHS = [
   "components.mjs",
   "character.mjs",
   "character-art.mjs",
+  "recipe-codec.mjs",
+  "optimization.mjs",
+  "variation.mjs",
   "index.mjs",
 ].map((p) => "packages/grout-art/" + p);
 export async function bakeArt({ recipe: input, output, signal } = {}) {
@@ -55,6 +58,9 @@ export async function bakeArt({ recipe: input, output, signal } = {}) {
     );
   assets.set("sheet.png", encodeMaterialPng(kit.sheet));
   json("recipe.json", recipe);
+  const optimized = await optimizeRecipe(recipe, { signal });
+  assets.set("recipe.optimized.json", Buffer.from(JSON.stringify(optimized.document)));
+  json("optimization.json", optimized.report);
   if (recipe.character) {
     json("character.json", recipe.character);
     json("creator.json", recipe.character.creator);

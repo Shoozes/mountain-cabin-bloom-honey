@@ -34,6 +34,8 @@ import {
 import { buildArtExport, measureRecipe } from "../../packages/grout-art/index.mjs";
 import { exportArtZip } from "@/art/art-export";
 import { ArtSpriteImport } from "@/components/art-sprite-import";
+import { ArtSpriteVariations } from "@/components/art-sprite-variations";
+import { ArtRecipeOptimization } from "@/components/art-recipe-optimization";
 import { ArtOutline } from "@/components/art-outline";
 import { getWorkbenchExample } from "@/art/examples.mjs";
 import { ArtCharacterCreator } from "@/components/art-character-creator";
@@ -997,6 +999,8 @@ export function ArtStudio() {
             setMessage(`Imported ${next.frames.length} frames and ${next.layers.length} editable layers.`);
           }} />}
 
+          {!characterWorkspace && booted && <ArtSpriteVariations recipe={recipe} frame={frameIndex} disabled={recipeTextDirty} onChange={next => commit(next)} />}
+          {booted && <ArtRecipeOptimization recipe={recipe} disabled={recipeTextDirty} />}
           {booted && <ArtOutline recipe={recipe} disabled={recipeTextDirty} onChange={next => commit(next)} />}
 
           <section className="art-inspector-section">

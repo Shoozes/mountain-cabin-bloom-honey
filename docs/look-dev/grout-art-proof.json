@@ -217,7 +217,7 @@
         "browser": "Chrome155.0.8059.80",
         "device": "NVIDIA RTX4090"
       },
-      "behavior": "Optional composite outline controls in Studio; native width 1–3, stepped/square footprint and independent RGB color. CPU and direct GLSL/WGSL evaluate identical coverage. Source layers, parts, colors, frame order, anchors and clip timing remain unchanged. Paint/fill/selection operate on source pixels. Export bakes the effect into atlas/sheet PNGs and preserves the editable recipe.",
+      "behavior": "Optional composite outline controls in Studio; native width 1\u20133, stepped/square footprint and independent RGB color. CPU and direct GLSL/WGSL evaluate identical coverage. Source layers, parts, colors, frame order, anchors and clip timing remain unchanged. Paint/fill/selection operate on source pixels. Export bakes the effect into atlas/sheet PNGs and preserves the editable recipe.",
       "preservation": "Original imported layers, clips and palette roles intact; no traveler/terrain drawing edits. User study: all 36 frames retain original opaque pixels.",
       "limits": [
         "Fixed source-frame bounds: border clips at edges; dimensions and anchors do not shift.",
@@ -400,6 +400,32 @@
       "resources": "Owned previews stopped; browsers closed; compact proof/SDK output retained.",
       "publication": "Explicit paired request; guarded exact-path helper result and remote main commit retained in publication.json",
       "workRecord": "docs/work/done/SPRITE-COMPONENTS-20261017.md"
+    },
+    {
+      "run": "sprite-variation-20261017",
+      "status": "Complete with verified limitations",
+      "visualReview": "accepted bases unchanged; generated combinations remain candidates",
+      "summary": "D:\\Compact_Evidence\\mountain-cabin-bloom-honey\\runs\\sprite-variation-20261017\\summary.json",
+      "tests": {
+        "passed": 420,
+        "failed": 0,
+        "scriptTests": 395,
+        "sourceTests": 25,
+        "focusedVariationOptimization": 9
+      },
+      "gpu": {
+        "newOptimizedFrameComparisons": 196,
+        "neighboringImportOutlineComparisons": 184,
+        "total": 380,
+        "differingBytes": 0,
+        "browser": "155.0.8059.80"
+      },
+      "behavior": "Reusable disjoint palette/animated-part families; 96 opt-in existing-art combinations; locked seeded candidates, rerolls, retained malformed family drafts; exact editable-source lossless transport with CPU proof and measured full SDK costs.",
+      "preservation": "Fourteen accepted traveler/character/terrain source and fixture hashes unchanged; no accepted artwork redrawn.",
+      "browser": "Dev/built desktop/narrow candidate/undo/recovery/exports, cancellation/retry, exact browser/CLI PNGs; imported pixel source preserved.",
+      "workRecord": "docs/work/done/SPRITE-VARIATION-20261017.md",
+      "publicationReceipt": "D:\\Compact_Evidence\\mountain-cabin-bloom-honey\\runs\\sprite-variation-20261017\\publication.json",
+      "closeout": "All 49 scoped proof inputs and fourteen protected inputs matched before publication-only documentation changes; no product source changes or broadened art acceptance."
     }
   ]
 }

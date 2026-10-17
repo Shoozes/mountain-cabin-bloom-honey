@@ -1,4 +1,5 @@
 /** Grout Art 1: native integer drawing, portable technique graphs and straight RGBA. */
+import { unpackRecipeData } from "./recipe-codec.mjs";
 export const FORMAT = "grout-art/1";
 export const VERSION = "grout-art/1.0.0";
 export const copy = (value) => JSON.parse(JSON.stringify(value));
@@ -29,7 +30,7 @@ export function parseRecipe(input) {
       throw Error("Recipe: invalid JSON");
     }
   }
-  const r = copy(object(input, "recipe"));
+  const r = copy(object(unpackRecipeData(input), "recipe"));
   if (new TextEncoder().encode(JSON.stringify(r)).length > 2 * 1048576)
     throw Error("Recipe exceeds 2 MiB");
   if (r.format !== FORMAT)

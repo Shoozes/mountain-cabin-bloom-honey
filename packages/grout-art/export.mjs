@@ -33,13 +33,13 @@ export function extractFrame(atlas, name, restoreTrim = true) {
   return { width: f.sourceWidth, height: f.sourceHeight, data };
 }
 export function buildArtExport(input, { signal, atlas: options } = {}) {
-  if (input.character) {
-    const expected = compileCharacter(input.character);
+  const recipe = parseRecipe(input);
+  if (recipe.character) {
+    const expected = compileCharacter(recipe.character);
     for (const key of ["name","width","height","seed","palette","parts","layers","frames","clips","outline"])
-      if (JSON.stringify(input[key]) !== JSON.stringify(expected[key])) throw Error("Character source and resolved recipe differ; capture your edits or compile the creator before exporting");
+      if (JSON.stringify(recipe[key]) !== JSON.stringify(expected[key])) throw Error("Character source and resolved recipe differ; capture your edits or compile the creator before exporting");
   }
-  const recipe = parseRecipe(input),
-    frames = recipe.frames.map((f, i) => {
+  const frames = recipe.frames.map((f, i) => {
       signal?.throwIfAborted();
       return { ...renderFrame(recipe, i), name: f.name, anchor: f.anchor };
     }),

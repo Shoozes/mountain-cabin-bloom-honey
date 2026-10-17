@@ -1,4 +1,5 @@
 import { parseRecipe, lowerFrame } from "./core.mjs";
+import { packRecipeData } from "./recipe-codec.mjs";
 import { buildArtExport } from "./export.mjs";
 const encoder = new TextEncoder(),
   utf8 = (s) => encoder.encode(s);
@@ -53,7 +54,13 @@ export async function encodePortablePng(pixels) {
   return out;
 }
 export const compactRecipe = (input) => JSON.stringify(parseRecipe(input));
-const runtimeUrls = [
+export const ART_RUNTIME_URLS = [
+  new URL("./recipe-codec.mjs", import.meta.url),
+  new URL("./optimization.mjs", import.meta.url),
+  new URL("./variation.mjs", import.meta.url),
+  new URL("./character.mjs", import.meta.url),
+  new URL("./character-art.mjs", import.meta.url),
+  new URL("./components.mjs", import.meta.url),
   new URL("./index.mjs", import.meta.url),
   new URL("./core.mjs", import.meta.url),
   new URL("./compiler.mjs", import.meta.url),
@@ -65,8 +72,9 @@ const runtimeUrls = [
   new URL("./import.mjs", import.meta.url),
 ];
 export async function measureRecipe(input, options = {}) {
+  options.signal?.throwIfAborted();
   const recipe = parseRecipe(input),
-    kit = buildArtExport(recipe),
+    kit = buildArtExport(recipe, { signal: options.signal }),
     readable = utf8(JSON.stringify(recipe, null, 2)),
     compact = utf8(compactRecipe(recipe)),
     expanded = utf8(
@@ -86,10 +94,10 @@ export async function measureRecipe(input, options = {}) {
   const moduleText = JSON.stringify(recipe.techniques ?? []);
   let sources = options.runtimeSources,
     runtimeBytes = options.runtimeBytes ?? null;
-  if (!sources && runtimeUrls[0].protocol !== "file:") {
+  if (!sources && ART_RUNTIME_URLS[0].protocol !== "file:") {
     sources = await Promise.all(
-      runtimeUrls.map(async (url) => {
-        const response = await fetch(url);
+      ART_RUNTIME_URLS.map(async (url) => {
+        const response = await fetch(url, { signal: options.signal });
         if (!response.ok) throw Error("SDK source metrics unavailable");
         return response.text();
       }),
@@ -117,7 +125,14 @@ export async function measureRecipe(input, options = {}) {
       compressed(raster),
     ]),
     bundle = sources ? utf8(sources.join("\n") + "\n" + new TextDecoder().decode(compact)) : null;
+  const optimized = packRecipeData(recipe), optimizedBytes = utf8(JSON.stringify(optimized.document));
+  const optimizedGzip = await compressed(optimizedBytes);
+  options.signal?.throwIfAborted();
   return {
+    optimizedBytes: optimizedBytes.length, optimizedGzipBytes: optimizedGzip.length,
+    optimization: optimized.report,
+    optimizedBundleBytes: runtimeBytes === null ? null : runtimeBytes + optimizedBytes.length,
+    optimizedBundleGzipBytes: sources ? (await compressed(utf8(sources.join("\n") + "\n" + JSON.stringify(optimized.document)))).length : null,
     readableBytes: readable.length,
     compactBytes: compact.length,
     gzipBytes: gzip.length,

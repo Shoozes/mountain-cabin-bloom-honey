@@ -12,6 +12,7 @@ import {
   renderFrame,
   buildArtExport,
   extractFrame,
+  createSpriteVariationProfile, generateSpriteVariations, optimizeRecipe, parseRecipe,
   type ArtRecipe,
   type Pixels,
   createCharacterDocument, compileCharacter, randomizeCharacter, type CharacterDocument,
@@ -42,3 +43,8 @@ const outlined: ArtRecipe = {...layered, outline: {enabled: true, color: "#26323
 void renderFrame(outlined);
 const character: CharacterDocument = randomizeCharacter(createCharacterDocument(), {seed: 1215});
 void renderFrame(compileCharacter(character));
+
+const family = createSpriteVariationProfile(recipe);
+const variants: ArtRecipe[] = generateSpriteVariations(recipe, family, { seeds: [1204, 1215, 1233] });
+const optimized = await optimizeRecipe(variants[0]);
+void renderFrame(parseRecipe(optimized.document));

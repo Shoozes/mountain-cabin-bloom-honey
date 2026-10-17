@@ -99,8 +99,13 @@ both builds, dev/built GPU equality and desktop/mobile authoring/export proof.
   exports. Qualified SDK and desktop/mobile dev/built flows, cancellation,
   undo/recovery and source guards; 411 tests, both builds and 184 exact neighboring
   GPU comparisons. See [the completed batch](work/done/SPRITE-COMPONENTS-20261017.md).
-- [ ] Later migration: richer variation and lossless optimization. PNG/GIF grid
-  conversion is already implemented.
+- [x] Richer sprite variation: reusable disjoint palette/animated-part families,
+  96 opt-in traveler combinations, deterministic per-group streams, locks,
+  individual rerolls and candidate selection with undo and draft recovery.
+- [x] Lossless recipe optimization: shared-subtree transport restores the entire
+  editable recipe and exact frames; browser/CLI kits retain readable sources,
+  optimized sidecars and verification reports. Measure raw/gzip/full SDK costs
+  independently. See [the batch record](work/done/SPRITE-VARIATION-20261017.md).
 - [ ] Qualify GIF/SVG/CSS, fonts/UI atlases, remaining donor demos, engine adapters
   and compact runtime delivery through the guide's capability matrix.
 - [ ] Transfer Grout13 ownership or retire parent synchronization only after the
@@ -273,3 +278,5 @@ AI-edited: 2026-10-17 | agent=Codex/root | task=character-review-cleanup | chang
 AI-edited: 2026-10-17 | agent=Codex/root | task=sprite-components | change=completed the bounded extraction migration and retained later conversion/variation work
 
 AI-edited: 2026-10-17 | agent=Codex/root | task=sprite-closeout-publish | change=recorded final shared-workspace qualification and scoped progress saving
+
+AI-edited: 2026-10-17 | agent=Codex/root | task=sprite-variation | change=completed reusable variation and lossless transport scope; retained later migration and art acceptance boundaries

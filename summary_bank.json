@@ -417,7 +417,7 @@
       ]
     },
     "art_studio": {
-      "description": "Native canvas, timeline, reversible wardrobe and import integration, layered equipment, source editing and recovery. Load art_import for conversion.",
+      "description": "Native canvas, timeline, reversible wardrobe and import integration, layered equipment, source editing and recovery. Load art_import for conversion. Load art_variations for opt-in family candidates and lossless optimization.",
       "status": "active",
       "last_seen": "2026-10-17T01:10:22.281552+00:00",
       "paths": [
@@ -509,6 +509,22 @@
         "scripts/study-character.mjs",
         "scripts/test-character-browser.mjs",
         "docs/work/done/CHARACTER-CREATOR-20261017.md"
+      ]
+    },
+    "art_variations": {
+      "description": "Reusable sprite palette/animated-part families, deterministic locked candidates, exact authoring-data optimization and Studio controls. Load art_studio for integration and art_atlases for export/cache owners.",
+      "status": "active",
+      "last_seen": "2026-10-17T21:15:00Z",
+      "paths": [
+        "packages/grout-art/variation.mjs",
+        "packages/grout-art/recipe-codec.mjs",
+        "packages/grout-art/optimization.mjs",
+        "src/components/art-sprite-variations.tsx",
+        "src/components/art-recipe-optimization.tsx",
+        "scripts/art-variation.test.mjs",
+        "scripts/verify-art-variation-browser.mjs",
+        "docs/look-dev/sprite-variation.md",
+        "docs/work/done/SPRITE-VARIATION-20261017.md"
       ]
     }
   },

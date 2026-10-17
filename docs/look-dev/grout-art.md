@@ -67,6 +67,9 @@ known garment ink references without recoloring skin or hair. Unapplied recipe
 text must be applied or reset before these controls. Other recipes remain
 editable without conversion. Drafts and exports still use `grout-art/1`.
 
+Reusable palette/animated-part families, locked seeded candidates and source-preserving
+lossless transport are documented in [Sprite variations](sprite-variation.md).
+
 The private ESM package is `packages/grout-art`, with declarations and separate
 headless and browser entrypoints. It has no runtime dependency on the sibling
 Grout checkout, a generated donor bundle or browser globals during Node import.
@@ -163,7 +166,8 @@ and [WGSL accuracy rules](https://www.w3.org/TR/WGSL/#floating-point-accuracy).
 
 Exports contain `recipe.json`, required portable modules in `techniques.json`,
 `atlas-N.png`, `atlas.json` (`grout-atlas/1`), `sheet.png` and
-`phaser-atlas.json`. CLI output also includes `metrics.json`. Packing defaults
+`phaser-atlas.json`. Source-preserving `recipe.optimized.json` and
+`optimization.json` are additive sidecars. CLI output also includes `metrics.json`. Packing defaults
 are trimming, one-pixel padding and extrusion, no rotation and pages at most
 1024×1024. The untrimmed traveler sheet is three columns by four rows (48×64).
 The manifest retains original names/dimensions, trim offsets, page rectangles,
@@ -204,7 +208,7 @@ receive launch actions; partial ports do not claim donor parity.
 | Portable custom modules | Both shader bodies plus CPU graph; delivered | Module packaging/version policy |
 | RGBA packing, trim, extrusion, extraction | Adapted donor algorithm; delivered | Consumer engine receiving |
 | Painting, fill, selection, undo/redo | New Studio state; delivered | Larger-canvas interaction study |
-| Seeded variations and measured compactness | Initial graph/measurement examples; delivered | Rich variation, lossless optimization |
+| Seeded variations and measured compactness | Reusable palette/part families, locks, candidate batches and lossless authoring transport delivered | Compact consumer runtime and broader donor parity |
 | Conversion and sprite extraction | PNG/GIF grids, aligned layers and reviewed transparent-sheet components delivered | Broader conversion workflows |
 | GIF/SVG/CSS workflows | Animated GIF import qualified; other formats/export retained in donor | Per-format animation/export fidelity |
 | Fonts, UI atlases and remaining examples | Inventoried; donor retained | Native layout and consumer parity |
@@ -305,3 +309,5 @@ AI-edited: 2026-10-17 | agent=Codex/root | task=sprite-components | change=recor
 AI-edited: 2026-10-16 | agent=Codex/root | task=traveler-profile-import | change=added layered import route and far-shoe qualification boundaries
 
 AI-edited: 2026-10-16 | agent=Codex/root | task=studio-outline | change=linked non-destructive outline controls and export behavior
+
+AI-edited: 2026-10-17 | agent=Codex/root | task=sprite-variation | change=routed variation/optimization and additive export contracts

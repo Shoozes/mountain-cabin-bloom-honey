@@ -1292,3 +1292,25 @@
   .art-character-controls button, .art-character-controls select, .art-character-controls input:not([type=checkbox]):not([type=color]):not([type=range]), .art-character-controls summary { min-height: 44px; }
   .art-character-controls input[type=checkbox] { width: 20px; height: 20px; }
 }
+
+.art-variation-group { display: grid; gap: .4rem; margin-block: .7rem; }
+.art-variation-group label { display: flex; align-items: center; gap: .4rem; }
+.art-variation-group select { min-width: 0; flex: 1; }
+.art-variation-candidates { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .4rem; margin-block: .8rem; }
+.art-variation-candidates button { display: grid; justify-items: center; gap: .3rem; min-width: 0; }
+.art-variation-candidates canvas { width: 48px; max-width: 100%; height: auto; image-rendering: pixelated; }
+.art-sprite-variations textarea { width: 100%; min-height: 12rem; font: .75rem monospace; }
+
+.art-sprite-variations > summary, .art-recipe-optimization > summary { cursor: pointer; font: 11px/1.4 var(--font-mono); }
+.art-sprite-variations p:not(.art-craft-note), .art-recipe-optimization p { margin: 10px 0; color: var(--art-muted); font: 11px/1.5 var(--font-mono); }
+.art-sprite-variations button, .art-recipe-optimization button { min-height: 32px; border: 1px solid var(--art-rule); background: var(--art-soft); padding: 5px 8px; font: 10px/1.3 var(--font-mono); cursor: pointer; }
+.art-sprite-variations button:disabled { opacity: .5; cursor: default; }
+.art-sprite-variations select, .art-sprite-variations input[type=number], .art-sprite-variations textarea { min-width: 0; min-height: 32px; border: 1px solid var(--art-rule); background: var(--art-soft); padding: 5px 7px; font: 10px/1.4 var(--font-mono); }
+.art-sprite-variations > label { display: grid; gap: 5px; margin-block: 10px; font: 11px/1.4 var(--font-mono); }
+.art-variation-group { grid-template-columns: minmax(0, 1fr) auto; border-bottom: 1px solid var(--art-rule); padding-bottom: 8px; }
+.art-variation-group > label:first-child { grid-column: 1 / -1; }
+.art-variation-group label { font: 11px/1.4 var(--font-mono); }
+.art-sprite-variations input[type=checkbox] { accent-color: var(--art-accent); }
+.art-sprite-variations details { margin-top: 12px; }
+.art-sprite-variations details summary { font: 11px/1.4 var(--font-mono); cursor: pointer; }
+.art-sprite-variations [role=alert], .art-recipe-optimization [role=alert] { color: #ff9b89; overflow-wrap: anywhere; }

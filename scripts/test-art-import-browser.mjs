@@ -34,7 +34,7 @@ const sourceFiles = [
 const readRecipe = async (page) => {
   await page.waitForFunction(() => {
     try {
-      return JSON.parse(document.querySelector("textarea")?.value).format === "grout-art/1";
+      return JSON.parse(document.querySelector('textarea[aria-label="Recipe JSON, including custom technique source"]')?.value).format === "grout-art/1";
     } catch {
       return false;
     }

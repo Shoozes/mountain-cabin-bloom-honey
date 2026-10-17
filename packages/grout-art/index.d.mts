@@ -25,6 +25,9 @@ export type ArtRecipe = {
   height: number;
   seed: number;
   character?: CharacterDocument;
+  spriteVariations?: SpriteVariations;
+  spriteVariationSource?: string;
+  spriteVariation?: { seed: number; selections: Record<string, string>; locks: Record<string, boolean> };
   outline?: { enabled: boolean; color: string; width: 1 | 2 | 3; corners: "stepped" | "square" };
   palette: Record<string, string>;
   parts: Record<string, Op[]>;
@@ -229,6 +232,9 @@ export function buildArtExport(
   sheet: Pixels;
 };
 export type RecipeMetrics = {
+  optimizedBytes: number; optimizedGzipBytes: number;
+  optimizedBundleBytes: number | null; optimizedBundleGzipBytes: number | null;
+  optimization: Omit<OptimizationReport, "verifiedFrames">;
   readableBytes: number;
   compactBytes: number;
   gzipBytes: number;
@@ -251,10 +257,23 @@ export function compactRecipe(recipe: ArtRecipe): string;
 export function encodePortablePng(pixels: Pixels): Promise<Uint8Array>;
 export function measureRecipe(
   recipe: ArtRecipe,
-  options?: { runtimeSources?: string[]; runtimeBytes?: number },
+  options?: { runtimeSources?: string[]; runtimeBytes?: number; signal?: AbortSignal },
 ): Promise<RecipeMetrics>;
 export function compileShader(
   recipe: ArtRecipe,
   frame: number,
   backend: "webgl2" | "webgpu",
 ): string;
+
+export type SpriteVariationOption = { id: string; name: string; palette?: Record<string, string>; parts?: Record<string, Op[]> };
+export type SpriteVariations = { format: "grout-sprite-variations/1"; groups: { id: string; name: string; options: SpriteVariationOption[] }[] };
+export type SpriteVariationOptions = { seed?: number; selections?: Record<string, string>; locks?: Record<string, boolean>; group?: string };
+export const VARIATION_FORMAT: "grout-sprite-variations/1";
+export function parseSpriteVariations(input: unknown, recipe: ArtRecipe): SpriteVariations;
+export function createSpriteVariationProfile(recipe: ArtRecipe): SpriteVariations;
+export function applySpriteVariation(recipe: ArtRecipe, family: SpriteVariations, options: SpriteVariationOptions & { selections: Record<string, string> }): ArtRecipe;
+export function randomizeSpriteVariation(recipe: ArtRecipe, family: SpriteVariations, options?: SpriteVariationOptions): ArtRecipe;
+export function generateSpriteVariations(recipe: ArtRecipe, family: SpriteVariations, options?: Omit<SpriteVariationOptions, "seed" | "group"> & { seeds?: number[] }): ArtRecipe[];
+export type OptimizationReport = { format: "grout-art-optimization/1"; method: "shared-json-subtrees"; sourceBytes: number; optimizedBytes: number; savedBytes: number; sharedBlocks: number; authoringReconstruction: "exact"; drawingRewrites: false; verifiedFrames: number };
+export type OptimizedRecipeDocument = { format: "grout-art-optimized/1"; blocks: unknown[]; root: unknown };
+export function optimizeRecipe(input: unknown, options?: { signal?: AbortSignal }): Promise<{ document: ArtRecipe | OptimizedRecipeDocument; report: OptimizationReport }>;

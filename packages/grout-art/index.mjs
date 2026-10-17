@@ -30,3 +30,6 @@ export async function createRenderer(options = {}) {
   const { createRenderer } = await import("./browser.mjs");
   return createRenderer(options);
 }
+
+export { optimizeRecipe } from "./optimization.mjs";
+export { VARIATION_FORMAT, parseSpriteVariations, createSpriteVariationProfile, applySpriteVariation, randomizeSpriteVariation, generateSpriteVariations } from "./variation.mjs";

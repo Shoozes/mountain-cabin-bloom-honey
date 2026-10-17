@@ -1,3 +1,4 @@
+import { verifyArtVariations } from "./verify-art-variation-browser.mjs";
 import assert from "node:assert/strict";
 import fs from "node:fs/promises";
 import path from "node:path";
@@ -162,6 +163,7 @@ try {
     .locator(".art-status-backend")
     .filter({ hasText: /Preview: (webgpu|webgl2|cpu)/ })
     .waitFor();
+  if (!process.argv.includes("--variations-only")) {
   const delivered = await page.evaluate(async () => {
     const r = await fetch("/__art-sdk/index.mjs");
     return {
@@ -486,7 +488,7 @@ try {
     .filter({ hasText: /Preview: (webgpu|webgl2|cpu)/ })
     .waitFor();
   await page.getByText("Recipe source and technique modules", { exact: true }).click();
-  await page.waitForFunction(() => document.querySelector("textarea")?.value === "{broken");
+  await page.waitForFunction(() => document.querySelector('textarea[aria-label="Recipe JSON, including custom technique source"]')?.value === "{broken");
   await waitCanvas(page, last);
   await editor.fill(valid);
   await page.getByRole("button", { name: "Apply recipe", exact: true }).click();
@@ -529,7 +531,7 @@ try {
   const zip = unzip(await fs.readFile(await download.path())),
     recipe = JSON.parse(zip.get("recipe.json")),
     manifest = JSON.parse(zip.get("atlas.json"));
-  assert.equal(manifest.sources.length, 11);
+  assert.equal(manifest.sources.length, ART_SOURCE_PATHS.length);
   assert.equal(manifest.visualReview, "unapproved");
   assert.deepEqual(getTravelerWardrobe(recipe),{clothing:"tunic",hat:"trail",palette:"cinder",walk:"refined"});
   const cli = await bakeArt({ recipe, output: scratch });
@@ -650,6 +652,9 @@ try {
   receipt.checks.push(
     "desktop/mobile, working example comparison, catalog, legacy mill navigation, unavailable GPU fallback",
   );
+  }
+  receipt.variations = await verifyArtVariations({page, url, proof, mode: receipt.mode, unzip, pngHash, bakeArt, scratch, faultUrls});
+  assert.deepEqual(errors, [], "Unexpected browser errors after variation checks");
   receipt.status = "passed";
 } catch (error) {
   receipt.status = "failed";

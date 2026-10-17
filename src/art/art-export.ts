@@ -1,5 +1,6 @@
 import {
   buildArtExport,
+  optimizeRecipe,
   encodePortablePng,
   type ArtRecipe,
 } from "../../packages/grout-art/index.mjs";
@@ -10,6 +11,9 @@ const digest = async (bytes: Uint8Array) =>
     .map((n) => n.toString(16).padStart(2, "0"))
     .join("");
 const sourceUrls = [
+  new URL("../../packages/grout-art/recipe-codec.mjs", import.meta.url),
+  new URL("../../packages/grout-art/optimization.mjs", import.meta.url),
+  new URL("../../packages/grout-art/variation.mjs", import.meta.url),
   new URL("../../packages/grout-art/index.mjs", import.meta.url),
   new URL("../../packages/grout-art/core.mjs", import.meta.url),
   new URL("../../packages/grout-art/compiler.mjs", import.meta.url),
@@ -42,6 +46,9 @@ export async function exportArtFiles(input: ArtRecipe, { signal }: { signal?: Ab
   }
   files.push({ name: "sheet.png", data: await encodePortablePng(kit.sheet) });
   json("recipe.json", kit.recipe);
+  const optimized = await optimizeRecipe(kit.recipe, { signal });
+  files.push({ name: "recipe.optimized.json", data: encode.encode(JSON.stringify(optimized.document)) });
+  json("optimization.json", optimized.report);
   if (kit.recipe.character) {
     json("character.json", kit.recipe.character);
     json("creator.json", kit.recipe.character.creator);
