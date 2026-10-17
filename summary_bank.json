@@ -246,6 +246,21 @@
         "src/shader/material.test.mjs"
       ]
     },
+    "material_realistic": {
+      "description": "Six original continuous surface recipes, neutral lit preview, legacy pixel preservation and browser/CLI export proof. Load material_engine and product_ui for shared integration.",
+      "status": "active",
+      "paths": [
+        "src/shader/material-realistic.mjs",
+        "src/shader/material-realistic.d.mts",
+        "scripts/bake-material.mjs",
+        "scripts/bake-vertex-colors.mjs",
+        "scripts/material-realistic.test.mjs",
+        "scripts/test-realistic-material-browser.mjs",
+        "scripts/fixtures/material-realistic-legacy-baseline-20261012.json",
+        "docs/look-dev/realistic-materials.md",
+        "docs/look-dev/realistic-materials-proof.json"
+      ]
+    },
     "terrain_core": {
       "description": "Selective terrain core ownership; credential-bearing auth code is excluded from context.",
       "status": "active",
@@ -295,11 +310,21 @@
         "docs/PROOF.md"
       ]
     },
+    "terrain_gravel": {
+      "description": "Historical native gravel candidate, palette/pixel baseline and reference study; current drawings route through terrain_drawings.",
+      "status": "archived",
+      "paths": [
+        "scripts/fixtures/retro-terrain-unaffected-20261012.json",
+        "scripts/fixtures/retro-terrain-gravel-baseline-20261012.json",
+        "docs/look-dev/retro-terrain-gravel.md",
+        "docs/look-dev/retro-terrain-gravel-proof.json",
+        "docs/work/done/RETRO-GRAVEL-POLISH-20261012.md"
+      ]
+    },
     "terrain_curated": {
-      "description": "Original native16/64 curated compositions, Grout blob topology, palettes and acceptance. Legacy generators remain separate.",
+      "description": "Curated generator, Grout topology and focused verification. Load terrain_drawings for editable art, palettes and current acceptance; legacy generators remain separate.",
       "status": "active",
       "paths": [
-        "src/shader/retro-terrain-art.mjs",
         "src/shader/retro-terrain-art.d.mts",
         "src/shader/retro-autotile.mjs",
         "src/shader/retro-autotile.d.mts",
@@ -313,6 +338,156 @@
         "docs/look-dev/retro-terrain-cleanup-proof.json",
         "docs/work/done/RETRO-TERRAIN-REVIEW-CLEANUP-20261011.md",
         "docs/licenses/grout-autotile-MIT.txt"
+      ]
+    },
+    "terrain_drawings": {
+      "description": "Seven-material native16/64 editable drawings, four compositions and palette roles. Load terrain_curated for topology and terrain_expansion for ordered craft proof.",
+      "status": "active",
+      "paths": [
+        "src/shader/retro-terrain-art.mjs",
+        "src/shader/retro-terrain-art.d.mts",
+        "docs/look-dev/retro-terrain-curated.md",
+        "scripts/study-retro-terrain-curated.mjs"
+      ]
+    },
+    "terrain_expansion": {
+      "description": "Current seven-material implementation record and source-bound review evidence; drawing and generator source remain separately routed.",
+      "status": "active",
+      "paths": [
+        "docs/work/done/RETRO-TEXTURE-EXPANSION-20261012.md",
+        "docs/look-dev/retro-terrain-expansion-proof.json",
+        "docs/look-dev/studies/retro-terrain-expanded-20261012-final/study.json"
+      ]
+    },
+    "terrain_consumer_selection": {
+      "description": "Scene-coherent game authoring workflow and Rias evidence: owner-rejected terrain previews, mockup-to-runtime direction and receiving boundaries.",
+      "status": "active",
+      "paths": [
+        "docs/look-dev/riasmap-terrain-selection.md",
+        "docs/look-dev/texture-authoring.md"
+      ]
+    },
+    "terrain_pixel_expectations": {
+      "description": "Deliberate v2 default-recipe pixel expectations for all 688 PNG assets at both sizes; historical fixtures remain separately routed.",
+      "status": "active",
+      "paths": [
+        "scripts/fixtures/retro-terrain-curated-v2.json"
+      ]
+    },
+    "art_recipes": {
+      "description": "Native recipes, traveler apparel colorways, authored gait and explicit old-draft upgrade; historical and active drawing baselines. Load art_renderers for device behavior.",
+      "status": "active",
+      "last_seen": "2026-10-17T01:47:06.971740+00:00",
+      "paths": [
+        "packages/grout-art/core.mjs",
+        "packages/grout-art/compiler.mjs",
+        "packages/grout-art/traveler.mjs",
+        "packages/grout-art/index.mjs",
+        "packages/grout-art/index.d.mts",
+        "scripts/art.test.mjs",
+        "scripts/fixtures/traveler-profile-feet-20261016.json",
+        "docs/look-dev/grout-art.md"
+      ]
+    },
+    "art_renderers": {
+      "description": "CPU fallback, direct GLSL/WGSL generation, cancellation and device ownership; browser qualification harness serves copied SDK modules.",
+      "status": "active",
+      "last_seen": "2026-10-16T19:00:00Z",
+      "paths": [
+        "packages/grout-art/browser.mjs",
+        "packages/grout-art/browser.d.mts",
+        "packages/grout-art/compiler.mjs",
+        "scripts/test-art-browser.mjs"
+      ]
+    },
+    "art_atlases": {
+      "description": "RGBA packing, trim/extrusion, full-frame reconstruction, manifests, PNG/ZIP adapters and private SDK build; donor MIT attribution retained.",
+      "status": "active",
+      "last_seen": "2026-10-16T19:00:00Z",
+      "paths": [
+        "packages/grout-art/atlas.mjs",
+        "packages/grout-art/LICENSE.grout-library.txt",
+        "packages/grout-art/export.mjs",
+        "packages/grout-art/metrics.mjs",
+        "packages/grout-art/package.json",
+        "scripts/bake-art.mjs",
+        "scripts/build-art-sdk.mjs",
+        "scripts/fixtures/grout-art-consumer.mts",
+        "src/art/art-export.ts"
+      ]
+    },
+    "art_studio": {
+      "description": "Native canvas, timeline, reversible wardrobe and import integration, layered equipment, source editing and recovery. Load art_import for conversion.",
+      "status": "active",
+      "last_seen": "2026-10-17T01:10:22.281552+00:00",
+      "paths": [
+        "src/components/art-studio.tsx",
+        "src/art/studio.css",
+        "src/routes/studio.tsx"
+      ]
+    },
+    "art_examples": {
+      "description": "Single 61-page donor inventory and six working local examples, filters, provenance, source references and partial migration status.",
+      "status": "active",
+      "last_seen": "2026-10-16T19:00:00Z",
+      "paths": [
+        "src/art/examples.mjs",
+        "src/art/examples.d.mts",
+        "src/components/art-examples.tsx",
+        "src/routes/examples.tsx"
+      ]
+    },
+    "art_traveler_history": {
+      "description": "Historical accepted traveler pixels and editable pre-refinement wardrobe recipe; read for exact old-draft recovery and intentional drawing comparisons.",
+      "status": "active",
+      "last_seen": "2026-10-17T01:47:06.971740+00:00",
+      "paths": [
+        "scripts/fixtures/traveler-accepted-20261016.json",
+        "scripts/fixtures/traveler-wardrobe-20261016.json",
+        "scripts/fixtures/traveler-palette-feet-20261016.json",
+        "scripts/fixtures/traveler-palette-feet-recipe-20261016.json"
+      ]
+    },
+    "art_import": {
+      "description": "Exact PNG/GIF grid and aligned animated layer conversion, editable masks, source attribution, optional outline workflow and browser qualification. Load art_studio for integration.",
+      "status": "active",
+      "last_seen": "2026-10-17T01:47:06.971740+00:00",
+      "paths": [
+        "packages/grout-art/import.mjs",
+        "src/art/sprite-import.ts",
+        "src/components/art-sprite-import.tsx",
+        "scripts/art-import.test.mjs",
+        "scripts/test-art-import-browser.mjs",
+        "scripts/fixtures/art-import-original-gifs.json",
+        "docs/look-dev/sprite-import.md"
+      ]
+    },
+    "art_outlines": {
+      "description": "Non-destructive Studio composite outlines, CPU/GLSL/WGSL coverage, export metadata and focused browser proof. Load art_recipes/art_renderers for kernels.",
+      "status": "active",
+      "last_seen": "2026-10-17T02:02:27.757659+00:00",
+      "paths": [
+        "src/components/art-outline.tsx",
+        "scripts/art-outline.test.mjs",
+        "scripts/verify-art-outline-browser.mjs",
+        "docs/look-dev/sprite-import.md"
+      ]
+    },
+    "art_characters": {
+      "description": "Reusable creator/character formats, native rigs and original art, deterministic compatible generation, preserved custom edits and focused proof. Load art_studio/art_renderers for shared controls and execution.",
+      "status": "active",
+      "last_seen": "2026-10-17T03:00:00Z",
+      "paths": [
+        "packages/grout-art/character.mjs",
+        "packages/grout-art/character-art.mjs",
+        "packages/grout-art/character.d.mts",
+        "src/components/art-character-creator.tsx",
+        "src/components/art-character-feedback.tsx",
+        "scripts/character.test.mjs",
+        "scripts/study-character.mjs",
+        "scripts/test-character-browser.mjs",
+        "docs/look-dev/character-creator.md",
+        "docs/work/queue/CHARACTER-CREATOR-20261017.md"
       ]
     }
   },

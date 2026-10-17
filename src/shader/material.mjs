@@ -1,10 +1,12 @@
 /** Original surface authoring. Color is pigment; height is independent geometry. */
+import {validateRealisticRecipe,generateRealisticMaterial} from './material-realistic.mjs';
+export {REALISTIC_SURFACE_FAMILIES,REALISTIC_SURFACE_PRESETS} from './material-realistic.mjs';
 export const MATERIAL_VERSION = 'hd2d-cliff/1';
-export const MATERIAL_RECIPES = Object.freeze({'hd2d-cliff':'Original rock masses','hd2d-cliff-strata':'Stratified cliff','style-surface':'Style surface family'});
+export const MATERIAL_RECIPES = Object.freeze({'hd2d-cliff':'Original rock masses','hd2d-cliff-strata':'Stratified cliff','style-surface':'Style surface family','realistic-surface':'Photorealistic surfaces'});
 export const STYLE_SURFACE_FAMILIES=Object.freeze(['grass','dirt','moss','cliff','stone','cobble','bark','timber','plaster','roof']);
 export const MATERIAL_STYLES=Object.freeze(['hd2d','cel-ink','soft-cartoon','pbr']);
 export const STYLE_SURFACE_SIZES=Object.freeze({'hd2d':128,'cel-ink':256,'soft-cartoon':256,'pbr':512});
-export const materialVersion = id => id === 'hd2d-cliff-strata' ? 'hd2d-cliff-strata/1' : id === 'style-surface' ? 'style-surface/1' : MATERIAL_VERSION;
+export const materialVersion = id => id === 'realistic-surface' ? 'realistic-surface/1' : id === 'hd2d-cliff-strata' ? 'hd2d-cliff-strata/1' : id === 'style-surface' ? 'style-surface/1' : MATERIAL_VERSION;
 export const MATERIAL_PALETTES = {
   earth: ['#40372f','#554b3d','#6a604e','#827962','#978d74','#aea58d'],
   slate: ['#343e41','#495256','#5d6668','#758080','#909b98','#afb7b0'],
@@ -29,6 +31,7 @@ function hash(x,y,seed){let h=Math.imul(x,0x9e3779b1)^Math.imul(y,0x85ebca77)^se
 function noise(u,v,cells,seed){const x=u*cells,y=v*cells,ix=Math.floor(x),iy=Math.floor(y),a=smooth(x-ix),b=smooth(y-iy),n=(x,y)=>hash(wrap(x,cells),wrap(y,cells),seed);return mix(mix(n(ix,iy),n(ix+1,iy),a),mix(n(ix,iy+1),n(ix+1,iy+1),a),b);}
 export function validateMaterialRecipe(input={}){
   if(!input||typeof input!=='object'||Array.isArray(input))throw Error('Expected a material recipe object');
+  if(input.id==='realistic-surface')return validateRealisticRecipe(input);
   if(input.id==='style-surface'){
     if(Object.keys(input).some(k=>!Object.hasOwn(SURFACE_DEFAULTS,k)))throw Error('Unknown material setting');
     const style=input.style??SURFACE_DEFAULTS.style,r={...SURFACE_DEFAULTS,...input,size:input.size??STYLE_SURFACE_SIZES[style]};
@@ -117,6 +120,7 @@ function surfaceFamily(r,u,v){
 export function sampleSurfaceStructure(input,u,v){const recipe=validateMaterialRecipe(input);if(recipe.id!=='style-surface')throw Error('Surface structure requires style-surface recipe');return surfaceFamily(recipe,wrap(u,1),wrap(v,1));}
 export function sampleCliffStructure(input,u,v){return sample(validateMaterialRecipe(input),u,v);}
 export function generateMaterial(input={}){
+  if(input?.id==='realistic-surface')return generateRealisticMaterial(input);
   const recipe=validateMaterialRecipe(input),{size}=recipe,n=size*size,heights=new Float32Array(n),fields=new Array(n),surface=recipe.id==='style-surface';
   const palette=(surface?SURFACE_COLORS[recipe.family]:MATERIAL_PALETTES[recipe.palette]).map(c=>[1,3,5].map(i=>parseInt(c.slice(i,i+2),16)));
   const channels=Object.fromEntries(['albedo','height','normal','roughness'].map(k=>[k,{width:size,height:size,data:new Uint8Array(n*4)}]));

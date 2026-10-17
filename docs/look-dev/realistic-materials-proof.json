@@ -1,0 +1,311 @@
+{
+  "format": "realistic-material-catalog-proof/1",
+  "reviewedDate": "2026-10-12",
+  "timezone": "America/New_York",
+  "recordedAtUtc": "2026-10-13T00:07:34.260Z",
+  "status": "Complete with verified limitations",
+  "sourceTip": "4c15058c5e39ef4a0c9fdf6d411f3a7372b06061",
+  "workingTree": "Uncommitted local candidate; pre-existing owner work preserved.",
+  "runtime": {
+    "node": "v26.5.0",
+    "platform": "win32",
+    "arch": "x64"
+  },
+  "generator": "realistic-surface/1",
+  "sources": [
+    {
+      "path": "src/shader/material-realistic.mjs",
+      "bytes": 12245,
+      "sha256": "5cd006366b9fef621f6c28f2d6ec7a8eba3910f6e3c958aee5506c3e0fd5376b"
+    },
+    {
+      "path": "src/shader/material-realistic.d.mts",
+      "bytes": 768,
+      "sha256": "54d5b3b890eb106e5cdf4b92933a79e283129c1219f9a7c9642072112e4bde91"
+    },
+    {
+      "path": "src/shader/material.mjs",
+      "bytes": 15181,
+      "sha256": "316355014cd753f18edafd97c19b04ea760652cfcaf7de6ba0516711f5fb2df6"
+    },
+    {
+      "path": "src/shader/material.d.mts",
+      "bytes": 2190,
+      "sha256": "7de1ff018bb23590219712af59ea98670d3882e9f5614e01bb85f7010ac9c87c"
+    },
+    {
+      "path": "src/shader/material-browser.mjs",
+      "bytes": 2627,
+      "sha256": "afe411a81cc5f2d627b44959210f317d30292c087c5a310012a0770210ae7841"
+    },
+    {
+      "path": "src/components/material-panel.tsx",
+      "bytes": 12750,
+      "sha256": "c32e7ea71ebb5b46b017d4eda7589c3474bad91e4420f4f43f97e2ad69541332"
+    },
+    {
+      "path": "src/components/mill-app.tsx",
+      "bytes": 44850,
+      "sha256": "ff435969f2a0fa82bd424011b7d525333350a19bee18b1a59baf8a2ea0d9ad35"
+    },
+    {
+      "path": "src/styles.css",
+      "bytes": 17808,
+      "sha256": "226c2e45111590cd7fb348a4c9f1020856df478f6a32ef5a18acac388eefcc1b"
+    },
+    {
+      "path": "scripts/bake-material.mjs",
+      "bytes": 10184,
+      "sha256": "0c548e35615d968bbc018b5856d3f7de27924fbb083e98e70ad21a23c4e78fb5"
+    },
+    {
+      "path": "scripts/bake-vertex-colors.mjs",
+      "bytes": 11403,
+      "sha256": "5790a87312bfaffa6b46fd57d0a348d36236ef488555dc3e35f7c3347c347108"
+    },
+    {
+      "path": "scripts/material-realistic.test.mjs",
+      "bytes": 8557,
+      "sha256": "b9024156e3e4185e899fef1cfd7ead264e3caf2c438f9b0276c8d8b007c1f34c"
+    },
+    {
+      "path": "scripts/test-realistic-material-browser.mjs",
+      "bytes": 28960,
+      "sha256": "53549e52cfdd4a2f53237ae466b3f87eb2c852373bc9db928b8f3dd38b5a8c49"
+    },
+    {
+      "path": "scripts/fixtures/material-realistic-legacy-baseline-20261012.json",
+      "bytes": 30723,
+      "sha256": "fa6170d22fc460a5788f3d71d97a2d9eae20e0b3cfc93f5af2aa9882f182e40e"
+    }
+  ],
+  "preservation": {
+    "recipes": 46,
+    "channelHashes": 184,
+    "fixture": "scripts/fixtures/material-realistic-legacy-baseline-20261012.json",
+    "classicAndGrowth": "Existing preservation tests passed in npm test; their sources are unchanged by this batch."
+  },
+  "commands": [
+    {
+      "command": "node --test scripts/material-realistic.test.mjs scripts/bake-vertex-colors.test.mjs",
+      "exitCode": 0,
+      "tests": 19,
+      "log": ".artifacts/realistic-materials/checks/focused.log",
+      "logSha256": "cc8f471fc646db805f42558978bf92d6f5bdb24b8e48c58a727f432532950e50"
+    },
+    {
+      "command": "npm test",
+      "exitCode": 0,
+      "tests": 354,
+      "lanes": [
+        329,
+        25
+      ],
+      "log": ".artifacts/realistic-materials/checks/test.log",
+      "logSha256": "b86188e9e8672c2969fcd47881f0b999ae824fccb1371f7c1262b5e8a60b71e1"
+    },
+    {
+      "command": "npm run typecheck",
+      "exitCode": 0,
+      "log": ".artifacts/realistic-materials/checks/typecheck.log",
+      "logSha256": "e5046545a3a9fcc0cf6950c9402c78a2b227f07a6a658d2a0c1fbc5f4a194da0"
+    },
+    {
+      "command": "npm run lint",
+      "exitCode": 0,
+      "warnings": 4,
+      "note": "Existing unused variables in retained retro-terrain-expansion recovery evidence; no new material warnings.",
+      "log": ".artifacts/realistic-materials/checks/lint.log",
+      "logSha256": "d08653e6d685bcf7af37de4c5f990524208069307ddb66538f63afcc7545e907"
+    },
+    {
+      "command": "npm run build",
+      "exitCode": 0,
+      "log": ".artifacts/realistic-materials/checks/build.log",
+      "logSha256": "c61828285ca19e72743f18f5107cf19305a6855197cc615ccaf00b5bd72ecc7f"
+    },
+    {
+      "command": "npm run build:pages",
+      "exitCode": 0,
+      "log": ".artifacts/realistic-materials/checks/build-pages.log",
+      "logSha256": "830ed86cdabcbddbcabb1f812eecff5adf959d6b9837046e3801618ab7a13459"
+    },
+    {
+      "command": "node --check scripts/test-realistic-material-browser.mjs",
+      "exitCode": 0
+    },
+    {
+      "command": "npx --no-install eslint scripts/test-realistic-material-browser.mjs",
+      "exitCode": 0
+    },
+    {
+      "command": "git diff --check",
+      "exitCode": 0
+    },
+    {
+      "command": ".tools/context.ps1 -Mode Audit -Group material_realistic -AsJson",
+      "exitCode": 0,
+      "status": "pass",
+      "groups": 30,
+      "log": ".artifacts/realistic-materials/checks/context-audit.json",
+      "logSha256": "d3d789f8e431a23c44056db46db9262410d3254b4fac7ab7875a1347ac048c25"
+    }
+  ],
+  "browser": [
+    {
+      "mode": "dev",
+      "command": "node scripts/test-realistic-material-browser.mjs --dev-url http://127.0.0.1:8080/",
+      "exitCode": 0,
+      "receipt": ".artifacts/proof/realistic-material-browser/1791849513991-42384/receipt.json",
+      "receiptSha256": "a1fa4fb57e5f7e0aa1992e2e5df9b25eca467c13e8f209cf4358a0c998d4081e",
+      "families": [
+        "soil",
+        "gravel",
+        "limestone",
+        "concrete",
+        "bark",
+        "timber"
+      ],
+      "size": 512,
+      "browserGeneratorPairs": 24,
+      "browserCliPairs": 24,
+      "unexpectedErrors": 0,
+      "legacyTileCount": 75,
+      "drafts": {
+        "legacy": true,
+        "realistic": true
+      },
+      "exportFailureRetry": true,
+      "concurrentEditPreserved": true,
+      "exclusivePreview": {
+        "retro": "pixelated",
+        "realistic": "smooth"
+      },
+      "mobileNoOverflow": true,
+      "resources": {
+        "browserClosed": true,
+        "previewServer": "not-owned (existing dev server)"
+      },
+      "captures": [
+        ".artifacts/proof/realistic-material-browser/1791849513991-42384/realistic-desktop.png",
+        ".artifacts/proof/realistic-material-browser/1791849513991-42384/realistic-mobile.png"
+      ],
+      "servedSourceIdentityRechecked": true
+    },
+    {
+      "mode": "pages",
+      "command": "node scripts/test-realistic-material-browser.mjs",
+      "exitCode": 0,
+      "receipt": ".artifacts/proof/realistic-material-browser/1791849659292-28572/receipt.json",
+      "receiptSha256": "a1ea6bcde7d9bcd587abcb8bfbf32e6716ef592c8a6b3d2c0d29ade074d16d71",
+      "families": [
+        "soil",
+        "gravel",
+        "limestone",
+        "concrete",
+        "bark",
+        "timber"
+      ],
+      "size": 512,
+      "browserGeneratorPairs": 24,
+      "browserCliPairs": 24,
+      "unexpectedErrors": 0,
+      "legacyTileCount": 75,
+      "drafts": {
+        "legacy": true,
+        "realistic": true
+      },
+      "exportFailureRetry": true,
+      "concurrentEditPreserved": true,
+      "exclusivePreview": {
+        "retro": "pixelated",
+        "realistic": "smooth"
+      },
+      "mobileNoOverflow": true,
+      "resources": {
+        "browserClosed": true,
+        "previewServer": "closed",
+        "cliBakeDirectoriesCleaned": 0,
+        "cliBakeScratchRemoved": true,
+        "cleanupIssues": []
+      },
+      "captures": [
+        ".artifacts/proof/realistic-material-browser/1791849659292-28572/realistic-desktop.png",
+        ".artifacts/proof/realistic-material-browser/1791849659292-28572/realistic-mobile.png"
+      ],
+      "servedSourceIdentityRechecked": true
+    }
+  ],
+  "study": [
+    {
+      "path": ".artifacts/realistic-materials/study-final/albedo-board.png",
+      "bytes": 2288243,
+      "sha256": "d758afd91ac6ea9f276002140d17eee4a37704ccff0343ddc896635c8b76a407",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "columns": [
+        "soil",
+        "gravel",
+        "limestone"
+      ],
+      "secondRow": [
+        "concrete",
+        "bark",
+        "timber"
+      ],
+      "view": "unlit pigment"
+    },
+    {
+      "path": ".artifacts/realistic-materials/study-final/lit-board.png",
+      "bytes": 2952631,
+      "sha256": "09b01e6825dbd9e1e68ed8276fdb23a9f7bfe9990bc625c4709f51ed80ac4055",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "columns": [
+        "soil",
+        "gravel",
+        "limestone"
+      ],
+      "secondRow": [
+        "concrete",
+        "bark",
+        "timber"
+      ],
+      "view": "neutral authoring light"
+    }
+  ],
+  "ownedDev": {
+    "receipt": ".runtime/realistic-material-dev-20261012.json",
+    "status": "stopped",
+    "endpointReleased": true,
+    "ownedProcessesExited": true
+  },
+  "visualReview": "unapproved",
+  "provenance": {
+    "author": "original procedural work",
+    "restrictedInputs": [],
+    "training": false
+  },
+  "limitations": [
+    "Procedural realism candidates; no scanned photographs or owner art acceptance.",
+    "Periodic repetition and actual game-scene coherence need visual review.",
+    "Neutral authoring preview does not qualify engine illumination or material receiving."
+  ],
+  "publication": {
+    "commit": false,
+    "push": false,
+    "deployment": false
+  },
+  "browserProofReuse": "Passed browser receipts bind unchanged served product inputs. The final harness adds cleanup-failure escalation after a successful run; its success flow and assertions are unchanged. No browser pass is claimed against an altered product source.",
+  "retention": {
+    "owner": "realistic-material-catalog-20261012",
+    "root": ".artifacts/realistic-materials",
+    "keep": "Final preview boards, command logs and earlier original-only studies for the pending visual review.",
+    "reviewTrigger": "Review study retention after owner accepts or rejects the six presets.",
+    "cleanupScope": "Exact task-owned scratch only; retained terrain proof and unknown owners stay protected."
+  }
+}

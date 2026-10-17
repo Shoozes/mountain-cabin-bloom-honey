@@ -2,7 +2,10 @@ import {artRows, CURATED_DRAWINGS, CURATED_PALETTES} from './retro-terrain-art.m
 import {BLOB_BITS, BLOB_MASK_GRID, blobMaskAt, blobAtlasPosition, buildBlob47} from './retro-autotile.mjs';
 import {gravelPathMask} from './retro-terrain-growth.mjs';
 
-export const CURATED_VERSION = 'retro-terrain-curated/1';
+export const CURATED_VERSION = 'retro-terrain-curated/2';
+export const CURATED_FAMILIES = ['dirt','grass','gravel','moss','rock','masonry','timber'];
+export const CURATED_COMPOSITIONS = [0,1,2,3];
+export const CURATED_RELATIONSHIPS = ['grass-dirt','gravel-dirt','moss-dirt','rock-dirt'];
 export const CURATED_PATH_BITS = {N:1,E:2,S:4,W:8};
 export const CURATED_SCENE = [
   [0,0,0,0,0,0,0,0], [0,1,1,1,0,1,0,0], [0,1,0,1,1,1,0,0],
@@ -14,7 +17,7 @@ export const CURATED_PATH_SCENE = [
   [0,0,0,0,5,0,0,0], [0,0,2,10,15,10,12,0], [0,0,0,0,5,0,1,0],
   [0,0,0,0,1,0,0,0], [0,0,0,0,0,0,0,0],
 ];
-const families=['dirt','grass','gravel'];
+const families=CURATED_FAMILIES;
 export function validateCuratedRecipe(input={}) {
   if(!input||typeof input!=='object'||Array.isArray(input)||Object.keys(input).some(k=>!['id','tileSize','seed','palette'].includes(k)))throw Error('Expected a curated terrain recipe');
   const recipe={id:'retro-terrain-curated',tileSize:16,seed:1204,palette:'woodland',...input};
@@ -26,8 +29,11 @@ const rgb=hex=>[1,3,5].map(at=>parseInt(hex.slice(at,at+2),16));
 const colorsFor=recipe=>Object.fromEntries(families.map(f=>[f,CURATED_PALETTES[recipe.palette][f].map(rgb)]));
 function surface(recipe,family,composition,weathered) {
   const n=recipe.tileSize,rows=artRows(n,family,composition,weathered),colors=colorsFor(recipe)[family],out=pixel(n);
+  const primary=new Uint8Array(n*n*4);
+  for(let i=0;i<n*n;i++)primary.set([...colors[0],255],i*4);
+  for(const [sx,sy,shape,role] of CURATED_DRAWINGS[n][family][composition])if(role==='structure')for(let y=0;y<shape.length;y++)for(let x=0;x<shape[y].length;x++)if(shape[y][x]!=='.')primary.set([...colors[Number(shape[y][x])],255],(((sy+y+n)%n)*n+(sx+x+n)%n)*4);
   for(let y=0;y<n;y++)for(let x=0;x<n;x++)out.data.set([...colors[Number(rows[y][x])],255],(y*n+x)*4);
-  return {...out,ground:colors[0]};
+  return {...out,ground:colors[0],primary};
 }
 function stamp(dest,source,x,y) {
   for(let row=0;row<source.height;row++)dest.data.set(source.data.subarray(row*source.width*4,(row+1)*source.width*4),((y+row)*dest.width+x)*4);
@@ -72,7 +78,7 @@ function cornerFootprint(mask) {
 }
 function decorativeClusters(material) {
   const n=material.width,ground=material.ground,seen=new Set(),clusters=[];
-  const marked=i=>material.data.subarray(i*4,i*4+3).some((v,c)=>v!==ground[c]);
+  const marked=i=>material.data.subarray(i*4,i*4+3).some((v,c)=>v!==(material.primary?material.primary[i*4+c]:ground[c]));
   for(let start=0;start<n*n;start++)if(!seen.has(start)&&marked(start)) {
     const pending=[start],group=[];seen.add(start);
     while(pending.length){const i=pending.pop(),x=i%n,y=Math.floor(i/n);group.push(i);for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++){const nx=x+dx,ny=y+dy,j=ny*n+nx;if(nx>=0&&nx<n&&ny>=0&&ny<n&&!seen.has(j)&&marked(j)){seen.add(j);pending.push(j);}}}
@@ -83,7 +89,7 @@ function decorativeClusters(material) {
 function maskedMaterial(material,mask) {
   const data=new Uint8Array(material.data.length);
   const {ground,clusters}=decorativeClusters(material);
-  for(let i=0;i<mask.length;i++)if(mask[i])data.set([...ground,255],i*4);
+  for(let i=0;i<mask.length;i++)if(mask[i])data.set(material.primary?material.primary.subarray(i*4,i*4+4):[...ground,255],i*4);
   // Keep a complete leaf/soil/stone group, or omit it. A silhouette never
   // slices a decorative face into stray tips or half stones.
   for(const group of clusters)if(group.every(i=>mask[i]))for(const i of group)data.set(material.data.subarray(i*4,i*4+4),i*4);
@@ -137,34 +143,44 @@ export function generateCuratedTerrain(input={}) {
   const recipe=validateCuratedRecipe(input),n=recipe.tileSize,tiles=[],atlases=[],templates=[];
   for(const weathered of [false,true]) {
     const prefix=weathered?'weathered-':'';
-    for(const family of families)for(let composition=0;composition<3;composition++)tiles.push({id:prefix+family+'-'+composition,role:'surface',family,composition,weathered,...surface(recipe,family,composition,weathered)});
-    if(n===16)for(const family of ['grass','gravel']) {
+    for(const family of families)for(const composition of CURATED_COMPOSITIONS)tiles.push({id:prefix+family+'-'+composition,role:'surface',family,composition,weathered,...surface(recipe,family,composition,weathered)});
+    if(n===16)for(const family of ['grass','gravel','moss','rock']) {
       const sheet=sourceSheet(recipe,family,weathered),blob=buildBlob47(sheet.data),id=prefix+family+'-dirt-atlas';templates.push(sheet);
-      tiles.push(...blob.tiles.map(t=>({id:prefix+family+'-dirt-blob-'+t.blobMask,role:'transition',family:family+'-dirt',weathered,...t})));
-      atlases.push({id,...blob.atlas});
+      const material=surface(recipe,family,0,weathered),dirt=surface(recipe,'dirt',0,weathered),foregroundColors=new Set(colorsFor(recipe)[family].map(c=>c.join(',')));
+      // Quadrants establish topology first. Resolve whole decorative groups on
+      // the assembled silhouette so an 8px cut cannot split a native feature.
+      const transitions=blob.tiles.map(t=>{
+        const coverage=Uint8Array.from({length:256},(_,i)=>Number(foregroundColors.has(t.data.subarray(i*4,i*4+3).join(',')))),fg=maskedMaterial(material,coverage),data=dirt.data.slice();
+        for(let i=0;i<256;i++)if(coverage[i])data.set(fg.data.subarray(i*4,i*4+4),i*4);
+        return {...t,id:prefix+family+'-dirt-blob-'+t.blobMask,role:'transition',family:family+'-dirt',weathered,terrainMask:coverage,data};
+      });
+      tiles.push(...transitions);atlases.push(atlas(id,BLOB_MASK_GRID.flat().map(mask=>transitions.find(t=>t.blobMask===mask)),12,4));
     }
-    else {
-      const grass=surface(recipe,'grass',0,weathered),dirt=surface(recipe,'dirt',0,weathered),transitions=[];
+    else for(const family of ['grass','moss','rock']) {
+      const material=surface(recipe,family,0,weathered),dirt=surface(recipe,'dirt',0,weathered),transitions=[];
       for(let cornerMask=0;cornerMask<16;cornerMask++) {
         const coverage=cornerFootprint(cornerMask),data=new Uint8Array(n*n*4);
-        const foreground=maskedMaterial(grass,coverage);
+        const foreground=maskedMaterial(material,coverage);
         for(let i=0;i<coverage.length;i++)data.set((coverage[i]?foreground:dirt).data.subarray(i*4,i*4+4),i*4);
-        transitions.push({id:prefix+'grass-dirt-'+cornerMask,role:'transition',family:'grass-dirt',cornerMask,weathered,terrainMask:coverage,...pixel(n,data)});
+        transitions.push({id:prefix+family+'-dirt-'+cornerMask,role:'transition',family:family+'-dirt',cornerMask,weathered,terrainMask:coverage,...pixel(n,data)});
       }
-      tiles.push(...transitions);atlases.push(atlas(prefix+'grass-dirt-atlas',transitions,4,4));
+      tiles.push(...transitions);atlases.push(atlas(prefix+family+'-dirt-atlas',transitions,4,4));
     }
     const paths=Array.from({length:16},(_,m)=>pathTile(recipe,m,weathered));tiles.push(...paths);atlases.push(atlas(prefix+'gravel-path-atlas',paths,4,4));
   }
   const kit={recipe,tiles,atlases,templates,previews:[]};
-  for(const weathered of [false,true])kit.previews.push({id:weathered?'weathered-connected-terrain':'connected-terrain',...composeCuratedTerrain(kit,{weathered})});
+  for(const weathered of [false,true])for(const relationship of CURATED_RELATIONSHIPS.filter(r=>n===16||r!=='gravel-dirt')) {
+    const name=relationship==='grass-dirt'?'connected-terrain':relationship.split('-')[0]+'-connected-terrain';
+    kit.previews.push({id:(weathered?'weathered-':'')+name,...composeCuratedTerrain(kit,{weathered,relationship})});
+  }
   return kit;
 }
 function variant(seed,x,y,family) {
   let h=Math.imul(x+1,0x9e3779b1)^Math.imul(y+1,0x85ebca77)^seed^Math.imul(family+1,0x7feb352d);
-  h=Math.imul(h^(h>>>16),0x846ca68b);return ((h^(h>>>16))>>>0)%3;
+  h=Math.imul(h^(h>>>16),0x846ca68b);return ((h^(h>>>16))>>>0)%CURATED_COMPOSITIONS.length;
 }
 export function composeCuratedSurface(kit,family,{weathered=false,composition='mixed'}={}) {
-  if(!families.includes(family)||!['mixed',0,1,2].includes(composition))throw Error('Unknown curated surface composition');
+  if(!families.includes(family)||!['mixed',...CURATED_COMPOSITIONS].includes(composition))throw Error('Unknown curated surface composition');
   const n=kit.recipe.tileSize,out={width:n*4,height:n*4,data:new Uint8Array(n*n*16*4)},prefix=weathered?'weathered-':'';
   for(let y=0;y<4;y++)for(let x=0;x<4;x++) {
     const c=composition==='mixed'?variant(kit.recipe.seed,x,y,families.indexOf(family)):composition;
@@ -173,7 +189,7 @@ export function composeCuratedSurface(kit,family,{weathered=false,composition='m
   return out;
 }
 export function composeCuratedTerrain(kit,{weathered=false,scene=CURATED_SCENE,paths=CURATED_PATH_SCENE,composition='mixed',relationship='grass-dirt'}={}) {
-  if(!['mixed',0,1,2].includes(composition)||!['grass-dirt','gravel-dirt'].includes(relationship))throw Error('Invalid connected terrain selection');
+  if(!['mixed',...CURATED_COMPOSITIONS].includes(composition)||!CURATED_RELATIONSHIPS.includes(relationship)||kit.recipe.tileSize===64&&relationship==='gravel-dirt')throw Error('Invalid connected terrain selection');
   if(!Array.isArray(scene)||scene.length<2||scene.length>17||!Array.isArray(scene[0])||scene[0].length<2||scene[0].length>17||scene.some(row=>!Array.isArray(row)||row.length!==scene[0].length||row.some(v=>v!==0&&v!==1)))throw Error('Expected bounded rectangular binary terrain');
   const n=kit.recipe.tileSize,rows=n===16?scene.length:scene.length-1,cols=n===16?scene[0].length:scene[0].length-1;
   // The built-in corner-grid scene has one fewer cell than its blob-grid counterpart.
@@ -191,9 +207,8 @@ export function composeCuratedTerrain(kit,{weathered=false,scene=CURATED_SCENE,p
       const mask=blobMaskAt(scene,x,y);
       tile=!scene[y][x]?pick('dirt'):mask===255?pick(foreground):kit.tiles.find(t=>t.id===prefix+relationship+'-blob-'+mask);
     } else {
-      if(relationship!=='grass-dirt')throw Error('64px terrain uses grass/dirt corner masks');
       const mask=scene[y][x]+2*scene[y][x+1]+4*scene[y+1][x+1]+8*scene[y+1][x];
-      tile=mask===0?pick('dirt'):mask===15?pick('grass'):kit.tiles.find(t=>t.id===prefix+'grass-dirt-'+mask);
+      tile=mask===0?pick('dirt'):mask===15?pick(foreground):kit.tiles.find(t=>t.id===prefix+relationship+'-'+mask);
     }
     let terrain=tile;
     // Boundary cells can use the authored alternatives too. Reuse the exact
@@ -220,15 +235,16 @@ export function composeCuratedTerrain(kit,{weathered=false,scene=CURATED_SCENE,p
   return out;
 }
 export function curatedArtSource(kit) {
-  return {format:'retro-terrain-art/1',recipe:kit.recipe,symbols:{0:'quiet ground',1:'shadow or depression',2:'light face',3:'stone highlight'},palettes:CURATED_PALETTES[kit.recipe.palette],drawings:CURATED_DRAWINGS[kit.recipe.tileSize],
-    renderedDrawings:families.flatMap(family=>[false,true].flatMap(weathered=>[0,1,2].map(composition=>({family,composition,weathered,rows:artRows(kit.recipe.tileSize,family,composition,weathered)}))))};
+  return {format:'retro-terrain-art/1',recipe:kit.recipe,symbols:{0:'ground plane',1:'shadow or depression',2:'light face',3:'restrained highlight'},featureRoles:{structure:'Primary form retained during weathering',detail:'Whole secondary feature may be removed'},palettes:CURATED_PALETTES[kit.recipe.palette],drawings:CURATED_DRAWINGS[kit.recipe.tileSize],
+    renderedDrawings:families.flatMap(family=>[false,true].flatMap(weathered=>CURATED_COMPOSITIONS.map(composition=>({family,composition,weathered,rows:artRows(kit.recipe.tileSize,family,composition,weathered)}))))};
 }
 export function describeCuratedTerrain(kit) {
   const n=kit.recipe.tileSize;
-  return {format:'retro-terrain-pack/2',generator:CURATED_VERSION,recipe:kit.recipe,tileSize:n,visualReview:'unapproved',sampling:{filter:'nearest',colorSpace:'srgb'},palettes:CURATED_PALETTES[kit.recipe.palette],paletteBudgets:n===16?{grass:3,dirt:3,gravel:4}:{grass:8,dirt:12,gravel:12},
+  return {format:'retro-terrain-pack/2',generator:CURATED_VERSION,recipe:kit.recipe,tileSize:n,visualReview:'unapproved',sampling:{filter:'nearest',colorSpace:'srgb'},palettes:CURATED_PALETTES[kit.recipe.palette],paletteBudgets:n===16?{grass:3,dirt:3,gravel:4,moss:3,rock:4,masonry:4,timber:4}:{grass:8,dirt:12,gravel:12,moss:3,rock:4,masonry:4,timber:4},
     provenance:{author:'Original native drawings for our projects',restrictedInputs:[],training:false,autotileSource:{repository:'Grout-Library',commit:'34016ee18a7e9b072495d728a0be1e02caf232a6',license:'MIT',notice:'LICENSE-Grout.txt'}},
-    topology:n===16?{kind:'blob-47',bits:BLOB_BITS,columns:12,rows:4,mapping:BLOB_MASK_GRID.flatMap((row,y)=>row.map((mask,x)=>({mask,x:x*16,y:y*16,...(blobAtlasPosition(mask).x!==x||blobAtlasPosition(mask).y!==y?{alias:true}:{})}))),diagonals:'Only when both adjoining cardinal neighbors exist'}:{kind:'corner-16',bits:{NW:1,NE:2,SE:4,SW:8},diagonals:'Disconnected grass corners'},
-    pathBits:CURATED_PATH_BITS,pathPortWidth:n===16?6:20,compositions:{count:3,method:'Independent authored cluster counts, footprints and negative space; spatial seed selection in full and boundary cells',boundaryStrip:n===16?2:4,topologySheets:'Composition zero; alternatives compose from exported surfaces inside the same silhouette'},
+    families:families.map(id=>({id,compositions:4,weathering:true,relationship:CURATED_RELATIONSHIPS.includes(id+'-dirt')&&(n===16||id!=='gravel')?id+'-dirt':null,boundary:id==='masonry'||id==='timber'?'shared primary structure':'quiet ground'})),
+    topology:n===16?{kind:'blob-47',bits:BLOB_BITS,columns:12,rows:4,mapping:BLOB_MASK_GRID.flatMap((row,y)=>row.map((mask,x)=>({mask,x:x*16,y:y*16,...(blobAtlasPosition(mask).x!==x||blobAtlasPosition(mask).y!==y?{alias:true}:{})}))),diagonals:'Only when both adjoining cardinal neighbors exist'}:{kind:'corner-16',bits:{NW:1,NE:2,SE:4,SW:8},diagonals:'Disconnected foreground corners'},
+    pathBits:CURATED_PATH_BITS,pathPortWidth:n===16?6:20,compositions:{count:4,method:'Independent authored cluster counts, footprints and negative space; spatial seed selection in full and boundary cells',boundaryStrip:n===16?2:4,weathering:'Retain primary structure; remove whole secondary features and change interior planes',topologySheets:'Composition zero; alternatives compose from exported surfaces inside the same silhouette',masking:'Clip primary planes; retain or omit complete secondary clusters after native quadrant assembly'},
     tiles:kit.tiles.map(({id,role,family,width,height,composition,weathered,blobMask,cornerMask,pathMask})=>{
       const mask=blobMask??cornerMask??pathMask,prefix=weathered?'weathered-':'';
       const atlasId=role==='path-overlay'?prefix+'gravel-path-atlas':prefix+family+'-atlas';

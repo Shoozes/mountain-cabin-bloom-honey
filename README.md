@@ -1,7 +1,8 @@
-# Grout Shader: texture authoring
+# Grout Shader: textures and sprite authoring
 
 A local texture mill and PNG gallery built with React, TanStack Start and Vite.
-Author shader tiles, multi-channel materials and original native pixel terrain.
+Author shader tiles, multi-channel materials, original native pixel terrain and
+layered sprites through the new Grout Art workbench.
 Gknome owns project configuration, task routing, context and guarded Git workflow.
 
 ## Start and verify
@@ -25,6 +26,10 @@ required by the framework; current retained local proof uses Node 26.5.
 
 ## Authoring
 
+- [Grout Art sprite workflow](docs/look-dev/grout-art.md): `/studio`, the reusable
+  CPU/GLSL/WGSL SDK, atlas exports and `/examples` with the donor migration index.
+- [Character creators](docs/look-dev/character-creator.md): native character assembly,
+  reusable template editing, coherent palettes and deterministic generation.
 - [Texture and shader guide](docs/look-dev/texture-authoring.md): catalog, material
   recipes, mesh baking, public PNGs and existing commands.
 - [Original retro terrain](docs/look-dev/retro-terrain.md): preserved 64px kit.
@@ -40,6 +45,7 @@ required by the framework; current retained local proof uses Node 26.5.
 | Owner | Location |
 | --- | --- |
 | App and texture generators | `src/` |
+| Private reusable sprite SDK | `packages/grout-art/` |
 | Product bakers and browser/test orchestration | `scripts/` |
 | Gknome configuration and controller | `.tools/`, `.agents/`, `summary_bank.json` |
 | Foundation verification | `tests/foundation/` |
@@ -72,3 +78,5 @@ AI-edited: 2026-10-11 | agent=Codex/root | model=unknown | effort=unknown | task
 AI-edited: 2026-10-11 | agent=Codex/root | model=unknown | effort=unknown | task=curated-retro-terrain | change=linked the additive native curated edition
 
 AI-edited: 2026-10-11 | agent=Codex/root | model=unknown | effort=unknown | task=review-recheck-cleanup | change=replaced stale publication-blocker wording with current art handoff
+
+AI-edited: 2026-10-16 | agent=Codex/root | task=grout-art-successor | change=linked original sprite Studio and reusable SDK

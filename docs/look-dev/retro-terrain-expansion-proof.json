@@ -1,0 +1,558 @@
+{
+  "format": "retro-terrain-expansion-proof/1",
+  "recordedAt": "2026-10-12T14:47:07.575Z",
+  "status": "Complete with verified limitations",
+  "baselineCommit": "4c15058c5e39ef4a0c9fdf6d411f3a7372b06061",
+  "baselineArtSha256": "fc21f554ed799a1924425c58ad7a955ffaae7888b83b5c77c5ecac24dd3641c5",
+  "candidate": "Verified local seven-material candidate; no Git publication",
+  "visualReview": "unapproved",
+  "generator": "retro-terrain-curated/2",
+  "pack": "retro-terrain-pack/2",
+  "materials": [
+    "dirt",
+    "grass",
+    "gravel",
+    "moss",
+    "rock",
+    "masonry",
+    "timber"
+  ],
+  "compositions": 4,
+  "sizes": [
+    16,
+    64
+  ],
+  "palettes": [
+    "woodland",
+    "dry-trail",
+    "cool-moor"
+  ],
+  "seeds": [
+    1204,
+    1215,
+    1233
+  ],
+  "sources": [
+    {
+      "file": "package.json",
+      "sha256": "0db762ddd0805e3076e3738bf16392f106a5ea702c31db2e58ee683ee70bda5c"
+    },
+    {
+      "file": "src/shader/retro-terrain-art.mjs",
+      "sha256": "1cbe6256136ba7d402ace1a0c3652ba9342f3ba9c8a8485de007cefd7089e911"
+    },
+    {
+      "file": "src/shader/retro-terrain-art.d.mts",
+      "sha256": "be7040326f73676ea602a2425083ec8c5e77e65d0be127caa8cda08c054f6433"
+    },
+    {
+      "file": "src/shader/retro-terrain-curated.mjs",
+      "sha256": "541647b7f3ee0db0626843a3330a66befdc5f26b101c19f0031f3dbcfc174f4d"
+    },
+    {
+      "file": "src/shader/retro-terrain-curated.d.mts",
+      "sha256": "849b8908c71827b6cab6591073bbcf1a53b2aefe6b77024a6bf9e0d862b97cd3"
+    },
+    {
+      "file": "src/shader/retro-autotile.mjs",
+      "sha256": "a38828427a26e7409885eaf1ded6874351b0a29f87532821ca3c21ceae745a9e"
+    },
+    {
+      "file": "src/shader/retro-autotile.d.mts",
+      "sha256": "33354752c2156d4ab468568f3fbb5698b96501419777fbfd45e9d35ef99fd1c1"
+    },
+    {
+      "file": "src/shader/retro-terrain.mjs",
+      "sha256": "76fa9fb6e1053954828cbb35f893a29160c8e4cd92a7ef125fa40ff7aa10f9d2"
+    },
+    {
+      "file": "src/shader/retro-terrain-growth.mjs",
+      "sha256": "d6be8ef56ae23de66d8849b7bf40d0940404aa0ce718eeba75835bcb39db3040"
+    },
+    {
+      "file": "src/shader/retro-terrain-browser.mjs",
+      "sha256": "582d17fd034a7db9e078eca6009084078e8641578d7cd4e2dc746eb5301c6d02"
+    },
+    {
+      "file": "src/components/retro-terrain-panel.tsx",
+      "sha256": "a4fab550e4b16a7094683a34d3d82f947e0b9207237bbd282962e1f78e5d1020"
+    },
+    {
+      "file": "scripts/retro-terrain-curated.test.mjs",
+      "sha256": "a6d5c04051dae287c2886bfeaacd99bfe793b80b8a85b8125c21f5c9e6b7aa8f"
+    },
+    {
+      "file": "scripts/retro-autotile.test.mjs",
+      "sha256": "e55a8102307166bd41dea8e2de889358b30a6ad84b9694ccd14796865158bb82"
+    },
+    {
+      "file": "scripts/bake-retro-terrain-curated.test.mjs",
+      "sha256": "e825a084812597ccb75dad380f550838a3d874896adafe6a7398dd6584b6bbc6"
+    },
+    {
+      "file": "scripts/bake-retro-terrain-curated.mjs",
+      "sha256": "f8e55fbfbd7f42a0dbef74cbb05c10ddf2b98ba26f6a8776a874a6726db75916"
+    },
+    {
+      "file": "scripts/test-retro-terrain-curated-browser.mjs",
+      "sha256": "21152dd38d1218367d7d2282b885497aa00ee0790dd414b8b607d8d271b904fe"
+    },
+    {
+      "file": "scripts/study-retro-terrain-curated.mjs",
+      "sha256": "51cf677cdcfbca83771ef033c35a470d854a524fdf8cc9352c61ce0ce504f70f"
+    },
+    {
+      "file": "scripts/material-png.mjs",
+      "sha256": "a8c63520bbbd5eb8d6a5ddf7751a819171c8d49a7b94ae27ca589228e63e31a8"
+    },
+    {
+      "file": "scripts/fixtures/retro-terrain-preserved-20261011.json",
+      "sha256": "3860c4bf5ebaba783197640cdb145b8d19a646d811fdf76713f6370fcb960f0c"
+    },
+    {
+      "file": "scripts/fixtures/retro-terrain-unaffected-20261012.json",
+      "sha256": "fc08749816faa488dace84a26b579e4afe9db8c8da08b2dad50a2bec2853762f"
+    },
+    {
+      "file": "scripts/fixtures/retro-terrain-gravel-baseline-20261012.json",
+      "sha256": "c006aed035de26fd867bd9d3bbc0f72e0e39832cc2149572358a12c2848e377b"
+    },
+    {
+      "file": "scripts/fixtures/retro-terrain-curated-v2.json",
+      "sha256": "5cb80eadabfb7fc1ab54cc339f17a724e8175989aca65e6c7c345f18b39482f4"
+    }
+  ],
+  "checks": [
+    {
+      "program": "npm",
+      "finishedAtUtc": "2026-10-12T14:34:06.6592819Z",
+      "name": "tests-final",
+      "exitCode": 0,
+      "runtime": {
+        "node": "v26.5.0",
+        "powershell": "7.6.6"
+      },
+      "startedAtUtc": "2026-10-12T14:32:57.0777891Z",
+      "artSha256": "1cbe6256136ba7d402ace1a0c3652ba9342f3ba9c8a8485de007cefd7089e911",
+      "log": ".artifacts/retro-terrain-expansion/checks/tests-final.log",
+      "arguments": [
+        "test"
+      ]
+    },
+    {
+      "startedAtUtc": "2026-10-12T14:33:57.3348092Z",
+      "finishedAtUtc": "2026-10-12T14:33:59.6532222Z",
+      "program": "npm",
+      "log": ".artifacts/retro-terrain-expansion/checks/typecheck-final.log",
+      "artSha256": "1cbe6256136ba7d402ace1a0c3652ba9342f3ba9c8a8485de007cefd7089e911",
+      "runtime": {
+        "node": "v26.5.0",
+        "powershell": "7.6.6"
+      },
+      "exitCode": 0,
+      "arguments": [
+        "run",
+        "typecheck"
+      ],
+      "name": "typecheck-final"
+    },
+    {
+      "finishedAtUtc": "2026-10-12T14:44:24.8262274Z",
+      "log": ".artifacts/retro-terrain-expansion/checks/lint-final-r3.log",
+      "name": "lint-final-r3",
+      "program": "npm",
+      "artSha256": "1cbe6256136ba7d402ace1a0c3652ba9342f3ba9c8a8485de007cefd7089e911",
+      "startedAtUtc": "2026-10-12T14:44:20.3436282Z",
+      "runtime": {
+        "powershell": "7.6.6",
+        "node": "v26.5.0"
+      },
+      "arguments": [
+        "run",
+        "lint"
+      ],
+      "exitCode": 0
+    },
+    {
+      "runtime": {
+        "node": "v26.5.0",
+        "powershell": "7.6.6"
+      },
+      "program": "npm",
+      "startedAtUtc": "2026-10-12T14:33:57.3389113Z",
+      "log": ".artifacts/retro-terrain-expansion/checks/build-final.log",
+      "artSha256": "1cbe6256136ba7d402ace1a0c3652ba9342f3ba9c8a8485de007cefd7089e911",
+      "exitCode": 0,
+      "finishedAtUtc": "2026-10-12T14:34:00.6535585Z",
+      "arguments": [
+        "run",
+        "build"
+      ],
+      "name": "build-final"
+    },
+    {
+      "runtime": {
+        "node": "v26.5.0",
+        "powershell": "7.6.6"
+      },
+      "program": "npm",
+      "startedAtUtc": "2026-10-12T14:34:00.7325689Z",
+      "log": ".artifacts/retro-terrain-expansion/checks/build-pages-final.log",
+      "artSha256": "1cbe6256136ba7d402ace1a0c3652ba9342f3ba9c8a8485de007cefd7089e911",
+      "exitCode": 0,
+      "finishedAtUtc": "2026-10-12T14:34:03.8986639Z",
+      "arguments": [
+        "run",
+        "build:pages"
+      ],
+      "name": "build-pages-final"
+    },
+    {
+      "exitCode": 0,
+      "finishedAtUtc": "2026-10-12T14:36:41.6279447Z",
+      "startedAtUtc": "2026-10-12T14:33:57.3378598Z",
+      "log": ".artifacts/retro-terrain-expansion/checks/browser-dev-final.log",
+      "arguments": [
+        "scripts/test-retro-terrain-curated-browser.mjs",
+        "--dev-url",
+        "http://127.0.0.1:8080/"
+      ],
+      "program": "node",
+      "artSha256": "1cbe6256136ba7d402ace1a0c3652ba9342f3ba9c8a8485de007cefd7089e911",
+      "name": "browser-dev-final",
+      "runtime": {
+        "node": "v26.5.0",
+        "powershell": "7.6.6"
+      }
+    },
+    {
+      "exitCode": 0,
+      "startedAtUtc": "2026-10-12T14:34:41.8770892Z",
+      "arguments": [
+        "scripts/test-retro-terrain-curated-browser.mjs"
+      ],
+      "log": ".artifacts/retro-terrain-expansion/checks/browser-pages-final.log",
+      "name": "browser-pages-final",
+      "artSha256": "1cbe6256136ba7d402ace1a0c3652ba9342f3ba9c8a8485de007cefd7089e911",
+      "finishedAtUtc": "2026-10-12T14:36:14.7512151Z",
+      "program": "node",
+      "runtime": {
+        "powershell": "7.6.6",
+        "node": "v26.5.0"
+      }
+    },
+    {
+      "log": ".artifacts/retro-terrain-expansion/checks/bake16.log",
+      "runtime": {
+        "powershell": "7.6.6",
+        "node": "v26.5.0"
+      },
+      "exitCode": 0,
+      "artSha256": "1cbe6256136ba7d402ace1a0c3652ba9342f3ba9c8a8485de007cefd7089e911",
+      "name": "bake16",
+      "finishedAtUtc": "2026-10-12T14:34:42.7313134Z",
+      "arguments": [
+        "run",
+        "bake:retro-terrain-curated",
+        "--",
+        "--tile-size",
+        "16",
+        "--seed",
+        "1204",
+        "--palette",
+        "woodland",
+        "--out",
+        ".artifacts/retro-terrain-expansion/kits"
+      ],
+      "startedAtUtc": "2026-10-12T14:34:41.8812357Z",
+      "program": "npm"
+    },
+    {
+      "log": ".artifacts/retro-terrain-expansion/checks/bake64.log",
+      "runtime": {
+        "powershell": "7.6.6",
+        "node": "v26.5.0"
+      },
+      "exitCode": 0,
+      "artSha256": "1cbe6256136ba7d402ace1a0c3652ba9342f3ba9c8a8485de007cefd7089e911",
+      "name": "bake64",
+      "finishedAtUtc": "2026-10-12T14:34:43.8284527Z",
+      "arguments": [
+        "run",
+        "bake:retro-terrain-curated",
+        "--",
+        "--tile-size",
+        "64",
+        "--seed",
+        "1204",
+        "--palette",
+        "woodland",
+        "--out",
+        ".artifacts/retro-terrain-expansion/kits"
+      ],
+      "startedAtUtc": "2026-10-12T14:34:42.7853984Z",
+      "program": "npm"
+    }
+  ],
+  "testCounts": {
+    "focusedBeforeSourceCleanup": 81,
+    "finalScripts": 317,
+    "finalShaderMaterial": 25,
+    "total": 342
+  },
+  "browsers": [
+    {
+      "receipt": ".artifacts/proof/retro-terrain-curated-browser/1791815637673-32520/receipt.json",
+      "sha256": "bc6b66ced1feb30bed5c9b8a431c2bd2e8078e96326c5af8e0e5e007083c9521",
+      "mode": "dev",
+      "cases": 18,
+      "decodedPngPairs": 6192,
+      "screenshots": [
+        ".artifacts/proof/retro-terrain-curated-browser/1791815637673-32520/desktop.png",
+        ".artifacts/proof/retro-terrain-curated-browser/1791815637673-32520/desktop-dpr2.png",
+        ".artifacts/proof/retro-terrain-curated-browser/1791815637673-32520/mobile-dpr1.png",
+        ".artifacts/proof/retro-terrain-curated-browser/1791815637673-32520/mobile-dpr2.png"
+      ],
+      "errors": [],
+      "resourcesReleased": true,
+      "oldCuratedDraft": true,
+      "exclusivePreview": true,
+      "cancelRetry": true,
+      "capturedRevision": true,
+      "previewScales": [
+        {
+          "device": "desktop",
+          "dpr": 1,
+          "view": "grass-grout-source",
+          "sourceWidth": 96,
+          "x": 3,
+          "y": 3,
+          "viewportWidth": 366,
+          "scrollWidth": 366
+        },
+        {
+          "device": "desktop",
+          "dpr": 1,
+          "view": "64px-patch",
+          "sourceWidth": 448,
+          "x": 1,
+          "y": 1,
+          "viewportWidth": 366,
+          "scrollWidth": 448
+        },
+        {
+          "device": "desktop",
+          "dpr": 2,
+          "view": "grass-grout-source",
+          "sourceWidth": 96,
+          "x": 6,
+          "y": 6,
+          "viewportWidth": 366,
+          "scrollWidth": 366
+        },
+        {
+          "device": "desktop",
+          "dpr": 2,
+          "view": "64px-patch",
+          "sourceWidth": 448,
+          "x": 1,
+          "y": 1,
+          "viewportWidth": 366,
+          "scrollWidth": 366
+        },
+        {
+          "device": "mobile",
+          "dpr": 1,
+          "view": "grass-grout-source",
+          "sourceWidth": 96,
+          "x": 3,
+          "y": 3,
+          "viewportWidth": 358,
+          "scrollWidth": 358
+        },
+        {
+          "device": "mobile",
+          "dpr": 1,
+          "view": "64px-patch",
+          "sourceWidth": 448,
+          "x": 1,
+          "y": 1,
+          "viewportWidth": 358,
+          "scrollWidth": 448
+        },
+        {
+          "device": "mobile",
+          "dpr": 2,
+          "view": "grass-grout-source",
+          "sourceWidth": 96,
+          "x": 6,
+          "y": 6,
+          "viewportWidth": 358,
+          "scrollWidth": 358
+        },
+        {
+          "device": "mobile",
+          "dpr": 2,
+          "view": "64px-patch",
+          "sourceWidth": 448,
+          "x": 1,
+          "y": 1,
+          "viewportWidth": 358,
+          "scrollWidth": 358
+        }
+      ]
+    },
+    {
+      "receipt": ".artifacts/proof/retro-terrain-curated-browser/1791815682192-2700/receipt.json",
+      "sha256": "3d11d0e61f84d26b8135d8a65ae264feec673b5715a588346cf30a758dbc5b24",
+      "mode": "pages",
+      "cases": 18,
+      "decodedPngPairs": 6192,
+      "screenshots": [
+        ".artifacts/proof/retro-terrain-curated-browser/1791815682192-2700/desktop.png",
+        ".artifacts/proof/retro-terrain-curated-browser/1791815682192-2700/desktop-dpr2.png",
+        ".artifacts/proof/retro-terrain-curated-browser/1791815682192-2700/mobile-dpr1.png",
+        ".artifacts/proof/retro-terrain-curated-browser/1791815682192-2700/mobile-dpr2.png"
+      ],
+      "errors": [],
+      "resourcesReleased": true,
+      "oldCuratedDraft": true,
+      "exclusivePreview": true,
+      "cancelRetry": true,
+      "capturedRevision": true,
+      "previewScales": [
+        {
+          "device": "desktop",
+          "dpr": 1,
+          "view": "grass-grout-source",
+          "sourceWidth": 96,
+          "x": 3,
+          "y": 3,
+          "viewportWidth": 366,
+          "scrollWidth": 366
+        },
+        {
+          "device": "desktop",
+          "dpr": 1,
+          "view": "64px-patch",
+          "sourceWidth": 448,
+          "x": 1,
+          "y": 1,
+          "viewportWidth": 366,
+          "scrollWidth": 448
+        },
+        {
+          "device": "desktop",
+          "dpr": 2,
+          "view": "grass-grout-source",
+          "sourceWidth": 96,
+          "x": 6,
+          "y": 6,
+          "viewportWidth": 366,
+          "scrollWidth": 366
+        },
+        {
+          "device": "desktop",
+          "dpr": 2,
+          "view": "64px-patch",
+          "sourceWidth": 448,
+          "x": 1,
+          "y": 1,
+          "viewportWidth": 366,
+          "scrollWidth": 366
+        },
+        {
+          "device": "mobile",
+          "dpr": 1,
+          "view": "grass-grout-source",
+          "sourceWidth": 96,
+          "x": 3,
+          "y": 3,
+          "viewportWidth": 358,
+          "scrollWidth": 358
+        },
+        {
+          "device": "mobile",
+          "dpr": 1,
+          "view": "64px-patch",
+          "sourceWidth": 448,
+          "x": 1,
+          "y": 1,
+          "viewportWidth": 358,
+          "scrollWidth": 448
+        },
+        {
+          "device": "mobile",
+          "dpr": 2,
+          "view": "grass-grout-source",
+          "sourceWidth": 96,
+          "x": 6,
+          "y": 6,
+          "viewportWidth": 358,
+          "scrollWidth": 358
+        },
+        {
+          "device": "mobile",
+          "dpr": 2,
+          "view": "64px-patch",
+          "sourceWidth": 448,
+          "x": 1,
+          "y": 1,
+          "viewportWidth": 358,
+          "scrollWidth": 358
+        }
+      ]
+    }
+  ],
+  "study": {
+    "path": "docs/look-dev/studies/retro-terrain-expanded-20261012-final/study.json",
+    "sha256": "2ec1a4d0d2d9a4c7513c7060c2ec29d87e7bc9fd6281da78c08fbbfa6dc46330",
+    "images": 52,
+    "pngBytes": 288134,
+    "renderedSeed": 1204,
+    "visualReview": "unapproved"
+  },
+  "preservation": {
+    "classicGrowthCases": 12,
+    "oldPaletteFamilies": [
+      "grass",
+      "dirt",
+      "gravel"
+    ],
+    "historicalUnpublishedSurfacePins": 108,
+    "activePngPins": 688,
+    "artistSource": "8dc422050f75bd39a9f75a0cc0fa86a9d3975dc04f65911c615ac0132f724c64",
+    "finalSource": "1cbe6256136ba7d402ace1a0c3652ba9342f3ba9c8a8485de007cefd7089e911",
+    "sourceCleanup": "Removed unused draft helpers; all drawing data, ramps and normal/weathered rows compared exactly"
+  },
+  "craftReview": {
+    "ownerApproval": false,
+    "inspected": "Native and integer bases, family/palette boards, individual/mixed repeats, connected normal/weathered terrain and paths, all eight final desktop/mobile captures",
+    "reviewer": "Linked pixel-art chat, scoped finishing worker, Codex/root integration"
+  },
+  "limitations": [
+    "Finite compositions, shared boundary bands and structural courses still show periodicity, especially rock and timber",
+    "Whole secondary feature masking leaves some narrow natural areas bare",
+    "Lint passes with four warnings in retained ignored recovery evidence; product source has no warnings",
+    "Engine receiving, PBR, shader anti-tiling, preview-helper repair and publication remain outside this batch"
+  ],
+  "retention": {
+    "baseline": ".artifacts/retro-terrain-expansion/baseline-20261012",
+    "artist": ".artifacts/retro-terrain-expansion/artist",
+    "recovery": ".artifacts/retro-terrain-expansion/finish-artist",
+    "failures": [
+      ".artifacts/retro-terrain-expansion/checks/focused.log",
+      ".artifacts/retro-terrain-expansion/checks/focused-r2.log",
+      ".artifacts/retro-terrain-expansion/checks/rock-recheck.log",
+      ".artifacts/retro-terrain-expansion/checks/lint.log",
+      ".artifacts/retro-terrain-expansion/checks/lint-final.log"
+    ],
+    "earlierStudies": [
+      "docs/look-dev/studies/retro-terrain-expanded-20261012",
+      "docs/look-dev/studies/retro-terrain-expanded-20261012-r2"
+    ],
+    "livePreview": ".runtime/gravel-polish-dev-20261012.json",
+    "ownedBrowserServers": "Released by both final browser receipts",
+    "temporaryCliCases": "Removed by each browser run"
+  }
+}

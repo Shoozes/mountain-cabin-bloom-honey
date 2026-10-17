@@ -1,7 +1,7 @@
 import {useEffect, useMemo, useRef, useState} from 'react';
 import {composeRetroTerrain,type RetroPixels} from '@/shader/retro-terrain.mjs';
 import {generateTerrainKit, composeRetroGrowth, composeRetroSurfaceVariants, validateTerrainKitRecipe, TERRAIN_SAMPLE, PATH_SAMPLE, type TerrainKitRecipe, type RetroPaletteId} from '@/shader/retro-terrain-growth.mjs';
-import {generateCuratedTerrain,validateCuratedRecipe,composeCuratedTerrain,composeCuratedSurface,type CuratedRecipe,type CuratedPalette} from '@/shader/retro-terrain-curated.mjs';
+import {generateCuratedTerrain,validateCuratedRecipe,composeCuratedTerrain,composeCuratedSurface,CURATED_FAMILIES,CURATED_COMPOSITIONS,CURATED_RELATIONSHIPS,type CuratedRecipe,type CuratedPalette,type CuratedComposition,type CuratedRelationship} from '@/shader/retro-terrain-curated.mjs';
 import {retroTerrainBrowserFiles} from '@/shader/retro-terrain-browser.mjs';
 import {paintMaterialCanvas} from '@/shader/material-browser.mjs';
 import {zipStore} from '@/shader/zip-store';
@@ -13,7 +13,7 @@ export function RetroTerrainPanel({open, onOpenChange, onPreview}: {
 }) {
   const [recipe, setRecipe] = useState<TerrainKitRecipe|CuratedRecipe>({id: 'retro-terrain-curated',tileSize:16, seed: 1204, palette:'woodland'});
   const [view, setView] = useState('dirt-0'), [repeat, setRepeat] = useState(1);
-  const [composition,setComposition]=useState<'mixed'|0|1|2>('mixed');
+  const [composition,setComposition]=useState<CuratedComposition>('mixed');
   const [ready, setReady] = useState(false), [busy, setBusy] = useState(false);
   const [status, setStatus] = useState('Original retro color — visual approval pending');
   const canvas = useRef<HTMLCanvasElement>(null), revision = useRef(0), exportRun = useRef<AbortController | null>(null);
@@ -30,8 +30,9 @@ export function RetroTerrainPanel({open, onOpenChange, onPreview}: {
     if('templates' in kit) {
       const curatedTile=kit.tiles.find(value=>value.id===view);
       let pixels:RetroPixels|undefined=curatedTile??kit.atlases.find(t=>t.id===view)??kit.templates.find(t=>t.id===view);
-      if(view==='patch'||view==='weathered-patch'||view==='gravel-patch')pixels=composeCuratedTerrain(kit,{composition,weathered:view==='weathered-patch',relationship:view==='gravel-patch'?'gravel-dirt':'grass-dirt'});
-      else if(view.startsWith('mixed-'))pixels=composeCuratedSurface(kit,view.slice(6),{composition});
+      const normalView=view.replace(/^weathered-/,''),weathered=view.startsWith('weathered-');
+      if(normalView==='patch'||['gravel-patch','moss-patch','rock-patch'].includes(normalView))pixels=composeCuratedTerrain(kit,{composition,weathered,relationship:(normalView==='patch'?'grass-dirt':normalView.replace('-patch','-dirt')) as CuratedRelationship});
+      else if(normalView.startsWith('mixed-'))pixels=composeCuratedSurface(kit,normalView.slice(6),{composition,weathered});
       if(curatedTile?.role==='path-overlay') {
         const data=kit.tiles.find(t=>t.id===(curatedTile.weathered?'weathered-':'')+'grass-0')!.data.slice();
         for(let at=0;at<data.length;at+=4)if(curatedTile.data[at+3])data.set(curatedTile.data.subarray(at,at+4),at);
@@ -102,7 +103,7 @@ export function RetroTerrainPanel({open, onOpenChange, onPreview}: {
   };
   return <details className="retro-terrain-panel" open={open} onToggle={event => onOpenChange(event.currentTarget.open)}>
     <summary>Retro terrain · {recipe.id==='retro-terrain-curated'?recipe.tileSize:64} px</summary>
-    <p className="lede">Native drawings, worn surfaces and earthen gravel paths. Compare compositions and connected terrain.</p>
+    <p className="lede">Native terrain, stone and timber drawings. Compare four compositions, worn surfaces and connected gravel paths.</p>
     <div ref={previewViewport} className="retro-preview-viewport" tabIndex={0} role="region" aria-label="Retro terrain preview viewport">
       <canvas ref={canvas} className="pixelated retro-preview" style={{width: previewWidth}} aria-label="Retro terrain preview" />
     </div>
@@ -113,7 +114,7 @@ export function RetroTerrainPanel({open, onOpenChange, onPreview}: {
       {recipe.id==='retro-terrain-curated'&&<>
         <label className="field">Native size<select aria-label="Terrain size" value={recipe.tileSize} onChange={event=>{revision.current++;setRecipe({...recipe,tileSize:Number(event.target.value) as 16|64});setView('dirt-0');setStatus('Unsaved retro terrain changes');}}><option value="16">16 × 16</option><option value="64">64 × 64</option></select></label>
         <label className="field">Palette<select aria-label="Terrain palette" value={recipe.palette} onChange={event=>{revision.current++;setRecipe({...recipe,palette:event.target.value as CuratedPalette});setStatus('Unsaved retro terrain changes');}}><option value="woodland">Woodland · moss, earth, stone</option><option value="dry-trail">Dry trail · ochre, clay, chalk</option><option value="cool-moor">Cool moor · teal, taupe, slate</option></select></label>
-        <label className="field">Connected composition<select aria-label="Terrain composition" value={composition} onChange={event=>setComposition(event.target.value==='mixed'?'mixed':Number(event.target.value) as 0|1|2)}><option value="mixed">Seeded mix</option>{[0,1,2].map(c=><option key={c} value={c}>Composition {c+1}</option>)}</select></label>
+        <label className="field">Connected composition<select aria-label="Terrain composition" value={composition} onChange={event=>setComposition(event.target.value==='mixed'?'mixed':Number(event.target.value) as 0|1|2|3)}><option value="mixed">Seeded mix</option>{CURATED_COMPOSITIONS.map(c=><option key={c} value={c}>Composition {c+1}</option>)}</select></label>
       </>}
       {recipe.id==='retro-terrain-growth'&&<label className="field">Palette<select aria-label="Terrain palette" value={recipe.palette} onChange={event=>{revision.current++;setRecipe({...recipe,palette:event.target.value as RetroPaletteId});setStatus('Unsaved retro terrain changes');}}>
         <option value="heath">Heath · sage, rose soil, slate</option><option value="riverbed">Riverbed · teal, clay, blue stone</option><option value="original">Original colors</option>
@@ -122,7 +123,7 @@ export function RetroTerrainPanel({open, onOpenChange, onPreview}: {
       <label className="field">Tile<select aria-label="Terrain tile" value={view} onChange={event => setView(event.target.value)}>
         <optgroup label="Surfaces">{(result.kit?.tiles??[]).filter(tile=>tile.role==='surface').map(tile=><option key={tile.id} value={tile.id}>{tile.id.replaceAll('-',' ')}</option>)}</optgroup>
         <optgroup label="Connected previews">{recipe.id!=='retro-terrain-curated'&&<option value="atlas">Transition sheet</option>}<option value="patch">Connected patch</option>
-          {recipe.id==='retro-terrain-curated'&&<><option value="weathered-patch">Weathered connected patch</option>{recipe.tileSize===16&&<option value="gravel-patch">Connected gravel terrain</option>}{['dirt','grass','gravel'].map(f=><option key={f} value={'mixed-'+f}>Mixed {f} · 4×4</option>)}</>}
+          {recipe.id==='retro-terrain-curated'&&<><option value="weathered-patch">Weathered connected patch</option>{CURATED_RELATIONSHIPS.filter(r=>r!=='grass-dirt'&&(recipe.tileSize===16||r!=='gravel-dirt')).flatMap(r=>{const f=r.split('-')[0];return [<option key={f} value={f+'-patch'}>Connected {f} terrain</option>,<option key={'weathered-'+f} value={'weathered-'+f+'-patch'}>Weathered connected {f}</option>];})}{CURATED_FAMILIES.flatMap(f=>[<option key={f} value={'mixed-'+f}>Mixed {f} · 4×4</option>,<option key={'weathered-'+f} value={'weathered-mixed-'+f}>Weathered mixed {f} · 4×4</option>])}</>}
           {recipe.id==='retro-terrain-growth'&&<><option value="path-patch">Connected gravel paths</option><option value="weathered-patch">Weathered path terrain</option><option value="weathered-grass-dirt-atlas">Weathered transitions</option><option value="gravel-path-atlas">Path sheet</option><option value="weathered-gravel-path-atlas">Weathered path sheet</option></>}
         </optgroup>
         {recipe.id==='retro-terrain-curated'&&result.kit&&'templates' in result.kit&&<optgroup label="Sheets and editable sources">{[...result.kit.atlases,...result.kit.templates].map(t=><option key={t.id} value={t.id}>{t.id.replaceAll('-',' ')}</option>)}</optgroup>}

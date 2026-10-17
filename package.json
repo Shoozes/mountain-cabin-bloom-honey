@@ -27,7 +27,9 @@
     "bake:retro-terrain-growth": "node scripts/bake-retro-terrain-growth.mjs",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "bake:retro-terrain-curated": "node scripts/bake-retro-terrain-curated.mjs"
+    "bake:retro-terrain-curated": "node scripts/bake-retro-terrain-curated.mjs",
+    "bake:art": "node scripts/bake-art.mjs",
+    "build:art-sdk": "node scripts/build-art-sdk.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.7.0",

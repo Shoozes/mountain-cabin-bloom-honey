@@ -3,7 +3,7 @@ import path from 'node:path';
 import {createHash,randomUUID} from 'node:crypto';
 import {execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
-import {generateMaterial,validateMaterialRecipe} from '../src/shader/material.mjs';
+import {generateMaterial,validateMaterialRecipe,MATERIAL_RECIPES} from '../src/shader/material.mjs';
 import {bakeVertexMesh,VERTEX_COLOR_GENERATOR,VERTEX_COLOR_OUTPUT_SEMANTICS,validateVertexColorSettings} from '../src/shader/vertex-colors.mjs';
 
 const root=fileURLToPath(new URL('../',import.meta.url)),MAX_JSON_BYTES=4*1048576;
@@ -28,8 +28,8 @@ function normalizeRestrictions(value){
  const result=value.map(item=>item.trim());if(result.some(item=>!item||item.length>256||[...item].some(c=>{const n=c.codePointAt(0);return n<32||n===127;}))||result.reduce((sum,item)=>sum+item.length,0)>4096)throw Error('Invalid restrictedInputs');return [...new Set(result)].sort();
 }
 async function recipeValue(recipe,seed){
- let input=recipe;if(typeof recipe==='string')input=['hd2d-cliff','hd2d-cliff-strata','style-surface'].includes(recipe)?{id:recipe}:(await readJsonFile(path.resolve(recipe),'Recipe')).value;
- if(!input||typeof input!=='object'||Array.isArray(input))throw Error('Recipe must be a supported cliff recipe or a recipe JSON object/path');
+ let input=recipe;if(typeof recipe==='string')input=Object.hasOwn(MATERIAL_RECIPES,recipe)?{id:recipe}:(await readJsonFile(path.resolve(recipe),'Recipe')).value;
+ if(!input||typeof input!=='object'||Array.isArray(input))throw Error('Recipe must be a supported material recipe or a recipe JSON object/path');
  if(seed!==undefined)input={...input,seed};return validateMaterialRecipe(input);
 }
 
@@ -44,7 +44,8 @@ export async function bakeVertexColors({mesh,meshPath,recipe='hd2d-cliff',seed,s
  const recipeData=await recipeValue(recipe,seed),settings=validateVertexColorSettings(settingsInput),sourceRestrictions=normalizeRestrictions(restrictedInputs);
  const generated=generateMaterial(recipeData),albedo={...generated.channels.albedo,colorSpace:'srgb'};
  const source={meshSha256:hash(meshBytes),meshBytes:meshBytes.length,vertexCount:meshValue?.positions?.length,albedoSha256:hash(albedo.data),albedoSize:[albedo.width,albedo.height],colorSpace:'srgb',restrictedInputs:sourceRestrictions};
- const sourceFiles=[];for(const relative of ['src/shader/material.mjs','src/shader/vertex-colors.mjs','scripts/bake-vertex-colors.mjs']){const bytes=await fs.readFile(path.join(root,relative));sourceFiles.push({path:relative,sha256:hash(bytes)});}
+ const sourcePaths=['src/shader/material.mjs','src/shader/vertex-colors.mjs','scripts/bake-vertex-colors.mjs'];if(recipeData.id==='realistic-surface')sourcePaths.push('src/shader/material-realistic.mjs');
+ const sourceFiles=[];for(const relative of sourcePaths){const bytes=await fs.readFile(path.join(root,relative));sourceFiles.push({path:relative,sha256:hash(bytes)});}
  let sourceTip;try{sourceTip=execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8',windowsHide:true,timeout:5000}).trim();}catch{sourceTip=null;}
  const identity=hash(JSON.stringify({generator:VERTEX_COLOR_GENERATOR,recipe:recipeData,settings,source,sourceFiles})),destination=path.resolve(output),final=path.join(destination,recipeData.id+'-'+identity.slice(0,12)),pending=path.join(destination,'.pending-'+randomUUID());
  const baked=await bakeVertexMesh({mesh:meshValue,albedo,settings,signal,onProgress}),meshOutput=Buffer.from(JSON.stringify(baked,null,2)+'\n');if(meshOutput.length>MAX_JSON_BYTES)throw Error('Baked mesh JSON exceeds the 4 MiB output limit');
@@ -61,9 +62,9 @@ export async function bakeVertexColors({mesh,meshPath,recipe='hd2d-cliff',seed,s
  }catch(error){if(path.dirname(pending)!==destination||!path.basename(pending).startsWith('.pending-'))throw Error('Invalid temporary vertex-color output ownership');await fs.rm(pending,{recursive:true,force:true});throw error;}
 }
 
-export function parseVertexColorArgs(args){const options={};for(let i=0;i<args.length;i++){const key=args[i];if(!['--mesh','--recipe','--seed','--settings','--out'].includes(key)||args[i+1]===undefined||Object.hasOwn(options,key))throw Error('Usage: npm run bake:vertex-colors -- --mesh mesh.json --recipe hd2d-cliff|hd2d-cliff-strata|style-surface|recipe.json [--seed n] [--settings settings.json] --out <directory>');options[key]=args[++i];}if(!options['--mesh']||!options['--recipe']||!options['--out'])throw Error('Usage: npm run bake:vertex-colors -- --mesh mesh.json --recipe hd2d-cliff|hd2d-cliff-strata|style-surface|recipe.json [--seed n] [--settings settings.json] --out <directory>');if(options['--seed']!==undefined&&(!/^(0|[1-9]\d*)$/.test(options['--seed'])||Number(options['--seed'])>0xffffffff))throw Error('Invalid seed');return options;}
+export function parseVertexColorArgs(args){const options={};for(let i=0;i<args.length;i++){const key=args[i];if(!['--mesh','--recipe','--seed','--settings','--out'].includes(key)||args[i+1]===undefined||Object.hasOwn(options,key))throw Error('Usage: npm run bake:vertex-colors -- --mesh mesh.json --recipe hd2d-cliff|hd2d-cliff-strata|style-surface|realistic-surface|recipe.json [--seed n] [--settings settings.json] --out <directory>');options[key]=args[++i];}if(!options['--mesh']||!options['--recipe']||!options['--out'])throw Error('Usage: npm run bake:vertex-colors -- --mesh mesh.json --recipe hd2d-cliff|hd2d-cliff-strata|style-surface|realistic-surface|recipe.json [--seed n] [--settings settings.json] --out <directory>');if(options['--seed']!==undefined&&(!/^(0|[1-9]\d*)$/.test(options['--seed'])||Number(options['--seed'])>0xffffffff))throw Error('Invalid seed');return options;}
 async function main(){
- const options=parseVertexColorArgs(process.argv.slice(2)),meshPath=path.resolve(options['--mesh']),recipe=['hd2d-cliff','hd2d-cliff-strata','style-surface'].includes(options['--recipe'])?options['--recipe']:path.resolve(options['--recipe']),settings=options['--settings']?(await readJsonFile(path.resolve(options['--settings']),'Settings')).value:{};
+ const options=parseVertexColorArgs(process.argv.slice(2)),meshPath=path.resolve(options['--mesh']),recipe=Object.hasOwn(MATERIAL_RECIPES,options['--recipe'])?options['--recipe']:path.resolve(options['--recipe']),settings=options['--settings']?(await readJsonFile(path.resolve(options['--settings']),'Settings')).value:{};
  const abort=new AbortController(),cancel=()=>abort.abort(Error('Vertex-color bake cancelled')),timer=setTimeout(()=>abort.abort(Error('Vertex-color bake exceeded 2 minutes')),120000);timer.unref();process.once('SIGINT',cancel);process.once('SIGTERM',cancel);
  try{const result=await bakeVertexColors({meshPath,recipe,seed:options['--seed']===undefined?undefined:Number(options['--seed']),settings,output:options['--out'],signal:abort.signal,onProgress:p=>{if(p.stage==='complete'||p.done%2048===0)console.log(JSON.stringify({progress:p.stage,done:p.done,total:p.total}));}});console.log(JSON.stringify({directory:result.directory,identity:result.manifest.identity,vertices:result.manifest.source.vertexCount,reused:result.reused}));}
  finally{clearTimeout(timer);process.removeListener('SIGINT',cancel);process.removeListener('SIGTERM',cancel);}

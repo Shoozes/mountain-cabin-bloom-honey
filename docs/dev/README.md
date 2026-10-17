@@ -5,6 +5,10 @@ and shader test modules, and assets in `public/`. `source/README.md` and
 `tests/product/README.md` are compatibility pointers retained at original
 provenance paths, not a second application or mandatory test migration.
 
+`packages/grout-art/` owns the private reusable ESM sprite SDK. Its
+[guide](../look-dev/grout-art.md) describes the `grout-art/1` recipe,
+headless/browser consumers, exact GPU profile and focused browser proof.
+
 Use `.tools/project.json`, typed spec/state and controller operations as the
 Gknome ownership contract. Select actual source/test groups from
 `summary_bank.json`; credential-bearing `src/lib/auth` is excluded from context
@@ -26,3 +30,5 @@ preserve these customized task IDs, adapters and caller-owned files.
 
 ---
 AI-edited: 2026-10-11T19:40:02-04:00 | agent=Codex/root | model=unknown | effort=unknown | task=docs | change=bound standalone texture tool foundation and guarded workflow
+
+AI-edited: 2026-10-16 | agent=Codex/root | task=grout-art-successor | change=added the sprite SDK ownership route

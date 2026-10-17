@@ -1,0 +1,1999 @@
+{
+  "format": "grout-art/1",
+  "name": "Fern traveler",
+  "width": 16,
+  "height": 16,
+  "seed": 1204,
+  "palette": {
+    "outline": "#26323f",
+    "hair": "#925b3f",
+    "skinShadow": "#925b3f",
+    "skin": "#edc17f",
+    "skinLight": "#edc17f",
+    "clothShadow": "#26323f",
+    "cloth": "#6b9b60",
+    "clothLight": "#6b9b60",
+    "boot": "#26323f",
+    "bootLight": "#925b3f",
+    "cap": "#6b9b60",
+    "accent": "#edc17f",
+    "tunic": "#edc17f",
+    "vest": "#925b3f"
+  },
+  "parts": {
+    "coat-south": [
+      {
+        "op": "mask",
+        "rows": [
+          ".occcco.",
+          ".occcco.",
+          "..occo.."
+        ],
+        "ink": {
+          "o": "outline",
+          "c": "cloth",
+          "l": "clothLight",
+          "d": "clothShadow"
+        },
+        "x": 4,
+        "y": 10
+      }
+    ],
+    "cap-south": [
+      {
+        "op": "mask",
+        "rows": [
+          "......oo....",
+          "....oocoo...",
+          "...occccco..",
+          "..ocaccccco.",
+          ".occcccccco.",
+          "oooccccoooo."
+        ],
+        "ink": {
+          "o": "outline",
+          "c": "cap",
+          "a": "accent",
+          "d": "clothShadow"
+        },
+        "x": 2,
+        "y": 1
+      }
+    ],
+    "bag-south": [
+      {
+        "op": "mask",
+        "rows": [
+          ".bbbb.",
+          "bttttb",
+          "bttttb",
+          ".bbbb."
+        ],
+        "ink": {
+          "b": "boot",
+          "t": "bootLight",
+          "a": "accent"
+        },
+        "x": 5,
+        "y": 10
+      }
+    ],
+    "body-south-0": [
+      {
+        "op": "mask",
+        "rows": [
+          "..oooooo..",
+          ".ohhhhhho.",
+          "ohhsssshho",
+          "ohssssssho",
+          "ohssssssho",
+          ".osossoso.",
+          "..osssso..",
+          "...oddo..."
+        ],
+        "ink": {
+          "h": "hair",
+          "o": "outline",
+          "s": "skin",
+          "d": "skinShadow",
+          "l": "skinLight"
+        },
+        "x": 3,
+        "y": 2
+      },
+      {
+        "op": "mask",
+        "rows": [
+          "oooo",
+          "occo",
+          "oooo"
+        ],
+        "ink": {
+          "o": "outline",
+          "c": "cloth",
+          "l": "clothLight",
+          "d": "clothShadow"
+        },
+        "x": 6,
+        "y": 10
+      },
+      {
+        "op": "mask",
+        "rows": [
+          "bbb",
+          "btb",
+          "bb."
+        ],
+        "ink": {
+          "b": "boot",
+          "t": "bootLight",
+          "a": "accent"
+        },
+        "x": 5,
+        "y": 13
+      },
+      {
+        "op": "mask",
+        "rows": [
+          "bbb",
+          "btb",
+          ".bb"
+        ],
+        "ink": {
+          "b": "boot",
+          "t": "bootLight",
+          "a": "accent"
+        },
+        "x": 8,
+        "y": 13
+      },
+      {
+        "op": "mask",
+        "rows": [
+          ".oo.",
+          "occo",
+          "osso",
+          ".oo."
+        ],
+        "ink": {
+          "o": "outline",
+          "c": "cloth",
+          "l": "clothLight",
+          "d": "clothShadow",
+          "s": "skin"
+        },
+        "x": 3,
+        "y": 9
+      },
+      {
+        "op": "mask",
+        "rows": [
+          ".oo.",
+          "occo",
+          "osso",
+          ".oo."
+        ],
+        "ink": {
+          "o": "outline",
+          "c": "cloth",
+          "l": "clothLight",
+          "d": "clothShadow",
+          "s": "skin"
+        },
+        "x": 9,
+        "y": 9
+      }
+    ],
+    "body-south-1": [
+      {
+        "op": "mask",
+        "rows": [
+          "..oooooo..",
+          ".ohhhhhho.",
+          "ohhsssshho",
+          "ohssssssho",
+          "ohssssssho",
+          ".osossoso.",
+          "..osssso..",
+          "...oddo..."
+        ],
+        "ink": {
+          "h": "hair",
+          "o": "outline",
+          "s": "skin",
+          "d": "skinShadow",
+          "l": "skinLight"
+        },
+        "x": 3,
+        "y": 3
+      },
+      {
+        "op": "mask",
+        "rows": [
+          "oooo",
+          "occo",
+          "oooo"
+        ],
+        "ink": {
+          "o": "outline",
+          "c": "cloth",
+          "l": "clothLight",
+          "d": "clothShadow"
+        },
+        "x": 6,
+        "y": 11
+      },
+      {
+        "op": "mask",
+        "rows": [
+          "bbb",
+          "btb",
+          "bb."
+        ],
+        "ink": {
+          "b": "boot",
+          "t": "bootLight",
+          "a": "accent"
+        },
+        "x": 8,
+        "y": 11
+      },
+      {
+        "op": "mask",
+        "rows": [
+          ".bb",
+          "btb",
+          "btb",
+          "bbb"
+        ],
+        "ink": {
+          "b": "boot",
+          "t": "bootLight",
+          "a": "accent"
+        },
+        "x": 5,
+        "y": 12
+      },
+      {
+        "op": "mask",
+        "rows": [
+          ".oo.",
+          "osso",
+          ".ooo"
+        ],
+        "ink": {
+          "o": "outline",
+          "c": "cloth",
+          "l": "clothLight",
+          "d": "clothShadow",
+          "s": "skin"
+        },
+        "x": 3,
+        "y": 10
+      },
+      {
+        "op": "mask",
+        "rows": [
+          ".o..",
+          "oco.",
+          "oso.",
+          ".o.."
+        ],
+        "ink": {
+          "o": "outline",
+          "c": "cloth",
+          "l": "clothLight",
+          "d": "clothShadow",
+          "s": "skin"
+        },
+        "x": 9,
+        "y": 10
+      }
+    ],
+    "body-south-2": [
+      {
+        "op": "mask",
+        "rows": [
+          "..oooooo..",
+          ".ohhhhhho.",
+          "ohhsssshho",
+          "ohssssssho",
+          "ohssssssho",
+          ".osossoso.",
+          "..osssso..",
+          "...oddo..."
+        ],
+        "ink": {
+          "h": "hair",
+          "o": "outline",
+          "s": "skin",
+          "d": "skinShadow",
+          "l": "skinLight"
+        },
+        "x": 3,
+        "y": 3
+      },
+      {
+        "op": "mask",
+        "rows": [
+          "oooo",
+          "occo",
+          "oooo"
+        ],
+        "ink": {
+          "o": "outline",
+          "c": "cloth",
+          "l": "clothLight",
+          "d": "clothShadow"
+        },
+        "x": 6,
+        "y": 11
+      },
+      {
+        "op": "mask",
+        "rows": [
+          "bbb",
+          "btb",
+          ".bb"
+        ],
+        "ink": {
+          "b": "boot",
+          "t": "bootLight",
+          "a": "accent"
+        },
+        "x": 5,
+        "y": 11
+      },
+      {
+        "op": "mask",
+        "rows": [
+          "bb.",
+          "btb",
+          "btb",
+          "bbb"
+        ],
+        "ink": {
+          "b": "boot",
+          "t": "bootLight",
+          "a": "accent"
+        },
+        "x": 8,
+        "y": 12
+      },
+      {
+        "op": "mask",
+        "rows": [
+          "..o.",
+          ".oco",
+          ".oso",
+          "..o."
+        ],
+        "ink": {
+          "o": "outline",
+          "c": "cloth",
+          "l": "clothLight",
+          "d": "clothShadow",
+          "s": "skin"
+        },
+        "x": 3,
+        "y": 10
+      },
+      {
+        "op": "mask",
+        "rows": [
+          ".oo.",
+          "osso",
+          "ooo."
+        ],
+        "ink": {
+          "o": "outline",
+          "c": "cloth",
+          "l": "clothLight",
+          "d": "clothShadow",
+          "s": "skin"
+        },
+        "x": 9,
+        "y": 10
+      }
+    ],
+    "coat-west": [
+      {
+        "op": "mask",
+        "rows": [
+          ".occco..",
+          ".occcco.",
+          "..occo.."
+        ],
+        "ink": {
+          "o": "outline",
+          "c": "cloth",
+          "l": "clothLight",
+          "d": "clothShadow"
+        },
+        "x": 4,
+        "y": 10
+      }
+    ],
+    "cap-west": [
+      {
+        "op": "mask",
+        "rows": [
+          "......oo....",
+          "....oocoo...",
+          "..ooccccco..",
+          ".ocaccccco..",
+          "occcccccco..",
+          ".ooocccooo.."
+        ],
+        "ink": {
+          "o": "outline",
+          "c": "cap",
+          "a": "accent",
+          "d": "clothShadow"
+        },
+        "x": 2,
+        "y": 1
+      }
+    ],
+    "bag-west": [
+      {
+        "op": "mask",
+        "rows": [
+          ".bb.",
+          "bttb",
+          "bttb",
+          ".bb."
+        ],
+        "ink": {
+          "b": "boot",
+          "t": "bootLight",
+          "a": "accent"
+        },
+        "x": 9,
+        "y": 9
+      }
+    ],
+    "body-west-0": [
+      {
+        "op": "mask",
+        "rows": [
+          "..oooooo..",
+          ".ohhhhhho.",
+          "ohhhhhhhho",
+          "olssshhhho",
+          "ossssshhho",
+          "ososhhhhho",
+          ".ossshhho.",
+          "..odddoo.."
+        ],
+        "ink": {
+          "h": "hair",
+          "o": "outline",
+          "s": "skin",
+          "d": "skinShadow",
+          "l": "skinLight"
+        },
+        "x": 3,
+        "y": 2
+      },
+      {
+        "op": "mask",
+        "rows": [
+          "oooo",
+          "occo",
+          "oooo"
+        ],
+        "ink": {
+          "o": "outline",
+          "c": "cloth",
+          "l": "clothLight",
+          "d": "clothShadow"
+        },
+        "x": 6,
+        "y": 10
+      },
+      {
+        "op": "mask",
+        "rows": [
+          ".bb",
+          "bbb"
+        ],
+        "ink": {
+          "b": "boot",
+          "t": "bootLight",
+          "a": "accent"
+        },
+        "x": 7,
+        "y": 12
+      },
+      {
+        "op": "mask",
+        "rows": [
+          ".bb.",
+          "bttb",
+          "bbbb"
+        ],
+        "ink": {
+          "b": "boot",
+          "t": "bootLight",
+          "a": "accent"
+        },
+        "x": 6,
+        "y": 13
+      },
+      {
+        "op": "mask",
+        "rows": [
+          "..oo...",
+          "..oco..",
+          "..osso.",
+          "...oo.."
+        ],
+        "ink": {
+          "o": "outline",
+          "c": "cloth",
+          "l": "clothLight",
+          "d": "clothShadow",
+          "s": "skin"
+        },
+        "x": 5,
+        "y": 9
+      }
+    ],
+    "body-west-1": [
+      {
+        "op": "mask",
+        "rows": [
+          "..oooooo..",
+          ".ohhhhhho.",
+          "ohhhhhhhho",
+          "olssshhhho",
+          "ossssshhho",
+          "ososhhhhho",
+          ".ossshhho.",
+          "..odddoo.."
+        ],
+        "ink": {
+          "h": "hair",
+          "o": "outline",
+          "s": "skin",
+          "d": "skinShadow",
+          "l": "skinLight"
+        },
+        "x": 3,
+        "y": 3
+      },
+      {
+        "op": "mask",
+        "rows": [
+          "oooo",
+          "occo",
+          "oooo"
+        ],
+        "ink": {
+          "o": "outline",
+          "c": "cloth",
+          "l": "clothLight",
+          "d": "clothShadow"
+        },
+        "x": 6,
+        "y": 11
+      },
+      {
+        "op": "mask",
+        "rows": [
+          ".bb.",
+          "btb.",
+          ".bbb"
+        ],
+        "ink": {
+          "b": "boot",
+          "t": "bootLight",
+          "a": "accent"
+        },
+        "x": 4,
+        "y": 11
+      },
+      {
+        "op": "mask",
+        "rows": [
+          "bb..",
+          "btb.",
+          "bttb",
+          "bbbb"
+        ],
+        "ink": {
+          "b": "boot",
+          "t": "bootLight",
+          "a": "accent"
+        },
+        "x": 8,
+        "y": 12
+      },
+      {
+        "op": "mask",
+        "rows": [
+          "..oo...",
+          ".ocoo..",
+          "osso...",
+          ".oo...."
+        ],
+        "ink": {
+          "o": "outline",
+          "c": "cloth",
+          "l": "clothLight",
+          "d": "clothShadow",
+          "s": "skin"
+        },
+        "x": 5,
+        "y": 10
+      }
+    ],
+    "body-west-2": [
+      {
+        "op": "mask",
+        "rows": [
+          "..oooooo..",
+          ".ohhhhhho.",
+          "ohhhhhhhho",
+          "olssshhhho",
+          "ossssshhho",
+          "ososhhhhho",
+          ".ossshhho.",
+          "..odddoo.."
+        ],
+        "ink": {
+          "h": "hair",
+          "o": "outline",
+          "s": "skin",
+          "d": "skinShadow",
+          "l": "skinLight"
+        },
+        "x": 3,
+        "y": 3
+      },
+      {
+        "op": "mask",
+        "rows": [
+          "oooo",
+          "occo",
+          "oooo"
+        ],
+        "ink": {
+          "o": "outline",
+          "c": "cloth",
+          "l": "clothLight",
+          "d": "clothShadow"
+        },
+        "x": 6,
+        "y": 11
+      },
+      {
+        "op": "mask",
+        "rows": [
+          "..bb",
+          ".btb",
+          "bbb."
+        ],
+        "ink": {
+          "b": "boot",
+          "t": "bootLight",
+          "a": "accent"
+        },
+        "x": 8,
+        "y": 11
+      },
+      {
+        "op": "mask",
+        "rows": [
+          "..bb",
+          ".btb",
+          "bttb",
+          "bbbb"
+        ],
+        "ink": {
+          "b": "boot",
+          "t": "bootLight",
+          "a": "accent"
+        },
+        "x": 4,
+        "y": 12
+      },
+      {
+        "op": "mask",
+        "rows": [
+          "..oo...",
+          "..occo.",
+          "...osso",
+          "....oo."
+        ],
+        "ink": {
+          "o": "outline",
+          "c": "cloth",
+          "l": "clothLight",
+          "d": "clothShadow",
+          "s": "skin"
+        },
+        "x": 5,
+        "y": 10
+      }
+    ],
+    "coat-east": [
+      {
+        "op": "mask",
+        "rows": [
+          "..occco.",
+          ".occcco.",
+          "..occo.."
+        ],
+        "ink": {
+          "o": "outline",
+          "c": "cloth",
+          "l": "clothLight",
+          "d": "clothShadow"
+        },
+        "x": 4,
+        "y": 10
+      }
+    ],
+    "cap-east": [
+      {
+        "op": "mask",
+        "rows": [
+          "....oo......",
+          "...oocoo....",
+          "..occcccoo..",
+          "..occcccaco.",
+          "..occcccccco",
+          "..ooocccooo."
+        ],
+        "ink": {
+          "o": "outline",
+          "c": "cap",
+          "a": "accent",
+          "d": "clothShadow"
+        },
+        "x": 2,
+        "y": 1
+      }
+    ],
+    "bag-east": [
+      {
+        "op": "mask",
+        "rows": [
+          ".bb.",
+          "bttb",
+          "bttb",
+          ".bb."
+        ],
+        "ink": {
+          "b": "boot",
+          "t": "bootLight",
+          "a": "accent"
+        },
+        "x": 3,
+        "y": 9
+      }
+    ],
+    "body-east-0": [
+      {
+        "op": "mask",
+        "rows": [
+          "..oooooo..",
+          ".ohhhhhho.",
+          "ohhhhhhhho",
+          "ohhhhssslo",
+          "ohhhssssso",
+          "ohhhhhsoso",
+          ".ohhhssso.",
+          "..oodddo.."
+        ],
+        "ink": {
+          "h": "hair",
+          "o": "outline",
+          "s": "skin",
+          "d": "skinShadow",
+          "l": "skinLight"
+        },
+        "x": 3,
+        "y": 2
+      },
+      {
+        "op": "mask",
+        "rows": [
+          "oooo",
+          "occo",
+          "oooo"
+        ],
+        "ink": {
+          "o": "outline",
+          "c": "cloth",
+          "l": "clothLight",
+          "d": "clothShadow"
+        },
+        "x": 6,
+        "y": 10
+      },
+      {
+        "op": "mask",
+        "rows": [
+          "bb.",
+          "bbb"
+        ],
+        "ink": {
+          "b": "boot",
+          "t": "bootLight",
+          "a": "accent"
+        },
+        "x": 6,
+        "y": 12
+      },
+      {
+        "op": "mask",
+        "rows": [
+          ".bb.",
+          "bttb",
+          "bbbb"
+        ],
+        "ink": {
+          "b": "boot",
+          "t": "bootLight",
+          "a": "accent"
+        },
+        "x": 6,
+        "y": 13
+      },
+      {
+        "op": "mask",
+        "rows": [
+          "...oo..",
+          "..oco..",
+          ".osso..",
+          "..oo..."
+        ],
+        "ink": {
+          "o": "outline",
+          "c": "cloth",
+          "l": "clothLight",
+          "d": "clothShadow",
+          "s": "skin"
+        },
+        "x": 4,
+        "y": 9
+      }
+    ],
+    "body-east-1": [
+      {
+        "op": "mask",
+        "rows": [
+          "..oooooo..",
+          ".ohhhhhho.",
+          "ohhhhhhhho",
+          "ohhhhssslo",
+          "ohhhssssso",
+          "ohhhhhsoso",
+          ".ohhhssso.",
+          "..oodddo.."
+        ],
+        "ink": {
+          "h": "hair",
+          "o": "outline",
+          "s": "skin",
+          "d": "skinShadow",
+          "l": "skinLight"
+        },
+        "x": 3,
+        "y": 3
+      },
+      {
+        "op": "mask",
+        "rows": [
+          "oooo",
+          "occo",
+          "oooo"
+        ],
+        "ink": {
+          "o": "outline",
+          "c": "cloth",
+          "l": "clothLight",
+          "d": "clothShadow"
+        },
+        "x": 6,
+        "y": 11
+      },
+      {
+        "op": "mask",
+        "rows": [
+          ".bb.",
+          ".btb",
+          "bbb."
+        ],
+        "ink": {
+          "b": "boot",
+          "t": "bootLight",
+          "a": "accent"
+        },
+        "x": 8,
+        "y": 11
+      },
+      {
+        "op": "mask",
+        "rows": [
+          "..bb",
+          ".btb",
+          "bttb",
+          "bbbb"
+        ],
+        "ink": {
+          "b": "boot",
+          "t": "bootLight",
+          "a": "accent"
+        },
+        "x": 4,
+        "y": 12
+      },
+      {
+        "op": "mask",
+        "rows": [
+          "...oo..",
+          "..ooco.",
+          "...osso",
+          "....oo."
+        ],
+        "ink": {
+          "o": "outline",
+          "c": "cloth",
+          "l": "clothLight",
+          "d": "clothShadow",
+          "s": "skin"
+        },
+        "x": 4,
+        "y": 10
+      }
+    ],
+    "body-east-2": [
+      {
+        "op": "mask",
+        "rows": [
+          "..oooooo..",
+          ".ohhhhhho.",
+          "ohhhhhhhho",
+          "ohhhhssslo",
+          "ohhhssssso",
+          "ohhhhhsoso",
+          ".ohhhssso.",
+          "..oodddo.."
+        ],
+        "ink": {
+          "h": "hair",
+          "o": "outline",
+          "s": "skin",
+          "d": "skinShadow",
+          "l": "skinLight"
+        },
+        "x": 3,
+        "y": 3
+      },
+      {
+        "op": "mask",
+        "rows": [
+          "oooo",
+          "occo",
+          "oooo"
+        ],
+        "ink": {
+          "o": "outline",
+          "c": "cloth",
+          "l": "clothLight",
+          "d": "clothShadow"
+        },
+        "x": 6,
+        "y": 11
+      },
+      {
+        "op": "mask",
+        "rows": [
+          "bb..",
+          "btb.",
+          ".bbb"
+        ],
+        "ink": {
+          "b": "boot",
+          "t": "bootLight",
+          "a": "accent"
+        },
+        "x": 4,
+        "y": 11
+      },
+      {
+        "op": "mask",
+        "rows": [
+          "bb..",
+          "btb.",
+          "bttb",
+          "bbbb"
+        ],
+        "ink": {
+          "b": "boot",
+          "t": "bootLight",
+          "a": "accent"
+        },
+        "x": 8,
+        "y": 12
+      },
+      {
+        "op": "mask",
+        "rows": [
+          "...oo..",
+          ".occo..",
+          "osso...",
+          ".oo...."
+        ],
+        "ink": {
+          "o": "outline",
+          "c": "cloth",
+          "l": "clothLight",
+          "d": "clothShadow",
+          "s": "skin"
+        },
+        "x": 4,
+        "y": 10
+      }
+    ],
+    "coat-north": [
+      {
+        "op": "mask",
+        "rows": [
+          ".occcco.",
+          ".occcco.",
+          "..occo.."
+        ],
+        "ink": {
+          "o": "outline",
+          "c": "cloth",
+          "l": "clothLight",
+          "d": "clothShadow"
+        },
+        "x": 4,
+        "y": 10
+      }
+    ],
+    "cap-north": [
+      {
+        "op": "mask",
+        "rows": [
+          "......oo....",
+          "....oocoo...",
+          "...occccco..",
+          "..occccccco.",
+          "..occccccco.",
+          "...oooooo..."
+        ],
+        "ink": {
+          "o": "outline",
+          "c": "cap",
+          "a": "accent",
+          "d": "clothShadow"
+        },
+        "x": 2,
+        "y": 1
+      }
+    ],
+    "bag-north": [
+      {
+        "op": "mask",
+        "rows": [
+          ".bbbb.",
+          "bttttb",
+          "bttttb",
+          ".bbbb."
+        ],
+        "ink": {
+          "b": "boot",
+          "t": "bootLight",
+          "a": "accent"
+        },
+        "x": 5,
+        "y": 10
+      }
+    ],
+    "body-north-0": [
+      {
+        "op": "mask",
+        "rows": [
+          "..oooooo..",
+          ".ohhhhhho.",
+          "ohhhhhhhho",
+          "ohhhhhhhho",
+          "ohhhhhhhho",
+          ".ohhhhhho.",
+          "..ohhhho..",
+          "...oddo..."
+        ],
+        "ink": {
+          "h": "hair",
+          "o": "outline",
+          "s": "skin",
+          "d": "skinShadow",
+          "l": "skinLight"
+        },
+        "x": 3,
+        "y": 2
+      },
+      {
+        "op": "mask",
+        "rows": [
+          "oooo",
+          "occo",
+          "oooo"
+        ],
+        "ink": {
+          "o": "outline",
+          "c": "cloth",
+          "l": "clothLight",
+          "d": "clothShadow"
+        },
+        "x": 6,
+        "y": 10
+      },
+      {
+        "op": "mask",
+        "rows": [
+          "bbb",
+          "btb",
+          "bb."
+        ],
+        "ink": {
+          "b": "boot",
+          "t": "bootLight",
+          "a": "accent"
+        },
+        "x": 5,
+        "y": 13
+      },
+      {
+        "op": "mask",
+        "rows": [
+          "bbb",
+          "btb",
+          ".bb"
+        ],
+        "ink": {
+          "b": "boot",
+          "t": "bootLight",
+          "a": "accent"
+        },
+        "x": 8,
+        "y": 13
+      },
+      {
+        "op": "mask",
+        "rows": [
+          ".oo.",
+          "occo",
+          "osso",
+          ".oo."
+        ],
+        "ink": {
+          "o": "outline",
+          "c": "cloth",
+          "l": "clothLight",
+          "d": "clothShadow",
+          "s": "skinShadow"
+        },
+        "x": 3,
+        "y": 9
+      },
+      {
+        "op": "mask",
+        "rows": [
+          ".oo.",
+          "occo",
+          "osso",
+          ".oo."
+        ],
+        "ink": {
+          "o": "outline",
+          "c": "cloth",
+          "l": "clothLight",
+          "d": "clothShadow",
+          "s": "skinShadow"
+        },
+        "x": 9,
+        "y": 9
+      }
+    ],
+    "body-north-1": [
+      {
+        "op": "mask",
+        "rows": [
+          "..oooooo..",
+          ".ohhhhhho.",
+          "ohhhhhhhho",
+          "ohhhhhhhho",
+          "ohhhhhhhho",
+          ".ohhhhhho.",
+          "..ohhhho..",
+          "...oddo..."
+        ],
+        "ink": {
+          "h": "hair",
+          "o": "outline",
+          "s": "skin",
+          "d": "skinShadow",
+          "l": "skinLight"
+        },
+        "x": 3,
+        "y": 3
+      },
+      {
+        "op": "mask",
+        "rows": [
+          "oooo",
+          "occo",
+          "oooo"
+        ],
+        "ink": {
+          "o": "outline",
+          "c": "cloth",
+          "l": "clothLight",
+          "d": "clothShadow"
+        },
+        "x": 6,
+        "y": 11
+      },
+      {
+        "op": "mask",
+        "rows": [
+          "bbb",
+          "btb",
+          "bb."
+        ],
+        "ink": {
+          "b": "boot",
+          "t": "bootLight",
+          "a": "accent"
+        },
+        "x": 8,
+        "y": 11
+      },
+      {
+        "op": "mask",
+        "rows": [
+          ".bb",
+          "btb",
+          "btb",
+          ".bb"
+        ],
+        "ink": {
+          "b": "boot",
+          "t": "bootLight",
+          "a": "accent"
+        },
+        "x": 5,
+        "y": 12
+      },
+      {
+        "op": "mask",
+        "rows": [
+          ".oo.",
+          "osso",
+          ".ooo"
+        ],
+        "ink": {
+          "o": "outline",
+          "c": "cloth",
+          "l": "clothLight",
+          "d": "clothShadow",
+          "s": "skinShadow"
+        },
+        "x": 3,
+        "y": 10
+      },
+      {
+        "op": "mask",
+        "rows": [
+          ".o..",
+          "oco.",
+          "oso.",
+          ".o.."
+        ],
+        "ink": {
+          "o": "outline",
+          "c": "cloth",
+          "l": "clothLight",
+          "d": "clothShadow",
+          "s": "skinShadow"
+        },
+        "x": 9,
+        "y": 10
+      }
+    ],
+    "body-north-2": [
+      {
+        "op": "mask",
+        "rows": [
+          "..oooooo..",
+          ".ohhhhhho.",
+          "ohhhhhhhho",
+          "ohhhhhhhho",
+          "ohhhhhhhho",
+          ".ohhhhhho.",
+          "..ohhhho..",
+          "...oddo..."
+        ],
+        "ink": {
+          "h": "hair",
+          "o": "outline",
+          "s": "skin",
+          "d": "skinShadow",
+          "l": "skinLight"
+        },
+        "x": 3,
+        "y": 3
+      },
+      {
+        "op": "mask",
+        "rows": [
+          "oooo",
+          "occo",
+          "oooo"
+        ],
+        "ink": {
+          "o": "outline",
+          "c": "cloth",
+          "l": "clothLight",
+          "d": "clothShadow"
+        },
+        "x": 6,
+        "y": 11
+      },
+      {
+        "op": "mask",
+        "rows": [
+          "bbb",
+          "btb",
+          ".bb"
+        ],
+        "ink": {
+          "b": "boot",
+          "t": "bootLight",
+          "a": "accent"
+        },
+        "x": 5,
+        "y": 11
+      },
+      {
+        "op": "mask",
+        "rows": [
+          "bb.",
+          "btb",
+          "btb",
+          "bb."
+        ],
+        "ink": {
+          "b": "boot",
+          "t": "bootLight",
+          "a": "accent"
+        },
+        "x": 8,
+        "y": 12
+      },
+      {
+        "op": "mask",
+        "rows": [
+          "..o.",
+          ".oco",
+          ".oso",
+          "..o."
+        ],
+        "ink": {
+          "o": "outline",
+          "c": "cloth",
+          "l": "clothLight",
+          "d": "clothShadow",
+          "s": "skinShadow"
+        },
+        "x": 3,
+        "y": 10
+      },
+      {
+        "op": "mask",
+        "rows": [
+          ".oo.",
+          "osso",
+          "ooo."
+        ],
+        "ink": {
+          "o": "outline",
+          "c": "cloth",
+          "l": "clothLight",
+          "d": "clothShadow",
+          "s": "skinShadow"
+        },
+        "x": 9,
+        "y": 10
+      }
+    ]
+  },
+  "layers": [
+    {
+      "id": "bag",
+      "name": "Backpack",
+      "part": "bag-south",
+      "visible": true
+    },
+    {
+      "id": "body",
+      "name": "Body and boots",
+      "part": "body-south-0",
+      "visible": true
+    },
+    {
+      "id": "clothing",
+      "name": "Travel coat",
+      "part": "coat-south",
+      "visible": true
+    },
+    {
+      "id": "cap",
+      "name": "Wool cap",
+      "part": "cap-south",
+      "visible": true
+    }
+  ],
+  "frames": [
+    {
+      "name": "south-0",
+      "anchor": [
+        8,
+        15
+      ],
+      "order": [
+        "bag",
+        "body",
+        "clothing",
+        "cap"
+      ],
+      "layers": {
+        "body": {
+          "part": "body-south-0"
+        },
+        "clothing": {
+          "part": "coat-south",
+          "offset": [
+            0,
+            -1
+          ]
+        },
+        "cap": {
+          "part": "cap-south",
+          "offset": [
+            0,
+            -1
+          ]
+        },
+        "bag": {
+          "part": "bag-south",
+          "offset": [
+            0,
+            -1
+          ],
+          "visible": false
+        }
+      }
+    },
+    {
+      "name": "south-1",
+      "anchor": [
+        8,
+        15
+      ],
+      "order": [
+        "bag",
+        "body",
+        "clothing",
+        "cap"
+      ],
+      "layers": {
+        "body": {
+          "part": "body-south-1"
+        },
+        "clothing": {
+          "part": "coat-south",
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "cap": {
+          "part": "cap-south",
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "bag": {
+          "part": "bag-south",
+          "offset": [
+            0,
+            0
+          ],
+          "visible": false
+        }
+      }
+    },
+    {
+      "name": "south-2",
+      "anchor": [
+        8,
+        15
+      ],
+      "order": [
+        "bag",
+        "body",
+        "clothing",
+        "cap"
+      ],
+      "layers": {
+        "body": {
+          "part": "body-south-2"
+        },
+        "clothing": {
+          "part": "coat-south",
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "cap": {
+          "part": "cap-south",
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "bag": {
+          "part": "bag-south",
+          "offset": [
+            0,
+            0
+          ],
+          "visible": false
+        }
+      }
+    },
+    {
+      "name": "west-0",
+      "anchor": [
+        8,
+        15
+      ],
+      "order": [
+        "bag",
+        "clothing",
+        "body",
+        "cap"
+      ],
+      "layers": {
+        "body": {
+          "part": "body-west-0"
+        },
+        "clothing": {
+          "part": "coat-west",
+          "offset": [
+            0,
+            -1
+          ]
+        },
+        "cap": {
+          "part": "cap-west",
+          "offset": [
+            0,
+            -1
+          ]
+        },
+        "bag": {
+          "part": "bag-west",
+          "offset": [
+            0,
+            -1
+          ],
+          "visible": true
+        }
+      }
+    },
+    {
+      "name": "west-1",
+      "anchor": [
+        8,
+        15
+      ],
+      "order": [
+        "bag",
+        "clothing",
+        "body",
+        "cap"
+      ],
+      "layers": {
+        "body": {
+          "part": "body-west-1"
+        },
+        "clothing": {
+          "part": "coat-west",
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "cap": {
+          "part": "cap-west",
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "bag": {
+          "part": "bag-west",
+          "offset": [
+            0,
+            0
+          ],
+          "visible": true
+        }
+      }
+    },
+    {
+      "name": "west-2",
+      "anchor": [
+        8,
+        15
+      ],
+      "order": [
+        "bag",
+        "clothing",
+        "body",
+        "cap"
+      ],
+      "layers": {
+        "body": {
+          "part": "body-west-2"
+        },
+        "clothing": {
+          "part": "coat-west",
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "cap": {
+          "part": "cap-west",
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "bag": {
+          "part": "bag-west",
+          "offset": [
+            0,
+            0
+          ],
+          "visible": true
+        }
+      }
+    },
+    {
+      "name": "east-0",
+      "anchor": [
+        8,
+        15
+      ],
+      "order": [
+        "bag",
+        "clothing",
+        "body",
+        "cap"
+      ],
+      "layers": {
+        "body": {
+          "part": "body-east-0"
+        },
+        "clothing": {
+          "part": "coat-east",
+          "offset": [
+            0,
+            -1
+          ]
+        },
+        "cap": {
+          "part": "cap-east",
+          "offset": [
+            0,
+            -1
+          ]
+        },
+        "bag": {
+          "part": "bag-east",
+          "offset": [
+            0,
+            -1
+          ],
+          "visible": true
+        }
+      }
+    },
+    {
+      "name": "east-1",
+      "anchor": [
+        8,
+        15
+      ],
+      "order": [
+        "bag",
+        "clothing",
+        "body",
+        "cap"
+      ],
+      "layers": {
+        "body": {
+          "part": "body-east-1"
+        },
+        "clothing": {
+          "part": "coat-east",
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "cap": {
+          "part": "cap-east",
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "bag": {
+          "part": "bag-east",
+          "offset": [
+            0,
+            0
+          ],
+          "visible": true
+        }
+      }
+    },
+    {
+      "name": "east-2",
+      "anchor": [
+        8,
+        15
+      ],
+      "order": [
+        "bag",
+        "clothing",
+        "body",
+        "cap"
+      ],
+      "layers": {
+        "body": {
+          "part": "body-east-2"
+        },
+        "clothing": {
+          "part": "coat-east",
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "cap": {
+          "part": "cap-east",
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "bag": {
+          "part": "bag-east",
+          "offset": [
+            0,
+            0
+          ],
+          "visible": true
+        }
+      }
+    },
+    {
+      "name": "north-0",
+      "anchor": [
+        8,
+        15
+      ],
+      "order": [
+        "body",
+        "clothing",
+        "bag",
+        "cap"
+      ],
+      "layers": {
+        "body": {
+          "part": "body-north-0"
+        },
+        "clothing": {
+          "part": "coat-north",
+          "offset": [
+            0,
+            -1
+          ]
+        },
+        "cap": {
+          "part": "cap-north",
+          "offset": [
+            0,
+            -1
+          ]
+        },
+        "bag": {
+          "part": "bag-north",
+          "offset": [
+            0,
+            -1
+          ],
+          "visible": true
+        }
+      }
+    },
+    {
+      "name": "north-1",
+      "anchor": [
+        8,
+        15
+      ],
+      "order": [
+        "body",
+        "clothing",
+        "bag",
+        "cap"
+      ],
+      "layers": {
+        "body": {
+          "part": "body-north-1"
+        },
+        "clothing": {
+          "part": "coat-north",
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "cap": {
+          "part": "cap-north",
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "bag": {
+          "part": "bag-north",
+          "offset": [
+            0,
+            0
+          ],
+          "visible": true
+        }
+      }
+    },
+    {
+      "name": "north-2",
+      "anchor": [
+        8,
+        15
+      ],
+      "order": [
+        "body",
+        "clothing",
+        "bag",
+        "cap"
+      ],
+      "layers": {
+        "body": {
+          "part": "body-north-2"
+        },
+        "clothing": {
+          "part": "coat-north",
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "cap": {
+          "part": "cap-north",
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "bag": {
+          "part": "bag-north",
+          "offset": [
+            0,
+            0
+          ],
+          "visible": true
+        }
+      }
+    }
+  ],
+  "clips": {
+    "idle-south": {
+      "frames": [
+        "south-0"
+      ],
+      "fps": 1
+    },
+    "walk-south": {
+      "frames": [
+        "south-1",
+        "south-0",
+        "south-2",
+        "south-0"
+      ],
+      "fps": 8
+    },
+    "idle-west": {
+      "frames": [
+        "west-0"
+      ],
+      "fps": 1
+    },
+    "walk-west": {
+      "frames": [
+        "west-1",
+        "west-0",
+        "west-2",
+        "west-0"
+      ],
+      "fps": 8
+    },
+    "idle-east": {
+      "frames": [
+        "east-0"
+      ],
+      "fps": 1
+    },
+    "walk-east": {
+      "frames": [
+        "east-1",
+        "east-0",
+        "east-2",
+        "east-0"
+      ],
+      "fps": 8
+    },
+    "idle-north": {
+      "frames": [
+        "north-0"
+      ],
+      "fps": 1
+    },
+    "walk-north": {
+      "frames": [
+        "north-1",
+        "north-0",
+        "north-2",
+        "north-0"
+      ],
+      "fps": 8
+    },
+    "turntable": {
+      "frames": [
+        "south-0",
+        "west-0",
+        "north-0",
+        "east-0"
+      ],
+      "fps": 2
+    }
+  },
+  "techniques": []
+}

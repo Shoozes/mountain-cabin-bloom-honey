@@ -1,0 +1,209 @@
+{
+  "format": "retro-terrain-curated-study/1",
+  "visualReview": "unapproved",
+  "seeds": [
+    1204,
+    1215,
+    1233
+  ],
+  "renderedSeeds": [
+    1204
+  ],
+  "palettes": [
+    "woodland",
+    "dry-trail",
+    "cool-moor"
+  ],
+  "sources": [
+    {
+      "file": "src/shader/retro-terrain-art.mjs",
+      "sha256": "fc21f554ed799a1924425c58ad7a955ffaae7888b83b5c77c5ecac24dd3641c5"
+    },
+    {
+      "file": "src/shader/retro-autotile.mjs",
+      "sha256": "a38828427a26e7409885eaf1ded6874351b0a29f87532821ca3c21ceae745a9e"
+    },
+    {
+      "file": "src/shader/retro-terrain-curated.mjs",
+      "sha256": "a0d4e46537ec1269285e34ee433269f36cc345e598dd5adba2c94cf75ffdd207"
+    },
+    {
+      "file": "src/shader/retro-terrain.mjs",
+      "sha256": "76fa9fb6e1053954828cbb35f893a29160c8e4cd92a7ef125fa40ff7aa10f9d2"
+    },
+    {
+      "file": "src/shader/retro-terrain-growth.mjs",
+      "sha256": "d6be8ef56ae23de66d8849b7bf40d0940404aa0ce718eeba75835bcb39db3040"
+    },
+    {
+      "file": "scripts/material-png.mjs",
+      "sha256": "a8c63520bbbd5eb8d6a5ddf7751a819171c8d49a7b94ae27ca589228e63e31a8"
+    },
+    {
+      "file": "scripts/study-retro-terrain-curated.mjs",
+      "sha256": "9df0eaeb04a6fd1744651463edd0509f9f9ad899d40e5cc5bbf6616529987012"
+    }
+  ],
+  "files": [
+    {
+      "path": "surfaces-16.png",
+      "width": 48,
+      "height": 96,
+      "bytes": 618,
+      "sha256": "ec20ea6ed5a67129ee714f55477d20c712e5b1f6dd597eb9caa1ab6f03b9f085",
+      "rgbaSha256": "ee2186c81e857412128dc6a5e54d3ae6c6dfcb470d2ad7fa8d97e2af63fb508a"
+    },
+    {
+      "path": "repeats-16.png",
+      "width": 192,
+      "height": 64,
+      "bytes": 1344,
+      "sha256": "06320458a4eff2ed847097999ce78b4b0c5fbe14155e55eff67589da8663787f",
+      "rgbaSha256": "1fad5d100a97caf3c856893bbb453f4c793a0fb2eac552ab811b18336f34a24b"
+    },
+    {
+      "path": "connected-terrain-16.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 1413,
+      "sha256": "d07d2b38e865a3b2b28ef198c0ce8369de479fd519740e311d6bb16b97887b52",
+      "rgbaSha256": "a39458384dc79d8c2c0f12d79d599096ec1df7f9b0c341bf24cffd08f9a0a001"
+    },
+    {
+      "path": "weathered-connected-terrain-16.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 1177,
+      "sha256": "3980c9731aa29c5064081427c81941134ac7fa1e86815da05cc8d95599afd427",
+      "rgbaSha256": "c4fabe9b9498d45762405ba9ae48c1a23210a69fc83bd55ac6c11ba5bdf73c4d"
+    },
+    {
+      "path": "gravel-connected-16.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 1433,
+      "sha256": "66e8a6082c3225acce4f529c6f19b524e606d9c83872daee7c4c32b47230847a",
+      "rgbaSha256": "ec6e2666ad836891ad30fea809f669bd93f8bb98d0085dbc2b49255472de8f16"
+    },
+    {
+      "path": "gravel-repeats-16.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 1148,
+      "sha256": "44d3407ea81180f28780328c8f29e238c700c67d17919176a15e7f2c284ee31b",
+      "rgbaSha256": "25c22447b3355ec2ba6d770949f8a08ac8d928db2c5672fd4f9c97da0b68228c"
+    },
+    {
+      "path": "weathered-gravel-connected-16.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 1193,
+      "sha256": "d80fdb96ded62ee3b4a7cd28ce23e20de84c66b07daa8bd54c003e09218d1a0a",
+      "rgbaSha256": "1d77f5ba5cbc040dea8e95dae078423b4a544ba094deb9e9cc6bbd9b4f6d4ddc"
+    },
+    {
+      "path": "weathered-gravel-repeats-16.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 938,
+      "sha256": "1b6d71c3b039258d5385788f8e0943472d4acff857af14a7cb9184eaa617e6ec",
+      "rgbaSha256": "a0295dc18dab7d24b2378c9870ff0fb00ad528dcf780956241e6c3489a9425cb"
+    },
+    {
+      "path": "gravel-palettes-16.png",
+      "width": 192,
+      "height": 64,
+      "bytes": 1678,
+      "sha256": "9b518bb2b3f3f61005258ce4c4f5c03f53232b42c8467e7f29e866197edc04f5",
+      "rgbaSha256": "d757016f5f4c4aaa3930e222c67bd34acb2610ac2f60b021ef27ddb90b6da553"
+    },
+    {
+      "path": "blob-cases.png",
+      "width": 192,
+      "height": 128,
+      "bytes": 1947,
+      "sha256": "2c579b4a58e94ec2401176cf135d2cbee186cb95baac4e89ef20f01d6a56df87",
+      "rgbaSha256": "5733e5dfa204c7a5ff21b51706df4b3878d055e97532adb196718f9be924e6c5"
+    },
+    {
+      "path": "palettes-16.png",
+      "width": 384,
+      "height": 128,
+      "bytes": 4376,
+      "sha256": "a3cbc83f773c83261e93f44c3b414661ba6d190cb81fcff34a3a56a0eff66a18",
+      "rgbaSha256": "8ad18c5bc563c4c07faba744e39218b30436381efa1184e6cb5ce825d88f4ef6"
+    },
+    {
+      "path": "surfaces-64.png",
+      "width": 192,
+      "height": 384,
+      "bytes": 3481,
+      "sha256": "85b66822c53a2f7bc1c7ecdfabac2904782ea932bf9f63175b621022d422f79c",
+      "rgbaSha256": "76f043fe43956e8f2d4d78dfcfa6c8d5485f5a117fa342836c81be2481b70cf1"
+    },
+    {
+      "path": "repeats-64.png",
+      "width": 768,
+      "height": 256,
+      "bytes": 6514,
+      "sha256": "989c5043c4b1a966adf2a926bf93b6986a202fe7d97dc3ae93b7db9fa3cd9ccf",
+      "rgbaSha256": "2daf1e53f2bda9d07a7f3127a0337a2c719317021bf61565404b70362046ebbc"
+    },
+    {
+      "path": "connected-terrain-64.png",
+      "width": 448,
+      "height": 448,
+      "bytes": 7900,
+      "sha256": "88c3afbd4b7728181e02dd56359f19e544bd6ddd736843a72f0f68834167e74f",
+      "rgbaSha256": "c99783aed13ffd75492296ab72edf9e0aa27282d80c836d90ca02eb096f95034"
+    },
+    {
+      "path": "weathered-connected-terrain-64.png",
+      "width": 448,
+      "height": 448,
+      "bytes": 7323,
+      "sha256": "3cd448d888b849d9dcf591709c53635f789b595fcafeb8b5793bce3fbbe71f19",
+      "rgbaSha256": "187a2f0b7db3aaf2782c4519551640917951908c1f1e264573fa79f3279115e4"
+    },
+    {
+      "path": "gravel-path-connected-64.png",
+      "width": 448,
+      "height": 448,
+      "bytes": 7900,
+      "sha256": "88c3afbd4b7728181e02dd56359f19e544bd6ddd736843a72f0f68834167e74f",
+      "rgbaSha256": "c99783aed13ffd75492296ab72edf9e0aa27282d80c836d90ca02eb096f95034"
+    },
+    {
+      "path": "gravel-repeats-64.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 6730,
+      "sha256": "7c936e4e88f56761611f61088f4094a5d22b49df118508bcd16eb13f3bc3feba",
+      "rgbaSha256": "b8b91f5d4bda79ad5915b582f6ceb9e58005eb84748a3d321d108f532f6cdb28"
+    },
+    {
+      "path": "weathered-gravel-path-connected-64.png",
+      "width": 448,
+      "height": 448,
+      "bytes": 7323,
+      "sha256": "3cd448d888b849d9dcf591709c53635f789b595fcafeb8b5793bce3fbbe71f19",
+      "rgbaSha256": "187a2f0b7db3aaf2782c4519551640917951908c1f1e264573fa79f3279115e4"
+    },
+    {
+      "path": "weathered-gravel-repeats-64.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 5564,
+      "sha256": "3d99a529ab64456b59657ce90b6a140bbd5d1193ed2dd70b5f93e3d86a7354d2",
+      "rgbaSha256": "663c9285394e493b6e2c4db97407b7495c7b76405528fffc074166524f1be3cf"
+    },
+    {
+      "path": "gravel-palettes-64.png",
+      "width": 768,
+      "height": 256,
+      "bytes": 8261,
+      "sha256": "064fb5cc35af98124396c7f1a7d776e8e300470361460e072f843718e469f328",
+      "rgbaSha256": "822f76e341be0efb4ca7ed99ccfebb22e43b981590f8c522d422479ee8640412"
+    }
+  ]
+}

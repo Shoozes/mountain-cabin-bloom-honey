@@ -1,0 +1,480 @@
+{
+  "format": "retro-terrain-curated-study/1",
+  "visualReview": "unapproved",
+  "families": [
+    "dirt",
+    "grass",
+    "gravel",
+    "moss",
+    "rock",
+    "masonry",
+    "timber"
+  ],
+  "compositions": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "seeds": [
+    1204,
+    1215,
+    1233
+  ],
+  "renderedSeeds": [
+    1204
+  ],
+  "palettes": [
+    "woodland",
+    "dry-trail",
+    "cool-moor"
+  ],
+  "sources": [
+    {
+      "file": "src/shader/retro-terrain-art.mjs",
+      "sha256": "1cbe6256136ba7d402ace1a0c3652ba9342f3ba9c8a8485de007cefd7089e911"
+    },
+    {
+      "file": "src/shader/retro-autotile.mjs",
+      "sha256": "a38828427a26e7409885eaf1ded6874351b0a29f87532821ca3c21ceae745a9e"
+    },
+    {
+      "file": "src/shader/retro-terrain-curated.mjs",
+      "sha256": "541647b7f3ee0db0626843a3330a66befdc5f26b101c19f0031f3dbcfc174f4d"
+    },
+    {
+      "file": "src/shader/retro-terrain.mjs",
+      "sha256": "76fa9fb6e1053954828cbb35f893a29160c8e4cd92a7ef125fa40ff7aa10f9d2"
+    },
+    {
+      "file": "src/shader/retro-terrain-growth.mjs",
+      "sha256": "d6be8ef56ae23de66d8849b7bf40d0940404aa0ce718eeba75835bcb39db3040"
+    },
+    {
+      "file": "scripts/material-png.mjs",
+      "sha256": "a8c63520bbbd5eb8d6a5ddf7751a819171c8d49a7b94ae27ca589228e63e31a8"
+    },
+    {
+      "file": "scripts/study-retro-terrain-curated.mjs",
+      "sha256": "51cf677cdcfbca83771ef033c35a470d854a524fdf8cc9352c61ce0ce504f70f"
+    }
+  ],
+  "files": [
+    {
+      "path": "surfaces-16.png",
+      "width": 112,
+      "height": 128,
+      "bytes": 2243,
+      "sha256": "fd9c1e45f1dd2130a8bfe6f077d9a80253e956c3cafad4a126a912cb37da0a9b",
+      "rgbaSha256": "763a8be2430f25133698947b25747c5a858869c8df0ff2ab84bfc23e3d8c04ee"
+    },
+    {
+      "path": "repeats-16.png",
+      "width": 448,
+      "height": 64,
+      "bytes": 4146,
+      "sha256": "b2fa2d08f72dd0d26d68078439613a7c90ebd754679979eb04565e74df7c2215",
+      "rgbaSha256": "4c7a2642e48d9b3ab57453f1e0f9cef734fe0a6849542e777297427dbd1a61c4"
+    },
+    {
+      "path": "connected-terrain-16.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 1900,
+      "sha256": "9ece7c0b72b3d5cbbadca05d677aa1af4c3ab11ca1b8e9922a5aab9ede12ae23",
+      "rgbaSha256": "9df0dbcb7f8c10f44b7c35b83ae53887f16eb67ac0c51c9a9aaf35372087ea70"
+    },
+    {
+      "path": "gravel-connected-terrain-16.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 1899,
+      "sha256": "79cee6e957a004aa2b618b8d3e87cd4d15d560124fdd156ca6f73b8cbe4d76db",
+      "rgbaSha256": "03a4d512f0ef5fcb1ba162abc85edf29b4acdf0b1cefa84b18b875d5decf700f"
+    },
+    {
+      "path": "moss-connected-terrain-16.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 1849,
+      "sha256": "cd63e7977bbb734651e56e786478be359ea40e0fce66c5ad79212f882eced4f2",
+      "rgbaSha256": "c820e29df052d845120c510035bf2e2936ca88936ad7940c0c298c814b661dfa"
+    },
+    {
+      "path": "rock-connected-terrain-16.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 1821,
+      "sha256": "79fe8dcf899b997c7d514bbdc8cc4a260415277d7cd5cb59d00b5327e2b43cc9",
+      "rgbaSha256": "b1092a74eaf4944557c08c0b39e7b463b219ce19bf9034b200e0121797d190e6"
+    },
+    {
+      "path": "weathered-connected-terrain-16.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 1457,
+      "sha256": "4a26cbb68251db0d5e42eac30286b26f1f575571aec039afcd75fe0a36d0678a",
+      "rgbaSha256": "8faaa16f92915d20882acdd875397b87472a29193d6e4c9750d76e09a2e1beb6"
+    },
+    {
+      "path": "weathered-gravel-connected-terrain-16.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 1442,
+      "sha256": "92908ecf0b1430ba853dab06161c38105025331dfdea5b5d10ec5293da286b53",
+      "rgbaSha256": "0930f8a6556eaee58b127895236800cf316a333b16944d437d9d67c57706a2d8"
+    },
+    {
+      "path": "weathered-moss-connected-terrain-16.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 1456,
+      "sha256": "6df9b21aa659c2e7e67cd27c6171ed846a807b1e0a06164278afb27e1315091b",
+      "rgbaSha256": "5a061017df829947c0c7aae2b10b6a864fb9d8c6bd923a85cd129ee9005d9c17"
+    },
+    {
+      "path": "weathered-rock-connected-terrain-16.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 1385,
+      "sha256": "669e843f84fe6674cbee375de5f0da0ccf8272a2b292b3b516b5c26add759be7",
+      "rgbaSha256": "9308bd38404f5cfa38bb6ce44a47fce2d0df5c746f8211312f23aa79310d0d1d"
+    },
+    {
+      "path": "dirt-repeats-16.png",
+      "width": 320,
+      "height": 64,
+      "bytes": 1119,
+      "sha256": "a438f899f0b6c96b04e05fa4b5e2bd16413551e6fa6e6e47a0a018131b8d3312",
+      "rgbaSha256": "cbb3d3a09dacb1afcc7ae45da1fb40bb09e33dad129a7303e819d12c3031a3f2"
+    },
+    {
+      "path": "grass-repeats-16.png",
+      "width": 320,
+      "height": 64,
+      "bytes": 1377,
+      "sha256": "528353395ee2b4dc1ecd719b5491f0b1d361da58bddd5958d779c83c39d56b9e",
+      "rgbaSha256": "cb0b2babd86520b044bead43986a9ae0fcc1f1fff345db593b6abe4d67da0370"
+    },
+    {
+      "path": "gravel-repeats-16.png",
+      "width": 320,
+      "height": 64,
+      "bytes": 1338,
+      "sha256": "b48e3b0747dd8efc7e38e3905d93a23a370ba1d1fce965b63c8a4111fa0f76c8",
+      "rgbaSha256": "5ede68abd03a5390592f7923558bcd2668c1d0aac2d1e3ceca410f95d8e6d00a"
+    },
+    {
+      "path": "moss-repeats-16.png",
+      "width": 320,
+      "height": 64,
+      "bytes": 1377,
+      "sha256": "055d16b230da5ef65d5ea92bfe7ed89d0c014743a798c877682eac9b7b527b7a",
+      "rgbaSha256": "07562178149dfcf7d250db0c3ac56456e2e9ae112b4dd908bb737ed30eebeae1"
+    },
+    {
+      "path": "rock-repeats-16.png",
+      "width": 320,
+      "height": 64,
+      "bytes": 1330,
+      "sha256": "b7bb4d705789a1fec88039c4f45fa5eb468bb5688899f015bf4cee822e6059a8",
+      "rgbaSha256": "8720e2c580da91762ed1f6ad614ba91a83f335f5144dd2667b18fefef3fa149b"
+    },
+    {
+      "path": "masonry-repeats-16.png",
+      "width": 320,
+      "height": 64,
+      "bytes": 1275,
+      "sha256": "da490616ec6493adf4b317c5f1c7f56312bd06cfaa41aef83c8c97f659a0954a",
+      "rgbaSha256": "7de374a740586110112474b3b0b2a79fa5005533c26f2d288281fc7d4e9dde3d"
+    },
+    {
+      "path": "timber-repeats-16.png",
+      "width": 320,
+      "height": 64,
+      "bytes": 1451,
+      "sha256": "9acff706275f28f2d40da22efb2d2b312a52979207182d139d3bb2cc9d79c693",
+      "rgbaSha256": "1160f149cab284b6747b5fe65f23c570a031e9fe74b0321680af6886922c3cd2"
+    },
+    {
+      "path": "weathered-dirt-repeats-16.png",
+      "width": 320,
+      "height": 64,
+      "bytes": 898,
+      "sha256": "36da4f9027e24c553ded6239437aa451eeac478ce97f161d9b0e6830f87a0447",
+      "rgbaSha256": "54351300f43215a220aff34ed405c7d4338cc2ace6ff92270d22dd4b52b99554"
+    },
+    {
+      "path": "weathered-grass-repeats-16.png",
+      "width": 320,
+      "height": 64,
+      "bytes": 1046,
+      "sha256": "85c5d25512d86e9105ffc8661f9268d38ac3ea85755f4f00c8b7baed501396ac",
+      "rgbaSha256": "baa91aa4637b5529fb8f981ef8880b5dfec9940f05cb6f4b3a49ed40d1bf8713"
+    },
+    {
+      "path": "weathered-gravel-repeats-16.png",
+      "width": 320,
+      "height": 64,
+      "bytes": 1071,
+      "sha256": "f77752a33c9346cfc2dd17c3b85f91e9d2b64c35b5af92368cea2227e5d6bf1b",
+      "rgbaSha256": "38392843973babf439f75a870c50151914387405fe0e970fe118e119c9b0b5ea"
+    },
+    {
+      "path": "weathered-moss-repeats-16.png",
+      "width": 320,
+      "height": 64,
+      "bytes": 1214,
+      "sha256": "72265df027428ce9fa26520dc6b86afc173b99b9a32898881b29c71b23f94052",
+      "rgbaSha256": "a4919fbcc7a295c22620213676b7f2b22f65d4a256910bf68fba3380850c6ab8"
+    },
+    {
+      "path": "weathered-rock-repeats-16.png",
+      "width": 320,
+      "height": 64,
+      "bytes": 1112,
+      "sha256": "1c5010e4f7847b888c9c2eb3a84c6124c412c9b7aa6c526aaacea16244bd9ac6",
+      "rgbaSha256": "7eb81a7ee11f2b784342a42eb72a208bb79f2edba310b4f56b7568c15758f2de"
+    },
+    {
+      "path": "weathered-masonry-repeats-16.png",
+      "width": 320,
+      "height": 64,
+      "bytes": 1087,
+      "sha256": "ee18da66e6af7ba9554e59bfb8dfd0e7b20ecb4dab70d0af65dcb8a307121e7d",
+      "rgbaSha256": "b1b05223128681fd5afa4a8c282d4d22030e6318bea658442769e2081e908005"
+    },
+    {
+      "path": "weathered-timber-repeats-16.png",
+      "width": 320,
+      "height": 64,
+      "bytes": 1387,
+      "sha256": "c48785caf106dcbf5b112e7f65941c4d986091e2c0e4443dffcb004af1e8d615",
+      "rgbaSha256": "508159e954a34e05ecc30b2defe16c65fcceb4a33c4febe03ef768e7d3ba3fed"
+    },
+    {
+      "path": "palettes-16.png",
+      "width": 112,
+      "height": 48,
+      "bytes": 1509,
+      "sha256": "a4bbbe3a21531ae54ee1d5be0f9ae6baa9efd1c2abfe852e6cc54ad11ec4000a",
+      "rgbaSha256": "c7b097769cbf4b8e528d5b2a8fa2e2465ca541dca307b1d4e5dc05cd69272dd3"
+    },
+    {
+      "path": "transition-cases-16.png",
+      "width": 192,
+      "height": 512,
+      "bytes": 7579,
+      "sha256": "0063e309985f41d0e54f4fc1e879c4a0c79311ca38442938874ef7c72d5a8f95",
+      "rgbaSha256": "c5c0e70f812a2b1fbb5eebf2252e2d3566e5a7ae316a7b907004cda74e6b4af7"
+    },
+    {
+      "path": "path-cases-16.png",
+      "width": 64,
+      "height": 128,
+      "bytes": 741,
+      "sha256": "45bf0f0cc4615b4c1c1cb5f4a7145b6e7ea022cc86b997a9d87ef33501f9cea3",
+      "rgbaSha256": "530b9c162f97eb71709e89403e7abb645e2dfb6216bf2e5a8aabf4229d442510"
+    },
+    {
+      "path": "surfaces-64.png",
+      "width": 448,
+      "height": 512,
+      "bytes": 14905,
+      "sha256": "c7107cf46d54c0f62322d31509d7d52a9ec74c2f48351d8c14f492e5809bd642",
+      "rgbaSha256": "3b9639640474d4cdb64deface891e1b21d0b4a9369aba69792b16aff11d6415c"
+    },
+    {
+      "path": "repeats-64.png",
+      "width": 1792,
+      "height": 256,
+      "bytes": 24222,
+      "sha256": "e3f102f5be307f24595b26c36384aedc46bf0bf5527957eab3aba82b91b4c3d6",
+      "rgbaSha256": "655c0b42c64d4a5d92447af9f9fec189dd2a61f9e40d0a885c2357d16dfe1ff8"
+    },
+    {
+      "path": "connected-terrain-64.png",
+      "width": 448,
+      "height": 448,
+      "bytes": 9335,
+      "sha256": "e0602fa6ea46929836d3cfdd215a894f4ee745e9c71dae470ec84befc9372c11",
+      "rgbaSha256": "97f1628ec03bf0fc0caf17ebd49edccfd45686080152c841b95650f9312a0561"
+    },
+    {
+      "path": "moss-connected-terrain-64.png",
+      "width": 448,
+      "height": 448,
+      "bytes": 9319,
+      "sha256": "734344e74b4b3734dcc297bc2d31061a9fb9b4a9fe28ca2558cd4bab032612f9",
+      "rgbaSha256": "c6658ac6f0db406ab5446cf2d69a638e5ccdda8044daa8db6c7d02b4d9e2e653"
+    },
+    {
+      "path": "rock-connected-terrain-64.png",
+      "width": 448,
+      "height": 448,
+      "bytes": 11810,
+      "sha256": "f501c1bdc99e637d9e8bd7c574fac97e84843da8c7a71d743e5aab9d9f159e30",
+      "rgbaSha256": "e8e588db4247d294fd2dce562c69a92cd0adaf940e049ade551ad8aaf3e454d4"
+    },
+    {
+      "path": "weathered-connected-terrain-64.png",
+      "width": 448,
+      "height": 448,
+      "bytes": 8133,
+      "sha256": "7c34473a1062dd3284116d02a64c64946011038d202df2c45a7080fe6730f5e9",
+      "rgbaSha256": "425b36d37f0e585ee018d0348c23c0fb150609bc9bb3fc7c28854e939233ca29"
+    },
+    {
+      "path": "weathered-moss-connected-terrain-64.png",
+      "width": 448,
+      "height": 448,
+      "bytes": 8105,
+      "sha256": "ce33ddc91614cae25c845c28bab799196996e8db9277328ca27c1502f3e46f14",
+      "rgbaSha256": "5059021d0bea501d23fc9da3922fbb0437f8b3d374b9f2fec3ae0088479e156a"
+    },
+    {
+      "path": "weathered-rock-connected-terrain-64.png",
+      "width": 448,
+      "height": 448,
+      "bytes": 11001,
+      "sha256": "033fbf7c0534cc740628c95ac8b6ad8e6e93c06e9f873a1523272fa29f54a05b",
+      "rgbaSha256": "b662c500f6e33ac65f3a271b1d0e36baaaf117905a3d218a03e43c1758c217c4"
+    },
+    {
+      "path": "dirt-repeats-64.png",
+      "width": 1280,
+      "height": 256,
+      "bytes": 5207,
+      "sha256": "e3fd4ef954511b130ce3d6f00177a1d0a5d24a7f2feee6cb1cb3690e54b3f231",
+      "rgbaSha256": "41fedca29822e0b7254277493a66bd5db2803b445e83a5b47f12d2fbb2042697"
+    },
+    {
+      "path": "grass-repeats-64.png",
+      "width": 1280,
+      "height": 256,
+      "bytes": 6350,
+      "sha256": "c0294ee9c6715ca184e9feafe108e2f63b128ee3e56b39aa72742e57bc47abb4",
+      "rgbaSha256": "840823e3ed6bf98bac2a057288d1a4824763d7d10aab51785b2d7b5b3838e49f"
+    },
+    {
+      "path": "gravel-repeats-64.png",
+      "width": 1280,
+      "height": 256,
+      "bytes": 6506,
+      "sha256": "ed732c27c0f382eca28a009d093375bf2cd43a36a1c2f451c0902bf2b6f25060",
+      "rgbaSha256": "1b65f84e37c14d958aef1bf09153f27d33b491667a1707668e797653488fba98"
+    },
+    {
+      "path": "moss-repeats-64.png",
+      "width": 1280,
+      "height": 256,
+      "bytes": 6942,
+      "sha256": "8ec34aea1db478ca8bc351ae646e557762e4e36fbc4f2034afb4b4d32bc37842",
+      "rgbaSha256": "e13c9b73db487c877cfb4d4a87520e52e4ffc8155db1d82b7eac5ec375f07f89"
+    },
+    {
+      "path": "rock-repeats-64.png",
+      "width": 1280,
+      "height": 256,
+      "bytes": 11708,
+      "sha256": "52ffc706b59eab0bc4f33972826aaaecdb98b87cd05141138b42d593069ba4fd",
+      "rgbaSha256": "660ffb2d1a3c5d9c943fd51549abf41471513aae686edc7c9b8261f7eeba0ea2"
+    },
+    {
+      "path": "masonry-repeats-64.png",
+      "width": 1280,
+      "height": 256,
+      "bytes": 9648,
+      "sha256": "6e680b0b6918ee0afa994ddd2bb03f169248688105c38c303d00975c91b6dff4",
+      "rgbaSha256": "a1352807816747833ec3f596afa00057178173d257e6df5d18965e6fe8692e98"
+    },
+    {
+      "path": "timber-repeats-64.png",
+      "width": 1280,
+      "height": 256,
+      "bytes": 13414,
+      "sha256": "70594ed5ceb3c836a4b4fb893a5d40b34b7766545e9de12eda93636413e14bef",
+      "rgbaSha256": "e4c67c5b4fac93a8e0ed9496d3a29b50fefeb85fd9d48aed0f8a998a65686f63"
+    },
+    {
+      "path": "weathered-dirt-repeats-64.png",
+      "width": 1280,
+      "height": 256,
+      "bytes": 4332,
+      "sha256": "6684b0fe99ad680e2fadb89748a19832c113b297c52166a7972d28d999d1bf63",
+      "rgbaSha256": "86f97092b7a1f504ab9e22d86257b73cbf31f3c67fa7db532ab810a50d455591"
+    },
+    {
+      "path": "weathered-grass-repeats-64.png",
+      "width": 1280,
+      "height": 256,
+      "bytes": 5031,
+      "sha256": "5a09d75054735175c697fac992b9f86fc5fb798ebea5e76a5a850d2b7b5ec0df",
+      "rgbaSha256": "37e817602a70f93f8dbc50b54a5b3ec9684232e9581bf7b3779ff47204996fcf"
+    },
+    {
+      "path": "weathered-gravel-repeats-64.png",
+      "width": 1280,
+      "height": 256,
+      "bytes": 5341,
+      "sha256": "37be4ea0ed79f8c5890884667b4b05e7c728dd6ed5b8b25a7b7640760cb74dbd",
+      "rgbaSha256": "2741ab7abf20fc280f5a3a3367a959ac2c36efabfbe5598b900a9fdd2fc0fd96"
+    },
+    {
+      "path": "weathered-moss-repeats-64.png",
+      "width": 1280,
+      "height": 256,
+      "bytes": 5360,
+      "sha256": "bb5498c9064fd55fd7d1677ca3657595a5cb7d83bd5a000b799da8ce074ecc2c",
+      "rgbaSha256": "c674265b7fc54dbec4d06ca8f227b7ab3f9de2a853f22e9883df1a03ba3e78eb"
+    },
+    {
+      "path": "weathered-rock-repeats-64.png",
+      "width": 1280,
+      "height": 256,
+      "bytes": 11569,
+      "sha256": "a27a7aaa34179a444a6b64053af6144d11fccda9922e105fb667badb0b0f6957",
+      "rgbaSha256": "c28c8a314b1f91f32b53685dfce3ed17635340e7fed5f8138a56ce8d3537c38c"
+    },
+    {
+      "path": "weathered-masonry-repeats-64.png",
+      "width": 1280,
+      "height": 256,
+      "bytes": 8896,
+      "sha256": "7938c1594d88be83383e56a2123a698b66769428be216317cb7890336ec8f42b",
+      "rgbaSha256": "f6691328fdff5eb57ca4a4443ac529d2d0bc1ea9d21a304b75db8e2bb9162123"
+    },
+    {
+      "path": "weathered-timber-repeats-64.png",
+      "width": 1280,
+      "height": 256,
+      "bytes": 12682,
+      "sha256": "654984209cab2cc44c5987f9c09a4e29f52a6ba83a63d0ebaf4c9152193966a8",
+      "rgbaSha256": "e95301ff3de7d15b430bc49dca3a2567f2b521a0492d49c57d1f7f14071b5db4"
+    },
+    {
+      "path": "palettes-64.png",
+      "width": 448,
+      "height": 192,
+      "bytes": 6351,
+      "sha256": "1914458b93022ad0e9586dfed2d1f7c46ffbd7d689c3bb3d5eb3741270fd9956",
+      "rgbaSha256": "9d516c631834fbc3d4410247a352be1aa21f027442395944c101bdcc49fb33bc"
+    },
+    {
+      "path": "transition-cases-64.png",
+      "width": 256,
+      "height": 1536,
+      "bytes": 20769,
+      "sha256": "57bbebfb3c24b9fee77daee3479e608ed648b83b865ccea7f5fd10774c04f0f3",
+      "rgbaSha256": "aae5d64e3ad56bbceaa8b18919484441e8d5bcdfb5e0dc55a73a6327c4ec78d8"
+    },
+    {
+      "path": "path-cases-64.png",
+      "width": 256,
+      "height": 512,
+      "bytes": 4689,
+      "sha256": "40090cf17d41d537b9bec6792ad52d66640a924d338335c6bd2391e4fe84a5f8",
+      "rgbaSha256": "59483c88662fd6bb58bd5438964d0a5f26a0f2db622044027ac56b1a3038a65f"
+    }
+  ]
+}

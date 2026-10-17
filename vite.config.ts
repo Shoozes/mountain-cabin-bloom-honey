@@ -50,7 +50,7 @@ export default defineConfig(({ command, isPreview, mode }) => ({
     tanstackStart(
       isPagesBuild(mode)
         ? {
-            pages: [{ path: "/" }, { path: "/gallery" }],
+            pages: [{ path: "/" }, { path: "/gallery" }, { path: "/studio" }, { path: "/examples" }],
             prerender: { enabled: true, crawlLinks: false, failOnError: true },
           }
         : undefined,

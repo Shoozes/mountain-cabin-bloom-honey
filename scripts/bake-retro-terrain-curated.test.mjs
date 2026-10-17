@@ -47,9 +47,13 @@ for (const tileSize of [16, 64]) for (const palette of ['woodland', 'dry-trail',
       const first = await bakeRetroTerrainCurated({recipe, output});
       assert.equal(first.reused, false);
       assert.equal(first.manifest.format, 'retro-terrain-pack/2');
-      assert.equal(first.manifest.generator, 'retro-terrain-curated/1');
+      assert.equal(first.manifest.generator, 'retro-terrain-curated/2');
       assert.equal(first.manifest.visualReview, 'unapproved');
       assert.deepEqual(first.manifest.recipe, recipe);
+      assert.equal(first.manifest.families.length, 7);
+      assert.deepEqual(first.manifest.families.map(family => family.id), ['dirt', 'grass', 'gravel', 'moss', 'rock', 'masonry', 'timber']);
+      assert.equal(first.manifest.families.every(family => family.compositions === 4 && family.weathering), true);
+      assert.equal(first.manifest.files.filter(file => file.path.endsWith('.png')).length, tileSize === 16 ? 490 : 198);
       for (const image of [...generated.tiles, ...generated.atlases, ...generated.templates, ...generated.previews]) {
         const descriptor = first.manifest.files.find(file => file.path === `${image.id}.png`);
         assert.ok(descriptor, image.id);

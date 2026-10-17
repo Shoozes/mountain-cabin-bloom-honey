@@ -12,9 +12,10 @@ export async function materialBrowserFiles(recipe){
     const canvas=document.createElement('canvas');paintMaterialCanvas(canvas,pixels);
     const blob=await new Promise((resolve,reject)=>canvas.toBlob(b=>b?resolve(b):reject(Error('PNG export failed')),'image/png'));
     const data=new Uint8Array(await blob.arrayBuffer()),name='s'+material.recipe.seed+'-'+channel+'.png';files.push({name,data});
-    metadata.push({path:name,channel,seed:material.recipe.seed,width:pixels.width,height:pixels.height,bytes:data.length,sha256:await digest(data),...MATERIAL_CHANNELS[channel],filter:'nearest',wrap:'repeat'});
+    metadata.push({path:name,channel,seed:material.recipe.seed,width:pixels.width,height:pixels.height,bytes:data.length,sha256:await digest(data),...MATERIAL_CHANNELS[channel],filter:material.recipe.id==='realistic-surface'?'linear':'nearest',wrap:'repeat'});
   }
-  const sources=[];for(const url of [new URL('./material.mjs',import.meta.url),new URL(import.meta.url)]){const response=await fetch(url);if(!response.ok)throw Error('Authoring source identity unavailable');const source=new Uint8Array(await response.arrayBuffer());sources.push({path:url.pathname,sha256:await digest(source)});}
+  const urls=[new URL('./material.mjs',import.meta.url),new URL(import.meta.url)];if(material.recipe.id==='realistic-surface')urls.push(new URL('./material-realistic.mjs',import.meta.url));
+  const sources=[];for(const url of urls){const response=await fetch(url);if(!response.ok)throw Error('Authoring source identity unavailable');const source=new Uint8Array(await response.arrayBuffer());sources.push({path:url.pathname,sha256:await digest(source)});}
   const identity=await digest(new TextEncoder().encode(JSON.stringify({recipe:material.recipe,generator,sources})));
   const manifest={format:'texture-material/1',identity,generator,sourceTip:null,sources,recipe:material.recipe,visualReview:'unapproved',provenance:{author:'original procedural work for our projects',restrictedInputs:[],training:false},files:metadata};
   files.push({name:'material.json',data:new TextEncoder().encode(JSON.stringify(manifest,null,2)+'\n')},{name:'recipe.json',data:new TextEncoder().encode(JSON.stringify(material.recipe,null,2)+'\n')});return files;

@@ -1,0 +1,222 @@
+{
+  "visualReview": "unapproved; far shoe visibility candidate",
+  "sourceSha256": "43abcbb38316ad59a478b647321c2efe2a738666bfb0f0fb7ff775f0b68aedd4",
+  "cases": [
+    {
+      "clothing": "coat",
+      "hat": "cap",
+      "palette": "fern",
+      "sheetSha256": "859e8c748c8c88ba49b27a5fe0c036e2271b7dafd0f1110f0c7434ab0d56c4eb"
+    },
+    {
+      "clothing": "coat",
+      "hat": "cap",
+      "palette": "cinder",
+      "sheetSha256": "d10ef9612cb985876cec2f5aecfdebc7ba0b7d6f207470d232f39db5b76c81e6"
+    },
+    {
+      "clothing": "coat",
+      "hat": "cap",
+      "palette": "heather",
+      "sheetSha256": "b71ca8a5fe7e9d262790d1e492e530fa203309934d38d08f560264f0537ddd74"
+    },
+    {
+      "clothing": "coat",
+      "hat": "cap",
+      "palette": "harbor",
+      "sheetSha256": "113abc26d28c41d1bac5b75abbd213ef81ca78528f6760c4044ccb1ab2c85a49"
+    },
+    {
+      "clothing": "coat",
+      "hat": "round",
+      "palette": "fern",
+      "sheetSha256": "cbdf8f83479f33886c87c5f2504d9a7d5e9ae5d0cc4409b4622dfa8a7d1097ff"
+    },
+    {
+      "clothing": "coat",
+      "hat": "round",
+      "palette": "cinder",
+      "sheetSha256": "d471d41813dad6de3ae359d687d045e3c09dcbed4738c966985d0e83e525073f"
+    },
+    {
+      "clothing": "coat",
+      "hat": "round",
+      "palette": "heather",
+      "sheetSha256": "d1c3a878afa04ec9ed2776901013705a08d06fe0a6a9d3f4cf51aca1003edb4e"
+    },
+    {
+      "clothing": "coat",
+      "hat": "round",
+      "palette": "harbor",
+      "sheetSha256": "35dc8e0b75351ec87c92dccea6a2cf23f249516bc06737a9baeb6f993bcffb8b"
+    },
+    {
+      "clothing": "coat",
+      "hat": "trail",
+      "palette": "fern",
+      "sheetSha256": "b3f248efee05264408f624d79f13207a0e23fcd7fec77058ce64f6f4773ed073"
+    },
+    {
+      "clothing": "coat",
+      "hat": "trail",
+      "palette": "cinder",
+      "sheetSha256": "cc0751097aa222affbe42c404882fd92a0e733a233633c88cae7915f21f7adbe"
+    },
+    {
+      "clothing": "coat",
+      "hat": "trail",
+      "palette": "heather",
+      "sheetSha256": "bdf3610fe2ab5c0546cb0ebc61de710d91403775fcaf69a05c6a57c408d446ac"
+    },
+    {
+      "clothing": "coat",
+      "hat": "trail",
+      "palette": "harbor",
+      "sheetSha256": "dc2a2a2a79e0043b93880afe1b87865dea66d617228fbdbcdc4ade99f4c33130"
+    },
+    {
+      "clothing": "tunic",
+      "hat": "cap",
+      "palette": "fern",
+      "sheetSha256": "b49e750aa93d1449f74686deddb0e36f5e941bdeea44ab6a794bf17806970799"
+    },
+    {
+      "clothing": "tunic",
+      "hat": "cap",
+      "palette": "cinder",
+      "sheetSha256": "91f7086f4c97ccd2c635951af0afbab979628c4576af57d73f8b9290bda54023"
+    },
+    {
+      "clothing": "tunic",
+      "hat": "cap",
+      "palette": "heather",
+      "sheetSha256": "cfc5883a90ff14db5bf0ed9957792074c15a6d74e3e36b0095d010ebaf7e7371"
+    },
+    {
+      "clothing": "tunic",
+      "hat": "cap",
+      "palette": "harbor",
+      "sheetSha256": "85f67a61c2f945c1122539f08ca9377319d375bada28d45cb9542b59042c39ce"
+    },
+    {
+      "clothing": "tunic",
+      "hat": "round",
+      "palette": "fern",
+      "sheetSha256": "287998a6f94cbbaca936908c84d6267dfc394c8549d1bd8cc93b6535042aa06e"
+    },
+    {
+      "clothing": "tunic",
+      "hat": "round",
+      "palette": "cinder",
+      "sheetSha256": "40a550cc4ba10249d8fe4a7f54c338697b6591f9d490db69a61dfd6ac85c1c49"
+    },
+    {
+      "clothing": "tunic",
+      "hat": "round",
+      "palette": "heather",
+      "sheetSha256": "ee58e135c3a7ee7d6fbdcb5dff2d7c9a003d13a85be4b1f7f27ad1a163df80d8"
+    },
+    {
+      "clothing": "tunic",
+      "hat": "round",
+      "palette": "harbor",
+      "sheetSha256": "30409f977879e589adea700bc402a5cc634a0838185a92c4e67e23b63e04d071"
+    },
+    {
+      "clothing": "tunic",
+      "hat": "trail",
+      "palette": "fern",
+      "sheetSha256": "88f0e0b62637e73b72ce5eaa7d4a3ba49664beadfb946551467edaf6bee558b5"
+    },
+    {
+      "clothing": "tunic",
+      "hat": "trail",
+      "palette": "cinder",
+      "sheetSha256": "bc751334b4fca77b37668e2e8fa663c1e42b8897aeb7d4295b0cf82aaf9757da"
+    },
+    {
+      "clothing": "tunic",
+      "hat": "trail",
+      "palette": "heather",
+      "sheetSha256": "0d7e6015e11e122eb6e4b1b8d6f0d0ebd0419d33283f49da1cd90c783bcf9a75"
+    },
+    {
+      "clothing": "tunic",
+      "hat": "trail",
+      "palette": "harbor",
+      "sheetSha256": "6f3a88c4aa989d24375761a756c1dfa677a7ce2d10bc99377a031c23721c0725"
+    },
+    {
+      "clothing": "vest",
+      "hat": "cap",
+      "palette": "fern",
+      "sheetSha256": "ff794e3b1926ea1d4cab5fd6aa4c77eea2d4aff36a97c9f07fcdace1f6529742"
+    },
+    {
+      "clothing": "vest",
+      "hat": "cap",
+      "palette": "cinder",
+      "sheetSha256": "94d536af4d56031f664605dda88cabbd0b746e9148987add4cf2bab5ee7b5996"
+    },
+    {
+      "clothing": "vest",
+      "hat": "cap",
+      "palette": "heather",
+      "sheetSha256": "8c666536c20b23d9608c9199d2dee767cae5e38939bb458270fef100d549730c"
+    },
+    {
+      "clothing": "vest",
+      "hat": "cap",
+      "palette": "harbor",
+      "sheetSha256": "a47a3f80339407c0f1c95bf406da09f48a41a77f066be1fa3678c4e7625558cd"
+    },
+    {
+      "clothing": "vest",
+      "hat": "round",
+      "palette": "fern",
+      "sheetSha256": "814e59e13fdb28f4049479fd9ea8026e0b1376d793e4e819779f2776f2ee3810"
+    },
+    {
+      "clothing": "vest",
+      "hat": "round",
+      "palette": "cinder",
+      "sheetSha256": "2d0b1191e48388f398a9fb7b4df4199c4194c851b985fa2ffac015cbf49c2a82"
+    },
+    {
+      "clothing": "vest",
+      "hat": "round",
+      "palette": "heather",
+      "sheetSha256": "c192344d1430f6723738088c195a36abd45185e81565fdf56a1d5cbf7a078454"
+    },
+    {
+      "clothing": "vest",
+      "hat": "round",
+      "palette": "harbor",
+      "sheetSha256": "dd7cec73240d2b18f78e17a80e834c75fa64362f78bef60e4d9e0f71474454b5"
+    },
+    {
+      "clothing": "vest",
+      "hat": "trail",
+      "palette": "fern",
+      "sheetSha256": "04b7de4fb6a08f9754518250e0821e632e4418ba16c4f60ebc4d27520dd55465"
+    },
+    {
+      "clothing": "vest",
+      "hat": "trail",
+      "palette": "cinder",
+      "sheetSha256": "e489f25d4ea8e16d74a6ab3d7f56787fe73027c0fa9ed0945d892e59af1f9183"
+    },
+    {
+      "clothing": "vest",
+      "hat": "trail",
+      "palette": "heather",
+      "sheetSha256": "d85c116baa83b47230454aee236d3b6a4123d20604e49c7ec5c4907e8af01b81"
+    },
+    {
+      "clothing": "vest",
+      "hat": "trail",
+      "palette": "harbor",
+      "sheetSha256": "f52281df23e3500b4197eedddf0ac5980599fea5106e519e44b80d96a4e75b02"
+    }
+  ]
+}

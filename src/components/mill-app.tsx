@@ -279,6 +279,7 @@ export function MillApp() {
   const [state, setState] = useState<MillState>(INITIAL);
   const [hydrated, setHydrated] = useState(false);
   const [mixOpen, setMixOpen] = useState(false);
+  const [materialRequest, setMaterialRequest] = useState(0);
   useEffect(()=>{if(!mixOpen){previewOwnerRef.current=null;setPreviewOwner(null);setMaterialPreview(null);}},[mixOpen]);
   const [judgeOpen, setJudgeOpen] = useState(false);
   const [judgeBusy, setJudgeBusy] = useState(false);
@@ -817,6 +818,8 @@ export function MillApp() {
             <Link to="/gallery" className="mark-link" data-testid="app-gallery-link">
               PNG gallery
             </Link>
+            <Link to="/studio" className="mark-link">Sprites</Link>
+            <Link to="/examples" className="mark-link">Examples</Link>
           </div>
           <h1>{materialPreview?materialPreview.label+' · '+materialPreview.channel:style.name}</h1>
         </div>
@@ -840,7 +843,7 @@ export function MillApp() {
           className={chunky ? "pixelated" : undefined}
           aria-label={`${style.name} texture preview`}
         />
-        {materialPreview?<canvas ref={materialDisplay} className="pixelated" style={{objectFit:'contain'}} aria-label="Active material preview"/>:null}
+        {materialPreview?<canvas ref={materialDisplay} className={materialPreview.smooth?'material-preview-smooth':'pixelated'} style={{objectFit:'contain'}} aria-label="Active material preview"/>:null}
         {glError || storageError ? <p className="stage-error" role="alert">{[glError, storageError].filter(Boolean).join(" ")}</p> : null}
       </section>
 
@@ -853,6 +856,17 @@ export function MillApp() {
           placeholder="Search textures"
           aria-label="Search styles"
         />
+        <button
+          type="button"
+          className="realistic-catalog-access"
+          onClick={() => {
+            setMixOpen(true);
+            changePreviewOwner('material', true);
+            setMaterialRequest((request) => request + 1);
+          }}
+        >
+          Photorealistic materials <span>Soil · gravel · limestone · concrete · bark · timber</span>
+        </button>
         <div className="cats" role="tablist" aria-label="Categories">
           {(["All", "Kept", ...CATEGORIES] as const).map((category) => {
             const on = state.category === category;
@@ -1037,7 +1051,7 @@ export function MillApp() {
 
       <section className="details" data-open={mixOpen} inert={!mixOpen} aria-label="Adjust texture">
         <RetroTerrainPanel onPreview={retroPreviewChanged} open={mixOpen&&previewOwner==='retro'} onOpenChange={open=>changePreviewOwner('retro',open)}/>
-        <MaterialPanel onPreview={materialPreviewChanged} active={mixOpen&&previewOwner!=='retro'} open={mixOpen&&previewOwner==='material'} onOpenChange={open=>changePreviewOwner('material',open)}/>
+        <MaterialPanel onPreview={materialPreviewChanged} active={mixOpen&&previewOwner!=='retro'} open={mixOpen&&previewOwner==='material'} onOpenChange={open=>changePreviewOwner('material',open)} requestedRecipe="realistic-surface" requestKey={materialRequest}/>
         <div style={materialPreview?{display:'none'}:undefined}>
         <h2>{style.name}</h2>
         <p className="lede">{style.blurb}</p>

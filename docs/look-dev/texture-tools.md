@@ -10,6 +10,7 @@ art approval and restricted purchased inputs. These repositories remain separate
 | Catalog (`src/shader/catalog.ts`, `glsl.ts`) | GLSL + palette/seed → color PNG/recipe | WebGL, existing Chromium corpus baker | Reuse now for color studies; existing artwork unapproved, no coherent PBR channels |
 | Seam/judge (`seam.ts`, `judge.ts`) | RGBA → wrap/feature scores | Node; 15 focused tests pass | Reuse now for technical rejection; scores cannot approve artwork |
 | Cliff material (`material.mjs`) | Seeded structure + pigment palette → four matched channels | Shared browser/Node implementation; deterministic/wrap/cancellation tests | `hd2d-cliff-strata` is additive; legacy `hd2d-cliff` channel hashes remain pinned; visual approval pending |
+| [Realistic surfaces](realistic-materials.md) (`material-realistic.mjs`) | Six original continuous material recipes → albedo/height/+Y normal/roughness | Shared browser/Node fields, smooth repeats and neutral lit authoring preview | Additive `realistic-surface/1`; previous recipes preserved; procedural candidates remain unapproved |
 | Environment authoring (`environment.mjs`, `bake-environment.mjs`) | Original or bounded Radiance HDR → portable diffuse/specular cube buffers | Offline Node bake; full local tests and lint pass | Preparation delivered for GaimEngine receiving; engine/material qualification and visual approval remain separate |
 | Vertex-color bake (`vertex-colors.mjs`, `bake-vertex-colors.mjs`) | Generated albedo + authored mesh UVs → linear RGB vertex colors | Offline Node bake; deterministic sampling and cache tests | Preparation delivered for GaimEngine receiving; mesh/art approval remains separate |
 | Existing exports (`recipe.ts`, `zip-store.ts`) | Recipe/pixels → JSON/PNG/ZIP | Browser canvas and existing ZIP encoder | Reuse now; preserve legacy format and explicit review status |
@@ -435,3 +436,5 @@ AI-edited: 2026-10-11 | agent=Codex/root | model=unknown | effort=unknown | task
 AI-edited: 2026-10-11 | agent=Codex/root | model=unknown | effort=unknown | task=closeout-publish | change=linked portable current proof and identified historical local evidence paths
 
 AI-edited: 2026-10-11 | agent=Codex/root | model=unknown | effort=unknown | task=retro-terrain-growth | change=linked separate curated drawing and path authoring route
+
+AI-edited: 2026-10-12 | agent=Codex/root | model=unknown | effort=unknown | task=realistic-material-catalog | change=added original realistic material authoring ownership and export route

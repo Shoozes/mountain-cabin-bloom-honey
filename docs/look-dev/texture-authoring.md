@@ -9,6 +9,59 @@ All existing catalog artwork is **unapproved for our games/GaimEngine**. `keep`
 means catalog retention; seam/judge scores establish technical properties, not
 visual approval. See [tool ownership and materials](../../docs/look-dev/texture-tools.md).
 
+## Game-facing authoring: scene coherence first
+
+The goal is coherence of **colors, lighting, textures and forms across the
+scene**. When supplying a game, begin with its actual camera and existing
+trees/props, terrain, characters, water and sky. Record the visual roles,
+brightness/warmth relationships, detail density and world-space texture scale.
+Choose the asset treatment from that context; native resolution alone does not
+determine whether a pixel tile, procedural material or supplied texture fits.
+
+Use the current accepted art direction. A same-camera mockup can help establish
+shared palette, composition and lighting: Rias's current direction coordinates
+warmer olive foliage, muted blue-green water and a softly lit sky. A mockup may
+repaint ground, tree shapes, shadows or reflections beyond the available engine
+inputs, so it is a concept target rather than a runtime preview. Record those
+differences before translating it into assets and renderer settings.
+
+Before expanding compositions, palettes or material families:
+
+1. **Prototype the scene together.** Place one candidate material beside the
+   actual tree/prop textures, water and sky in a small real game slice. Use the
+   engine's supported material and lighting controls; keep editable authoring
+   source separate from receiving assets. Do not increase painted shading to
+   compensate for mismatched lighting.
+2. **Measure the receiving scale.** Record source dimensions, source texels per
+   world cell, baked texels per cell, repeat footprint, filtering and mipmaps.
+   Rias's native64-over-two-cells prototype has 32 source texels per cell;
+   native64 over one cell needs explicit filtered minification into its 32px
+   cell bake. Label resampling honestly. More compositions do not remove a
+   fixed motif cadence or shared seam landmark.
+3. **Compare at the game camera.** Use matched baseline/candidate views over a
+   gameplay-sized area, including tree-rich ground, paths, water/horizon and
+   portrait. Ground should have readable quiet planes beneath the canopy;
+   reject conspicuous stamps, repeated slash marks and detail that competes
+   with trees or characters. Native and integer sheets remain drawing checks.
+4. **Check color and light as one system.** Compare hue, value and contrast
+   relationships across ground, foliage, water, sky and props under Golden
+   Day, Dusk and Mist. Include water movement/reflections and camera movement.
+   Separate a material defect from ambient, sun, sky or post-processing response;
+   correct each through its owning input. Albedo should retain pigment rather
+   than a fixed directional sun/shadow from the concept image.
+5. **Expand after the small scene fits.** Then complete alternatives and native
+   drawing/technical export checks. Keep concepts, structurally valid exports,
+   real loaded assets and owner artwork acceptance distinct. A coherent mockup
+   or passing PNG/geometry tests cannot approve the rendered result.
+
+The [Rias comparison and feedback](riasmap-terrain-selection.md) supplies the
+evidence: isolated native16 selection looked like repeated stamps in the game,
+and the later purchased-pack preview still received an owner rejection for
+repetition and pixel-art-styled presentation. The current remedy is a coherent
+scene prototype; its runtime result is still being qualified. Purchased source
+and its derivatives remain in the game's private intake, outside our original
+recipes, fixtures and redistributable exports.
+
 ## Retro terrain color kit
 
 For original 64×64 color tiles, open **Adjust → Retro terrain · 64 px**. The
@@ -97,6 +150,16 @@ The ten-by-four set is procedural candidate material, not approved art. Source
 hash changes produce new cache identities even where a legacy recipe's encoded
 channel bytes remain unchanged; old source-bound outputs are historical bakes,
 not reusable current-source cache entries.
+
+### Realistic material options
+
+The catalog's **Photorealistic materials** entry opens six original continuous
+recipes for soil, gravel, limestone, concrete, bark and timber. They start at
+512px and provide smooth repeats, three color moods and a neutral lit preview
+alongside unlit albedo, height, +Y normals and roughness. The existing recipes
+and their pixels are preserved. See the [recipe and export guide](realistic-materials.md)
+for preset controls, CLI examples and source-bound local verification. These
+procedural candidates remain unapproved until owner visual acceptance.
 
 To bake generated albedo onto an ordinary mesh offline, pass mesh JSON with
 `positions`, triangle `indices`, and one authored `uvs` pair per vertex:
@@ -282,3 +345,7 @@ AI-edited: 2026-10-11 | agent=Codex/root | model=unknown | effort=unknown | task
 AI-edited: 2026-10-11 | agent=Codex/root | model=unknown | effort=unknown | task=retro-terrain | change=linked original native-grid terrain authoring and separate export contract
 
 AI-edited: 2026-10-11 | agent=Codex/root | model=unknown | effort=unknown | task=retro-terrain-growth | change=linked curated path and weathering recipe with independent palettes
+
+AI-edited: 2026-10-12 | agent=Codex/root | model=unknown | effort=unknown | task=scene-coherence-learning | change=added actual-scene color, lighting, texture-scale and mockup-to-runtime criteria before expanding game-facing variants
+
+AI-edited: 2026-10-12 | agent=Codex/root | model=unknown | effort=unknown | task=realistic-material-catalog | change=linked six continuous surface recipes and neutral authoring preview without approving artwork

@@ -1,0 +1,639 @@
+{
+  "format": "curated-unaffected-surfaces/1",
+  "baselineCommit": "4c15058c5e39ef4a0c9fdf6d411f3a7372b06061",
+  "baselineArtSha256": "57a979cec30a67285ae8306f00178f2212264e3df4a94f00fc4d4fcccbe454ba",
+  "palettes": {
+    "woodland": {
+      "grass": [
+        "#65734b",
+        "#424e38",
+        "#939a60"
+      ],
+      "dirt": [
+        "#896c54",
+        "#705645",
+        "#a08461"
+      ],
+      "gravel": [
+        "#50584f",
+        "#646d60",
+        "#899183",
+        "#b1b5a0"
+      ]
+    },
+    "dry-trail": {
+      "grass": [
+        "#9a9457",
+        "#696845",
+        "#c0b36f"
+      ],
+      "dirt": [
+        "#b27c52",
+        "#875e46",
+        "#d1a06a"
+      ],
+      "gravel": [
+        "#686063",
+        "#817478",
+        "#a39994",
+        "#c9bbae"
+      ]
+    },
+    "cool-moor": {
+      "grass": [
+        "#567d77",
+        "#355956",
+        "#87a59a"
+      ],
+      "dirt": [
+        "#807675",
+        "#605d64",
+        "#a1968a"
+      ],
+      "gravel": [
+        "#3f5264",
+        "#566c7d",
+        "#8196a0",
+        "#b0bfc0"
+      ]
+    }
+  },
+  "cases": [
+    {
+      "tileSize": 16,
+      "palette": "woodland",
+      "family": "grass",
+      "weathered": false,
+      "composition": 0,
+      "rgbaSha256": "38ffceeac577b700cbc92ee84f5824dbf09eade5136c03f803dbda28532cbf00"
+    },
+    {
+      "tileSize": 16,
+      "palette": "woodland",
+      "family": "grass",
+      "weathered": false,
+      "composition": 1,
+      "rgbaSha256": "bad1f09e95d5a537d318960c86e46664de962b01f9624a8c98649947f6358fe1"
+    },
+    {
+      "tileSize": 16,
+      "palette": "woodland",
+      "family": "grass",
+      "weathered": false,
+      "composition": 2,
+      "rgbaSha256": "614a827a54dce077a16f3cc98258d809ebac1e114232b2c44ed1199fc7af9858"
+    },
+    {
+      "tileSize": 16,
+      "palette": "woodland",
+      "family": "grass",
+      "weathered": true,
+      "composition": 0,
+      "rgbaSha256": "a880ff14cda72fa81cde5763133513303a9d7040bf73b133b40f2cd6707a3739"
+    },
+    {
+      "tileSize": 16,
+      "palette": "woodland",
+      "family": "grass",
+      "weathered": true,
+      "composition": 1,
+      "rgbaSha256": "c558a20ed0fbf4e01fdd4e93605ba98011e0427c5c410d95baad4f5e621dfaba"
+    },
+    {
+      "tileSize": 16,
+      "palette": "woodland",
+      "family": "grass",
+      "weathered": true,
+      "composition": 2,
+      "rgbaSha256": "75dd6e692a0bd691556414a77149c2f8d21aa1e93c60fdad7859458e9a9f2361"
+    },
+    {
+      "tileSize": 16,
+      "palette": "woodland",
+      "family": "dirt",
+      "weathered": false,
+      "composition": 0,
+      "rgbaSha256": "ac0e2d45014bd711c61acf1b6082e6f293a2c98637a1beb2b39409ef6c8f7deb"
+    },
+    {
+      "tileSize": 16,
+      "palette": "woodland",
+      "family": "dirt",
+      "weathered": false,
+      "composition": 1,
+      "rgbaSha256": "07b3dba394d20e82db550d926fa379a85f38c96dcadfdccb5fb3c6020e114280"
+    },
+    {
+      "tileSize": 16,
+      "palette": "woodland",
+      "family": "dirt",
+      "weathered": false,
+      "composition": 2,
+      "rgbaSha256": "0eb8a9ea464307bf22afa7c1a8ba24240cf5ce13f13bfd7e4f0ce90ebf41e849"
+    },
+    {
+      "tileSize": 16,
+      "palette": "woodland",
+      "family": "dirt",
+      "weathered": true,
+      "composition": 0,
+      "rgbaSha256": "2093d47a36a6b7caf397b7c395519731c25249041398fbcbfa979115841b046d"
+    },
+    {
+      "tileSize": 16,
+      "palette": "woodland",
+      "family": "dirt",
+      "weathered": true,
+      "composition": 1,
+      "rgbaSha256": "e19495a5ee8793585117b289245c27d8b0e183c23542243fb1cee442e7db17b9"
+    },
+    {
+      "tileSize": 16,
+      "palette": "woodland",
+      "family": "dirt",
+      "weathered": true,
+      "composition": 2,
+      "rgbaSha256": "51dcd58f82dfa63238b04ff8f04b86cab82fe9ba411cb3fbae53a841b5f72b60"
+    },
+    {
+      "tileSize": 16,
+      "palette": "dry-trail",
+      "family": "grass",
+      "weathered": false,
+      "composition": 0,
+      "rgbaSha256": "d65e3fd07c811e222e5eb265bfc527dc9dd378366316a93bd83bb84fd14963ae"
+    },
+    {
+      "tileSize": 16,
+      "palette": "dry-trail",
+      "family": "grass",
+      "weathered": false,
+      "composition": 1,
+      "rgbaSha256": "3dbf5fe30726290b69fe80bc587f5c8adb4e1db54f886957f0908c4f719122f7"
+    },
+    {
+      "tileSize": 16,
+      "palette": "dry-trail",
+      "family": "grass",
+      "weathered": false,
+      "composition": 2,
+      "rgbaSha256": "73c79ba3a8afbb780615355eb7388a5d4b9ffed3f168dd2221a9df03216e5f2a"
+    },
+    {
+      "tileSize": 16,
+      "palette": "dry-trail",
+      "family": "grass",
+      "weathered": true,
+      "composition": 0,
+      "rgbaSha256": "e74b20ad6358110028ddf463f6afbee88feb981385f0f17d59579298319f7668"
+    },
+    {
+      "tileSize": 16,
+      "palette": "dry-trail",
+      "family": "grass",
+      "weathered": true,
+      "composition": 1,
+      "rgbaSha256": "c1f12900da4e2c2580aee55dbbc57fa430cab0d9bf4363f9b34b598ec73907f0"
+    },
+    {
+      "tileSize": 16,
+      "palette": "dry-trail",
+      "family": "grass",
+      "weathered": true,
+      "composition": 2,
+      "rgbaSha256": "f441baaf001bc8ea71016512be6c33c0b6c45487ce6dd2fc7fce628f7f133b07"
+    },
+    {
+      "tileSize": 16,
+      "palette": "dry-trail",
+      "family": "dirt",
+      "weathered": false,
+      "composition": 0,
+      "rgbaSha256": "26c745c569b46e4fae0257a74316bf032daf6b56edaa14c4161f219cacb7d74d"
+    },
+    {
+      "tileSize": 16,
+      "palette": "dry-trail",
+      "family": "dirt",
+      "weathered": false,
+      "composition": 1,
+      "rgbaSha256": "616312bbf14f3fc7ad2820c87f49c77ea471d2a5d620d1a1c6f632abcf01de9b"
+    },
+    {
+      "tileSize": 16,
+      "palette": "dry-trail",
+      "family": "dirt",
+      "weathered": false,
+      "composition": 2,
+      "rgbaSha256": "0c77c9979dbe0d2794273134a5e8a1a411788c0babc00f2761aff6c18f018f3d"
+    },
+    {
+      "tileSize": 16,
+      "palette": "dry-trail",
+      "family": "dirt",
+      "weathered": true,
+      "composition": 0,
+      "rgbaSha256": "07eeaf3ee3c021028d910c76191045fb389f61bba708603276b87cfd8a4f31e1"
+    },
+    {
+      "tileSize": 16,
+      "palette": "dry-trail",
+      "family": "dirt",
+      "weathered": true,
+      "composition": 1,
+      "rgbaSha256": "04507f6a7c358eb09f57c71ac3ce3c726b39649f7941b04cdda8cf409564196b"
+    },
+    {
+      "tileSize": 16,
+      "palette": "dry-trail",
+      "family": "dirt",
+      "weathered": true,
+      "composition": 2,
+      "rgbaSha256": "47039e1c66e2d8c9e6861d3f179b26b52f69d3362531798e574d67cb918a541a"
+    },
+    {
+      "tileSize": 16,
+      "palette": "cool-moor",
+      "family": "grass",
+      "weathered": false,
+      "composition": 0,
+      "rgbaSha256": "72e6edbfb201697212fddd434ca72648f199ed8fec8c2a9c23fe2ff1f3c36ccc"
+    },
+    {
+      "tileSize": 16,
+      "palette": "cool-moor",
+      "family": "grass",
+      "weathered": false,
+      "composition": 1,
+      "rgbaSha256": "dcce1bf0f3ac8de73a545faba3e48c2e17a86b962f0b5b61d17f72cf8564a05d"
+    },
+    {
+      "tileSize": 16,
+      "palette": "cool-moor",
+      "family": "grass",
+      "weathered": false,
+      "composition": 2,
+      "rgbaSha256": "391f5724509ed36886bef6a0f8abca65f1a2a315e698727c0377f2f431dccd35"
+    },
+    {
+      "tileSize": 16,
+      "palette": "cool-moor",
+      "family": "grass",
+      "weathered": true,
+      "composition": 0,
+      "rgbaSha256": "dfef3e5c22457c167d151f3351348b4ed80848736ca8420dd3ae8a906213d12a"
+    },
+    {
+      "tileSize": 16,
+      "palette": "cool-moor",
+      "family": "grass",
+      "weathered": true,
+      "composition": 1,
+      "rgbaSha256": "5e716a5c8b40b822a1ea90012062f7b61e7a81e209ab08093063a801a51cd67a"
+    },
+    {
+      "tileSize": 16,
+      "palette": "cool-moor",
+      "family": "grass",
+      "weathered": true,
+      "composition": 2,
+      "rgbaSha256": "eb6cbb9d1cb4ee9ac7eb59f075b6bb91788ded0cc5602c02a6ac6f97621e5b53"
+    },
+    {
+      "tileSize": 16,
+      "palette": "cool-moor",
+      "family": "dirt",
+      "weathered": false,
+      "composition": 0,
+      "rgbaSha256": "5b75010c62fdc60d368e0f701e5429334d3ac5f4e0dc1a50417dd6acaf6e8a9d"
+    },
+    {
+      "tileSize": 16,
+      "palette": "cool-moor",
+      "family": "dirt",
+      "weathered": false,
+      "composition": 1,
+      "rgbaSha256": "8b0fa6a456a2e68d69b73024e7581a895c85d9b82af2efc57506707dea611ec3"
+    },
+    {
+      "tileSize": 16,
+      "palette": "cool-moor",
+      "family": "dirt",
+      "weathered": false,
+      "composition": 2,
+      "rgbaSha256": "b09bb209cd3508e80795dd581765d6a119e64d964a06319a951c2ca00c9f7de0"
+    },
+    {
+      "tileSize": 16,
+      "palette": "cool-moor",
+      "family": "dirt",
+      "weathered": true,
+      "composition": 0,
+      "rgbaSha256": "ac6a3fa78bfcc59712a02884206b9118fde2d79c0a7abaaefb53c35d5c2f08f3"
+    },
+    {
+      "tileSize": 16,
+      "palette": "cool-moor",
+      "family": "dirt",
+      "weathered": true,
+      "composition": 1,
+      "rgbaSha256": "6ba9d398cf99e539c8ba86679cb4eba97323dbbbcbbd5c4a151e8745eb53ac86"
+    },
+    {
+      "tileSize": 16,
+      "palette": "cool-moor",
+      "family": "dirt",
+      "weathered": true,
+      "composition": 2,
+      "rgbaSha256": "fad726c1be1f4054d0c4eacab6ef532f24e755f3c26e57abd7b743e8805c5f85"
+    },
+    {
+      "tileSize": 64,
+      "palette": "woodland",
+      "family": "grass",
+      "weathered": false,
+      "composition": 0,
+      "rgbaSha256": "4e0d2058d6960d6b730e7113334451b8b32fd338eb18a6247d4febae29fefc7b"
+    },
+    {
+      "tileSize": 64,
+      "palette": "woodland",
+      "family": "grass",
+      "weathered": false,
+      "composition": 1,
+      "rgbaSha256": "90eee3eef29ef791bc63c78ecef546ed9f82a02245fe0e99c4a3e3b453897bda"
+    },
+    {
+      "tileSize": 64,
+      "palette": "woodland",
+      "family": "grass",
+      "weathered": false,
+      "composition": 2,
+      "rgbaSha256": "39054ff777fc5125ce05a4bba6ca7ada9763ac240471642bc45d33c764db8624"
+    },
+    {
+      "tileSize": 64,
+      "palette": "woodland",
+      "family": "grass",
+      "weathered": true,
+      "composition": 0,
+      "rgbaSha256": "b0ec51df2b9519fd5f5e597dd90ad8d0364c56870ff6edcee085126b8924d4aa"
+    },
+    {
+      "tileSize": 64,
+      "palette": "woodland",
+      "family": "grass",
+      "weathered": true,
+      "composition": 1,
+      "rgbaSha256": "c21a762ffff45f2d9e944175844c52da3e32169ab71688df6ebb752e599342f7"
+    },
+    {
+      "tileSize": 64,
+      "palette": "woodland",
+      "family": "grass",
+      "weathered": true,
+      "composition": 2,
+      "rgbaSha256": "f7c95dab182eb5c4ee6f317a43a6ab03716a69c58e9063ce737b0bd753464910"
+    },
+    {
+      "tileSize": 64,
+      "palette": "woodland",
+      "family": "dirt",
+      "weathered": false,
+      "composition": 0,
+      "rgbaSha256": "3ad336aa19ad0f79c30923b350fa55272cc4ed2dfecfb97e083feb61fee3b84a"
+    },
+    {
+      "tileSize": 64,
+      "palette": "woodland",
+      "family": "dirt",
+      "weathered": false,
+      "composition": 1,
+      "rgbaSha256": "c3d3b2734c9bb5fc8a3406ee1b42cb7b9caa83fa12c6697a017e062589f9504d"
+    },
+    {
+      "tileSize": 64,
+      "palette": "woodland",
+      "family": "dirt",
+      "weathered": false,
+      "composition": 2,
+      "rgbaSha256": "5299b479899a0748d8c54863672ee273d6f1d6dac07f85a3f0a30a30d3ea7c77"
+    },
+    {
+      "tileSize": 64,
+      "palette": "woodland",
+      "family": "dirt",
+      "weathered": true,
+      "composition": 0,
+      "rgbaSha256": "190ff57c3a4faaa4b4ecf5615dea2660640e9f78bcc7a67c3d4fc1a03f0d673b"
+    },
+    {
+      "tileSize": 64,
+      "palette": "woodland",
+      "family": "dirt",
+      "weathered": true,
+      "composition": 1,
+      "rgbaSha256": "ddf7e762c28a98dfc2f8dc02da7c062b3222adf89d5dcfccaf13fd9434af7249"
+    },
+    {
+      "tileSize": 64,
+      "palette": "woodland",
+      "family": "dirt",
+      "weathered": true,
+      "composition": 2,
+      "rgbaSha256": "11956dd74cf4a62a33bb8b2961da168f588fd130330e8c34c9f896aabcd3feec"
+    },
+    {
+      "tileSize": 64,
+      "palette": "dry-trail",
+      "family": "grass",
+      "weathered": false,
+      "composition": 0,
+      "rgbaSha256": "02ef313782aa8aa23f9508eed4e731b2a417844211b6f120caef99712b2cab66"
+    },
+    {
+      "tileSize": 64,
+      "palette": "dry-trail",
+      "family": "grass",
+      "weathered": false,
+      "composition": 1,
+      "rgbaSha256": "273bae51fbefeb6e825f3f3e6b365c27cd4197adc033ab6c650af1a4ed7f1c14"
+    },
+    {
+      "tileSize": 64,
+      "palette": "dry-trail",
+      "family": "grass",
+      "weathered": false,
+      "composition": 2,
+      "rgbaSha256": "ce2ac45b8ce061b81005f32c9a340bbc61f82037cae2bf7f0c1e67c3b771b1f4"
+    },
+    {
+      "tileSize": 64,
+      "palette": "dry-trail",
+      "family": "grass",
+      "weathered": true,
+      "composition": 0,
+      "rgbaSha256": "6ce378098f0c92c29a6253e148405d3eb1c0e5d2844f8ce940f845a0ed15e6ef"
+    },
+    {
+      "tileSize": 64,
+      "palette": "dry-trail",
+      "family": "grass",
+      "weathered": true,
+      "composition": 1,
+      "rgbaSha256": "835f4962342fbc091fd473cd1afb5a854569bdc3178317e4d491bbb441bc091e"
+    },
+    {
+      "tileSize": 64,
+      "palette": "dry-trail",
+      "family": "grass",
+      "weathered": true,
+      "composition": 2,
+      "rgbaSha256": "1fd48fb2af7596dcdde2a34dbd56a10195bc701dbf2514f525ef1995b1664602"
+    },
+    {
+      "tileSize": 64,
+      "palette": "dry-trail",
+      "family": "dirt",
+      "weathered": false,
+      "composition": 0,
+      "rgbaSha256": "c753f582005cc50a69ffd2b62b69249868f7ce18df66084e3ec58dc0e20540a4"
+    },
+    {
+      "tileSize": 64,
+      "palette": "dry-trail",
+      "family": "dirt",
+      "weathered": false,
+      "composition": 1,
+      "rgbaSha256": "62135298862d4808cdeaccb8794d16362a75aec66f6611f64bcc698de62639b5"
+    },
+    {
+      "tileSize": 64,
+      "palette": "dry-trail",
+      "family": "dirt",
+      "weathered": false,
+      "composition": 2,
+      "rgbaSha256": "31587c85bb1c6820d59cac10f44bc40b638df194909fa1823816673d4f2e3103"
+    },
+    {
+      "tileSize": 64,
+      "palette": "dry-trail",
+      "family": "dirt",
+      "weathered": true,
+      "composition": 0,
+      "rgbaSha256": "67d5545c9060487af00954b55c26a510bb2ed4210bf6c8bfc772140eee272b58"
+    },
+    {
+      "tileSize": 64,
+      "palette": "dry-trail",
+      "family": "dirt",
+      "weathered": true,
+      "composition": 1,
+      "rgbaSha256": "4182fec43c987df3db9431f32029772d6de6a73cadccb80a3b4477638bd4cc42"
+    },
+    {
+      "tileSize": 64,
+      "palette": "dry-trail",
+      "family": "dirt",
+      "weathered": true,
+      "composition": 2,
+      "rgbaSha256": "c6503dde686fb0f2b8873d960f7e3ce73876bf71e6d2c2ecd4258d35aac8e3f8"
+    },
+    {
+      "tileSize": 64,
+      "palette": "cool-moor",
+      "family": "grass",
+      "weathered": false,
+      "composition": 0,
+      "rgbaSha256": "377d3c0a40d4f1dec4f72d1c43713ab82096071a9c75fd438515937850d0c4fe"
+    },
+    {
+      "tileSize": 64,
+      "palette": "cool-moor",
+      "family": "grass",
+      "weathered": false,
+      "composition": 1,
+      "rgbaSha256": "01df9d968e9008d4a7d3839e5a2d011907b6551d311045d5acc920b17ac3297c"
+    },
+    {
+      "tileSize": 64,
+      "palette": "cool-moor",
+      "family": "grass",
+      "weathered": false,
+      "composition": 2,
+      "rgbaSha256": "5f71529c01267990936534904feb8f4f7fee9d16d2ab4fb70575aa63704f32a6"
+    },
+    {
+      "tileSize": 64,
+      "palette": "cool-moor",
+      "family": "grass",
+      "weathered": true,
+      "composition": 0,
+      "rgbaSha256": "7b2d2ca0e80be507994718783252a117a9e355b74ae2b910b94baac6f5d2731c"
+    },
+    {
+      "tileSize": 64,
+      "palette": "cool-moor",
+      "family": "grass",
+      "weathered": true,
+      "composition": 1,
+      "rgbaSha256": "8d1947135a97f243bfcdb151fa3dfd7aea620c6c6dabcc631c0caa6836fd603c"
+    },
+    {
+      "tileSize": 64,
+      "palette": "cool-moor",
+      "family": "grass",
+      "weathered": true,
+      "composition": 2,
+      "rgbaSha256": "aee527ae5a231280d60a5ff79dee30d4c03e84e5de50c2627f071bf07d7f8e5c"
+    },
+    {
+      "tileSize": 64,
+      "palette": "cool-moor",
+      "family": "dirt",
+      "weathered": false,
+      "composition": 0,
+      "rgbaSha256": "8199736cac8b02b0bfa7d75eb464c76914d159e6534281fab5b7e8a719bee6f5"
+    },
+    {
+      "tileSize": 64,
+      "palette": "cool-moor",
+      "family": "dirt",
+      "weathered": false,
+      "composition": 1,
+      "rgbaSha256": "a4150b34f05c040f6427f1fb575084c6e722345354ea54a25d3d4cabb28b528d"
+    },
+    {
+      "tileSize": 64,
+      "palette": "cool-moor",
+      "family": "dirt",
+      "weathered": false,
+      "composition": 2,
+      "rgbaSha256": "2fdb5de9b3268c8ba1570e1fd59dfa8dd3166e1517912411d767ff7f0de39abf"
+    },
+    {
+      "tileSize": 64,
+      "palette": "cool-moor",
+      "family": "dirt",
+      "weathered": true,
+      "composition": 0,
+      "rgbaSha256": "519a095be418c3f56568e81b792ec7aa28fbe87eba1ef4e77125d3e6f5c0020c"
+    },
+    {
+      "tileSize": 64,
+      "palette": "cool-moor",
+      "family": "dirt",
+      "weathered": true,
+      "composition": 1,
+      "rgbaSha256": "26dfa2f4a5722946b3d233171b0d07234650d1a9b1d680503f991e2e5122309d"
+    },
+    {
+      "tileSize": 64,
+      "palette": "cool-moor",
+      "family": "dirt",
+      "weathered": true,
+      "composition": 2,
+      "rgbaSha256": "396ffccf848e00adb0ee3412917cbc6d2e7fa5bfbe612fe1f0fa45608fdbca2f"
+    }
+  ]
+}

@@ -1,0 +1,254 @@
+{
+  "format": "grout-art-qualification/1",
+  "status": "Complete with verified limitations",
+  "visualReview": "unapproved",
+  "run": "grout-art-20261016",
+  "summary": "D:\\Compact_Evidence\\mountain-cabin-bloom-honey\\runs\\grout-art-20261016\\summary.json",
+  "sourceInventorySha256": "e07dda73ff7818ecdab2c8172654b0dbdae8443c65d0939249477534ac1d8f74",
+  "tests": {
+    "passed": 367,
+    "failed": 0
+  },
+  "gpu": {
+    "travelerFrames": 1728,
+    "techniqueFrames": 40,
+    "byteDifferences": 0,
+    "backends": [
+      "webgl2",
+      "webgpu"
+    ],
+    "device": "Chrome155 / NVIDIA RTX4090"
+  },
+  "browserLanes": [
+    "dev",
+    "built Pages; desktop/mobile viewport authoring"
+  ],
+  "ownerWorkRecord": "docs/work/done/GROUT-ART-SUCCESSOR-20261016.md",
+  "futureOwnership": "docs/look-dev/grout-art.md capability matrix",
+  "followUps": [
+    {
+      "run": "traveler-anatomy-20261016",
+      "status": "Complete with verified limitations",
+      "visualReview": "unapproved",
+      "summary": "D:/Compact_Evidence/mountain-cabin-bloom-honey/runs/traveler-anatomy-20261016/summary.json",
+      "travelerSha256": "42b116a5206e21d5e97d0356b667db8c4914c4f069a287d6700eb72c623cdbcb",
+      "tests": {
+        "passed": 368,
+        "failed": 0
+      },
+      "gpu": {
+        "travelerFrames": 1728,
+        "techniqueFrames": 40,
+        "byteDifferences": 0,
+        "backends": [
+          "webgl2",
+          "webgpu"
+        ],
+        "browser": "155.0.8059.80",
+        "device": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4090 (0x00002684) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+      },
+      "art": "Front pack occluded; connected counter-swinging arms; consistent closed outer contour; tutorial-style acceptance still open."
+    },
+    {
+      "run": "traveler-style-20261016",
+      "status": "Complete with verified limitations",
+      "visualReview": "unapproved",
+      "summary": "D:/Compact_Evidence/mountain-cabin-bloom-honey/runs/traveler-style-20261016/summary.json",
+      "travelerSha256": "3a4211f6a221e909c08c8359f145ab7accb079440c0a6e2d78fd03aa70599b1f",
+      "tests": {
+        "passed": 368,
+        "failed": 0
+      },
+      "gpu": {
+        "travelerFrames": 1728,
+        "techniqueFrames": 40,
+        "byteDifferences": 0,
+        "backends": [
+          "webgl2",
+          "webgpu"
+        ],
+        "browser": "155.0.8059.80",
+        "device": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4090 (0x00002684) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+      },
+      "art": "One original traveler: asymmetric head/cap silhouette, tapered face, tucked torso, shorter connected arms and three-pixel contact shoes with narrower passing overlap. Reviewed by pixel-art agent; owner visual acceptance remains open; no variants.",
+      "nativeSheet": "D:/Compact_Evidence/mountain-cabin-bloom-honey/runs/traveler-style-20261016/artifacts/candidate-r2.png",
+      "walkCycle": "D:/Compact_Evidence/mountain-cabin-bloom-honey/runs/traveler-style-20261016/artifacts/traveler-walk-r2.gif"
+    },
+    {
+      "run": "traveler-wardrobe-20261016",
+      "status": "Complete with verified limitations",
+      "visualReview": "accepted original base; new apparel unapproved",
+      "summary": "D:/Compact_Evidence/mountain-cabin-bloom-honey/runs/traveler-wardrobe-20261016/summary.json",
+      "travelerSha256": "43a8955f8f4078b9b5d83c2ae4dd37ccb1771f23cad6afd3dcdd90f2397bd1fb",
+      "acceptedBase": "scripts/fixtures/traveler-accepted-20261016.json",
+      "tests": {
+        "passed": 371,
+        "failed": 0
+      },
+      "gpu": {
+        "baseFrames": 1728,
+        "wardrobeFrames": 432,
+        "techniqueFrames": 40,
+        "byteDifferences": 0,
+        "backends": [
+          "webgl2",
+          "webgpu"
+        ],
+        "browser": "155.0.8059.80",
+        "device": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4090 (0x00002684) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+      },
+      "wardrobe": {
+        "clothing": [
+          "coat",
+          "tunic",
+          "vest"
+        ],
+        "hats": [
+          "cap",
+          "round",
+          "trail"
+        ],
+        "combinations": 9,
+        "editableRecipes": ".artifacts/grout-art-sdk/traveler-wardrobe",
+        "walkCycle": "D:/Compact_Evidence/mountain-cabin-bloom-honey/runs/traveler-wardrobe-20261016/artifacts/final/wardrobe-walk-r2.gif"
+      },
+      "art": "Accepted default remains byte-identical. Added central-panel tunic, open vest, round cap and short-brim trail hat with fixed body/face/anchor/clips; independently reviewed, new apparel awaits owner acceptance."
+    },
+    {
+      "run": "traveler-palette-feet-20261016",
+      "status": "Complete with verified limitations",
+      "visualReview": "accepted garment drawings; new palettes, gait and pack unapproved",
+      "summary": "D:\\Compact_Evidence\\mountain-cabin-bloom-honey\\runs\\traveler-palette-feet-20261016\\summary.json",
+      "travelerSha256": "42058438b5452f2bcf743fdd19349ceeda54a4e243d88462afc21881d833269c",
+      "tests": {
+        "passed": 373,
+        "failed": 0,
+        "focused": 19
+      },
+      "gpu": {
+        "baseFrames": 1728,
+        "wardrobeFrames": 1728,
+        "techniqueFrames": 40,
+        "byteDifferences": 0,
+        "backends": [
+          "webgl2",
+          "webgpu"
+        ],
+        "browser": "155.0.8059.80",
+        "device": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4090 (0x00002684) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+      },
+      "palettes": [
+        "fern",
+        "cinder",
+        "heather",
+        "harbor"
+      ],
+      "combinations": 36,
+      "historicalBaseline": [
+        "scripts/fixtures/traveler-accepted-20261016.json",
+        "scripts/fixtures/traveler-wardrobe-20261016.json"
+      ],
+      "activeDrawings": "scripts/fixtures/traveler-palette-feet-20261016.json",
+      "art": "Native contact/toe-off feet in four directions, neutral passing poses, profile counter-swing and distinct rear heels; torso-centered backpack. Accepted face/arms/proportions/outlines/anchor/clip timing preserved. Three new coordinated apparel colorways isolate face and leather roles. Pixel-art peer r3 found no material flaw.",
+      "walkCycle": "D:\\Compact_Evidence\\mountain-cabin-bloom-honey\\runs\\traveler-palette-feet-20261016\\artifacts\\r3\\palette-walk.gif",
+      "feetComparison": "D:\\Compact_Evidence\\mountain-cabin-bloom-honey\\runs\\traveler-palette-feet-20261016\\artifacts\\r3\\feet-walk.gif",
+      "draftRecovery": "Old recipes keep their exact drawing until explicit undoable Refine walk & backpack. Colorways migrate known old garment inks without portrait recoloring."
+    },
+    {
+      "run": "traveler-profile-import-20261016",
+      "status": "Complete with verified limitations",
+      "summary": "D:/Compact_Evidence/mountain-cabin-bloom-honey/runs/traveler-profile-import-20261016/summary.json",
+      "sourceInventorySha256": "cae55c247b13a817f361683e349413e173c17561eb3f034438588df99347a23e",
+      "tests": {
+        "passed": 381,
+        "failed": 0,
+        "focused": 27
+      },
+      "gpu": {
+        "comparisons": 3516,
+        "byteDifferences": 0,
+        "backends": [
+          "webgl2",
+          "webgpu"
+        ],
+        "browser": "155.0.8059.80",
+        "device": "NVIDIA RTX4090"
+      },
+      "visualReview": "unapproved; pixel-art peer recommends no further far-shoe correction",
+      "art": "Side far shoes only; front/back pixels, proportions, near shoes, palettes, outline convention, anchor and timing unchanged.",
+      "import": "PNG/GIF single/grid/aligned animated layers; editable masks, optional recipe outline, exact timings, source provenance, undo/recovery/cancellation and pixel-identical browser/CLI export.",
+      "referenceParity": {
+        "layerCells": 144,
+        "compositeFrames": 36,
+        "differences": 0,
+        "bundledReferencePixels": false
+      },
+      "activeDrawings": "scripts/fixtures/traveler-profile-feet-20261016.json",
+      "historicalBaseline": [
+        "scripts/fixtures/traveler-palette-feet-20261016.json",
+        "scripts/fixtures/traveler-palette-feet-recipe-20261016.json"
+      ],
+      "walkCycle": "D:/Compact_Evidence/mountain-cabin-bloom-honey/runs/traveler-profile-import-20261016/artifacts/profile/profile-walk.gif",
+      "limits": [
+        "GIF import requires ImageDecoder; PNG grid fallback diagnostic verified.",
+        "Hard alpha and exact integer timing only; no silent quantization or cleanup.",
+        "Artwork candidate remains unapproved by owner.",
+        "Four pre-existing lint warnings in historical terrain artifact scripts."
+      ]
+    },
+    {
+      "run": "studio-outline-20261016",
+      "status": "Complete with verified limitations",
+      "summary": "D:/Compact_Evidence/mountain-cabin-bloom-honey/runs/studio-outline-20261016/summary.json",
+      "sourceInventorySha256": "0134072b18f4f33dc11296f25ed43c7b4f7ee2eacddcc47f9426e8479dd2b836",
+      "tests": {
+        "passed": 388,
+        "failed": 0,
+        "focused": 34
+      },
+      "gpu": {
+        "comparisons": 3660,
+        "outlineComparisons": 144,
+        "differingBytes": 0,
+        "backends": [
+          "webgl2",
+          "webgpu"
+        ],
+        "browser": "Chrome155.0.8059.80",
+        "device": "NVIDIA RTX4090"
+      },
+      "behavior": "Optional composite outline controls in Studio; native width 1\u20133, stepped/square footprint and independent RGB color. CPU and direct GLSL/WGSL evaluate identical coverage. Source layers, parts, colors, frame order, anchors and clip timing remain unchanged. Paint/fill/selection operate on source pixels. Export bakes the effect into atlas/sheet PNGs and preserves the editable recipe.",
+      "preservation": "Original imported layers, clips and palette roles intact; no traveler/terrain drawing edits. User study: all 36 frames retain original opaque pixels.",
+      "limits": [
+        "Fixed source-frame bounds: border clips at edges; dimensions and anchors do not shift.",
+        "Four existing lint warnings in historical terrain artifact scripts.",
+        "Viewport desktop/mobile proof on Chrome; other devices not claimed."
+      ],
+      "preview": "D:/Compact_Evidence/mountain-cabin-bloom-honey/runs/studio-outline-20261016/artifacts/user-example/outline-preview.gif"
+    },
+    {
+      "run": "character-creator-20261017",
+      "status": "Paused",
+      "visualReview": "unapproved",
+      "summary": "D:\\Compact_Evidence\\mountain-cabin-bloom-honey\\runs\\character-creator-20261017\\summary.json",
+      "tests": {
+        "passed": 398,
+        "failed": 0,
+        "focused": 10
+      },
+      "gates": [
+        "typecheck",
+        "SDK runtime/declaration consumers",
+        "lint (four historical warnings)",
+        "build",
+        "build:pages"
+      ],
+      "browser": "Final dev controls and feedback passed before source-key timeout; full final dev/built character qualification remains open. Earlier 324 frames per backend and export equality are historical.",
+      "continuation": "docs/work/queue/CHARACTER-CREATOR-20261017.md",
+      "limitations": [
+        "Unequal profile contact stride and eye/contour spacing identified by pixel-art peer.",
+        "Owner requested usage-limit closeout before final character browser milestone."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,441 @@
+{
+  "schema": "retro-terrain-gravel-proof/1",
+  "recordedAt": "2026-10-12T13:00:22.733Z",
+  "status": "Complete with verified limitations",
+  "baselineCommit": "4c15058c5e39ef4a0c9fdf6d411f3a7372b06061",
+  "candidate": "Verified local gravel worktree; artwork unapproved; no publication in this batch",
+  "runtime": {
+    "node": "v26.5.0",
+    "platform": "win32",
+    "powershell": "7.6.6",
+    "browser": "Installed Chrome through project-local Playwright"
+  },
+  "sources": [
+    {
+      "file": "package.json",
+      "sha256": "0db762ddd0805e3076e3738bf16392f106a5ea702c31db2e58ee683ee70bda5c"
+    },
+    {
+      "file": "src/shader/retro-terrain-art.mjs",
+      "sha256": "fc21f554ed799a1924425c58ad7a955ffaae7888b83b5c77c5ecac24dd3641c5"
+    },
+    {
+      "file": "src/shader/retro-terrain-curated.mjs",
+      "sha256": "a0d4e46537ec1269285e34ee433269f36cc345e598dd5adba2c94cf75ffdd207"
+    },
+    {
+      "file": "src/shader/retro-autotile.mjs",
+      "sha256": "a38828427a26e7409885eaf1ded6874351b0a29f87532821ca3c21ceae745a9e"
+    },
+    {
+      "file": "src/shader/retro-terrain.mjs",
+      "sha256": "76fa9fb6e1053954828cbb35f893a29160c8e4cd92a7ef125fa40ff7aa10f9d2"
+    },
+    {
+      "file": "src/shader/retro-terrain-growth.mjs",
+      "sha256": "d6be8ef56ae23de66d8849b7bf40d0940404aa0ce718eeba75835bcb39db3040"
+    },
+    {
+      "file": "src/components/retro-terrain-panel.tsx",
+      "sha256": "8d00f3736bb4694b50faef9df4fec081124e2803fca5d10b11116c4114d2da6e"
+    },
+    {
+      "file": "src/shader/retro-terrain-browser.mjs",
+      "sha256": "582d17fd034a7db9e078eca6009084078e8641578d7cd4e2dc746eb5301c6d02"
+    },
+    {
+      "file": "scripts/retro-terrain-curated.test.mjs",
+      "sha256": "61c4948b415c1204b100e67b54c3cc8405e882774c50977826d92346d222ebbc"
+    },
+    {
+      "file": "scripts/fixtures/retro-terrain-unaffected-20261012.json",
+      "sha256": "fc08749816faa488dace84a26b579e4afe9db8c8da08b2dad50a2bec2853762f"
+    },
+    {
+      "file": "scripts/fixtures/retro-terrain-preserved-20261011.json",
+      "sha256": "3860c4bf5ebaba783197640cdb145b8d19a646d811fdf76713f6370fcb960f0c"
+    },
+    {
+      "file": "scripts/study-retro-terrain-curated.mjs",
+      "sha256": "9df0eaeb04a6fd1744651463edd0509f9f9ad899d40e5cc5bbf6616529987012"
+    },
+    {
+      "file": "scripts/test-retro-terrain-curated-browser.mjs",
+      "sha256": "9fed7b645c1a2887ac78a65939cba604073b56f3aed5d7d03777065b95527491"
+    },
+    {
+      "file": "scripts/bake-retro-terrain-curated.mjs",
+      "sha256": "f8e55fbfbd7f42a0dbef74cbb05c10ddf2b98ba26f6a8776a874a6726db75916"
+    },
+    {
+      "file": "scripts/material-png.mjs",
+      "sha256": "a8c63520bbbd5eb8d6a5ddf7751a819171c8d49a7b94ae27ca589228e63e31a8"
+    },
+    {
+      "file": "summary_bank.json",
+      "sha256": "c9676bb50082968156edb77364c36c99765fe6d40b359723e2639407353c1e70"
+    }
+  ],
+  "drawing": {
+    "first16Checkpoint": "7f54c39ba95dd6727a489e92ab19997476010a6a7c49fefc32697f64eda1f8e1",
+    "finalArt": "fc21f554ed799a1924425c58ad7a955ffaae7888b83b5c77c5ecac24dd3641c5",
+    "review": ".artifacts/retro-terrain-curated/gravel-polish-20261012/native64-r2/review.json",
+    "sequence": "Native16 review before native64; second64 review staggers a path stone",
+    "ownerAcceptance": false
+  },
+  "checks": [
+    {
+      "command": "node --test scripts/retro-terrain-curated.test.mjs scripts/retro-autotile.test.mjs scripts/bake-retro-terrain-curated.test.mjs",
+      "owner": "pixel-art agent",
+      "exitCode": 0,
+      "tests": 60,
+      "log": ".artifacts/retro-terrain-curated/gravel-polish-20261012/native64-r2/focused-checks.log"
+    },
+    {
+      "command": "npm test",
+      "exitCode": 0,
+      "tests": 321,
+      "scriptTests": 296,
+      "shaderMaterialTests": 25,
+      "log": ".artifacts/retro-terrain-gravel/checks/npm-test.log"
+    },
+    {
+      "command": "npm run typecheck",
+      "exitCode": 0,
+      "log": ".artifacts/retro-terrain-gravel/checks/typecheck.log"
+    },
+    {
+      "command": "npm run lint",
+      "exitCode": 0,
+      "log": ".artifacts/retro-terrain-gravel/checks/lint-final.log"
+    },
+    {
+      "command": "npm run build",
+      "exitCode": 0,
+      "log": ".artifacts/retro-terrain-gravel/checks/build.log",
+      "note": "Existing dependency bundler warnings remain."
+    },
+    {
+      "command": "npm run build:pages",
+      "exitCode": 0,
+      "log": ".artifacts/retro-terrain-gravel/checks/build-pages.log"
+    },
+    {
+      "command": "node scripts/study-retro-terrain-curated.mjs --verify --out docs/look-dev/studies/retro-terrain-gravel-20261012",
+      "exitCode": 0
+    },
+    {
+      "command": ".tools/context.ps1 -Mode Audit -AsJson",
+      "exitCode": 0,
+      "groups": 25,
+      "status": "pass",
+      "unmatchedPatterns": 0,
+      "activeOverBudgetGroups": 0
+    },
+    {
+      "command": "git diff --check",
+      "exitCode": 0
+    }
+  ],
+  "browsers": [
+    {
+      "mode": "dev",
+      "receipt": ".artifacts/proof/retro-terrain-curated-browser/1791809767589-23812/receipt.json",
+      "exitCode": 0,
+      "cases": 18,
+      "decodedPngPairs": 3042,
+      "nativeGravelPreviewComparisons": 18,
+      "errors": [],
+      "resourcesReleased": true,
+      "previewScales": [
+        {
+          "device": "desktop",
+          "dpr": 1,
+          "view": "grass-grout-source",
+          "sourceWidth": 96,
+          "x": 3,
+          "y": 3,
+          "viewportWidth": 366,
+          "scrollWidth": 366
+        },
+        {
+          "device": "desktop",
+          "dpr": 1,
+          "view": "64px-patch",
+          "sourceWidth": 448,
+          "x": 1,
+          "y": 1,
+          "viewportWidth": 366,
+          "scrollWidth": 448
+        },
+        {
+          "device": "desktop",
+          "dpr": 2,
+          "view": "grass-grout-source",
+          "sourceWidth": 96,
+          "x": 6,
+          "y": 6,
+          "viewportWidth": 366,
+          "scrollWidth": 366
+        },
+        {
+          "device": "desktop",
+          "dpr": 2,
+          "view": "64px-patch",
+          "sourceWidth": 448,
+          "x": 1,
+          "y": 1,
+          "viewportWidth": 366,
+          "scrollWidth": 366
+        },
+        {
+          "device": "mobile",
+          "dpr": 1,
+          "view": "grass-grout-source",
+          "sourceWidth": 96,
+          "x": 3,
+          "y": 3,
+          "viewportWidth": 358,
+          "scrollWidth": 358
+        },
+        {
+          "device": "mobile",
+          "dpr": 1,
+          "view": "64px-patch",
+          "sourceWidth": 448,
+          "x": 1,
+          "y": 1,
+          "viewportWidth": 358,
+          "scrollWidth": 448
+        },
+        {
+          "device": "mobile",
+          "dpr": 2,
+          "view": "grass-grout-source",
+          "sourceWidth": 96,
+          "x": 6,
+          "y": 6,
+          "viewportWidth": 358,
+          "scrollWidth": 358
+        },
+        {
+          "device": "mobile",
+          "dpr": 2,
+          "view": "64px-patch",
+          "sourceWidth": 448,
+          "x": 1,
+          "y": 1,
+          "viewportWidth": 358,
+          "scrollWidth": 358
+        }
+      ],
+      "flows": {
+        "exclusivePreview": true,
+        "capturedRevision": true,
+        "cancelRetry": true,
+        "expectedFaults": [
+          "source404 then successful retry"
+        ]
+      },
+      "navigationEvents": [
+        {
+          "url": "http://127.0.0.1:8080/",
+          "at": "2026-10-12T12:56:08.844Z"
+        },
+        {
+          "url": "http://127.0.0.1:8080/",
+          "at": "2026-10-12T12:56:09.310Z"
+        },
+        {
+          "url": "http://127.0.0.1:8080/",
+          "at": "2026-10-12T12:56:48.532Z"
+        }
+      ],
+      "screenshotsInspected": [
+        "desktop.png",
+        "desktop-dpr2.png",
+        "mobile-dpr1.png",
+        "mobile-dpr2.png"
+      ]
+    },
+    {
+      "mode": "pages",
+      "receipt": ".artifacts/proof/retro-terrain-curated-browser/1791809767576-56144/receipt.json",
+      "exitCode": 0,
+      "cases": 18,
+      "decodedPngPairs": 3042,
+      "nativeGravelPreviewComparisons": 18,
+      "errors": [],
+      "resourcesReleased": true,
+      "previewScales": [
+        {
+          "device": "desktop",
+          "dpr": 1,
+          "view": "grass-grout-source",
+          "sourceWidth": 96,
+          "x": 3,
+          "y": 3,
+          "viewportWidth": 366,
+          "scrollWidth": 366
+        },
+        {
+          "device": "desktop",
+          "dpr": 1,
+          "view": "64px-patch",
+          "sourceWidth": 448,
+          "x": 1,
+          "y": 1,
+          "viewportWidth": 366,
+          "scrollWidth": 448
+        },
+        {
+          "device": "desktop",
+          "dpr": 2,
+          "view": "grass-grout-source",
+          "sourceWidth": 96,
+          "x": 6,
+          "y": 6,
+          "viewportWidth": 366,
+          "scrollWidth": 366
+        },
+        {
+          "device": "desktop",
+          "dpr": 2,
+          "view": "64px-patch",
+          "sourceWidth": 448,
+          "x": 1,
+          "y": 1,
+          "viewportWidth": 366,
+          "scrollWidth": 366
+        },
+        {
+          "device": "mobile",
+          "dpr": 1,
+          "view": "grass-grout-source",
+          "sourceWidth": 96,
+          "x": 3,
+          "y": 3,
+          "viewportWidth": 358,
+          "scrollWidth": 358
+        },
+        {
+          "device": "mobile",
+          "dpr": 1,
+          "view": "64px-patch",
+          "sourceWidth": 448,
+          "x": 1,
+          "y": 1,
+          "viewportWidth": 358,
+          "scrollWidth": 448
+        },
+        {
+          "device": "mobile",
+          "dpr": 2,
+          "view": "grass-grout-source",
+          "sourceWidth": 96,
+          "x": 6,
+          "y": 6,
+          "viewportWidth": 358,
+          "scrollWidth": 358
+        },
+        {
+          "device": "mobile",
+          "dpr": 2,
+          "view": "64px-patch",
+          "sourceWidth": 448,
+          "x": 1,
+          "y": 1,
+          "viewportWidth": 358,
+          "scrollWidth": 358
+        }
+      ],
+      "flows": {
+        "exclusivePreview": true,
+        "capturedRevision": true,
+        "cancelRetry": true,
+        "expectedFaults": [
+          "source404 then successful retry"
+        ]
+      },
+      "navigationEvents": [
+        {
+          "url": "http://127.0.0.1:64337/mountain-cabin-bloom-honey/",
+          "at": "2026-10-12T12:56:09.619Z"
+        },
+        {
+          "url": "http://127.0.0.1:64337/mountain-cabin-bloom-honey/",
+          "at": "2026-10-12T12:56:09.880Z"
+        },
+        {
+          "url": "http://127.0.0.1:64337/mountain-cabin-bloom-honey/",
+          "at": "2026-10-12T12:56:43.108Z"
+        }
+      ],
+      "screenshotsInspected": [
+        "desktop.png",
+        "desktop-dpr2.png",
+        "mobile-dpr1.png",
+        "mobile-dpr2.png"
+      ]
+    }
+  ],
+  "diagnostics": [
+    {
+      "phase": "before art repair",
+      "exitCode": 1,
+      "tests": 3,
+      "failed": 2,
+      "reason": "Known shared gravel crossing failed new quiet-band criterion; unaffected surfaces passed."
+    },
+    {
+      "receipt": ".artifacts/proof/retro-terrain-curated-browser/1791809099619-29220/receipt.json",
+      "exitCode": 1,
+      "reason": "Dev preview absent; connection refused; restored with tool-owned npm dev session."
+    },
+    {
+      "receipt": ".artifacts/proof/retro-terrain-curated-browser/1791809296307-53868/receipt.json",
+      "exitCode": 1,
+      "reason": "Dev export download timed out after15cases; authoring drawer closed; no browser errors. Initial trigger unproven."
+    },
+    {
+      "receipt": ".artifacts/proof/retro-terrain-curated-browser/1791809692014-42820/receipt.json",
+      "command": "node scripts/test-retro-terrain-curated-browser.mjs --dev-url http://127.0.0.1:8080/ --case 64:cool-moor:1204",
+      "exitCode": 0,
+      "reason": "Stable hit-tested export click; bounded click/navigation diagnostics; focused case and flow checks pass."
+    }
+  ],
+  "preservation": {
+    "classicGrowthCases": 12,
+    "unaffectedCuratedSurfaces": 72,
+    "palettesUnchanged": true,
+    "classicGrowthSourceUnchanged": true,
+    "newCompositions": 0
+  },
+  "study": {
+    "path": "docs/look-dev/studies/retro-terrain-gravel-20261012/study.json",
+    "sourceIdentity": "6a065e0d3d82d0f8e60041c5be17f93d659ccd3183dc43abbf9f346f43fee11e",
+    "images": 20,
+    "pngBytes": 78261,
+    "renderedSeeds": [
+      1204
+    ],
+    "verifiedSeeds": [
+      1204,
+      1215,
+      1233
+    ],
+    "reviewed": "Native normal/weathered gravel repeats, connected terrain/paths, palettes; artist integer enlargement; eight desktop/mobile browser captures"
+  },
+  "resources": {
+    "browserRunsReleased": true,
+    "temporaryCliCaseDirectoriesReleased": true,
+    "retainedPreview": ".runtime/gravel-polish-dev-20261012.json",
+    "historicalEvidenceRetained": true
+  },
+  "remaining": [
+    "Owner artwork acceptance",
+    "Finite composition/path recurrence and quiet narrow footprints remain",
+    "Separate engine/PBR/runtime anti-tiling and inherited preview-helper repair"
+  ],
+  "published": false
+}

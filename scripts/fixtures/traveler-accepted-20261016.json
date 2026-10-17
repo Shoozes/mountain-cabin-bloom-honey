@@ -1,0 +1,187 @@
+{
+  "sourceSha256": "3a4211f6a221e909c08c8359f145ab7accb079440c0a6e2d78fd03aa70599b1f",
+  "accepted": "Owner selected this traveler as base, 2026-10-16",
+  "palette": {
+    "outline": "#26323f",
+    "hair": "#925b3f",
+    "skinShadow": "#925b3f",
+    "skin": "#edc17f",
+    "skinLight": "#edc17f",
+    "clothShadow": "#26323f",
+    "cloth": "#6b9b60",
+    "clothLight": "#6b9b60",
+    "boot": "#26323f",
+    "bootLight": "#925b3f",
+    "cap": "#6b9b60",
+    "accent": "#edc17f"
+  },
+  "frames": [
+    {
+      "name": "south-0",
+      "anchor": [
+        8,
+        15
+      ],
+      "sha256": "c1043bc679d75159b3e4302e2c19eb364aa23c5c0e6b13dc25db87b16c49aa1b"
+    },
+    {
+      "name": "south-1",
+      "anchor": [
+        8,
+        15
+      ],
+      "sha256": "0e1c369cfdf86254fe521a8c0f83030a21801315a4a42a182017baabaf60e977"
+    },
+    {
+      "name": "south-2",
+      "anchor": [
+        8,
+        15
+      ],
+      "sha256": "a5a682b1b117783889a2b587bd15eacdfa183c5142d17d76123fed897dba2444"
+    },
+    {
+      "name": "west-0",
+      "anchor": [
+        8,
+        15
+      ],
+      "sha256": "97f9cecd3a7860ab71ece0484a505367142fec18f293b8cac479406f56b61c10"
+    },
+    {
+      "name": "west-1",
+      "anchor": [
+        8,
+        15
+      ],
+      "sha256": "71107f1df9d6860e93fabbdde6d43c9c0d9ef0c6d3e01df08af6c981dbfcd716"
+    },
+    {
+      "name": "west-2",
+      "anchor": [
+        8,
+        15
+      ],
+      "sha256": "3e27b2f14ad8b4d567fb5a0caa4b805bfd5ab563342e2e555760640f22646206"
+    },
+    {
+      "name": "east-0",
+      "anchor": [
+        8,
+        15
+      ],
+      "sha256": "6a45a385a0cea4ecf04f503cba86024ede83cafe88c2c3922227b93211953114"
+    },
+    {
+      "name": "east-1",
+      "anchor": [
+        8,
+        15
+      ],
+      "sha256": "5991dc01e61a7601114b0aa4356ebff25e99a200353b94dcf6b1a7fdc24f0485"
+    },
+    {
+      "name": "east-2",
+      "anchor": [
+        8,
+        15
+      ],
+      "sha256": "9edecb3d02a5615bb269a8176f155d57894f7b79988cc9cc7fb9531fafbd271a"
+    },
+    {
+      "name": "north-0",
+      "anchor": [
+        8,
+        15
+      ],
+      "sha256": "e2726e928d536290d0b0dca65b6a452fe8a329c6bfda1177ce91a6f11c0270be"
+    },
+    {
+      "name": "north-1",
+      "anchor": [
+        8,
+        15
+      ],
+      "sha256": "df9096e259a757701c6a547bf9b755db20db42a9338e1024d763311ce611aa41"
+    },
+    {
+      "name": "north-2",
+      "anchor": [
+        8,
+        15
+      ],
+      "sha256": "271e4ef719559280335540eda413a6cd80d6d8f602ae54f65ca53e914b1462ea"
+    }
+  ],
+  "clips": {
+    "idle-south": {
+      "frames": [
+        "south-0"
+      ],
+      "fps": 1
+    },
+    "walk-south": {
+      "frames": [
+        "south-1",
+        "south-0",
+        "south-2",
+        "south-0"
+      ],
+      "fps": 8
+    },
+    "idle-west": {
+      "frames": [
+        "west-0"
+      ],
+      "fps": 1
+    },
+    "walk-west": {
+      "frames": [
+        "west-1",
+        "west-0",
+        "west-2",
+        "west-0"
+      ],
+      "fps": 8
+    },
+    "idle-east": {
+      "frames": [
+        "east-0"
+      ],
+      "fps": 1
+    },
+    "walk-east": {
+      "frames": [
+        "east-1",
+        "east-0",
+        "east-2",
+        "east-0"
+      ],
+      "fps": 8
+    },
+    "idle-north": {
+      "frames": [
+        "north-0"
+      ],
+      "fps": 1
+    },
+    "walk-north": {
+      "frames": [
+        "north-1",
+        "north-0",
+        "north-2",
+        "north-0"
+      ],
+      "fps": 8
+    },
+    "turntable": {
+      "frames": [
+        "south-0",
+        "west-0",
+        "north-0",
+        "east-0"
+      ],
+      "fps": 2
+    }
+  }
+}

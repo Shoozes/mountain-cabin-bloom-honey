@@ -13,6 +13,9 @@ question.
 
 Product work stays in the existing React/Vite app under `src/`; Gknome supplies
 project contracts and operation/context routing, rather than a second app tree.
+The private reusable sprite SDK lives in `packages/grout-art/`; its
+[authoring guide](look-dev/grout-art.md) covers the Studio, shader profile,
+atlas contract and capability migration matrix.
 Use [texture authoring](look-dev/texture-authoring.md) for material, shader and
 corpus details; [retro terrain](look-dev/retro-terrain-growth.md) for curated
 native drawings, paths and weathering; and [the tool guide](look-dev/texture-tools.md)
@@ -25,3 +28,5 @@ skill. Keep active executable assignments in `docs/work/queue/`, future backlog
 in `docs/TODO.md`, and verified queue evidence in `docs/work/done/` when useful.
 
 AI-edited: 2026-10-11 | agent=Codex/root | model=unknown | effort=unknown | task=gknome-root-organization | change=bound the documentation map to existing product and retained platform owners
+
+AI-edited: 2026-10-16 | agent=Codex/root | task=grout-art-successor | change=routed the private sprite SDK and Studio guide
