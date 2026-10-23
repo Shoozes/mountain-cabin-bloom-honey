@@ -10,6 +10,8 @@ import {
   STYLE_SURFACE_SIZES,
   REALISTIC_SURFACE_FAMILIES,
   REALISTIC_SURFACE_PRESETS,
+  VOXEL_SURFACE_FAMILIES,
+  VOXEL_SURFACE_SIZES,
   type MaterialRecipe,
   type MaterialPixels,
 } from '@/shader/material.mjs';
@@ -23,6 +25,7 @@ export type MaterialPreview = {
   channel: string;
   label: string;
   smooth?: boolean;
+  native?: boolean;
 };
 
 export function MaterialPanel({
@@ -50,9 +53,12 @@ export function MaterialPanel({
   const disclosure = useRef<HTMLDetailsElement>(null);
   const editRevision = useRef(0);
   const realistic = recipe.id === 'realistic-surface';
+  const voxel = recipe.id === 'voxel-surface';
   const clumps = recipe.id === 'style-surface' && recipe.structure === 'clumps';
   const tufts = recipe.id === 'style-surface' && recipe.structure === 'tufts';
-  const label = realistic
+  const label = voxel
+    ? `Minecraft-style ${recipe.family} · 16 px`
+    : realistic
     ? `${recipe.family} surface`
     : recipe.id === 'style-surface'
       ? `${recipe.style} ${recipe.family}`
@@ -91,7 +97,8 @@ export function MaterialPanel({
     channel,
     label,
     smooth: realistic,
-  }), [channel, label, realistic, repeat, previewPixels]);
+    native: voxel,
+  }), [channel, label, realistic, voxel, repeat, previewPixels]);
 
   useEffect(() => {
     if (disclosure.current?.open && result.material) onPreview(preview(result.material));
@@ -203,7 +210,9 @@ export function MaterialPanel({
       <p className="lede">
         {realistic
           ? 'Continuous surface detail under a neutral preview light. Exported color stays unlit.'
-          : 'Independent surface relief and pigment. No painted directional lighting.'}
+          : voxel
+            ? 'Original 16×16 block textures. Larger exports enlarge the native pixels; colors stay unlit.'
+            : 'Independent surface relief and pigment. No painted directional lighting.'}
       </p>
       <canvas
         ref={canvas}
@@ -266,6 +275,15 @@ export function MaterialPanel({
           </>
         )}
 
+        {voxel && (
+          <label className="field">
+            Block material
+            <select aria-label="Block material" value={recipe.family} onChange={(event) => patch({ family: event.target.value } as Partial<MaterialRecipe>)}>
+              {VOXEL_SURFACE_FAMILIES.map((family) => <option key={family}>{family}</option>)}
+            </select>
+          </label>
+        )}
+
         {recipe.id === 'style-surface' && (
           <>
             <label className="field">
@@ -308,9 +326,9 @@ export function MaterialPanel({
         )}
 
         <label className="field">
-          Texture size
+          {voxel ? 'Export size · native 16 px' : 'Texture size'}
           <select aria-label="Material size" value={recipe.size} onChange={(event) => patch({ size: Number(event.target.value) })}>
-            {[64, 128, 256, 512].map((size) => <option key={size}>{size}</option>)}
+            {(voxel ? VOXEL_SURFACE_SIZES : [64, 128, 256, 512]).map((size) => <option key={size}>{size}</option>)}
           </select>
         </label>
         <label className="field">
@@ -338,9 +356,9 @@ export function MaterialPanel({
         </label>
         {(['strataScale', 'fracture', 'relief', 'roughness'] as const).map((key) => (
           <label className="field" key={key}>
-            {{ strataScale: realistic ? 'Structure scale' : clumps ? 'Clump scale' : tufts ? 'Tuft scale' : 'Strata', fracture: 'Fractures', relief: 'Relief', roughness: 'Roughness' }[key]}
+            {{ strataScale: voxel ? 'Cluster scale' : realistic ? 'Structure scale' : clumps ? 'Clump scale' : tufts ? 'Tuft scale' : 'Strata', fracture: voxel ? 'Wear / joints' : 'Fractures', relief: 'Relief', roughness: 'Roughness' }[key]}
             <input
-              aria-label={'Material ' + (key === 'strataScale' && realistic ? 'structure scale' : key === 'strataScale' && clumps ? 'clump scale' : key === 'strataScale' && tufts ? 'tuft scale' : key)}
+              aria-label={'Material ' + (key === 'strataScale' && voxel ? 'cluster scale' : key === 'strataScale' && realistic ? 'structure scale' : key === 'strataScale' && clumps ? 'clump scale' : key === 'strataScale' && tufts ? 'tuft scale' : key)}
               type="range"
               min={key === 'strataScale' ? 1 : key === 'roughness' ? 0.05 : 0}
               max={key === 'strataScale' ? 8 : 1}

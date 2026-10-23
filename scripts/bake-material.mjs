@@ -56,6 +56,7 @@ export async function bakeMaterial({recipe:input={},output,signal,variantSet='ca
   if(!['catalog','single'].includes(variantSet))throw Error('variantSet must be catalog or single');
   const recipe=validateMaterialRecipe(input),generator=materialVersion(recipe.id);signal?.throwIfAborted();const destination=path.resolve(output);await fs.mkdir(destination,{recursive:true});
   const sourcePaths=['src/shader/material.mjs','scripts/bake-material.mjs','scripts/material-png.mjs'];if(recipe.id==='realistic-surface')sourcePaths.push('src/shader/material-realistic.mjs');
+  if(recipe.id==='voxel-surface')sourcePaths.push('src/shader/material-voxel.mjs');
   const sources=[];for(const relative of sourcePaths){const bytes=await fs.readFile(path.join(root,relative));sources.push({path:relative,sha256:hash(bytes)});}
   let sourceTip;try{sourceTip=execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8',windowsHide:true,timeout:5000}).trim();}catch{sourceTip=null;}
   const identity=hash(JSON.stringify({recipe,generator:generator,sources,...(variantSet==='single'?{variantSet}:{})})),final=path.join(destination,recipe.id+'-'+identity.slice(0,12)),pending=path.join(destination,'.pending-'+randomUUID());
@@ -87,7 +88,7 @@ async function main(){
   const args=process.argv.slice(2);
   /** @type {Record<string,string>} */
   const options={};
-  for(let i=0;i<args.length;i+=2){if(!['--recipe','--seed','--out','--variant-set'].includes(args[i])||args[i+1]===undefined||options[args[i]])throw Error('Usage: npm run bake:material -- --recipe hd2d-cliff|hd2d-cliff-strata|style-surface|realistic-surface|recipe.json --seed 1204 --variant-set catalog|single --out <directory>');options[args[i]]=args[i+1];}
+  for(let i=0;i<args.length;i+=2){if(!['--recipe','--seed','--out','--variant-set'].includes(args[i])||args[i+1]===undefined||options[args[i]])throw Error('Usage: npm run bake:material -- --recipe hd2d-cliff|hd2d-cliff-strata|style-surface|realistic-surface|voxel-surface|recipe.json --seed 1204 --variant-set catalog|single --out <directory>');options[args[i]]=args[i+1];}
   let recipe=options['--recipe']?(Object.hasOwn(MATERIAL_RECIPES,options['--recipe'])?{id:options['--recipe']}:JSON.parse(await fs.readFile(path.resolve(options['--recipe']),'utf8'))):{};if(options['--seed']!==undefined)recipe.seed=Number(options['--seed']);
   const abort=new AbortController(),cancel=()=>abort.abort(Error('Material bake cancelled'));process.once('SIGINT',cancel);const timer=setTimeout(()=>abort.abort(Error('Material bake exceeded 40 seconds')),40000);timer.unref();
   const variantSet=options['--variant-set']??'catalog';if(variantSet!=='catalog'&&variantSet!=='single')throw Error('variant-set must be catalog or single');

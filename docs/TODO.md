@@ -1,7 +1,18 @@
 # Texture authoring TODO
 
+The [Minecraft-style native16 type](work/done/MATERIAL-VOXEL-20261023.md) adds
+eight original block families, contextual controls, integer preview fitting and
+exact integer export enlargement. The owner selected Classic/default 16×16.
+Current proof: 293 tests, typecheck/lint, both builds, dev/root/Pages desktop and
+narrow browser flows, 306 exact channel previews and 144 exported channel cases
+matching Node and CLI. All 232 frozen legacy channel hashes remain exact; all
+192 family/size/channel maps preserve every native pixel. The
+[study and guide](look-dev/minecraft-style.md) record reference observations and
+original drawing decisions. Artwork remains unapproved pending owner review;
+Minecraft packaging and receiving-engine proof remain separate.
+
 The [GIF export pass](work/done/SPRITE-GIF-20261023.md) completes the latest
-bounded local capability batch. Optional GIF clips preserve native pixels,
+bounded Grout Art export batch. Optional GIF clips preserve native pixels,
 transparency, holds and cumulatively rounded timing. Current proof: 281 tests,
 typecheck, lint, SDK consumers, both builds and dev/root/Pages desktop/narrow
 exports; Chrome and Pillow independently match all 258 decoded frames each.
@@ -167,6 +178,13 @@ earlier kits and the existing terrain ramps. Artwork remains unapproved.
   and [receipt](look-dev/retro-terrain-expansion-proof.json) bind this candidate.
 
 ## Realistic catalog candidates
+
+- [x] Add a separate Minecraft-style native16 texture type with original grass,
+  dirt, stone, cobble, sand, planks, bark and brick. Qualify source-bound browser/
+  CLI exports, exact integer enlargement, legacy preservation and local recovery.
+- [ ] Owner-review the original block-family study and repeated tiles before
+  selecting these candidates for a game. Keep native scale/lighting/receiving
+  decisions with the actual game scene.
 
 - [x] Add six original continuous material presets for soil, gravel, limestone,
   concrete, bark and timber, with 512px defaults, smooth repeats, a neutral lit
@@ -359,3 +377,5 @@ AI-edited: 2026-10-23 | agent=Codex/root | task=grass-css-review | change=record
 AI-edited: 2026-10-23 | agent=Codex/root | task=gif-export | change=completed the selected optional GIF batch, local decoder proof and exact export compatibility; retained remaining capability and owner-art work
 
 AI-edited: 2026-10-23 | agent=Codex/root | task=gif-closeout-publish | change=recorded paired scoped closeout and guarded progress saving with artwork and receiving boundaries preserved
+
+AI-edited: 2026-10-23 | agent=Codex/root | task=voxel-material | change=recorded completed classic16 texture type, original-art review boundary and exact local compatibility/export proof

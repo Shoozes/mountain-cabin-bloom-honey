@@ -278,6 +278,23 @@
         "docs/work/done/MATERIAL-GRASS-20261023.md"
       ]
     },
+    "material_voxel": {
+      "description": "Minecraft-style original native16 block families, exact integer channel enlargement, reference study and browser/CLI proof. Load product_ui for the catalog shortcut and contextual material controls.",
+      "status": "active",
+      "paths": [
+        "src/shader/material-voxel.mjs",
+        "src/shader/material.mjs",
+        "src/shader/material.d.mts",
+        "src/shader/material-browser.mjs",
+        "scripts/bake-material.mjs",
+        "scripts/material-voxel.test.mjs",
+        "scripts/material-voxel-export.test.mjs",
+        "scripts/study-material-voxel.mjs",
+        "scripts/test-material-voxel-browser.mjs",
+        "docs/look-dev/minecraft-style.md",
+        "docs/work/done/MATERIAL-VOXEL-20261023.md"
+      ]
+    },
     "material_dirt_compatibility": {
       "description": "Pre-change four-channel hashes for 129 original style/cliff recipes; optional heavy fixture for dirt compatibility checks.",
       "status": "active",

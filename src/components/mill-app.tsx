@@ -31,6 +31,7 @@ import {
 import { glslText, recipeText } from "@/shader/recipe";
 import { zipStore } from "@/shader/zip-store";
 import { MaterialPanel, type MaterialPreview } from "@/components/material-panel";
+import type { MaterialRecipe } from "@/shader/material.mjs";
 import { RetroTerrainPanel } from "@/components/retro-terrain-panel";
 import { paintMaterialCanvas } from "@/shader/material-browser.mjs";
 
@@ -255,7 +256,7 @@ export function MillApp() {
     if(!materialPreview||!canvas){drawRef.current?.();return;}
     Object.assign(canvas.style,{width:'',height:'',marginLeft:'',marginTop:''});
     paintMaterialCanvas(canvas,materialPreview.pixels,materialPreview.repeat);
-    if(previewOwnerRef.current!=='retro'||!canvas.parentElement)return;
+    if((previewOwnerRef.current!=='retro'&&!materialPreview.native)||!canvas.parentElement)return;
     const stage=canvas.parentElement;
     const fit=()=>{
       const dpr=window.devicePixelRatio||1;
@@ -280,6 +281,7 @@ export function MillApp() {
   const [hydrated, setHydrated] = useState(false);
   const [mixOpen, setMixOpen] = useState(false);
   const [materialRequest, setMaterialRequest] = useState(0);
+  const [requestedMaterial, setRequestedMaterial] = useState<MaterialRecipe['id']>('realistic-surface');
   useEffect(()=>{if(!mixOpen){previewOwnerRef.current=null;setPreviewOwner(null);setMaterialPreview(null);}},[mixOpen]);
   const [judgeOpen, setJudgeOpen] = useState(false);
   const [judgeBusy, setJudgeBusy] = useState(false);
@@ -840,7 +842,7 @@ export function MillApp() {
         </div>
       </header>
 
-      <section className={previewOwner==='retro'&&materialPreview?'stage native-stage':'stage'} aria-label="Texture preview">
+      <section className={materialPreview&&(previewOwner==='retro'||materialPreview.native)?'stage native-stage':'stage'} aria-label="Texture preview">
         <canvas
           ref={displayRef}
           style={materialPreview?{display:'none'}:undefined}
@@ -863,13 +865,28 @@ export function MillApp() {
         <button
           type="button"
           className="realistic-catalog-access"
+          disabled={!hydrated}
           onClick={() => {
+            setRequestedMaterial('realistic-surface');
             setMixOpen(true);
             changePreviewOwner('material', true);
             setMaterialRequest((request) => request + 1);
           }}
         >
           Photorealistic materials <span>Soil · gravel · limestone · concrete · bark · timber</span>
+        </button>
+        <button
+          type="button"
+          className="realistic-catalog-access"
+          disabled={!hydrated}
+          onClick={() => {
+            setRequestedMaterial('voxel-surface');
+            setMixOpen(true);
+            changePreviewOwner('material', true);
+            setMaterialRequest((request) => request + 1);
+          }}
+        >
+          Minecraft-style · 16 px <span>Grass · dirt · stone · sand · wood · brick</span>
         </button>
         <div className="cats" role="tablist" aria-label="Categories">
           {(["All", "Kept", ...CATEGORIES] as const).map((category) => {
@@ -1055,7 +1072,7 @@ export function MillApp() {
 
       <section className="details" data-open={mixOpen} inert={!mixOpen} aria-label="Adjust texture">
         <RetroTerrainPanel onPreview={retroPreviewChanged} open={mixOpen&&previewOwner==='retro'} onOpenChange={open=>changePreviewOwner('retro',open)}/>
-        <MaterialPanel onPreview={materialPreviewChanged} active={mixOpen&&previewOwner!=='retro'} open={mixOpen&&previewOwner==='material'} onOpenChange={open=>changePreviewOwner('material',open)} requestedRecipe="realistic-surface" requestKey={materialRequest}/>
+        <MaterialPanel onPreview={materialPreviewChanged} active={mixOpen&&previewOwner!=='retro'} open={mixOpen&&previewOwner==='material'} onOpenChange={open=>changePreviewOwner('material',open)} requestedRecipe={requestedMaterial} requestKey={materialRequest}/>
         <div style={materialPreview?{display:'none'}:undefined}>
         <h2>{style.name}</h2>
         <p className="lede">{style.blurb}</p>

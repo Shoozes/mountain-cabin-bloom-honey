@@ -4,7 +4,12 @@ export type LegacyMaterialRecipe={id:'hd2d-cliff'|'hd2d-cliff-strata';seed:numbe
 export type StyleSurfaceRecipe={id:'style-surface';family:MaterialFamily;style:MaterialStyle;structure?:'clumps'|'tufts';seed:number;size:number;palette:string;strataScale:number;fracture:number;relief:number;roughness:number};
 export type RealisticFamily='soil'|'gravel'|'limestone'|'concrete'|'bark'|'timber';
 export type RealisticSurfaceRecipe={id:'realistic-surface';family:RealisticFamily;seed:number;size:number;palette:string;strataScale:number;fracture:number;relief:number;roughness:number};
-export type MaterialRecipe=LegacyMaterialRecipe|StyleSurfaceRecipe|RealisticSurfaceRecipe;
+export type VoxelFamily='grass'|'dirt'|'stone'|'cobble'|'sand'|'planks'|'bark'|'brick';
+export type VoxelSurfaceRecipe={id:'voxel-surface';family:VoxelFamily;seed:number;size:number;palette:string;strataScale:number;fracture:number;relief:number;roughness:number};
+export type MaterialRecipe=LegacyMaterialRecipe|StyleSurfaceRecipe|RealisticSurfaceRecipe|VoxelSurfaceRecipe;
+export const VOXEL_SURFACE_FAMILIES:readonly VoxelFamily[];
+export const VOXEL_SURFACE_SIZES:readonly number[];
+export const VOXEL_NATIVE_SIZE:16;
 export const REALISTIC_SURFACE_FAMILIES:readonly RealisticFamily[];
 export const REALISTIC_SURFACE_PRESETS:readonly {label:string;recipe:RealisticSurfaceRecipe}[];
 export type MaterialPixels = {width:number;height:number;data:Uint8Array};

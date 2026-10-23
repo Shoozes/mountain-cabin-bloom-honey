@@ -15,6 +15,7 @@ export async function materialBrowserFiles(recipe){
     metadata.push({path:name,channel,seed:material.recipe.seed,width:pixels.width,height:pixels.height,bytes:data.length,sha256:await digest(data),...MATERIAL_CHANNELS[channel],filter:material.recipe.id==='realistic-surface'?'linear':'nearest',wrap:'repeat'});
   }
   const urls=[new URL('./material.mjs',import.meta.url),new URL(import.meta.url)];if(material.recipe.id==='realistic-surface')urls.push(new URL('./material-realistic.mjs',import.meta.url));
+  if(material.recipe.id==='voxel-surface')urls.push(new URL('./material-voxel.mjs',import.meta.url));
   const sources=[];for(const url of urls){const response=await fetch(url);if(!response.ok)throw Error('Authoring source identity unavailable');const source=new Uint8Array(await response.arrayBuffer());sources.push({path:url.pathname,sha256:await digest(source)});}
   const identity=await digest(new TextEncoder().encode(JSON.stringify({recipe:material.recipe,generator,sources})));
   const manifest={format:'texture-material/1',identity,generator,sourceTip:null,sources,recipe:material.recipe,visualReview:'unapproved',provenance:{author:'original procedural work for our projects',restrictedInputs:[],training:false},files:metadata};

@@ -85,6 +85,11 @@ unchanged. The authoring kit adds no Phaser dependency or public corpus entries.
 
 ## Multi-channel material authoring
 
+[Minecraft-style block textures](minecraft-style.md) add a separate native16
+type to the catalog and material recipe selector. Eight original families use
+finite ramps and clustered pixels, with exact integer enlargement for larger
+outputs and the existing four-channel browser/CLI export contract.
+
 The existing Adjust drawer includes **Material channels · HD-2D cliff**. Inspect
 albedo, height, +Y tangent normals and grayscale roughness at 1×/2×/4× repetition;
 tune seed, palette, strata, fractures, relief and roughness; save the maps and
@@ -363,3 +368,5 @@ AI-edited: 2026-10-12 | agent=Codex/root | model=unknown | effort=unknown | task
 AI-edited: 2026-10-23 | agent=Codex/root | task=dirt-clumps | change=linked reversible HD-2D dirt structure and retained original recipe compatibility
 
 AI-edited: 2026-10-23 | agent=Codex/root | task=grass-tufts | change=linked reversible tuft authoring, current structural candidates and direct Vite build commands
+
+AI-edited: 2026-10-23 | agent=Codex/root | task=voxel-material | change=linked the additive original Minecraft-style native16 material type and existing export contract

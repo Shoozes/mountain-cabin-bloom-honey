@@ -1,12 +1,14 @@
 /** Original surface authoring. Color is pigment; height is independent geometry. */
 import {validateRealisticRecipe,generateRealisticMaterial} from './material-realistic.mjs';
+import {validateVoxelRecipe,generateVoxelMaterial} from './material-voxel.mjs';
 export {REALISTIC_SURFACE_FAMILIES,REALISTIC_SURFACE_PRESETS} from './material-realistic.mjs';
+export {VOXEL_SURFACE_FAMILIES,VOXEL_SURFACE_SIZES,VOXEL_NATIVE_SIZE} from './material-voxel.mjs';
 export const MATERIAL_VERSION = 'hd2d-cliff/1';
-export const MATERIAL_RECIPES = Object.freeze({'hd2d-cliff':'Original rock masses','hd2d-cliff-strata':'Stratified cliff','style-surface':'Style surface family','realistic-surface':'Photorealistic surfaces'});
+export const MATERIAL_RECIPES = Object.freeze({'hd2d-cliff':'Original rock masses','hd2d-cliff-strata':'Stratified cliff','style-surface':'Style surface family','realistic-surface':'Photorealistic surfaces','voxel-surface':'Minecraft-style · 16 px'});
 export const STYLE_SURFACE_FAMILIES=Object.freeze(['grass','dirt','moss','cliff','stone','cobble','bark','timber','plaster','roof']);
 export const MATERIAL_STYLES=Object.freeze(['hd2d','cel-ink','soft-cartoon','pbr']);
 export const STYLE_SURFACE_SIZES=Object.freeze({'hd2d':128,'cel-ink':256,'soft-cartoon':256,'pbr':512});
-export const materialVersion = id => id === 'realistic-surface' ? 'realistic-surface/1' : id === 'hd2d-cliff-strata' ? 'hd2d-cliff-strata/1' : id === 'style-surface' ? 'style-surface/1' : MATERIAL_VERSION;
+export const materialVersion = id => id === 'voxel-surface' ? 'voxel-surface/1' : id === 'realistic-surface' ? 'realistic-surface/1' : id === 'hd2d-cliff-strata' ? 'hd2d-cliff-strata/1' : id === 'style-surface' ? 'style-surface/1' : MATERIAL_VERSION;
 export const MATERIAL_PALETTES = {
   earth: ['#40372f','#554b3d','#6a604e','#827962','#978d74','#aea58d'],
   slate: ['#343e41','#495256','#5d6668','#758080','#909b98','#afb7b0'],
@@ -32,6 +34,7 @@ function noise(u,v,cells,seed){const x=u*cells,y=v*cells,ix=Math.floor(x),iy=Mat
 export function validateMaterialRecipe(input={}){
   if(!input||typeof input!=='object'||Array.isArray(input))throw Error('Expected a material recipe object');
   if(input.id==='realistic-surface')return validateRealisticRecipe(input);
+  if(input.id==='voxel-surface')return validateVoxelRecipe(input);
   if(input.id==='style-surface'){
     if(Object.keys(input).some(k=>!Object.hasOwn(SURFACE_DEFAULTS,k)&&k!=='structure'))throw Error('Unknown material setting');
     const style=input.style??SURFACE_DEFAULTS.style,r={...SURFACE_DEFAULTS,...input,size:input.size??STYLE_SURFACE_SIZES[style]};
@@ -171,6 +174,7 @@ export function sampleSurfaceStructure(input,u,v){const recipe=validateMaterialR
 export function sampleCliffStructure(input,u,v){return sample(validateMaterialRecipe(input),u,v);}
 export function generateMaterial(input={}){
   if(input?.id==='realistic-surface')return generateRealisticMaterial(input);
+  if(input?.id==='voxel-surface')return generateVoxelMaterial(input);
   const recipe=validateMaterialRecipe(input),{size}=recipe,n=size*size,heights=new Float32Array(n),fields=new Array(n),surface=recipe.id==='style-surface';
   const palette=(surface?SURFACE_COLORS[recipe.family]:MATERIAL_PALETTES[recipe.palette]).map(c=>[1,3,5].map(i=>parseInt(c.slice(i,i+2),16)));
   const channels=Object.fromEntries(['albedo','height','normal','roughness'].map(k=>[k,{width:size,height:size,data:new Uint8Array(n*4)}]));
