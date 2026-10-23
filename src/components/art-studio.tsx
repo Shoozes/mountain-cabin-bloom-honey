@@ -146,6 +146,7 @@ export function ArtStudio() {
   const [message, setMessage] = useState("");
   const [dirty, setDirty] = useState(false);
   const [exporting, setExporting] = useState(false);
+  const [includeCss, setIncludeCss] = useState(false);
   const [metrics, setMetrics] = useState<RecipeMetrics | null>(null);
   const [metricsPending, setMetricsPending] = useState(false);
   const [backendProbe, setBackendProbe] = useState<Array<{ requested: string; actual?: string; ms?: number; byteDifference?: number; status: string }>>([]);
@@ -771,7 +772,7 @@ export function ArtStudio() {
     const controller = new AbortController();
     activeExport.current = controller;
     try {
-      const blob = await exportArtZip(recipe, { signal: controller.signal });
+      const blob = await exportArtZip(recipe, { signal: controller.signal, includeCss });
       const href = URL.createObjectURL(blob);
       exportObjectUrl.current = href;
       const anchor = document.createElement("a");
@@ -783,7 +784,7 @@ export function ArtStudio() {
         if (exportObjectUrl.current === href) exportObjectUrl.current = null;
         exportRevokeTimer.current = null;
       }, 1000);
-      setMessage("Export saved with editable recipe, atlas, sheet and frame metadata.");
+      setMessage(`Export saved with editable recipe, atlas, sheet and frame metadata${includeCss ? ", plus CSS sprites" : ""}.`);
     } catch (exportError) {
       if (controller.signal.aborted) setMessage("Export cancelled. Your editable recipe is still open.");
       else setError(`Export failed. Your editable recipe is still open; retry when ready. ${errorMessage(exportError)}`);
@@ -1089,6 +1090,10 @@ export function ArtStudio() {
             </details>
           </details>
 
+          <details className="art-export-options">
+            <summary>Export options</summary>
+            <label><input type="checkbox" checked={includeCss} disabled={exporting} onChange={(event) => setIncludeCss(event.target.checked)} /> Include CSS sprites</label>
+          </details>
           <p className="art-craft-note">Every palette, frame and layer in this recipe is editable. Exported art stays a draft until you accept it.</p>
         </aside>
       </section>

@@ -231,6 +231,15 @@ export function buildArtExport(
   phaser: Record<string, unknown>;
   sheet: Pixels;
 };
+export function buildArtCss(
+  kit: ReturnType<typeof buildArtExport>,
+  options?: { classPrefix?: string; signal?: AbortSignal },
+): { css: string; metadata: {
+  format: "grout-art-css/1"; path: "atlas.css"; classPrefix: string;
+  sourceSize: { width: number; height: number };
+  frames: { name: string; selector: string; page: number; sourceSize: { width: number; height: number }; trim: { x: number; y: number; width: number; height: number }; anchor: [number, number] }[];
+  clips: { name: string; selector: string; frames: string[]; fps: number; durationSeconds: number }[];
+} };
 export type RecipeMetrics = {
   optimizedBytes: number; optimizedGzipBytes: number;
   optimizedBundleBytes: number | null; optimizedBundleGzipBytes: number | null;

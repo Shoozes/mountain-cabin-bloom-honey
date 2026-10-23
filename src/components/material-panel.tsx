@@ -51,6 +51,7 @@ export function MaterialPanel({
   const editRevision = useRef(0);
   const realistic = recipe.id === 'realistic-surface';
   const clumps = recipe.id === 'style-surface' && recipe.structure === 'clumps';
+  const tufts = recipe.id === 'style-surface' && recipe.structure === 'tufts';
   const label = realistic
     ? `${recipe.family} surface`
     : recipe.id === 'style-surface'
@@ -128,8 +129,12 @@ export function MaterialPanel({
     editRevision.current++;
     setRecipe((current) => {
       const updated = { ...current, ...next } as MaterialRecipe;
-      if (updated.id === 'style-surface' &&
-        (updated.family !== 'dirt' || updated.style !== 'hd2d' || updated.structure === undefined)) delete updated.structure;
+      if (updated.id === 'style-surface') {
+        const supported = updated.style === 'hd2d' &&
+          ((updated.family === 'dirt' && updated.structure === 'clumps') ||
+           (updated.family === 'grass' && updated.structure === 'tufts'));
+        if (!supported) delete updated.structure;
+      }
       return updated;
     });
     setStatus('Unsaved material changes');
@@ -286,16 +291,16 @@ export function MaterialPanel({
                 {MATERIAL_STYLES.map((style) => <option key={style}>{style}</option>)}
               </select>
             </label>
-            {recipe.family === 'dirt' && recipe.style === 'hd2d' && (
+            {(recipe.family === 'dirt' || recipe.family === 'grass') && recipe.style === 'hd2d' && (
               <label className="field">
-                Dirt structure
+                {recipe.family === 'dirt' ? 'Dirt structure' : 'Grass structure'}
                 <select
-                  aria-label="Dirt structure"
+                  aria-label={recipe.family === 'dirt' ? 'Dirt structure' : 'Grass structure'}
                   value={recipe.structure ?? 'legacy'}
-                  onChange={(event) => patch({ structure: event.target.value === 'clumps' ? 'clumps' : undefined })}
+                  onChange={(event) => patch({ structure: event.target.value === 'legacy' ? undefined : event.target.value as 'clumps' | 'tufts' })}
                 >
-                  <option value="legacy">Original rows</option>
-                  <option value="clumps">Irregular clumps</option>
+                  <option value="legacy">{recipe.family === 'dirt' ? 'Original rows' : 'Original patches'}</option>
+                  <option value={recipe.family === 'dirt' ? 'clumps' : 'tufts'}>{recipe.family === 'dirt' ? 'Irregular clumps' : 'Connected tufts'}</option>
                 </select>
               </label>
             )}
@@ -333,9 +338,9 @@ export function MaterialPanel({
         </label>
         {(['strataScale', 'fracture', 'relief', 'roughness'] as const).map((key) => (
           <label className="field" key={key}>
-            {{ strataScale: realistic ? 'Structure scale' : clumps ? 'Clump scale' : 'Strata', fracture: 'Fractures', relief: 'Relief', roughness: 'Roughness' }[key]}
+            {{ strataScale: realistic ? 'Structure scale' : clumps ? 'Clump scale' : tufts ? 'Tuft scale' : 'Strata', fracture: 'Fractures', relief: 'Relief', roughness: 'Roughness' }[key]}
             <input
-              aria-label={'Material ' + (key === 'strataScale' && realistic ? 'structure scale' : key === 'strataScale' && clumps ? 'clump scale' : key)}
+              aria-label={'Material ' + (key === 'strataScale' && realistic ? 'structure scale' : key === 'strataScale' && clumps ? 'clump scale' : key === 'strataScale' && tufts ? 'tuft scale' : key)}
               type="range"
               min={key === 'strataScale' ? 1 : key === 'roughness' ? 0.05 : 0}
               max={key === 'strataScale' ? 8 : 1}

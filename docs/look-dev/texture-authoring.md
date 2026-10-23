@@ -155,6 +155,10 @@ HD-2D dirt also offers an explicit [irregular clump structure](dirt-clumps.md),
 with matching height, wrapped normals and roughness. Original recipes and saved
 drafts remain exact unless the new Dirt structure option is selected.
 
+HD-2D grass has an explicit [connected tuft structure](grass-tufts.md), with
+shared-root blades and quieter ground pigment. Grass structure → Original
+patches restores the older output; saved recipes are never silently upgraded.
+
 ### Realistic material options
 
 The catalog's **Photorealistic materials** entry opens six original continuous
@@ -180,7 +184,7 @@ recipe, sampling settings, input hashes, and usage restrictions. See
 [`docs/look-dev/texture-tools.md`](../../docs/look-dev/texture-tools.md) for limits,
 sampling, and provenance details.
 
-Windows builds use the environment wrapper's direct locked Vite entrypoint.
+Standard npm build commands invoke Vite directly through the existing scripts.
 This lockfile requires `npm ci --legacy-peer-deps --ignore-scripts`; no version
 upgrade is part of the material batch.
 
@@ -197,7 +201,9 @@ and repeated matched channels and recommends dirt structure refinement first,
 then grass tuft readability. It reuses verified original candidate packages.
 The study's compact review fixture is retained in the repository, together with
 a [source-bound closeout record](../../docs/look-dev/closeout-20261011.json); full logs
-and browser captures remain local. Dirt and grass refinement are still open.
+and browser captures remain local. The later optional [dirt clumps](dirt-clumps.md)
+and [grass tufts](grass-tufts.md) address those structural recommendations;
+owner art acceptance remains open.
 The environment-module JSDoc repair changed its source hash but preserved the
 exact HDR bake payload bytes.
 Git progress publication uses the local
@@ -355,3 +361,5 @@ AI-edited: 2026-10-12 | agent=Codex/root | model=unknown | effort=unknown | task
 AI-edited: 2026-10-12 | agent=Codex/root | model=unknown | effort=unknown | task=realistic-material-catalog | change=linked six continuous surface recipes and neutral authoring preview without approving artwork
 
 AI-edited: 2026-10-23 | agent=Codex/root | task=dirt-clumps | change=linked reversible HD-2D dirt structure and retained original recipe compatibility
+
+AI-edited: 2026-10-23 | agent=Codex/root | task=grass-tufts | change=linked reversible tuft authoring, current structural candidates and direct Vite build commands

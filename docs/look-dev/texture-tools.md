@@ -288,19 +288,28 @@ is local to Willowmere. Generated output is ignored and source-inventoried.
 
 ## Reviewed Git publication
 
-Stage named verified files and write an explicit UTF-8 JSON
-`{"paths":["README.md"]}` allowlist under ignored `.artifacts`. The local
-entrypoint delegates to the Grout-Library publication owner:
+Write an explicit UTF-8 JSON `{"paths":["README.md"]}` allowlist under ignored
+`.artifacts` or the current compact evidence run. Use this repository's helper
+to stage and commit only the named verified files on existing main:
 
 ```powershell
-pwsh -NoProfile -File .tools/gitpush.ps1 -PublisherRoot C:/DevStuff/Grout-Library -StagedOnly -Yes -Allowlist .artifacts/publication-paths.json -Message "Describe the verified change"
+$publicationPaths = @((Get-Content .artifacts/publication-paths.json -Raw | ConvertFrom-Json).paths)
+& .tools/gitpush.ps1 -CommitOnly -Path $publicationPaths -Message "Describe the verified change" -Yes
 ```
 
-The registered existing main/origin, selected staged paths, secret scan and
-remote identity must agree. Unsafe history fails without rewriting it;
-credentials remain in the parent. The publisher's 49 guard assertions pass on
-PowerShell 7 and 5.1. Git publication does not approve artwork or add an explicit
-Pages deployment invocation.
+Verify the resulting candidate's changed paths and source-bound proof before
+using the same helper's push-only route:
+
+```powershell
+& .tools/gitpush.ps1 -Remote https://github.com/Shoozes/mountain-cabin-bloom-honey.git -Yes
+```
+
+With no `-Path`, the helper leaves index/worktree changes untouched. Existing
+main/origin, the effective push destination, current secret scan and outgoing
+history guards must agree. Behind/diverged history fails without a merge or
+rewrite. Let the helper access its ignored credential store; do not inspect it.
+Verify the exact remote `refs/heads/main` after publication. Git publication
+does not approve artwork or invoke a deployment/release operation.
 
 AI-edited: 2026-10-07 | agent=Codex/root | model=unknown | effort=unknown | task=texture-tools | change=recorded source-confirmed roles and bounded material delivery
 
@@ -438,3 +447,5 @@ AI-edited: 2026-10-11 | agent=Codex/root | model=unknown | effort=unknown | task
 AI-edited: 2026-10-11 | agent=Codex/root | model=unknown | effort=unknown | task=retro-terrain-growth | change=linked separate curated drawing and path authoring route
 
 AI-edited: 2026-10-12 | agent=Codex/root | model=unknown | effort=unknown | task=realistic-material-catalog | change=added original realistic material authoring ownership and export route
+
+AI-edited: 2026-10-23 | agent=Codex/root | task=grass-css-closeout-publish | change=aligned stale publication example with current guarded local candidate and push-only helper

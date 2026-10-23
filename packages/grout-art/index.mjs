@@ -21,6 +21,7 @@ export {
   TRAVELER_PALETTES,
 } from "./traveler.mjs";
 export { buildAtlas, extractFrame, buildArtExport } from "./export.mjs";
+export { buildArtCss } from "./css.mjs";
 export { compactRecipe, measureRecipe, encodePortablePng } from "./metrics.mjs";
 export { importSpritePixels, importSpriteLayers } from "./import.mjs";
 export { detectSpriteComponents, importSpriteComponents } from "./components.mjs";

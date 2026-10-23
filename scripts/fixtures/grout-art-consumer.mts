@@ -11,6 +11,7 @@ import {
   createRenderer,
   renderFrame,
   buildArtExport,
+  buildArtCss,
   extractFrame,
   createSpriteVariationProfile, generateSpriteVariations, optimizeRecipe, parseRecipe,
   type ArtRecipe,
@@ -23,6 +24,8 @@ const dressed: ArtRecipe = setTravelerWardrobe(recipe, { clothing: "tunic", hat:
 void getTravelerWardrobe(dressed);
 const pixels: Pixels = renderFrame(recipe);
 const kit = buildArtExport(recipe);
+const stylesheet: string = buildArtCss(kit, { classPrefix: "consumer" }).css;
+void stylesheet;
 const restored: Pixels = extractFrame(kit.atlas, recipe.frames[0].name);
 const cpu = await createRenderer({ backend: "cpu" });
 await cpu.render(recipe, 0, { signal: new AbortController().signal });

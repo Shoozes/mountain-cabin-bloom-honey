@@ -263,6 +263,21 @@
         "docs/work/done/MATERIAL-DIRT-20261023.md"
       ]
     },
+    "material_grass": {
+      "description": "Opt-in HD-2D grass tufts, contextual authoring, native/integer/repeat study and browser/CLI proof. Includes six frozen grass/dirt-clump128 pins; load material_dirt_compatibility for the larger legacy matrix.",
+      "status": "active",
+      "paths": [
+        "src/shader/material.mjs",
+        "src/shader/material.d.mts",
+        "src/components/material-panel.tsx",
+        "scripts/material-grass.test.mjs",
+        "scripts/fixtures/material-tuft-baseline-20261023.json",
+        "scripts/study-material-grass.mjs",
+        "scripts/test-material-grass-browser.mjs",
+        "docs/look-dev/grass-tufts.md",
+        "docs/work/done/MATERIAL-GRASS-20261023.md"
+      ]
+    },
     "material_dirt_compatibility": {
       "description": "Pre-change four-channel hashes for 129 original style/cliff recipes; optional heavy fixture for dirt compatibility checks.",
       "status": "active",
@@ -438,6 +453,22 @@
         "scripts/build-art-sdk.mjs",
         "scripts/fixtures/grout-art-consumer.mts",
         "src/art/art-export.ts"
+      ]
+    },
+    "art_css": {
+      "description": "Opt-in atlas CSS sprite frames/clip playback, source geometry and browser/CLI fidelity. Load art_atlases for existing packing/export/cache owners and art_studio for the contextual setting.",
+      "status": "active",
+      "paths": [
+        "packages/grout-art/css.mjs",
+        "packages/grout-art/index.mjs",
+        "packages/grout-art/index.d.mts",
+        "src/art/art-export.ts",
+        "scripts/bake-art.mjs",
+        "scripts/art-css.test.mjs",
+        "scripts/art-css-export.test.mjs",
+        "scripts/test-art-css-browser.mjs",
+        "docs/look-dev/css-sprites.md",
+        "docs/work/done/SPRITE-CSS-20261023.md"
       ]
     },
     "art_studio": {

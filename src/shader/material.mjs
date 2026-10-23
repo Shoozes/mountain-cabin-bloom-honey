@@ -36,7 +36,7 @@ export function validateMaterialRecipe(input={}){
     if(Object.keys(input).some(k=>!Object.hasOwn(SURFACE_DEFAULTS,k)&&k!=='structure'))throw Error('Unknown material setting');
     const style=input.style??SURFACE_DEFAULTS.style,r={...SURFACE_DEFAULTS,...input,size:input.size??STYLE_SURFACE_SIZES[style]};
     if(!Object.hasOwn(SURFACE_COLORS,r.family)||!Object.hasOwn(SURFACE_STYLES,r.style)||!Number.isInteger(r.seed)||r.seed<0||r.seed>0xffffffff||![64,128,256,512].includes(r.size)||!Object.hasOwn(SURFACE_PALETTE_SHIFT,r.palette))throw Error('Invalid surface family, style, seed, size or palette');
-    if(input.structure!==undefined&&(input.structure!=='clumps'||r.family!=='dirt'||r.style!=='hd2d'))throw Error('Clump structure requires HD-2D dirt');
+    if(input.structure!==undefined&&!(r.style==='hd2d'&&((input.structure==='clumps'&&r.family==='dirt')||(input.structure==='tufts'&&r.family==='grass'))))throw Error('Structure requires clumps for HD-2D dirt or tufts for HD-2D grass');
     if(r.structure===undefined)delete r.structure;
     for(const [key,min,max]of [['strataScale',1,8],['fracture',0,1],['relief',0,1],['roughness',.05,1]])if(!Number.isFinite(r[key])||r[key]<min||r[key]>max)throw Error('Invalid material '+key);
     return r;
@@ -112,8 +112,36 @@ function dirtClumps(r,u,v){
   const pigment=clamp(.4+(broad-.5)*.16+(mass-.5)*.2+(mound-.5)*.38-joint*.18);
   return {height,pigment,joint,soil:clamp(.25+(1-mass)*.48),roughness:clamp(grain*.38+broad*.42+mound*.2),phase:wrap(u*3+v*2,1)};
 }
+// Three tapered blades grow from each shared root; no bright noise flecks.
+function grassTufts(r,u,v){
+  const seed=r.seed,cells=Math.round(r.strataScale)+3,x=u*cells,y=v*cells,ix=Math.floor(x),iy=Math.floor(y);
+  let tuft=0,blade=0;
+  for(let j=-1;j<=1;j++)for(let i=-1;i<=1;i++){
+    const cx=ix+i,cy=iy+j,kx=wrap(cx,cells),ky=wrap(cy,cells);
+    if(hash(kx,ky,seed+401)>.78)continue;
+    const px=x-cx-(.14+hash(kx,ky,seed+409)*.72),py=y-cy-(.14+hash(kx,ky,seed+419)*.72);
+    const angle=(hash(kx,ky,seed+421)-.5)*1.2,dx=px*Math.cos(angle)+py*Math.sin(angle),dy=-px*Math.sin(angle)+py*Math.cos(angle);
+    const spread=.8+hash(kx,ky,seed+431)*.4;
+    let cluster=1-smooth(clamp(Math.hypot(dx/.16,dy/.09)));
+    for(let leaf=0;leaf<3;leaf++){
+      const length=(.32+hash(kx,ky,seed+433+leaf*13)*.18)*(leaf===1?1.12:1),t=-dy/length;
+      if(t<0||t>1)continue;
+      const lean=(leaf-1)*.24*spread,curve=(hash(kx,ky,seed+449+leaf*17)-.5)*.2;
+      const center=lean*t+curve*t*(1-t),width=(.065*(1-t)+.012)*spread;
+      const value=1-smooth(clamp(Math.abs(dx-center)/width));
+      blade=Math.max(blade,value);cluster=Math.max(cluster,value);
+    }
+    tuft=Math.max(tuft,cluster);
+  }
+  const ground=noise(u,v,6,seed+463);
+  return {tuft,blade,joint:0,soil:.16+(1-tuft)*.18,roughness:clamp(.5+(ground-.5)*.22+tuft*.12),
+    height:clamp(.5+r.relief*((ground-.5)*.025+tuft*.025+blade*.035)),
+    // Keep the ground inside one palette band so it cannot eclipse the blades.
+    pigment:clamp(.35+(ground-.5)*.04+tuft*.07+blade*.32),phase:wrap(u*3+v*2,1)};
+}
 function surfaceFamily(r,u,v){
   if(r.structure==='clumps')return dirtClumps(r,u,v);
+  if(r.structure==='tufts')return grassTufts(r,u,v);
   const seed=r.seed,grain=noise(u,v,24,seed+101),broad=noise(u,v,4,seed+113),fine=noise(u,v,48,seed+127),warp=noise(u,v,6,seed+139)-.5;
   const row=wrap(Math.floor((v+warp*.035)*Math.round(r.strataScale)),Math.round(r.strataScale)),rowF=wrap((v+warp*.035)*Math.round(r.strataScale),1);
   const cellU=u*5+(noise(u,v,4,seed+151)-.5)*.22,cellV=v*5+(noise(u,v,4,seed+163)-.5)*.22,ix=Math.floor(cellU),iy=Math.floor(cellV);

@@ -1,13 +1,16 @@
 # Texture authoring TODO
 
-The [dirt clump refinement](work/done/MATERIAL-DIRT-20261023.md) completes the
-highest-priority local implementation batch, with an explicit reversible option
-that preserves older recipes. Current local proof: 260 tests, typecheck, lint,
-both builds and dev/root/Pages browser checks. **Priority 1 owner art review** and
-the new dirt candidate's owner review remain open. Grass tuft refinement follows
-the earlier study when selected against that feedback; engine/donor work keeps
-its separate scope. The preceding [review and cleanup](work/done/REVIEW-CLEANUP-20261023.md)
-records the completed WebGL recovery/resource repairs.
+The [CSS sprite export pass](work/done/SPRITE-CSS-20261023.md) completes the next
+unblocked local capability batch. Opt-in atlas CSS reproduces native frames and
+clip playback while default exports retain their existing assets. Current proof:
+273 tests, typecheck, lint, SDK consumers, both builds and dev/root/Pages browser
+checks, including 192 exact CSS frame/tick comparisons and narrow-screen export.
+The [grass tuft refinement](work/done/MATERIAL-GRASS-20261023.md) and
+[dirt clumps](work/done/MATERIAL-DIRT-20261023.md) remain implemented with exact
+older recipes/pixels. **Priority 1 owner art review** and review of those
+candidates remain open. Engine receiving and broader donor parity keep their
+separate scopes. Guarded publication of current CSS/grass progress is recorded
+in the CSS work record; publication does not change artwork acceptance.
 
 ## Character creator continuation
 
@@ -115,7 +118,12 @@ both builds, dev/built GPU equality and desktop/mobile authoring/export proof.
   editable recipe and exact frames; browser/CLI kits retain readable sources,
   optimized sidecars and verification reports. Measure raw/gzip/full SDK costs
   independently. See [the batch record](work/done/SPRITE-VARIATION-20261017.md).
-- [ ] Qualify GIF/SVG/CSS, fonts/UI atlases, remaining donor demos, engine adapters
+- [x] Qualify opt-in CSS sprite frame classes and clip playback from existing
+  atlas pages: source-sized trim reconstruction, transparent frames, multiple
+  pages, repeated holds, loop reset, native pixels and browser/CLI parity.
+  Studio Export options and CLI `--css` preserve default atlas exports; see
+  [the CSS guide](look-dev/css-sprites.md). The mobile header keeps Export visible.
+- [ ] Qualify GIF export/SVG, fonts/UI atlases, remaining donor demos, engine adapters
   and compact runtime delivery through the guide's capability matrix.
 - [ ] Transfer Grout13 ownership or retire parent synchronization only after the
   relevant replacement is qualified. Preserve the donor in the meantime.
@@ -233,6 +241,21 @@ feedback batch with native before/after proof. Technical tests cannot approve ar
 Owner: material generator/art direction. The [grass/dirt study](look-dev/grass-dirt-study.md)
 provides the source-bound findings and matched-channel evidence.
 
+## Priority 2: HD-2D grass tuft refinement
+
+- [x] Add explicit Connected tufts for HD-2D grass: shared-root tapered blades,
+  varied spacing/lean and quiet ground. Preserve green ramps and unlit pigment.
+- [x] Preserve the 129 legacy recipe cases and six pre-change grass128/clump128
+  pins; validate periodic fields, wrapped normals, flat relief and independent
+  data channels. Original patches remains exact; drafts are never auto-upgraded.
+- [x] Inspect native, exact 2×2 and integer 4× views; verify three seeds/four
+  channels, keyboard/scale changes, recovery, family/style reset and export retry
+  on dev/root/Pages, including desktop/narrow layouts. See the
+  [candidate guide](look-dev/grass-tufts.md) and completed work record above.
+- [ ] Owner-review the new native/repeated tuft drawing beside intended scene
+  materials. Artwork stays unapproved; finite tuft arrangements still recur.
+  Engine scale, lighting and runtime anti-tiling require their own qualification.
+
 ## After acceptance
 
 - [ ] Grow accepted surfaces through metal and owner-selected weathering feedback.
@@ -310,3 +333,7 @@ AI-edited: 2026-10-17 | agent=Codex/root | task=root-standalone-cleanup | change
 AI-edited: 2026-10-23 | agent=Codex/root | task=review-recheck-cleanup | change=recorded verified WebGL lifecycle repairs and retained dependency-ordered art/dirt pass-down
 
 AI-edited: 2026-10-23 | agent=Codex/root | task=dirt-clumps | change=completed additive dirt refinement and qualification while retaining owner acceptance and scoped next recommendations
+
+AI-edited: 2026-10-23 | agent=Codex/root | task=grass-tufts | change=completed optional grass refinement and local proof while retaining owner art review and engine boundaries
+
+AI-edited: 2026-10-23 | agent=Codex/root | task=css-sprites | change=recorded qualified optional CSS export and mobile access while preserving remaining format and owner-review boundaries

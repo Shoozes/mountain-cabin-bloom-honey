@@ -1,4 +1,10 @@
 /* Grout Art surfaces follow a sprite bench: ruled paper, graphite controls, and the native pixel sheet. */
+.art-export-options label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-block: 0.5rem;
+}
 .art-studio,
 .art-examples {
   --art-bg: #171612;
@@ -1015,11 +1021,14 @@
 
   .art-studio-head {
     min-height: 56px;
+    flex-wrap: wrap;
     gap: 10px;
     padding-inline: 10px;
   }
 
   .art-studio-head .art-page-nav {
+    order: 1;
+    flex-basis: 100%;
     gap: 10px;
     font-size: 10px;
   }

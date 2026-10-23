@@ -182,6 +182,11 @@ single-page output is JSON hash atlas metadata; multipage output is multiatlas
 pixel anchors remain authoritative in `atlas.json`. Engine receiving is a later
 batch; this pass proves metadata and lossless reconstruction locally.
 
+An optional [CSS sprite sidecar](css-sprites.md) adds source-sized frame classes
+and discrete clip playback. Enable Include CSS sprites under Studio's Export
+options or pass `--css` to the atlas baker. Default kits retain their existing
+asset set; native PNGs and editable recipes remain exact.
+
 ## Measurements and migration ownership
 
 The comparison example measures readable/minified recipes, gzip, expanded frame
@@ -210,7 +215,7 @@ receive launch actions; partial ports do not claim donor parity.
 | Painting, fill, selection, undo/redo | New Studio state; delivered | Larger-canvas interaction study |
 | Seeded variations and measured compactness | Reusable palette/part families, locks, candidate batches and lossless authoring transport delivered | Compact consumer runtime and broader donor parity |
 | Conversion and sprite extraction | PNG/GIF grids, aligned layers and reviewed transparent-sheet components delivered | Broader conversion workflows |
-| GIF/SVG/CSS workflows | Animated GIF import qualified; other formats/export retained in donor | Per-format animation/export fidelity |
+| GIF/SVG/CSS workflows | Animated GIF import and opt-in native CSS frame/clip export qualified | GIF export and SVG fidelity; broader donor parity |
 | Fonts, UI atlases and remaining examples | Inventoried; donor retained | Native layout and consumer parity |
 | Engine adapters and compact runtime delivery | Donor retained | Actual receiving application proof |
 | Grout13 ownership and parent synchronization | Unchanged in donor | Transfer only after relevant replacement qualification |
@@ -311,3 +316,5 @@ AI-edited: 2026-10-16 | agent=Codex/root | task=traveler-profile-import | change
 AI-edited: 2026-10-16 | agent=Codex/root | task=studio-outline | change=linked non-destructive outline controls and export behavior
 
 AI-edited: 2026-10-17 | agent=Codex/root | task=sprite-variation | change=routed variation/optimization and additive export contracts
+
+AI-edited: 2026-10-23 | agent=Codex/root | task=css-sprites | change=linked optional CSS frame/clip export and scoped capability qualification
