@@ -6,7 +6,7 @@
  *
  * Headless Chromium draws with ShaderMill.drawUtil the same way mill Save /
  * PNG catalog does (square exportSize canvas, repeat forced to 1, time 0,
- * snapshot, toBlob image/png). Not part of `npm run build` — Vercel has no
+ * snapshot, toBlob image/png). Not part of `npm run build` — static build jobs need no
  * WebGL step. Commit the PNGs. Do not add a LICENSE here.
  */
 import { execSync } from "node:child_process";

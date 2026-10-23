@@ -5,7 +5,6 @@ import path from "node:path";
 import { createHash } from "node:crypto";
 import { chromium } from "playwright";
 import { preview } from "vite";
-import { mergeAppEnv, readAppEnv } from "./with-app-env.mjs";
 import { bakeArt, ART_SOURCE_PATHS } from "./bake-art.mjs";
 import { createTravelerRecipe, getTravelerWardrobe, setTravelerWardrobe, refineTravelerWalk, renderFrame } from "../packages/grout-art/index.mjs";
 
@@ -106,7 +105,6 @@ try {
   }
   let url = dev;
   if (!url) {
-    Object.assign(process.env, mergeAppEnv(readAppEnv(root), process.env));
     server = await preview({
       root,
       mode: "pages",

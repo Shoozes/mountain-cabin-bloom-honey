@@ -1,9 +1,13 @@
 # Developer workflow
 
 Keep app source in `src/`, product orchestration/tests in existing `scripts/`
-and shader test modules, and assets in `public/`. `source/README.md` and
-`tests/product/README.md` are compatibility pointers retained at original
-provenance paths, not a second application or mandatory test migration.
+and shader test modules, and assets in `public/`. The old empty `source/`
+pointer and inherited hosting scaffold are retired; `tests/product/README.md`
+remains a foundation pointer, not a second test implementation.
+
+Vite runs directly through standard npm commands. Both builds prerender static
+files in `dist/client`; lint/format settings live in `.tools/config/`. Historical
+screenshots moved from the root into `docs/look-dev/screenshots/`.
 
 `packages/grout-art/` owns the private reusable ESM sprite SDK. Its
 [guide](../look-dev/grout-art.md) describes the `grout-art/1` recipe,
@@ -32,3 +36,5 @@ preserve these customized task IDs, adapters and caller-owned files.
 AI-edited: 2026-10-11T19:40:02-04:00 | agent=Codex/root | model=unknown | effort=unknown | task=docs | change=bound standalone texture tool foundation and guarded workflow
 
 AI-edited: 2026-10-16 | agent=Codex/root | task=grout-art-successor | change=added the sprite SDK ownership route
+
+AI-edited: 2026-10-17 | agent=Codex/root | task=root-standalone-cleanup | change=updated source/build/config owners after host retirement

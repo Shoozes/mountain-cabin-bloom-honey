@@ -14,5 +14,3 @@ dist/
 /runtime-data/
 /.tanstack/
 /.node_modules.lock
-/.grok/preview.pid
-/.grok/preview.log

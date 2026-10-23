@@ -53,14 +53,20 @@ required by the framework; current retained local proof uses Node 26.5.
 | Static assets and committed corpus | `public/` |
 | Retained local bakes/proof and runtime ownership | ignored `.artifacts/`, `.runtime/` |
 
-## Platform and publication
+## Standalone runtime and publication
 
-The app retains Grok preview/hosting compatibility in `.grok/`, `server/`,
-`public/__grok/`, `startup.sh` and the existing Vite/env wrappers. These are
-runtime integration owners, not a second project setup. Account/connector/
-database scaffolding and automatic database migration are removed; host flags
-cannot turn sign-in back on. The obsolete sandbox
-instructions are retained as [historical context](docs/platform/grok-sandbox-origin.md).
+The app uses Vite and TanStack Start without Grok or Vercel integration.
+`npm run build` produces a static root-hosted site in `dist/client`;
+`npm run build:pages` produces the same routes under the existing Pages subpath.
+`npm run preview` serves the current static build. GitHub Pages remains an
+optional existing deployment route; local authoring needs no hosting account.
+
+The root contains entrypoints, package/build contracts and the live source,
+SDK, assets, scripts, tests and docs. Gknome owns `.tools/` and `.agents/`;
+lint/format settings are under `.tools/config/`. Historical screenshots are
+under `docs/look-dev/screenshots/`, and generated bakes/proof remain ignored.
+See [the cleanup record](docs/work/done/ROOT-STANDALONE-20261017.md) for the
+retired platform scope, storage accounting and historical path relocation.
 
 Use only the documented guarded `gitpush.ps1` route for an explicitly authorized
 named batch. No raw push, automatic credential access or broad staging. The
@@ -80,3 +86,5 @@ AI-edited: 2026-10-11 | agent=Codex/root | model=unknown | effort=unknown | task
 AI-edited: 2026-10-11 | agent=Codex/root | model=unknown | effort=unknown | task=review-recheck-cleanup | change=replaced stale publication-blocker wording with current art handoff
 
 AI-edited: 2026-10-16 | agent=Codex/root | task=grout-art-successor | change=linked original sprite Studio and reusable SDK
+
+AI-edited: 2026-10-17 | agent=Codex/root | task=root-standalone-cleanup | change=described portable static builds and simplified root ownership

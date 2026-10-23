@@ -1,6 +1,5 @@
 import fs from 'node:fs/promises';import path from 'node:path';import assert from 'node:assert/strict';import {createRequire} from 'node:module';
 import {preview} from 'vite';
-import {mergeAppEnv,readAppEnv} from './with-app-env.mjs';
 const root=path.resolve(import.meta.dirname,'..'),flag=process.argv.indexOf('--playwright-root');if(flag<0)throw Error('Supply an explicit --playwright-root <installed package>');
 const {chromium}=createRequire(path.join(path.resolve(process.argv[flag+1]),'package.json'))('playwright-core');
 const devFlag=process.argv.indexOf('--dev-url'),devUrl=devFlag<0?null:process.argv[devFlag+1];
@@ -8,7 +7,7 @@ const exportOnly=process.argv.includes('--export-only');
 if(devFlag>=0&&(!devUrl||!/^http:\/\/(127\.0\.0\.1|localhost):\d+\/$/.test(devUrl)))throw Error('Supply a loopback --dev-url http://127.0.0.1:<port>/');
 const out=path.join(root,'.artifacts/proof/material-browser',Date.now()+'-'+process.pid);await fs.mkdir(out,{recursive:true});
 async function withTimeout(promise,ms,message){let timer;try{return await Promise.race([promise,new Promise((_resolve,reject)=>{timer=setTimeout(()=>reject(Error(message)),ms);})]);}finally{clearTimeout(timer);}}
-Object.assign(process.env,mergeAppEnv(readAppEnv(root),process.env));let server,browser,page;const errors=[],proof={out,network:[],exportOnly};let failure;
+let server,browser,page;const errors=[],proof={out,network:[],exportOnly};let failure;
 try{
  if(!devUrl)server=await preview({root,mode:'pages',preview:{host:'127.0.0.1',port:0,open:false}});const address=server?.httpServer.address();proof.mode=devUrl?'dev':'pages';proof.url=devUrl??'http://127.0.0.1:'+address.port+'/mountain-cabin-bloom-honey/';browser=await chromium.launch({channel:'chrome',headless:true});page=await browser.newPage({viewport:{width:1440,height:1080},deviceScaleFactor:1});let injectingFault=false;proof.expectedConsoleErrors=[];page.on('pageerror',e=>errors.push(e.message));page.on('console',message=>{if(message.type()==='error')(injectingFault?proof.expectedConsoleErrors:errors).push(message.text());});page.on('request',request=>proof.network.push({type:request.resourceType(),url:request.url()}));
  await page.goto(proof.url);assert.match(await page.locator('meta[name="description"]').getAttribute('content'),/Artwork remains unapproved/);proof.approvalMetadata=true;await page.getByRole('button',{name:'Adjust',exact:true}).click();await page.locator('.material-panel summary').click();const canvas=page.getByLabel('Material channel preview',{exact:true});await canvas.waitFor({state:'visible'});

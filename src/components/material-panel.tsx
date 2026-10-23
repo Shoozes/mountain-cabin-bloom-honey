@@ -50,6 +50,7 @@ export function MaterialPanel({
   const disclosure = useRef<HTMLDetailsElement>(null);
   const editRevision = useRef(0);
   const realistic = recipe.id === 'realistic-surface';
+  const clumps = recipe.id === 'style-surface' && recipe.structure === 'clumps';
   const label = realistic
     ? `${recipe.family} surface`
     : recipe.id === 'style-surface'
@@ -125,7 +126,12 @@ export function MaterialPanel({
 
   const patch = (next: Partial<MaterialRecipe>) => {
     editRevision.current++;
-    setRecipe((current) => ({ ...current, ...next }) as MaterialRecipe);
+    setRecipe((current) => {
+      const updated = { ...current, ...next } as MaterialRecipe;
+      if (updated.id === 'style-surface' &&
+        (updated.family !== 'dirt' || updated.style !== 'hd2d' || updated.structure === undefined)) delete updated.structure;
+      return updated;
+    });
     setStatus('Unsaved material changes');
   };
 
@@ -280,6 +286,19 @@ export function MaterialPanel({
                 {MATERIAL_STYLES.map((style) => <option key={style}>{style}</option>)}
               </select>
             </label>
+            {recipe.family === 'dirt' && recipe.style === 'hd2d' && (
+              <label className="field">
+                Dirt structure
+                <select
+                  aria-label="Dirt structure"
+                  value={recipe.structure ?? 'legacy'}
+                  onChange={(event) => patch({ structure: event.target.value === 'clumps' ? 'clumps' : undefined })}
+                >
+                  <option value="legacy">Original rows</option>
+                  <option value="clumps">Irregular clumps</option>
+                </select>
+              </label>
+            )}
           </>
         )}
 
@@ -314,9 +333,9 @@ export function MaterialPanel({
         </label>
         {(['strataScale', 'fracture', 'relief', 'roughness'] as const).map((key) => (
           <label className="field" key={key}>
-            {{ strataScale: realistic ? 'Structure scale' : 'Strata', fracture: 'Fractures', relief: 'Relief', roughness: 'Roughness' }[key]}
+            {{ strataScale: realistic ? 'Structure scale' : clumps ? 'Clump scale' : 'Strata', fracture: 'Fractures', relief: 'Relief', roughness: 'Roughness' }[key]}
             <input
-              aria-label={'Material ' + (key === 'strataScale' && realistic ? 'structure scale' : key)}
+              aria-label={'Material ' + (key === 'strataScale' && realistic ? 'structure scale' : key === 'strataScale' && clumps ? 'clump scale' : key)}
               type="range"
               min={key === 'strataScale' ? 1 : key === 'roughness' ? 0.05 : 0}
               max={key === 'strataScale' ? 8 : 1}

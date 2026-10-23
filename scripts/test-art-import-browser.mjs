@@ -6,7 +6,6 @@ import path from "node:path";
 import { createHash } from "node:crypto";
 import { chromium } from "playwright";
 import { preview } from "vite";
-import { mergeAppEnv, readAppEnv } from "./with-app-env.mjs";
 import { ART_SOURCE_PATHS, bakeArt } from "./bake-art.mjs";
 import { renderFrame, buildArtExport, encodePortablePng } from "../packages/grout-art/index.mjs";
 const root = path.resolve(import.meta.dirname, ".."),
@@ -103,7 +102,6 @@ try {
     receipt.sources.push({ path: p, sha256: sha(await fs.readFile(path.join(root, p))) });
   let url = arg("--dev-url");
   if (!url) {
-    Object.assign(process.env, mergeAppEnv(readAppEnv(root), process.env));
     server = await preview({
       root,
       mode: "pages",

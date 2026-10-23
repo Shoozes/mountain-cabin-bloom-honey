@@ -218,11 +218,14 @@
       ]
     },
     "shader_preview": {
-      "description": "WebGL shader drawing, compilation resources and generated fragment contracts. Browser regression lives in product_bakes.",
+      "description": "WebGL drawing, context recovery, resource ownership regressions and generated fragments. App browser recovery routes through standalone_runtime; terrain regression through product_bakes.",
       "status": "active",
       "paths": [
         "src/shader/engine.ts",
-        "src/shader/glsl.ts"
+        "src/shader/engine.test.ts",
+        "src/shader/glsl.ts",
+        "scripts/test-local.mjs",
+        "docs/work/done/REVIEW-CLEANUP-20261023.md"
       ]
     },
     "shader_recipes": {
@@ -244,6 +247,27 @@
         "src/shader/environment.mjs",
         "src/shader/vertex-colors.mjs",
         "src/shader/material.test.mjs"
+      ]
+    },
+    "material_dirt": {
+      "description": "Opt-in HD-2D dirt clumps, contextual authoring, native/repeat study and browser/CLI proof. Load material_dirt_compatibility only for frozen legacy pixel checks.",
+      "status": "active",
+      "paths": [
+        "src/shader/material.mjs",
+        "src/shader/material.d.mts",
+        "src/components/material-panel.tsx",
+        "scripts/material-dirt.test.mjs",
+        "scripts/study-material-dirt.mjs",
+        "scripts/test-material-dirt-browser.mjs",
+        "docs/look-dev/dirt-clumps.md",
+        "docs/work/done/MATERIAL-DIRT-20261023.md"
+      ]
+    },
+    "material_dirt_compatibility": {
+      "description": "Pre-change four-channel hashes for 129 original style/cliff recipes; optional heavy fixture for dirt compatibility checks.",
+      "status": "active",
+      "paths": [
+        "scripts/fixtures/material-style-legacy-20261023.json"
       ]
     },
     "material_realistic": {
@@ -525,6 +549,21 @@
         "scripts/verify-art-variation-browser.mjs",
         "docs/look-dev/sprite-variation.md",
         "docs/work/done/SPRITE-VARIATION-20261017.md"
+      ]
+    },
+    "standalone_runtime": {
+      "description": "Portable static local/Pages builds, simple root layout, host-shell retirement and meaningful standalone browser checks; foundation provenance remains historical.",
+      "status": "active",
+      "last_seen": "2026-10-17T22:00:00Z",
+      "paths": [
+        "vite.config.ts",
+        "package.json",
+        ".tools/config/eslint.config.mjs",
+        ".tools/config/prettier.json",
+        "src/routes/__root.tsx",
+        "scripts/standalone.test.mjs",
+        "scripts/test-standalone-browser.mjs",
+        "docs/work/done/ROOT-STANDALONE-20261017.md"
       ]
     }
   },

@@ -45,8 +45,7 @@
   "targets": {
     "platforms": [
       "windows",
-      "browser",
-      "linux-hosting-adapter"
+      "browser"
     ],
     "hardware": [
       "cpu",
@@ -64,7 +63,7 @@
     ]
   },
   "what": "A standalone local/browser texture-authoring tool for deterministic shader tiles, multi-channel materials and original native pixel terrain, with portable exports.",
-  "why": "Give texture authoring one accurate project/workflow identity around the working app while retaining its framework and hosting integrations.",
+  "why": "Give texture and sprite authoring one Gknome identity around the standalone Vite app and portable static builds.",
   "where": [
     "src/",
     "scripts/",

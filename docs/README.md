@@ -19,8 +19,8 @@ atlas contract and capability migration matrix.
 Use [texture authoring](look-dev/texture-authoring.md) for material, shader and
 corpus details; [retro terrain](look-dev/retro-terrain-growth.md) for curated
 native drawings, paths and weathering; and [the tool guide](look-dev/texture-tools.md)
-for export ownership. The [historical Grok sandbox contract](platform/grok-sandbox-origin.md)
-explains inherited platform hooks and does not govern current local work.
+for export ownership. The [historical sandbox contract](platform/grok-sandbox-origin.md)
+is archival; its platform hooks are removed from the live app.
 
 The root `AGENTS.md` is the policy authority. `docs/` explains project-facing
 workflow; `.agents/` provides the machine-readable routes and local sprint

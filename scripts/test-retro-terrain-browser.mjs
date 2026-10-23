@@ -4,7 +4,6 @@ import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
 import {createRequire} from 'node:module';
 import {preview} from 'vite';
-import {mergeAppEnv, readAppEnv} from './with-app-env.mjs';
 import {generateRetroTerrain} from '../src/shader/retro-terrain.mjs';
 import {generateRetroGrowth, generateTerrainKit} from '../src/shader/retro-terrain-growth.mjs';
 
@@ -20,7 +19,6 @@ if (kitFlag >= 0 && (!kitMode || !['classic', 'growth'].includes(kitMode) || pro
 await fs.mkdir(proofRoot, {recursive: true});
 const out = path.join(proofRoot, `${Date.now()}-${process.pid}`);
 await fs.mkdir(out, {recursive: true});
-Object.assign(process.env, mergeAppEnv(readAppEnv(root), process.env));
 let server, browser, page, dpr2Page, failure;
 const errors = [], expectedConsoleErrors = [], routeReleases = [], proof = {out, network: [], expectedFailures: []};
 

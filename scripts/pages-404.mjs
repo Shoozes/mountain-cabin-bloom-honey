@@ -5,7 +5,7 @@
  * via a meta refresh plus a JS redirect, both built from Vite's `base`.
  *
  * Only vite.config.ts's Pages mode registers `pages404Plugin`, so the default
- * (Vercel) `npm run build` never emits it.
+ * root-hosted `npm run build` never emits it.
  */
 
 /** Normalise a Vite base to "/…/" form. */

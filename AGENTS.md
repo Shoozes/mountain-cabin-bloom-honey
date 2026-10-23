@@ -26,19 +26,18 @@ other owner work. Do not read, print, hash, copy or stage credential material.
 
 ## Product runtime
 
-Keep `package.json`, `vite.config.ts`, `tsconfig.json` and public commands in
-place. Use `npm run dev`, build and preview wrappers so app-env behavior stays
-consistent. Dev binds `0.0.0.0:8080`; Pages uses its existing base and
-`dist/client`. Root `startup.sh` remains a portable POSIX preview restart adapter;
-Windows startup uses the existing npm/Gknome routes, not a fictional /workspace.
+Keep `package.json`, `vite.config.ts`, `tsconfig.json` and public authoring
+commands in place. Standard npm commands launch Vite directly; Gknome routes
+those same commands. Dev binds `0.0.0.0:8080`. Both builds prerender the app to
+`dist/client`; Pages retains its existing repository base path. There is no
+Grok preview shell, platform PWA injector, auth/environment wrapper or Vercel/
+Nitro hosting adapter. Do not reintroduce retired host integration implicitly.
 
-Preserve working Grok integration: `.grok/`, `server/middleware/grok-pwa.ts`,
-`public/__grok/`, `PreviewHostBridge`, the branding/PWA injector, Vite build
-plugins and environment wrappers. The owner selected a standalone texture tool:
-Grok auth/data/database scaffold and its popup/bootstrap plugins are retired.
-Wrapped commands keep sign-in off even when a host provides an auth flag.
-Do not reintroduce accounts, connectors or database startup implicitly. Refer to
-`docs/platform/grok-sandbox-origin.md` only for historical platform context.
+Lint and formatting configuration live in `.tools/config/`. `src/` is the only
+product source tree; the old `source/` pointer was explicitly retired. Historical
+screenshots live in `docs/look-dev/screenshots/`. The original foundation
+provenance remains an immutable historical snapshot; current layout changes are
+recorded in the root-cleanup work record rather than rewriting provenance.
 
 ## Verification and craft
 
@@ -74,3 +73,5 @@ still must pass. Saving progress
 does not approve unfinished art. Deployment and releases require separate scope.
 
 AI-edited: 2026-10-11 | agent=Codex/root | model=unknown | effort=unknown | task=gknome-root-organization | change=replaced sandbox-only instructions with current project ownership, runtime, craft and guarded publication boundaries
+
+AI-edited: 2026-10-17 | agent=Codex/root | task=root-standalone-cleanup | change=retired host-shell requirements and documented the simpler standalone layout

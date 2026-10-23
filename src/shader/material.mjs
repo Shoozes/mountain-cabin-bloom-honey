@@ -33,9 +33,11 @@ export function validateMaterialRecipe(input={}){
   if(!input||typeof input!=='object'||Array.isArray(input))throw Error('Expected a material recipe object');
   if(input.id==='realistic-surface')return validateRealisticRecipe(input);
   if(input.id==='style-surface'){
-    if(Object.keys(input).some(k=>!Object.hasOwn(SURFACE_DEFAULTS,k)))throw Error('Unknown material setting');
+    if(Object.keys(input).some(k=>!Object.hasOwn(SURFACE_DEFAULTS,k)&&k!=='structure'))throw Error('Unknown material setting');
     const style=input.style??SURFACE_DEFAULTS.style,r={...SURFACE_DEFAULTS,...input,size:input.size??STYLE_SURFACE_SIZES[style]};
     if(!Object.hasOwn(SURFACE_COLORS,r.family)||!Object.hasOwn(SURFACE_STYLES,r.style)||!Number.isInteger(r.seed)||r.seed<0||r.seed>0xffffffff||![64,128,256,512].includes(r.size)||!Object.hasOwn(SURFACE_PALETTE_SHIFT,r.palette))throw Error('Invalid surface family, style, seed, size or palette');
+    if(input.structure!==undefined&&(input.structure!=='clumps'||r.family!=='dirt'||r.style!=='hd2d'))throw Error('Clump structure requires HD-2D dirt');
+    if(r.structure===undefined)delete r.structure;
     for(const [key,min,max]of [['strataScale',1,8],['fracture',0,1],['relief',0,1],['roughness',.05,1]])if(!Number.isFinite(r[key])||r[key]<min||r[key]>max)throw Error('Invalid material '+key);
     return r;
   }
@@ -91,7 +93,27 @@ function grassClusters(u,v,seed){
   }
   return blade;
 }
+// Opt-in soil geometry. Older recipes keep their original row-based pixels.
+function dirtClumps(r,u,v){
+  const seed=r.seed,cells=Math.round(r.strataScale)+3;
+  const x=u*cells+(noise(u,v,4,seed+307)-.5)*.65,y=v*cells+(noise(u,v,4,seed+311)-.5)*.65;
+  const ix=Math.floor(x),iy=Math.floor(y);let first=Infinity,second=Infinity;
+  // Include the second-nearest site even at strongly jittered cell boundaries.
+  for(let j=-2;j<=2;j++)for(let i=-2;i<=2;i++){
+    const cx=ix+i,cy=iy+j,kx=wrap(cx,cells),ky=wrap(cy,cells);
+    const dx=x-cx-(.1+hash(kx,ky,seed+313)*.8),dy=y-cy-(.1+hash(kx,ky,seed+317)*.8),distance=dx*dx+dy*dy;
+    if(distance<first){second=first;first=distance;}else if(distance<second)second=distance;
+  }
+  const gap=Math.sqrt(second)-Math.sqrt(first),mound=noise(x/cells,y/cells,cells,seed+353);
+  const broad=noise(u,v,3,seed+331),mass=noise(u,v,8,seed+337),grain=noise(u,v,24,seed+347);
+  const local=smooth(clamp((noise(u,v,8,seed+349)-.38)/.4));
+  const joint=(1-smooth(clamp(gap/.14)))*local*r.fracture;
+  const height=clamp(.5+r.relief*((mound-.5)*.18+(mass-.5)*.07+(broad-.5)*.035-joint*.11));
+  const pigment=clamp(.4+(broad-.5)*.16+(mass-.5)*.2+(mound-.5)*.38-joint*.18);
+  return {height,pigment,joint,soil:clamp(.25+(1-mass)*.48),roughness:clamp(grain*.38+broad*.42+mound*.2),phase:wrap(u*3+v*2,1)};
+}
 function surfaceFamily(r,u,v){
+  if(r.structure==='clumps')return dirtClumps(r,u,v);
   const seed=r.seed,grain=noise(u,v,24,seed+101),broad=noise(u,v,4,seed+113),fine=noise(u,v,48,seed+127),warp=noise(u,v,6,seed+139)-.5;
   const row=wrap(Math.floor((v+warp*.035)*Math.round(r.strataScale)),Math.round(r.strataScale)),rowF=wrap((v+warp*.035)*Math.round(r.strataScale),1);
   const cellU=u*5+(noise(u,v,4,seed+151)-.5)*.22,cellV=v*5+(noise(u,v,4,seed+163)-.5)*.22,ix=Math.floor(cellU),iy=Math.floor(cellV);

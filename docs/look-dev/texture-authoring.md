@@ -151,6 +151,10 @@ hash changes produce new cache identities even where a legacy recipe's encoded
 channel bytes remain unchanged; old source-bound outputs are historical bakes,
 not reusable current-source cache entries.
 
+HD-2D dirt also offers an explicit [irregular clump structure](dirt-clumps.md),
+with matching height, wrapped normals and roughness. Original recipes and saved
+drafts remain exact unless the new Dirt structure option is selected.
+
 ### Realistic material options
 
 The catalog's **Photorealistic materials** entry opens six original continuous
@@ -349,3 +353,5 @@ AI-edited: 2026-10-11 | agent=Codex/root | model=unknown | effort=unknown | task
 AI-edited: 2026-10-12 | agent=Codex/root | model=unknown | effort=unknown | task=scene-coherence-learning | change=added actual-scene color, lighting, texture-scale and mockup-to-runtime criteria before expanding game-facing variants
 
 AI-edited: 2026-10-12 | agent=Codex/root | model=unknown | effort=unknown | task=realistic-material-catalog | change=linked six continuous surface recipes and neutral authoring preview without approving artwork
+
+AI-edited: 2026-10-23 | agent=Codex/root | task=dirt-clumps | change=linked reversible HD-2D dirt structure and retained original recipe compatibility

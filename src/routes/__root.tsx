@@ -1,15 +1,10 @@
 import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-router";
-import { PreviewHostBridge } from "@/components/preview-host-bridge";
 import appCss from "../styles.css?url";
 
 const APP_NAME = "Grout Shader";
 
-// Vite `base` ("/" in dev and the Vercel build, the repo subpath on GitHub
-// Pages). Every public/ asset link is prefixed with it so nothing 404s there.
+// Public assets follow the local root or the static Pages subpath.
 const BASE = import.meta.env.BASE_URL;
-// The per-app web manifest is a dynamic response (dev/preview middleware and
-// the Nitro deploy); a static subpath host like Pages has no such route.
-const SERVES_GROK_MANIFEST = BASE === "/";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -28,8 +23,6 @@ export const Route = createRootRoute({
       { rel: "icon", href: `${BASE}favicon.ico`, sizes: "32x32" },
       { rel: "icon", type: "image/svg+xml", href: `${BASE}favicon.svg` },
       { rel: "stylesheet", href: appCss },
-      ...(SERVES_GROK_MANIFEST ? [{ rel: "manifest", href: "/__grok/manifest.webmanifest" }] : []),
-      { rel: "apple-touch-icon", href: `${BASE}__grok/icon-180.png` },
       {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap",
@@ -42,7 +35,6 @@ export const Route = createRootRoute({
         <HeadContent />
       </head>
       <body>
-        <PreviewHostBridge />
         <Outlet />
         <Scripts />
       </body>

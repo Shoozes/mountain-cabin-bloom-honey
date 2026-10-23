@@ -1,7 +1,7 @@
 export type MaterialFamily='grass'|'dirt'|'moss'|'cliff'|'stone'|'cobble'|'bark'|'timber'|'plaster'|'roof';
 export type MaterialStyle='hd2d'|'cel-ink'|'soft-cartoon'|'pbr';
 export type LegacyMaterialRecipe={id:'hd2d-cliff'|'hd2d-cliff-strata';seed:number;size:number;palette:string;strataScale:number;fracture:number;relief:number;roughness:number};
-export type StyleSurfaceRecipe={id:'style-surface';family:MaterialFamily;style:MaterialStyle;seed:number;size:number;palette:string;strataScale:number;fracture:number;relief:number;roughness:number};
+export type StyleSurfaceRecipe={id:'style-surface';family:MaterialFamily;style:MaterialStyle;structure?:'clumps';seed:number;size:number;palette:string;strataScale:number;fracture:number;relief:number;roughness:number};
 export type RealisticFamily='soil'|'gravel'|'limestone'|'concrete'|'bark'|'timber';
 export type RealisticSurfaceRecipe={id:'realistic-surface';family:RealisticFamily;seed:number;size:number;palette:string;strataScale:number;fracture:number;relief:number;roughness:number};
 export type MaterialRecipe=LegacyMaterialRecipe|StyleSurfaceRecipe|RealisticSurfaceRecipe;

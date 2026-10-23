@@ -5,7 +5,6 @@ import {createHash} from 'node:crypto';
 import {inflateSync} from 'node:zlib';
 import {chromium} from 'playwright';
 import {preview} from 'vite';
-import {mergeAppEnv,readAppEnv} from './with-app-env.mjs';
 import {generateCuratedTerrain,composeCuratedTerrain,composeCuratedSurface,curatedArtSource,CURATED_FAMILIES,CURATED_RELATIONSHIPS} from '../src/shader/retro-terrain-curated.mjs';
 import {bakeRetroTerrainCurated} from './bake-retro-terrain-curated.mjs';
 
@@ -46,7 +45,6 @@ async function shaderFailureCleanup(page){
   assert.deepEqual(result.afterDispose,{createProgram:2,deleteProgram:2,createShader:4,deleteShader:4});return result;
 }
 async function downloadFiles(page){await page.getByRole('button',{name:'Save terrain kit',exact:true}).scrollIntoViewIfNeeded();const pending=page.waitForEvent('download',{timeout:60000});await pointerAt(page,'.retro-terrain-panel button.primary','Save terrain kit');const dl=await pending;const files=unzip(await fs.readFile(await dl.path()));await dl.delete();return files;}
-Object.assign(process.env,mergeAppEnv(readAppEnv(root),process.env));
 let server,browser,page,failure,injecting=false;const errors=[],proof={mode:dev?'dev':'pages',cases:[],screenshots:[],expectedFaults:[],selectedCase,navigationEvents:[]},cleanup=[];
 proof.sources=await Promise.all(['src/components/retro-terrain-panel.tsx','src/components/mill-app.tsx','src/styles.css','src/shader/engine.ts','src/shader/retro-terrain-art.mjs','src/shader/retro-autotile.mjs','src/shader/retro-terrain-curated.mjs','src/shader/retro-terrain-browser.mjs','scripts/test-retro-terrain-curated-browser.mjs','scripts/bake-retro-terrain-curated.mjs'].map(async file=>({file,sha256:hash(await fs.readFile(path.join(root,file)))})));
 try {

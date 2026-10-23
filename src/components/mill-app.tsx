@@ -303,7 +303,11 @@ export function MillApp() {
 
     let mill: ShaderMill;
     try {
-      mill = new ShaderMill(canvas, util);
+      mill = new ShaderMill(canvas, util, () => {
+        setShaderErrors({});
+        restartRef.current();
+        drawRef.current?.();
+      });
     } catch (error) {
       setGlError(error instanceof Error ? error.message : "WebGL failed to start.");
       return;

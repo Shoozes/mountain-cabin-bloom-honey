@@ -15,7 +15,7 @@ Scope: catalog + looks only — **no new shaders**.
 | `real` | Hyper real | 2 |
 | `poster` | Poster | 3 |
 
-Live look shots in `screenshots/look-{pixel,painted,real,poster}.png`.
+Live look shots in `docs/look-dev/screenshots/look-{pixel,painted,real,poster}.png`.
 
 ## Palettes
 

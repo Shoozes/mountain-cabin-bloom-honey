@@ -4,7 +4,6 @@ import path from "node:path";
 import { createHash } from "node:crypto";
 import { chromium } from "playwright";
 import { preview } from "vite";
-import { mergeAppEnv, readAppEnv } from "./with-app-env.mjs";
 import { ART_SOURCE_PATHS, bakeArt } from "./bake-art.mjs";
 import {
   compileCharacter,
@@ -136,7 +135,6 @@ try {
   }
   let url = devUrl;
   if (!url) {
-    Object.assign(process.env, mergeAppEnv(readAppEnv(root), process.env));
     server = await preview({ root, mode: "pages", preview: { host: "127.0.0.1", port: 0, open: false } });
     url = `http://127.0.0.1:${server.httpServer.address().port}/mountain-cabin-bloom-honey/`;
   }

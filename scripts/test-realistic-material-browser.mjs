@@ -4,7 +4,6 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { chromium } from 'playwright';
 import { preview } from 'vite';
-import { mergeAppEnv, readAppEnv } from './with-app-env.mjs';
 import { generateMaterial, materialVersion, REALISTIC_SURFACE_PRESETS } from '../src/shader/material.mjs';
 import { shadeRealisticPreview } from '../src/shader/material-realistic.mjs';
 import { bakeMaterial } from './bake-material.mjs';
@@ -159,7 +158,6 @@ async function verifyExport(page, zipBytes, expectedFamily) {
 
 async function main() {
   await fs.mkdir(runDir, { recursive: true });
-  Object.assign(process.env, mergeAppEnv(readAppEnv(root), process.env));
   let server;
   let browser;
   let page;

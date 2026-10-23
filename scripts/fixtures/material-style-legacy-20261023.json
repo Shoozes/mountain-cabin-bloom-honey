@@ -1,0 +1,2577 @@
+{
+  "format": "material-style-legacy-baseline/1",
+  "source": {
+    "path": "src/shader/material.mjs",
+    "sha256": "316355014cd753f18edafd97c19b04ea760652cfcaf7de6ba0516711f5fb2df6"
+  },
+  "cases": [
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "grass",
+        "style": "hd2d",
+        "seed": 1204,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "4e3c0631ec55ceef50423b01dbd8880e8a138469ce9deb3e29f4744f718df186",
+        "height": "41d8a4f8b1d9332510d3c745144e701a6df87688e331a20df8d52e7403b1118b",
+        "normal": "ebf28a29f677cdac9509e8e8f7ab4170a877010fb66c77bc8bd2f9c674c8dc18",
+        "roughness": "641f66ad2bf9fabe8e49cc0d6889907225560580b7cb51d04b16fe0dacd0ea2b"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "grass",
+        "style": "hd2d",
+        "seed": 1215,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "b7883ceb336a124a88e457cd1848372f9e5755748a2ef43424a47136c88eb07c",
+        "height": "289d7bc5fcc9eda035aa720c2a463849554332f30650ce3218d3d8582095db56",
+        "normal": "ceaba90b602baf75097ec4cde9074caa61c8cfee1d14714028c7589037ee47c4",
+        "roughness": "04427e47a7095f99c2b2195128f2b8c22126a0d19ddc8c53b44499f68ce801dd"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "grass",
+        "style": "hd2d",
+        "seed": 1233,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "7163ad02529c08ab70c52af1e6df348b45f4f07b8a05fe8520ba1f044c12c343",
+        "height": "862dca5e80a2c600467fb36d916166a7c2f13884ef1c2d19707f1f80962ccc89",
+        "normal": "90acdc1316bf682321f5f4a9e33d869cccd2bf0d51116f566c6fddcdaaf5a0b2",
+        "roughness": "9447f1a6ebbcfa6c0a9be035ce83c5a8ee289eb40dedaadc1df88ba22d08e2a7"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "grass",
+        "style": "cel-ink",
+        "seed": 1204,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "c01747837fbf4afcaab4f263186978f78fcbe8dc6cf3576bb2a52799caba0878",
+        "height": "d0e0c06a96bb6ab1c0236dd3841709c4b4b141119b35fcba2dee62d962104c23",
+        "normal": "e5d6005f4b7d3223c2d8202c3c20f6e0c91ef0a19524f663d17127a4da95adf7",
+        "roughness": "641f66ad2bf9fabe8e49cc0d6889907225560580b7cb51d04b16fe0dacd0ea2b"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "grass",
+        "style": "cel-ink",
+        "seed": 1215,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "710d4e6052cc2148d978f0edfdab0497154fd328638cd08a280ebd635d2cfb75",
+        "height": "5c92f0212d25481746d700afe28cb33cbe5359db1c9cedb81f12fde4dbd2af53",
+        "normal": "8b6e860bc07dff762018f3f089966d49b9d3de02b065cbd00d72c4538d181a04",
+        "roughness": "04427e47a7095f99c2b2195128f2b8c22126a0d19ddc8c53b44499f68ce801dd"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "grass",
+        "style": "cel-ink",
+        "seed": 1233,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "e555a43801f51213ac0fa38ce3ec42ca8508f5535f201c2a08fb3833c8bffef9",
+        "height": "c05bf3862c0f5d0bcdcb5af614518f62ef09915f976b03c3ff07565d0a82b8bd",
+        "normal": "93190973dc3d51f279d8ac21d87a29ec1f593194b2e3243bc3b60f12bed6be17",
+        "roughness": "9447f1a6ebbcfa6c0a9be035ce83c5a8ee289eb40dedaadc1df88ba22d08e2a7"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "grass",
+        "style": "soft-cartoon",
+        "seed": 1204,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "a55fb56d2ba262b0733db75e3c2ae7c80207ca06477b9b774000612c000da5f0",
+        "height": "f699f1f43eaf931fd776d21f83f8b1e8108e2f74da91dee8bcc41f59167e0c06",
+        "normal": "280109e65593f864c42474833d62a0c830cfcdda8778c0948208d8cf7d7b706d",
+        "roughness": "641f66ad2bf9fabe8e49cc0d6889907225560580b7cb51d04b16fe0dacd0ea2b"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "grass",
+        "style": "soft-cartoon",
+        "seed": 1215,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "0bdac7e1969579fef6bafaafac330d2ad6cc95b6740bee1da4123d764c12ab5a",
+        "height": "fa5968fd6d12e3bf8bce5d3fbbc64d0dccb9579ead4d31136b99ff99edaa6781",
+        "normal": "be108be49800f37c0f198f541e3c078fded9d49180a1d5f4a0f68b810f35abd1",
+        "roughness": "04427e47a7095f99c2b2195128f2b8c22126a0d19ddc8c53b44499f68ce801dd"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "grass",
+        "style": "soft-cartoon",
+        "seed": 1233,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "412bba6cb87d6b190cca260d5607dd4267ce8a56bbf15fea94d8a54f73935219",
+        "height": "16f6edb4a891ea504b6c6844514ca3e2d2e52bf17048444a3f9e804e09d5cd95",
+        "normal": "5ba14a2c5516c5d7c1c568ab6880d729765472f7c52f92e6fae4bdf0e4508716",
+        "roughness": "9447f1a6ebbcfa6c0a9be035ce83c5a8ee289eb40dedaadc1df88ba22d08e2a7"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "grass",
+        "style": "pbr",
+        "seed": 1204,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "54e015ec3b0d58364b32c805499af80a6f394ea77f14f5b0518e344d8208c9d5",
+        "height": "5e3c39b8a39930204b91a9d24d39fd7a9b8f208cea6cf3b4912eca02a3f6623f",
+        "normal": "4b075df7e1324011958ab2404851fb37d58567128c480206055df03ef47eaa60",
+        "roughness": "641f66ad2bf9fabe8e49cc0d6889907225560580b7cb51d04b16fe0dacd0ea2b"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "grass",
+        "style": "pbr",
+        "seed": 1215,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "91cf1399376f0af175e230e54828c42143ad53a5ac5057cce6d3c8ec4f235903",
+        "height": "c409f1a6a9075fb0dd0fdadc3ca56183211cc107902e130e59a40d6a21f69205",
+        "normal": "b833b5e2b244093bd64bb76feb642bf0f4262df37c50eea89d66015a80195a32",
+        "roughness": "04427e47a7095f99c2b2195128f2b8c22126a0d19ddc8c53b44499f68ce801dd"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "grass",
+        "style": "pbr",
+        "seed": 1233,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "17eae14d143bd066deb85d22f5a71d7ad72e0e0fff57ea2bfcb284c1cfba58dd",
+        "height": "e74482a0b2e52afafdc81258d0a991e57670b7eca9e2c8b27a0639fb6600c3aa",
+        "normal": "427209c391bb355bb160539fbae6727f69adbdb953d0fba5d458fff5c0ef39c1",
+        "roughness": "9447f1a6ebbcfa6c0a9be035ce83c5a8ee289eb40dedaadc1df88ba22d08e2a7"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "dirt",
+        "style": "hd2d",
+        "seed": 1204,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "d263824e07dd5e296f86c6c68d24e7a9e80888e6cc755834f87a4e758f3e7b86",
+        "height": "204173abd605a9610ea1222d294b50d8ee0675ef743fa8c3982ab54b64cb5538",
+        "normal": "76dc8380662d698359b8bf484e1c843e559b440647e59b8b4c820522888e0461",
+        "roughness": "ae4f69ff4487014dad504ea068e81e35a3ef69ac900439b7d3c9acf40a7e10a5"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "dirt",
+        "style": "hd2d",
+        "seed": 1215,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "b4db46884fb0e43a9c3b74adac60aac3c950a11d11174e1a36c67fc61f67ca1c",
+        "height": "90fa48d29e16927c8b9707f7a39e642170ccaca2dc0e8b04806d665937e70e35",
+        "normal": "aa9f41f6f250a0e2cc4f692dd9b428fdd56a5c63ca15b0b838b2659411a8a084",
+        "roughness": "677221df23d402eb923f7e6e68157462ad8a68749ddf5338dc694d7df48fb978"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "dirt",
+        "style": "hd2d",
+        "seed": 1233,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "1e747f5ef51dc3650b42882d1f0e8bc8b158e0aa08cd28cb5acc81249ed8f805",
+        "height": "2ac2dc9f48175a32968812100c3094ae912ee71c5675f74a4f6041425db28ba3",
+        "normal": "a54087ff5c15983df14c64f3420b55939b44c08249f07d55ba3d86c39e393c53",
+        "roughness": "1128327c61734c8a5cb7dbe6a466055343a3869bb116f4ba0112666c67b882fe"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "dirt",
+        "style": "cel-ink",
+        "seed": 1204,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "0d1dab5af124f9111dcd04e1dcd5ba22cc8e95c0518f8904b201ecc6da33b89d",
+        "height": "dbcdeb478086aa5eac78ba1436a2312e32f15ff1312b7d891b06a5cd5de9631f",
+        "normal": "f4c3e34b2d9de8ace4aa46231fae404868940416b8d6be2bb2fe0f09ae9f7341",
+        "roughness": "ae4f69ff4487014dad504ea068e81e35a3ef69ac900439b7d3c9acf40a7e10a5"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "dirt",
+        "style": "cel-ink",
+        "seed": 1215,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "8788bd65bb34b7d72758005ad816828837f8f406e4f610c12300415237240068",
+        "height": "85d450c48b29bc9657f102e294c5c389d9be3463ce0cd8fe16dd6004b27ce401",
+        "normal": "c4f9496b155d27e28bc5664ffd787faa8f470682373ef61bbad78792aff351f2",
+        "roughness": "677221df23d402eb923f7e6e68157462ad8a68749ddf5338dc694d7df48fb978"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "dirt",
+        "style": "cel-ink",
+        "seed": 1233,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "466adaa0a86193bb85f0bd37cf2303fb58a9199721532eb84f72fded936d9b3d",
+        "height": "50b1094d9d75b97d3295e3e1dbf1612b4cedad17bcffb305df8b3744d7ce4c7d",
+        "normal": "8c280a613cd4ec0122fda17818553111219488b51aa85bb3c3eadb18a41b6f23",
+        "roughness": "1128327c61734c8a5cb7dbe6a466055343a3869bb116f4ba0112666c67b882fe"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "dirt",
+        "style": "soft-cartoon",
+        "seed": 1204,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "41829a130fba55a318ae5a34d4dec8ee3fc7f84ba8eaa4575cab76ade7c07e93",
+        "height": "36c25c00b5fda2ce02499b5bccebc341b5ce3b5593f8bc93edbb93ed22b8ace0",
+        "normal": "a6cca59d70795f28fad8ed255a977b93c46b8c2a8135b532003984cd7ed3b597",
+        "roughness": "ae4f69ff4487014dad504ea068e81e35a3ef69ac900439b7d3c9acf40a7e10a5"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "dirt",
+        "style": "soft-cartoon",
+        "seed": 1215,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "9da8473db239cff72863ce21e177ff72ac2c1afb25e8ac585c8f3b0fa7269a6a",
+        "height": "ee920957e927dc70c9426e877adc82f3d833ed9c25913d7275143ade0accb513",
+        "normal": "595dff117f2e59edd1785bc07e5e7cdd2527a3205c3c72aeb25535eb71b5da9c",
+        "roughness": "677221df23d402eb923f7e6e68157462ad8a68749ddf5338dc694d7df48fb978"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "dirt",
+        "style": "soft-cartoon",
+        "seed": 1233,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "6f72c2aedb6b39cbaa68f88e22028db6493810fd3c09b4417e426d8edfcae1cc",
+        "height": "43c2887f37612e23a455c900c47c762942bf8ee2e20c9fce10e39b6b667f0425",
+        "normal": "02bb73368151acaa8a2944d5efae5d155d0e3cef4af5f0790df22e0bb2326319",
+        "roughness": "1128327c61734c8a5cb7dbe6a466055343a3869bb116f4ba0112666c67b882fe"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "dirt",
+        "style": "pbr",
+        "seed": 1204,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "cf561e3c3d746bb03c4b6f500515f01f9f70fffee59a6fad821a6d1053888162",
+        "height": "2d230536db394f66070857b7b45f40256fd58ecb7fe563b2adc4a38a7d4e4255",
+        "normal": "47f25fcf7aa682a575fc7f2d0405b757964127d1e7611dcc3b2518d6dcfc8cd1",
+        "roughness": "ae4f69ff4487014dad504ea068e81e35a3ef69ac900439b7d3c9acf40a7e10a5"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "dirt",
+        "style": "pbr",
+        "seed": 1215,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "04e07117473f3b6534c35a1986940a2c5907b0ba4156245ac06fa4fc5a386290",
+        "height": "bae2e2a85a3c81856bbb0e5c7621b43e2eafb749d6d6bc485de2f386e30769d8",
+        "normal": "963c80e062f2f18de3a7b700c116c0be4d13f468bfb851ca7e53df0795cf4962",
+        "roughness": "677221df23d402eb923f7e6e68157462ad8a68749ddf5338dc694d7df48fb978"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "dirt",
+        "style": "pbr",
+        "seed": 1233,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "4138fd33cf7b82ce6ee08ee68751694f8b15639a5dbb03c621efeb3f53e457e2",
+        "height": "0ad1542a79277f461ea89bebb43a88cfe7f04a4e65af2b6edd9053449f625c36",
+        "normal": "e6033004aab54c8f6721bc6b1f141915e5da9685b6a1d5a4898f486489465535",
+        "roughness": "1128327c61734c8a5cb7dbe6a466055343a3869bb116f4ba0112666c67b882fe"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "moss",
+        "style": "hd2d",
+        "seed": 1204,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "ab703a0299c4143a96f446a4b1b20ec2fdd9412287026afd3366d96b1ab32cbf",
+        "height": "275a6b2b9a579a9ce05257f313258bb977e610c4fe4160612a1b2606d2cd48a0",
+        "normal": "84260a55998ef2b787c6dad09b52a25fa3ede542df02ad72ae08e9c6a0d2e67a",
+        "roughness": "9d1e2ec8eff8f8446d6875c4cdca54ffdfc556eef96a72d5c160889b6e726e92"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "moss",
+        "style": "hd2d",
+        "seed": 1215,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "69abc116d8b6e12495caafddc28f37509284124addc59df0de520bd06f9d9fc2",
+        "height": "cdc7c9ec582e0986d91af642745cbcb9dacf57d4d65812c2696e369dcd035548",
+        "normal": "916d725f42204480db0792ad1b1bca83d440ac05f5e279f2074c28cc228bdd19",
+        "roughness": "87b6a4c34fbcb3046a753db00eba476ccf1242f244a2a2822654edeeea512dc6"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "moss",
+        "style": "hd2d",
+        "seed": 1233,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "2424b5cbf962ec3bae37791a38a2a469bd62a4e2d6e93e6e6235855ae20392b7",
+        "height": "1452b06e09b147cb5014daf22ffb51b96fb635d8653b91fb272711eacf8de523",
+        "normal": "62f6dc5b1605ca4d072360fda28398e68992b27b3f2bdd0d0f34d141ebe80f78",
+        "roughness": "7caa13dee6b0e3b0a967a26afad4d614f43e163ded6347cbf360646c6638bd8e"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "moss",
+        "style": "cel-ink",
+        "seed": 1204,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "a3b591a72a22a37cb12ffeedbe3877068c3e318c1b1b452f94fef51db83c4d32",
+        "height": "1f5dc72776201e5ca94a4e772711c6ee16dfab1ca1e3266be98c036d9a96ec9a",
+        "normal": "167553ffc43a78011c1d881cb568e81e6dbdd627a0f81a2046adc0475fb20a01",
+        "roughness": "9d1e2ec8eff8f8446d6875c4cdca54ffdfc556eef96a72d5c160889b6e726e92"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "moss",
+        "style": "cel-ink",
+        "seed": 1215,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "a43398dda8e00c68d32e9f900e538c68fdb4262df581688b4742e766524c0378",
+        "height": "fdf52eb8d1983909b17638774c3c2f12bfbec4da8a84c06d39513a09c719a5f5",
+        "normal": "1b84782876e10f8ce31deb23b32d9f998e427a2732ad65e0a646abffca731493",
+        "roughness": "87b6a4c34fbcb3046a753db00eba476ccf1242f244a2a2822654edeeea512dc6"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "moss",
+        "style": "cel-ink",
+        "seed": 1233,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "ffbe11f878eccc024e408d5a2a63a5ce726c5c6ae221b37a55a01cc95a80ddae",
+        "height": "3f79724302ee4ff778e01f1e3cf6acc1d53c2668d6d329d00571d8582b0f7956",
+        "normal": "762140d511b1640d5d051134360bd120ccfbadbba6be1c8d976124a56e47c6cc",
+        "roughness": "7caa13dee6b0e3b0a967a26afad4d614f43e163ded6347cbf360646c6638bd8e"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "moss",
+        "style": "soft-cartoon",
+        "seed": 1204,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "63ee69f99583a5c820448d5d44ccaacf074976a1e8844831c2eb926c18029854",
+        "height": "559aeea8aa21f38a2f94592607b0a9a0cdb1e366d1aba4171169d7eaadf9d09f",
+        "normal": "abc0820d6ca8e8d809a9ab4524de24a28ae31d5a6e094aeba8397d998fb82325",
+        "roughness": "9d1e2ec8eff8f8446d6875c4cdca54ffdfc556eef96a72d5c160889b6e726e92"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "moss",
+        "style": "soft-cartoon",
+        "seed": 1215,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "9169c3242924a2cfa617d85d46c894ed13106b3e4e46175572129d1c88dbf103",
+        "height": "299183431c08c86aad358fe771fc1f9302032dfe8f77588aa5c1668258a6addf",
+        "normal": "bd9084b0bff92658ac8fd171bcee913384f2ea8cee01bb25fb9386a4b7a3ebc8",
+        "roughness": "87b6a4c34fbcb3046a753db00eba476ccf1242f244a2a2822654edeeea512dc6"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "moss",
+        "style": "soft-cartoon",
+        "seed": 1233,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "ad3374f13832d35a9c650a68145bd56401b3efda62f6d9667278f64eff69df30",
+        "height": "4eab5eb349e122febdfe78b6e26b7e3312fb551ec35be9a5cefaf258921d4f98",
+        "normal": "2841cd3d738d6e4263761fffa71c198710b5acf1848495ea9139e53ca00792c8",
+        "roughness": "7caa13dee6b0e3b0a967a26afad4d614f43e163ded6347cbf360646c6638bd8e"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "moss",
+        "style": "pbr",
+        "seed": 1204,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "bac819f0aca76d4279f4be0c188626ad6182f714cd1c0bb2eced44185f96a223",
+        "height": "41cd2eda6a39265d5b5a340aec2c1f77ff71f69c6ad3e683920c4780cd8d5603",
+        "normal": "7eeb70b7f61c0441b4318f139f3f5c12ebc6dc284f29ce647a3a01d65598e359",
+        "roughness": "9d1e2ec8eff8f8446d6875c4cdca54ffdfc556eef96a72d5c160889b6e726e92"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "moss",
+        "style": "pbr",
+        "seed": 1215,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "bf7388e773a564926c8cb9d6b156d71a7250b88f376885503e07a90f7f29cf36",
+        "height": "bde3a76f0619dcf3d8eec3306158b68a1ca017eade2172a54cfed63fb5d13f94",
+        "normal": "ca47195b5c3e4676dd0303216d63487eb40ca438894f36cd8360b05680eac136",
+        "roughness": "87b6a4c34fbcb3046a753db00eba476ccf1242f244a2a2822654edeeea512dc6"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "moss",
+        "style": "pbr",
+        "seed": 1233,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "9487f132146eb00e100f3999da247c1515b04ee3f5c4ef2cf0195d29d8407d97",
+        "height": "ab119f5e0d3fcb4755a35f12c4fad3643e876ab126c0d5868e3c34da048a8fdd",
+        "normal": "2f5917dc4da794d74b92b9f629c2a29d8be73f2da8783c2543436f1fababdc2b",
+        "roughness": "7caa13dee6b0e3b0a967a26afad4d614f43e163ded6347cbf360646c6638bd8e"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "cliff",
+        "style": "hd2d",
+        "seed": 1204,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "357bfc8ccb63f04eb0deb4ed645b73b853f52f411b66f3ff840245921bb11a97",
+        "height": "9ebdc1fd2eb1c39e4616867bff194f7ab5db94f7e92d7e9f079026617e21b568",
+        "normal": "47198d598d248c1975d51e26f5ffec7f90a1b611b6b3022a0dffae3de8c8bf2c",
+        "roughness": "9d888b8d822875e12c7fb6c61ad13bff0cc0441e4fd8294dd3ea3e6f548a5176"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "cliff",
+        "style": "hd2d",
+        "seed": 1215,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "bb597c3f7243a00ac05532a0b68c5cb72ddcda4bfa107c55aa44d281e581d943",
+        "height": "b9e79ca282cfba2ffc318a78adab91624d497d5e805c0d3bd81481823cfb7af9",
+        "normal": "64a57fca8c5d4991b0340dfa2ac89bcec7fe61b7965b5e739578894365711e92",
+        "roughness": "1a97aef82d9e21db0c4f739f74bf42a592d05bdf91d7656b664fa9c961a00f48"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "cliff",
+        "style": "hd2d",
+        "seed": 1233,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "b4c0a78357ab233ef5fb8f9bf2772b10a271b0410259166c7059a2ce59d3c02b",
+        "height": "7b9f0d82592690ca954e4e0431087aac2dde5efe9eed754311f02ed271b004e4",
+        "normal": "90dd541bd20dffb19609809f84a428c800e1a9d1b41bbf469ae53e0a547a4c67",
+        "roughness": "b607866345078f932eb4e6a4d465dc7887b422d2346ee277453b79ec24733be1"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "cliff",
+        "style": "cel-ink",
+        "seed": 1204,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "f603ba712b2a036d56dd74846d6675b535a6fc31c395f0dc70d36dd26e2aaa66",
+        "height": "d412f32751f95950491bcaec2b0ccf5636887b846521f97b7f7312e3d4510b2d",
+        "normal": "202d3996606dbbc8292a8aceef9b14d689201813b149f11b69f6dc5957d381ce",
+        "roughness": "9d888b8d822875e12c7fb6c61ad13bff0cc0441e4fd8294dd3ea3e6f548a5176"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "cliff",
+        "style": "cel-ink",
+        "seed": 1215,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "6d795deebcef0443df84c92ae00d7d4e4d931112f0f0ea7d05ebce436afeab9c",
+        "height": "7319be36f1639702e8b04b1148404c6e0a18b4d360579d34c5eaa7fa1566ce30",
+        "normal": "688fee90b72c1e7b6c2711cc0a7beffcc434203d20c6e2bc11bb982d148067f5",
+        "roughness": "1a97aef82d9e21db0c4f739f74bf42a592d05bdf91d7656b664fa9c961a00f48"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "cliff",
+        "style": "cel-ink",
+        "seed": 1233,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "9d2fd1aba5fbe2623967139284530d500324fb126b6670851f10f892ce02921b",
+        "height": "7f9341cebf21070d91f6b4bc65ec4fe40e3f69956262a05e40197022e0ba82c6",
+        "normal": "9df8825e116f1d22a7fad31c9d6a297ce9668fe3f92d29068005f7e139292cb0",
+        "roughness": "b607866345078f932eb4e6a4d465dc7887b422d2346ee277453b79ec24733be1"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "cliff",
+        "style": "soft-cartoon",
+        "seed": 1204,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "a6a7a0ab1d746aa8f2104741dd7973d83e8b75be2757a0eee0b9f25fd66917d8",
+        "height": "35730de50e12eccc09912999bc23a9924488cdcfe9c8ee022814fc006df52786",
+        "normal": "4b9a7ee472422983ef737dcb916a870e56bf397a8105f03286dbcfe42ec8df60",
+        "roughness": "9d888b8d822875e12c7fb6c61ad13bff0cc0441e4fd8294dd3ea3e6f548a5176"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "cliff",
+        "style": "soft-cartoon",
+        "seed": 1215,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "7c527260362999d714dd7725b57583046edaf1986ae4d249224ce8155c50f23c",
+        "height": "f098bb0b0b16e0820f27764782283038ceafc242d783927873c68dc56501063f",
+        "normal": "18320f6a487f6cb6324d2df4bcfe167658869fcc2c1e85b41fe844bb479ccd45",
+        "roughness": "1a97aef82d9e21db0c4f739f74bf42a592d05bdf91d7656b664fa9c961a00f48"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "cliff",
+        "style": "soft-cartoon",
+        "seed": 1233,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "caaac2874d7fd8e7652e38d7fc5ebbf86a73ba7484152393f795bc8d917904c9",
+        "height": "844a7e3e3b6257c6139a3b15571cf4d14adf6b33b232aa5a20db106c35e9f988",
+        "normal": "3aa73c804c06412b7af43ef4c354f3d1bdf673cd306d1bfb25475b10f20d1151",
+        "roughness": "b607866345078f932eb4e6a4d465dc7887b422d2346ee277453b79ec24733be1"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "cliff",
+        "style": "pbr",
+        "seed": 1204,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "7761f12b123e72d8bed951ce5b570a3ff9e13d1b1920a0875d64d15d731391bb",
+        "height": "590af715b86576191442f35070b9b0cd803ceb433eab5a6def312fc92284d3f4",
+        "normal": "32b6933882a097f636cf5580c27e5561c81e7a074b2e564b1e3146b5c2d3580e",
+        "roughness": "9d888b8d822875e12c7fb6c61ad13bff0cc0441e4fd8294dd3ea3e6f548a5176"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "cliff",
+        "style": "pbr",
+        "seed": 1215,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "fabcf7ea74e70ec57c1de470378a303a2b9784603c484d85a4b542caf73493ac",
+        "height": "b9d5fc7279ae4117379f8bc74e04f5865cbcc2133747171d75d663ac9a6088e6",
+        "normal": "6b197d3761005574361508e844ca235ab4a5bb889146455ce3e59d51e3c73d04",
+        "roughness": "1a97aef82d9e21db0c4f739f74bf42a592d05bdf91d7656b664fa9c961a00f48"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "cliff",
+        "style": "pbr",
+        "seed": 1233,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "d09e66c5c9b3d955d7d79567272ce0042f2efdc061d6af80730342b51ff59ca4",
+        "height": "56e77326528003c9a7a9694a5c69f79cf7d6907ed33a44286ee94d5316f6e6a4",
+        "normal": "7dec64a432d35df4a6e896979b218a66f1a09159d8c3e5a2f4abb2a4fd1c9423",
+        "roughness": "b607866345078f932eb4e6a4d465dc7887b422d2346ee277453b79ec24733be1"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "stone",
+        "style": "hd2d",
+        "seed": 1204,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "36e289aeb4caefd3739e0a574acecb875a27d2dbe6ff3a6154ae28e50036ae86",
+        "height": "a1c431b4aeaebc1d5de0e5f8af1ce33711490a86529756aa6717742addf6654b",
+        "normal": "1fb42c92575ea8954212a9514a7a249b62f8bde6b1286b3af1e787996937fed7",
+        "roughness": "54aba6e0a7e751c25360c3f6d627c4666a117d16dd4454173116fe2925c59554"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "stone",
+        "style": "hd2d",
+        "seed": 1215,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "29a5d20904f2b648751fe4b4021cd0b8f0b462ab0e75febb2faa68d620ff1bf4",
+        "height": "2a5aa1140131959b25b8543bb017eee14c33d1f0d5e253e825d6c2bda5863613",
+        "normal": "c98d7eac1048467d7a8c157204341f955eaa4c481fe68c2edd8bc8f1b2959288",
+        "roughness": "2cd3a98d4ce89c06a3bc20588e8859ac15f062014f5ef5431417f21b42705880"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "stone",
+        "style": "hd2d",
+        "seed": 1233,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "43704573722fedd27e3184f63a2df44f0adb75d31e8de104d3acc890849079a8",
+        "height": "a8970bc546606148b2af89876e36ec14bbd53eaab75a271a5199350ffc0d71c9",
+        "normal": "ed72341b8ba90c973714f34b57085ed40679f164f84c108589a5ea81893a9057",
+        "roughness": "c3ff29193d8fe0120e085a7141c73547fba0b7b178e45071fd17f881e27667a5"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "stone",
+        "style": "cel-ink",
+        "seed": 1204,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "0bdcf74e27cb41af5ff923a9246f0b9015360cbb53537fca88641df92c3c73bd",
+        "height": "967e255046a17c7305eb4dc8289be39813bbc062ba82c160258454c58e5febe2",
+        "normal": "b135baf262f03290a43fd9a359883698890099dfc59c96fa6705c385147aa3cd",
+        "roughness": "54aba6e0a7e751c25360c3f6d627c4666a117d16dd4454173116fe2925c59554"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "stone",
+        "style": "cel-ink",
+        "seed": 1215,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "bc498678e2c43a8c42978b3bed8741eb3723baeeb5363553423afb77948d3d06",
+        "height": "c009b311b25925947860989d27dc493154476c645399761595bad6b2b020b60c",
+        "normal": "dcf73931606d9c8689c74cf32a441a69f4a4423cb7875534ac85bb32598f3d3e",
+        "roughness": "2cd3a98d4ce89c06a3bc20588e8859ac15f062014f5ef5431417f21b42705880"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "stone",
+        "style": "cel-ink",
+        "seed": 1233,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "a9a0bcf32bc23cc3f409b5687af6efdd20667dc82ae7cb083bd48515d1304d5c",
+        "height": "1bd6f037d9da9c505d32023b55f515d67712450474fed13c82e4bfbc84ef7c27",
+        "normal": "14845d96e75a8c5acd8132586c0e7095148ec70b94b2eaaac8cb4f14332e88d2",
+        "roughness": "c3ff29193d8fe0120e085a7141c73547fba0b7b178e45071fd17f881e27667a5"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "stone",
+        "style": "soft-cartoon",
+        "seed": 1204,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "e31d11f132a2ca257b142ce5d60610cd23769f96d0c66d3e64f89d709088ab39",
+        "height": "3699964df84859a2604e4b4aeadd7acd44e9ad8caa46cf30fb5d2bf54fac27cd",
+        "normal": "1084ca8bb4766428fb26406d6aae7fb9382c46d407730003333bd9dc13ab2a33",
+        "roughness": "54aba6e0a7e751c25360c3f6d627c4666a117d16dd4454173116fe2925c59554"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "stone",
+        "style": "soft-cartoon",
+        "seed": 1215,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "4e945cfe17cad3a983ae47cad904815605fd2c7100947ea6a825f3c90880ce08",
+        "height": "cc09f4d9bc64f554dd96b140a79b81a3136b86e90837cac3268d680850be1d8b",
+        "normal": "818ba0c4d95236049ff2df39b041a2a78a51cf13483840491b3c53ea30e39cda",
+        "roughness": "2cd3a98d4ce89c06a3bc20588e8859ac15f062014f5ef5431417f21b42705880"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "stone",
+        "style": "soft-cartoon",
+        "seed": 1233,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "f13599c9e550f2895a7d66418e7848daf60d0e4a0c3147cbd15b24e20a0e6f07",
+        "height": "b585e027ce85f612f36f31eb313475bc7276a26acde5e97156e0b632df639b63",
+        "normal": "03492698490012ddb649740b72d1efbcc46a6e9446fac3dfe837c5dfe18b25e5",
+        "roughness": "c3ff29193d8fe0120e085a7141c73547fba0b7b178e45071fd17f881e27667a5"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "stone",
+        "style": "pbr",
+        "seed": 1204,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "ee6e4e188513967e788b8524027e2014e90100d7dfd27dfd7147709b0bf3d4a9",
+        "height": "cff429ce255e6cda09fefe43ea66afefaa766f61ee38949bf1cc3220858096ac",
+        "normal": "04494975503b46536a071e386733e1fea6ecbc2ed080bbd54ec6f53ea1aa77ee",
+        "roughness": "54aba6e0a7e751c25360c3f6d627c4666a117d16dd4454173116fe2925c59554"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "stone",
+        "style": "pbr",
+        "seed": 1215,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "ee08e3ba0ed108840400b535586a533fe8601577374d7a8fc5ba73052415f6fa",
+        "height": "991630656099f15f00eb47d6ddb94045092b47509f2be2af7d551ba953424f74",
+        "normal": "9e480b6504c4948a0b9226dcd30a0c9481409176a48b95a412c5bfe09069fb48",
+        "roughness": "2cd3a98d4ce89c06a3bc20588e8859ac15f062014f5ef5431417f21b42705880"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "stone",
+        "style": "pbr",
+        "seed": 1233,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "a60a2e0106f70dc174679f0619b32b237f8e240095d0523e8201334624837be7",
+        "height": "5d61043aa0157753eb8942892bb8dc81bc1da01a1d92c20dca86961f83e53524",
+        "normal": "b8fc38b8fc055e31a63ca9b143fb018ee96af8a05aa4e621e154d41b17e79480",
+        "roughness": "c3ff29193d8fe0120e085a7141c73547fba0b7b178e45071fd17f881e27667a5"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "cobble",
+        "style": "hd2d",
+        "seed": 1204,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "8362513f578f567dc27ad7a8f454192c1e2c76c9c2b3f3696acdd9c8b2295774",
+        "height": "9fabe5e0b162980a1fcc2bb115d45db1d2bd007968ff988e0a996b9e2b15e1ad",
+        "normal": "793fedd50ae7e95f7afff3d628800e662060b75e8c5057e98b4ed0365af765fa",
+        "roughness": "47005f6f41e7ddd448714a50f15281c3b10a9074cb2d6eaaaff2151678708eff"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "cobble",
+        "style": "hd2d",
+        "seed": 1215,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "6e62d43fdb345952084e49630f297600f7d43ead9c76f533dbc77635ae467957",
+        "height": "c6ee8bfd83cc3a329be7483b35550759b0fbee6c484990dfe9dfededb6205c7a",
+        "normal": "3a79af5bd055af83816f77f2486fa682b9907c3d0c74e3507d96c3337e6c310e",
+        "roughness": "8acb4207d8c316af85a617e3c6503a18c9919003b065340190036ef0356c164b"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "cobble",
+        "style": "hd2d",
+        "seed": 1233,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "e3151947e38e9ee9934c4e4bf12a3e5cad3450f9093dcccb0590139db30572bd",
+        "height": "bf97a5578d6f562a20200f1f51c3163da383e12f3fb99faf995f60c9c24fd09d",
+        "normal": "c3c3a806abcfdaae8280dbcc4be606841064e3cb83f6ccc6dff1ee315a853e36",
+        "roughness": "c9ec7a0013c2010c3d079bc011f144c48df012e0b2a1eb20d76f2af1268549ca"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "cobble",
+        "style": "cel-ink",
+        "seed": 1204,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "a2eef58ba99d4e75c7e36be7d415ecf3c27b4bef3ad3c5f17cba7d3256ce609d",
+        "height": "49416dc5c2d46cffabf3eb07ac5e6ace6ae8e20eb3d961b4fd83e3fba0128e22",
+        "normal": "7e45f2ccbc0a184a8189bd40554d435137ccc569a9c305cfcde4cd4e7ca7ada4",
+        "roughness": "47005f6f41e7ddd448714a50f15281c3b10a9074cb2d6eaaaff2151678708eff"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "cobble",
+        "style": "cel-ink",
+        "seed": 1215,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "4a5994cbe110f15672aba070c48f8c5b451b5b6de73d0fafe46c9daa671cc133",
+        "height": "0e9ce176a1ee5d6a80ccc24f4db09b9636895b2d4610de57191c957f843748e3",
+        "normal": "89db38a75bca38546de26ddb9f15c31e1b9724499fd4a0c6ec580910476fdf0d",
+        "roughness": "8acb4207d8c316af85a617e3c6503a18c9919003b065340190036ef0356c164b"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "cobble",
+        "style": "cel-ink",
+        "seed": 1233,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "adfb273575b2aea739d05070f16286bc2732b5b4f2bd0c985a871a02c217a3c0",
+        "height": "e12a7c2291f9084e9f031a503551e15793414b1fa859695ab7e457531b4717ed",
+        "normal": "6e5977b210d8ca46bb925c9f7cd1e29b60eb9a99a6bd81ad1e26c8b5438c2c75",
+        "roughness": "c9ec7a0013c2010c3d079bc011f144c48df012e0b2a1eb20d76f2af1268549ca"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "cobble",
+        "style": "soft-cartoon",
+        "seed": 1204,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "c3d4d53f8602bf7552a5d19b6738a0eceb25d6371b2769288c80de30918988cf",
+        "height": "78bb7d7def76c198b01b42368275ab49435c5e4be37f2ae4833665254427b84d",
+        "normal": "560030eda301cf88c599de469d7a47061d48348144d65c3921ac8b24fd5eb64c",
+        "roughness": "47005f6f41e7ddd448714a50f15281c3b10a9074cb2d6eaaaff2151678708eff"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "cobble",
+        "style": "soft-cartoon",
+        "seed": 1215,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "e70d292b89cf3f31f01ddc1d51b7cbf65ead903bf1771e33f056530eec75c4a6",
+        "height": "742594d9af680ea21671b660fd9d5e751dab8ad26ff9636b54f2abc65f510fd5",
+        "normal": "baffc599e6fd87e283c6ec205ab1f82986cc9c83ae4057ddbcf42789344f234a",
+        "roughness": "8acb4207d8c316af85a617e3c6503a18c9919003b065340190036ef0356c164b"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "cobble",
+        "style": "soft-cartoon",
+        "seed": 1233,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "5b4e8f0e8791b3751a1d397f041698e86d1e5d9aaf42743184ce96e46fd268a8",
+        "height": "0930e09ca7b2f790523d524e6e8633d42d15082055b08b0b5ad7ddeef8ff0f13",
+        "normal": "11e5717c372a3009106cb9935c107db76be828312864169a9f5b765ce0fccfb1",
+        "roughness": "c9ec7a0013c2010c3d079bc011f144c48df012e0b2a1eb20d76f2af1268549ca"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "cobble",
+        "style": "pbr",
+        "seed": 1204,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "5096f98465681e5ff3dd83d36bfa5dad842986e9559ef86c58e261ec33e7731e",
+        "height": "e7efed48d0579635f0517a6334ce79d5def793eee7d62b55f2f20706bd6b1e2f",
+        "normal": "f449973f608832b724772d6bf2fbe79a40f533c15f6712ee2a5c77cb437fbdb7",
+        "roughness": "47005f6f41e7ddd448714a50f15281c3b10a9074cb2d6eaaaff2151678708eff"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "cobble",
+        "style": "pbr",
+        "seed": 1215,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "732263cbe02a992baffdead9c10872172be5bbde2b1e543a0437f0675893fea9",
+        "height": "ac933bb25f48812542372f75373400e08e8f814ddbd8569676bfc621101b77c5",
+        "normal": "0cd0ab83295cb8655c74dccab2fef194dcb9fb6b19cd9ea67da35eff707c5930",
+        "roughness": "8acb4207d8c316af85a617e3c6503a18c9919003b065340190036ef0356c164b"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "cobble",
+        "style": "pbr",
+        "seed": 1233,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "9babe881cb30058d2ffb1151bd9b5ff0df44d6d2034b9024e1fa85337e27bf39",
+        "height": "18c67f9c98df0f301a0afaa6cf04d584a2b179a1b95822bc4af878204a5c5572",
+        "normal": "fcf7780704994638397b951d23c02f1edc7969e9c15560b0999858188c8ee768",
+        "roughness": "c9ec7a0013c2010c3d079bc011f144c48df012e0b2a1eb20d76f2af1268549ca"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "bark",
+        "style": "hd2d",
+        "seed": 1204,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "f1160637f6678820f2c44cb8d636104d3dce0fe929bc5de039c9579534529bcf",
+        "height": "ca696aafc0da0705c789c4ac2022e9acb0edb9036de9687f18c14ad4d75e80a3",
+        "normal": "64123982f65fc858dc022d3248ec46f6c01ee53531b4aa78a6f26ff4683b5e97",
+        "roughness": "18717b3aeff32b01945741419f2ec84d94661a3cc692122685023412befee04a"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "bark",
+        "style": "hd2d",
+        "seed": 1215,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "37a00907e6d8ed36b4ca71990a4629c46f410a35d03c0f1947180babedf46da4",
+        "height": "537e3dfd4ed2172dfdb80de45f23c6ec61b99e82e909c80dccb9b20e8d1dc8c7",
+        "normal": "a6c8243a486ee63d199f9d35d42aa604cad3bc96f2653c7c2b02436248a4b29f",
+        "roughness": "9ce24e70f480e8536b26444dd546ed630171ccb6be353e31f55e4b48e122a94d"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "bark",
+        "style": "hd2d",
+        "seed": 1233,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "2ab90b73d13a8ca78930f980bd4447537c723d013d3faaa9af21e37f37a51461",
+        "height": "8069a5a1b1d1aa3902d93dd9e770c408b6d25e0f8ace594cdb0903db13f4a715",
+        "normal": "f79409bb3c7f16736271d81a9e5615c1cd0531878adc47cc0da358979a89f25e",
+        "roughness": "ad72a3264ea5d3c3eed5b8237b8762b1a151073798a1886cb27e6c8282cce11a"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "bark",
+        "style": "cel-ink",
+        "seed": 1204,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "be894b7dfff180092f79ba030f4ad3724457ae2c5116b0cc6bc1dc7227ea3cdb",
+        "height": "edec737bfc6d47b1a0c80869dfa6c3dc13f5c2c53d472ce86b18a3d30bfeaf73",
+        "normal": "492bb385200b6ac9b323a04b9ce5f344a69d887f78e5669c8ed1ab3d2993e68c",
+        "roughness": "18717b3aeff32b01945741419f2ec84d94661a3cc692122685023412befee04a"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "bark",
+        "style": "cel-ink",
+        "seed": 1215,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "09f5d95f9e0c6257f485e9813d79201b9d75e7f4b97cde4230d043428dd8817f",
+        "height": "4e91889d90f00eb0851dc5a91c9d0bf99e6822673706597f4ee00a3ee529de41",
+        "normal": "190126afd2b956f7cb2639cf7198cdb949d026b4efdf5604a2f74a05428b648f",
+        "roughness": "9ce24e70f480e8536b26444dd546ed630171ccb6be353e31f55e4b48e122a94d"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "bark",
+        "style": "cel-ink",
+        "seed": 1233,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "3a69fceef063a097c9bcb6b1e13877de7d063dc0ce24411132e21a8921af2b99",
+        "height": "d4b537d6b70018c739dbb821c44e37fe5c6aec5779a121584fd89d8ae1d50065",
+        "normal": "2139154b6406c4efeda74e27b925185590696cf6b7b111e8d6d36ac0f7036e0e",
+        "roughness": "ad72a3264ea5d3c3eed5b8237b8762b1a151073798a1886cb27e6c8282cce11a"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "bark",
+        "style": "soft-cartoon",
+        "seed": 1204,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "2aeeb870f298d02beae7825f1f14259331c676f645adba520b89d295d57184c4",
+        "height": "ceb54a2b187ad7fdf96a31cb2f10e6f9de8a6950bba62b215b4cc213c0deedb8",
+        "normal": "f51d3fd53bff7a320467314153ddbe1304d12ac3872628fc0aa7d50b63be1690",
+        "roughness": "18717b3aeff32b01945741419f2ec84d94661a3cc692122685023412befee04a"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "bark",
+        "style": "soft-cartoon",
+        "seed": 1215,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "651828f81c41e1be5964516b8589e6af71310bc8b736fa0fbfc22da5baee102e",
+        "height": "6ababd2648798e16812e8b4960163135441f7f7de6aaba3e20223d23462794e4",
+        "normal": "a7662fec318ac390dcc39ac5b79316a66b1f55ae2cb465e340e72d80a8162631",
+        "roughness": "9ce24e70f480e8536b26444dd546ed630171ccb6be353e31f55e4b48e122a94d"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "bark",
+        "style": "soft-cartoon",
+        "seed": 1233,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "83acaff7b9702bde889e149ddca088d85d4fbc02ded86c16e3ae5b9812ffd4d0",
+        "height": "9b2fd5931decf21c54a2fe7fa696ebf050a10f8a8f1c4a1ccc2197710528b2f1",
+        "normal": "4c0b9ed46a4a2428a705fef31bba595d77378066400215e40197f19406941aae",
+        "roughness": "ad72a3264ea5d3c3eed5b8237b8762b1a151073798a1886cb27e6c8282cce11a"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "bark",
+        "style": "pbr",
+        "seed": 1204,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "68da0308b027fa6b57d15eff264de2db9214574a4394e7e8aec2f09da442a2a9",
+        "height": "db0f507a9834518569348ba2cac687465730719032bfc921c1bcd56dee5a3366",
+        "normal": "c172385ab8fd180fc25972ef2ed36520f23339e3f6b425f06c62a86d1e7b2189",
+        "roughness": "18717b3aeff32b01945741419f2ec84d94661a3cc692122685023412befee04a"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "bark",
+        "style": "pbr",
+        "seed": 1215,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "052c177bc88a2aa654ae335562588a1b8882db207a951f85714b3d972a015059",
+        "height": "f96f2f3fc4da6499e25511f920142b55f93bd708498fc4e8e5563768818d1a40",
+        "normal": "45869f818f257bc34dcdb525505a0caf4cd2a0b3f9b2c59bf52f9f605089de26",
+        "roughness": "9ce24e70f480e8536b26444dd546ed630171ccb6be353e31f55e4b48e122a94d"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "bark",
+        "style": "pbr",
+        "seed": 1233,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "616a5067bfad98385eb06fb413345da9a78cea66402579e2f16bef759368d1d7",
+        "height": "c3cf97a61274e2f6a6d7d9cd7915798787f8d54c2e14a64ff511166242bfe131",
+        "normal": "2ed103de1c41b574541cd3988e6dba19d80c24777e470c6801ff4bd78bc8ed82",
+        "roughness": "ad72a3264ea5d3c3eed5b8237b8762b1a151073798a1886cb27e6c8282cce11a"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "timber",
+        "style": "hd2d",
+        "seed": 1204,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "bdd20fba1d9109c2e54df6f118496d43b691e844c5b60c96318a558ef70c6190",
+        "height": "da85749ba41c8d6ed70427af4d40379395cb6c7d889cc4da1e8d6650dbc3f139",
+        "normal": "65074abae4290c1447281bda12cf485c0ab650774127b455010db802aa1d39ac",
+        "roughness": "a7bb929950102662250554a49b77d1435386fcada2e7bf5c73a2ae0cbed23aea"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "timber",
+        "style": "hd2d",
+        "seed": 1215,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "ab44ccb14557107edd4720d8c3a06a69329dc6fec56eb6d0406d20b9fba62b69",
+        "height": "d052a7054106dd0df8b8864905c892b04a3606aa83e287c36f5f65056d29abb2",
+        "normal": "32074e9e533f8f3ddc50c42f95344b943f1a80af631307b857d2b20d03b60a0a",
+        "roughness": "80a0dabdedf66b24a0d7fe0ff88a5c7c466ad79a1827d9525b11bf6a32fe9e5c"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "timber",
+        "style": "hd2d",
+        "seed": 1233,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "1e0a31efd0ba88ec08b453269dd249731ce5c44a23ec049107cd8902aa912738",
+        "height": "1cdd6b164bc7e8bc4f48ed4d246ae66f074f034ec75e32e4a23ddcacdcadc5b9",
+        "normal": "1817e168c89e2ae63cdf90d58b7d9d06216fdb87f8453e594c196697a76fe215",
+        "roughness": "ce132d640098daf86a59d6635b30e6bd0af157f321504355e3a617ef4a31d55e"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "timber",
+        "style": "cel-ink",
+        "seed": 1204,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "0a62904fe3cfdea257582a94d9b2abd26fcb76761c5c39f59d15a37eca0cc10c",
+        "height": "6f457010f5eb8fd1054bc23a02f39b599e9f6816a12e2949da90a486e591054f",
+        "normal": "15e0e3de1007c297cc1abecb597451028141c2cac6f4ce0cb0e4884dd6903aa5",
+        "roughness": "a7bb929950102662250554a49b77d1435386fcada2e7bf5c73a2ae0cbed23aea"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "timber",
+        "style": "cel-ink",
+        "seed": 1215,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "b182e6f8cb9b87ccbdaca135062fcc4e440875aa0f3cce88903b576d89350bec",
+        "height": "4ff1430f5152e690b40e3025ae0d197109205e36cae9ebf752b889edada5b08f",
+        "normal": "3ed3908230bbaab3e46aabf925708cf9ecad1a401b579657eb084cc678df92ba",
+        "roughness": "80a0dabdedf66b24a0d7fe0ff88a5c7c466ad79a1827d9525b11bf6a32fe9e5c"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "timber",
+        "style": "cel-ink",
+        "seed": 1233,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "bc2941dac1d292050cfe35e112423618e362919e47dcc0cf99756fb06fb9024a",
+        "height": "bd623d55bbb19c4b5aeedd7db2f0fea6f83c12c0cfe9cf12f6def6e5479cd328",
+        "normal": "190d8b1c2297433b96881cc91bf324c90acad133f758dfbb560e3422502b1167",
+        "roughness": "ce132d640098daf86a59d6635b30e6bd0af157f321504355e3a617ef4a31d55e"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "timber",
+        "style": "soft-cartoon",
+        "seed": 1204,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "705c9fd7d8f7b0098a12379f0820d07015c344c8d6adf6198005a530a379b6d1",
+        "height": "acca1695b65ec8abfc61dc76c5053e0e2af670b09dd5bc1666076c99478605ef",
+        "normal": "5d5bd9b40af07d84300f59011bc31ca67340cd069a72fb8bb8f2f432685a127a",
+        "roughness": "a7bb929950102662250554a49b77d1435386fcada2e7bf5c73a2ae0cbed23aea"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "timber",
+        "style": "soft-cartoon",
+        "seed": 1215,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "a8dce0dc474f34f3bffabfbb8c331924cc33569128201122c6a8f8db8be70166",
+        "height": "b5dbc7a4ba7ef981ff89fd94082dfafa467dd0abacfe61b5dd8d821e41ac6fec",
+        "normal": "f1227ee1406c934d93a0bc6683c8aada6e86cf3b8e2a06816ef64c31b484b5f9",
+        "roughness": "80a0dabdedf66b24a0d7fe0ff88a5c7c466ad79a1827d9525b11bf6a32fe9e5c"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "timber",
+        "style": "soft-cartoon",
+        "seed": 1233,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "79fd4a8e19e5bdfd6e94eeb2ceb5394a0ee999a057dfdb5b845389e00e1da3a1",
+        "height": "4a676cbc80a26676bcd49293fa62b614bfb0e1632bf0571c19924419b0ddb259",
+        "normal": "54de52b15a8a77a8c59aeeda05ba0887d1a9ec11998462deb9d3e18a70182356",
+        "roughness": "ce132d640098daf86a59d6635b30e6bd0af157f321504355e3a617ef4a31d55e"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "timber",
+        "style": "pbr",
+        "seed": 1204,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "3417fcbde5427f71c37a9f8877f660ca3bd76f872795e1a2cadad9fc353aca9c",
+        "height": "c834495ce320acfee20a9a2605ce8bc9f9e0f9b398cb2a73d49b33e7e77d2960",
+        "normal": "c416252bfa54d8ec9c115348b54c00998ef33ed06c7587eb9453d01df9c956b0",
+        "roughness": "a7bb929950102662250554a49b77d1435386fcada2e7bf5c73a2ae0cbed23aea"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "timber",
+        "style": "pbr",
+        "seed": 1215,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "cd4675724e251f45cd577baed28e03ee4fcbe1a7b93b19d2a85053b4187a5d39",
+        "height": "f173aab7e855007836565167596a297b15a36019931d87ae9d4a99b490d91630",
+        "normal": "59e57e8888d47cc6edca9b0827e026575282ab46f044473521495cac6565ea1b",
+        "roughness": "80a0dabdedf66b24a0d7fe0ff88a5c7c466ad79a1827d9525b11bf6a32fe9e5c"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "timber",
+        "style": "pbr",
+        "seed": 1233,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "331dcf112e14368484ecfea7c49828850776f10fb97ff8f723599ead767e5d0a",
+        "height": "a99e044032bf9495d57c394bc925d8f88783cab9dbf6ed0e00c83c959a5cbea0",
+        "normal": "251356d0ae6f952fb083608c84c29c4b739d9a5c36fce8fb8ab1453a4c1f0e65",
+        "roughness": "ce132d640098daf86a59d6635b30e6bd0af157f321504355e3a617ef4a31d55e"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "plaster",
+        "style": "hd2d",
+        "seed": 1204,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "a3a7fa934ca8be3a2a33be93b4caf89eab63bd9fce63b4d8c5d9725f58b51193",
+        "height": "608835dd755f6b345df276c4ebf9af986b7e9ba47a82f831232d5e0b1fb85d6d",
+        "normal": "1be183e9a31f7e4e9ec6034bca71d8d4a6696692f410b2708b43ac7086e6e417",
+        "roughness": "fee3e025785e3e61db7a2e33c4b45ac6bed939971b55f3a0d3af5502f9a314f5"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "plaster",
+        "style": "hd2d",
+        "seed": 1215,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "85ae00152b157179af3091f267ef4f9b022b8a5de3c8cc3b34002b06eed03cb4",
+        "height": "f44c1498400c9c95b97302df6077df31335ccb79f8737bdf09c93dcff74972c2",
+        "normal": "810c87971239a2261a6fbcb7ad3c3010c1d11c9bac3dbda43c99eb3b6fd69ee8",
+        "roughness": "c46b8f04952b9d25edd49879ade763225f3c6d2cb8d949730d4b91a1f04feebb"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "plaster",
+        "style": "hd2d",
+        "seed": 1233,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "31b98e2b84888a69acee7138505fbdbc94cb7baee2f26c2dff3d939813f4ee68",
+        "height": "6608d6f23d186a492b009cfc460553b2a8d4919930f7ac9f69e60f64c48b87ae",
+        "normal": "a7b18c2bbe54bc6e0518bff61acdac7897d9933b1f99963d9afaf4bc95608caf",
+        "roughness": "0e0a5570e97213f4e42d21c4cbc6dcfa7d18612973359285012f065d05d02256"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "plaster",
+        "style": "cel-ink",
+        "seed": 1204,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "8c1252cd2444a3a3f4a15a9b89f6cf1845f867c5959b02a08987606fe616a200",
+        "height": "9fdf2218cba9c77dc31b0e9c7a32e20b26c6686d976d8d07991d91492732f35d",
+        "normal": "af5a7a3e26c01eb6d7bba73d683432960ef4df43a0bfc57aa9625efe848c1b1a",
+        "roughness": "fee3e025785e3e61db7a2e33c4b45ac6bed939971b55f3a0d3af5502f9a314f5"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "plaster",
+        "style": "cel-ink",
+        "seed": 1215,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "e420fd72d76a7cdf14decdc21b8d4cfd3de48f77dbfe906b69b8b932f6832f57",
+        "height": "db7c9d0ef0892e1482d633cc6682b51dfe41f5970f298e87eef8acb9f8acce51",
+        "normal": "a2ecac28bbd9f6178fc732e81712ca61008c7b5bbb72e2935981935cba2d5712",
+        "roughness": "c46b8f04952b9d25edd49879ade763225f3c6d2cb8d949730d4b91a1f04feebb"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "plaster",
+        "style": "cel-ink",
+        "seed": 1233,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "1d2552a4ea0a997d302ceb0c31639556b9f66783c756ab9e48eae4e5d248ab9e",
+        "height": "3bf12146ac11cffab0f85e67527da0dadf052fd807e94e92e4f74a7fd6265b52",
+        "normal": "ee1b300b9839a958f37d21d2846dc3a3f2feb03194162512379ea9bb84490757",
+        "roughness": "0e0a5570e97213f4e42d21c4cbc6dcfa7d18612973359285012f065d05d02256"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "plaster",
+        "style": "soft-cartoon",
+        "seed": 1204,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "9524c7c3fe906ef6d337c27da19fdc1d853c210e3c075d21094feef668bca993",
+        "height": "e404e81777256d9df9df31f1dfd6b86c11382035360de1b2b51fb1c6a6706d9d",
+        "normal": "01ca1608274958281d9cb888e9d2a9b961f50db70565e35876629af6a06b2157",
+        "roughness": "fee3e025785e3e61db7a2e33c4b45ac6bed939971b55f3a0d3af5502f9a314f5"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "plaster",
+        "style": "soft-cartoon",
+        "seed": 1215,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "aa5486db029f2cd110087acdbee11996a98297851928cc0286e0b3fc3b4db05f",
+        "height": "f1c6db13024e66a5ca1aa8b1416004fbffa9fab40277855de81984eba929d19e",
+        "normal": "470ad19bdbd205f51d4976165b8002b3c43f56d29767d4d674afe61ff67d6f3b",
+        "roughness": "c46b8f04952b9d25edd49879ade763225f3c6d2cb8d949730d4b91a1f04feebb"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "plaster",
+        "style": "soft-cartoon",
+        "seed": 1233,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "a0758c49a43b16016b2e7677b9d3079982d693c86a8161a2bb7dd7c413b72e81",
+        "height": "c4bfe2dcb4d489bcbfb8b82937cb9ea0f24f5ba2b7836f8bca4d870bd1a5f4cd",
+        "normal": "60000d5eba68de40f036966230662a987ccdec1a61727423051811af0d6c8512",
+        "roughness": "0e0a5570e97213f4e42d21c4cbc6dcfa7d18612973359285012f065d05d02256"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "plaster",
+        "style": "pbr",
+        "seed": 1204,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "e0db817464e63ceecb2c6495ab67b2408572372e906856cbc746b2847832efbf",
+        "height": "3ceb4bfb14064258890cdb38e0e9bfe5cdb65845801112eaa5d92da18ec95b27",
+        "normal": "01ddf1cd7a60c164dcb466abc00342bb1c6b523a91cdf4c95029421ec67e1663",
+        "roughness": "fee3e025785e3e61db7a2e33c4b45ac6bed939971b55f3a0d3af5502f9a314f5"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "plaster",
+        "style": "pbr",
+        "seed": 1215,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "143f7b8149d15bfc58673cba588c87afa80fdebbd70513cbc76f5ed27cbac300",
+        "height": "91eb284ce6c1d696a12fe16a3066c41dc121e9e44f75cdcdf145cf3be994c358",
+        "normal": "e4c6c32202ea35f0e9e372002ad8c45328b40a679aad09a39c450399af0c5fff",
+        "roughness": "c46b8f04952b9d25edd49879ade763225f3c6d2cb8d949730d4b91a1f04feebb"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "plaster",
+        "style": "pbr",
+        "seed": 1233,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "f67c9720f0f2ff8bb795d25fb6fab5c9e63f1e5d7ff925375c61c0753f8a616f",
+        "height": "30ca1f8e6fcfe494b4353f9e0d492c33db0dce0acffe62b6ef693c5ba071135b",
+        "normal": "2f27a9cb3e4cddad677268d33941d9ffeb5970f64aa4d65f94521bcec4c86311",
+        "roughness": "0e0a5570e97213f4e42d21c4cbc6dcfa7d18612973359285012f065d05d02256"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "roof",
+        "style": "hd2d",
+        "seed": 1204,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "39c56739fe3abd658e8f076ee859e1cd6b51e732bc922acdb6b95eb39cedee2a",
+        "height": "153d5c820777ace4d7866bc9a6c6733eb2b32538cc66df30adda371e7c2cf83e",
+        "normal": "50b57fbb61a9fd47aef2ee474be84a42663b163f4b4259294b2d133960a2f294",
+        "roughness": "17c5b7bfc12389fd03d02b995579a4586e0130b7bcce639c7edc77dcb4784aaf"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "roof",
+        "style": "hd2d",
+        "seed": 1215,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "c454526b91d33948a3f02b7d419c4398aba487d5c6541f1b22410b56b71e445c",
+        "height": "2016b204c89a7dded89c0346cf50bb63f759e1f66b85326b063139441119df2f",
+        "normal": "24097078d2d29b180a69e650c6c97435a8ac9c8b292b61d3022d66b9d2b8a7a1",
+        "roughness": "9a4a2726ab3f50c397dacbb7a2ed30c73de17007ac8b1948d432e4a4a56cf3d6"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "roof",
+        "style": "hd2d",
+        "seed": 1233,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "66ea24f39a6bf1b2c89154968e7c9439f15dcb904c5b38e087f73cc67f222ee4",
+        "height": "e39c9f9416e34ba020d36f807600a60a66a19769838e78b65beb7f2241eeca2d",
+        "normal": "e9c6928db21ab0a1766579254541223a6e6230bac5ef7552961c2bd28b8f128a",
+        "roughness": "44440028ef4d7fe11553a71bb72868d90419cf0108eb5cd443e7a5f4995284ae"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "roof",
+        "style": "cel-ink",
+        "seed": 1204,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "7760fca7b3e5eaf80bb93dc4ad32abc001a05e33f62dd67035f9f5e945d7cdba",
+        "height": "67c9058c7532dcaeef8f8b9f7338ba9081f0d7888796d3a5f5a18badede3da1a",
+        "normal": "0252d58d1a8355ebd58a1778b7c95aeb92e715323bfa046c921dab67d2788b6c",
+        "roughness": "17c5b7bfc12389fd03d02b995579a4586e0130b7bcce639c7edc77dcb4784aaf"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "roof",
+        "style": "cel-ink",
+        "seed": 1215,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "b4f49286736e43711949652b75a099a30e203f2ec064a4939794005455941247",
+        "height": "cbee438f5cdf64f0ced32d65642183f7243cf9e38ee0385f8cee022f07116954",
+        "normal": "a619c06ee6d804e5da47a552d562b54b0b4205bb8a94a7e74fe2256446d938ec",
+        "roughness": "9a4a2726ab3f50c397dacbb7a2ed30c73de17007ac8b1948d432e4a4a56cf3d6"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "roof",
+        "style": "cel-ink",
+        "seed": 1233,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "759c1c26d86381d228cbb184456bdb4aacc4ed4582cd68a1ae50e8dd1c1e65ed",
+        "height": "7537e379f3c24b6bdb1a0146ffb1d55d10c7492898d94e9878d0cf853c213961",
+        "normal": "a6259c91c7f4d3c5603269df74befa09b33916e95915480d39cbb30b8afbb3a2",
+        "roughness": "44440028ef4d7fe11553a71bb72868d90419cf0108eb5cd443e7a5f4995284ae"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "roof",
+        "style": "soft-cartoon",
+        "seed": 1204,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "3040f35512df26e3eed058521ee3645aa0899774b830b4257666276964f2fe94",
+        "height": "6dd7944de945cb5d410a1729cdfcf92e3edb04d9dbf93b51214635488290d0e3",
+        "normal": "f0ea56659abc192e088faaf850e5d43ce167e8a7b8b40b6526474ca22169b1b8",
+        "roughness": "17c5b7bfc12389fd03d02b995579a4586e0130b7bcce639c7edc77dcb4784aaf"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "roof",
+        "style": "soft-cartoon",
+        "seed": 1215,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "6638477f181522df7dec34a5f24a4f77387e0e02c78da51bb5323bad5c2a22f5",
+        "height": "e83b7353c5c650b5bcde790639b03199ae20d59a4e495041aa52a26fddc68b0e",
+        "normal": "3bbf70ca1f1d8a10299564ff0b821ff3518af763d352915cc89832bf45a4ea12",
+        "roughness": "9a4a2726ab3f50c397dacbb7a2ed30c73de17007ac8b1948d432e4a4a56cf3d6"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "roof",
+        "style": "soft-cartoon",
+        "seed": 1233,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "18b77bef834c58f60203e65b0acd17bc9e6564e3c7c1cd0430968eaafd192661",
+        "height": "ab71b7fd27057a9486f0c9c1cc827bc3eefb742144a2512bd26e696e56dbb5dc",
+        "normal": "b705bbf7eebb963a19e909fb34b1ea716eebc21b6ca1829c373adfdae8cb45c3",
+        "roughness": "44440028ef4d7fe11553a71bb72868d90419cf0108eb5cd443e7a5f4995284ae"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "roof",
+        "style": "pbr",
+        "seed": 1204,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "a680f5369c09d3555093dd79d3eae6c176dad6ef495003ebbddf5a66ace98ce9",
+        "height": "602f8586c1aeb7cd271e045029c6c98fb75f94fafc3d7a454b6ad1237e893dcc",
+        "normal": "e6388feab1e620acba1881aa0a8580015fc2512016f7bd807bf05626223c6263",
+        "roughness": "17c5b7bfc12389fd03d02b995579a4586e0130b7bcce639c7edc77dcb4784aaf"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "roof",
+        "style": "pbr",
+        "seed": 1215,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "acf830723ba981dc2cc718ed4a1c4a8891e56a339df2b0399693027c29be3450",
+        "height": "9932c60908d16ed846c77283c919b0cd65854862e691df262f63ac0651eb3084",
+        "normal": "1db39d51ae647b2e4bb618aa0c0075af91ba5ac606355fe3c8b296e96b9b725d",
+        "roughness": "9a4a2726ab3f50c397dacbb7a2ed30c73de17007ac8b1948d432e4a4a56cf3d6"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "roof",
+        "style": "pbr",
+        "seed": 1233,
+        "size": 64,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "9b61528947a61f6462b30bae3b74c636ba750e92d53479a673f0bb57d88d58b8",
+        "height": "977751157ebdefff7a00d3199f1a5e5e0c06cd3c5baaeee77acacb857fe05faf",
+        "normal": "999d64a1cf1c5136115bd7c79b7582e8bcf9434a5d32bcc5ed8d0c4e1c053d31",
+        "roughness": "44440028ef4d7fe11553a71bb72868d90419cf0108eb5cd443e7a5f4995284ae"
+      }
+    },
+    {
+      "recipe": {
+        "id": "hd2d-cliff",
+        "seed": 1204,
+        "size": 128,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "80ff2bfb261711a14fe4c72acf72053d10f116f80f8107e77fcc08e5e5baeda6",
+        "height": "a4d4c2e8cbcd7e9225977bbc2f771b092f5d94baa295222f58851c473e142905",
+        "normal": "ee2f1868f9afe004d0a1354683d2197e44bb421017edbb3e024093aff2741410",
+        "roughness": "6277d5702db25b3f702801fb21397819bb44147d0a0a089585be498e918eadfe"
+      }
+    },
+    {
+      "recipe": {
+        "id": "hd2d-cliff",
+        "seed": 1215,
+        "size": 128,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "a9674f4c72f6408f80f76305d634d57616f00642771eea3985d84f1ede9417f2",
+        "height": "219f0844700841ba84104f4379b138c1a8df3a6e64cfcdcd64ed0f1cfbe61231",
+        "normal": "ba894f5acceabcb898151c747904bab70229cc81a6e4d2e826f548a118e5f581",
+        "roughness": "e0aaf81c5625b0a83c054cc35f5fd9e3edec9ab1cbf75be31dc13b0995bd2833"
+      }
+    },
+    {
+      "recipe": {
+        "id": "hd2d-cliff",
+        "seed": 1233,
+        "size": 128,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "3c015a8134883411b78851ed613a777a21070ebbbe9a7f0e3b28c5c809405fcb",
+        "height": "fe191864ee65dd009d2a956b4041468a4c234193060808b06d5fdd82d8fadc1c",
+        "normal": "3344a7ab5151b45ded051ab2dabd332b23ec5d1199220fbc57daaeea8b2b9e18",
+        "roughness": "0e14991d00140945b2de147ed494f36d09827c340e0dbd7598991fb92765153d"
+      }
+    },
+    {
+      "recipe": {
+        "id": "hd2d-cliff-strata",
+        "seed": 1204,
+        "size": 128,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "4441c017c6766b845d3d395f915995f682e2edd12436ff6551c5b70a2a317a57",
+        "height": "99372dd333cdf713cf57e731b504d1ed75ba7d8db95d2fd8d099b75cbaedbd75",
+        "normal": "4045bf3bacb9827f8900b2e9ef3e82de9e9f21409330185f4ab5ce72c1a764db",
+        "roughness": "d765a33d1bb39d48fc1bc1ba26d8b2643a0d90be1e6f5e37249417c583996f6c"
+      }
+    },
+    {
+      "recipe": {
+        "id": "hd2d-cliff-strata",
+        "seed": 1215,
+        "size": 128,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "f8393a7a9311f3468afdb6e4912e4f9ee79f943421064351608079868702963a",
+        "height": "a680fa5ccdf2134c28bccb913a17a7aa89a2560287722621c2fae0e0657eed6f",
+        "normal": "32e4ca7204caa7d092d3f765ddbf0bfe260ca30c14b474c467bed34c5f562a61",
+        "roughness": "1d3d9bcfa4321c33ec18a148dedcd6d1ec91d38df268999685241e32b797d431"
+      }
+    },
+    {
+      "recipe": {
+        "id": "hd2d-cliff-strata",
+        "seed": 1233,
+        "size": 128,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "cfe8d839fe7d6646d104ae2ae99947da512ce822a84308f3655152bf9d85286e",
+        "height": "e0d54afc261c1886d2d59c764f9b2e6536d1043a51ed2d812ba1159fe5eebf6a",
+        "normal": "826999714c7cb6970a31358dc97c821bb7c7b82f5d180731d2b72ec8999d0798",
+        "roughness": "101d7c3bbb093e71c7363a488dc47b8768e189a2c1d332d376e9e40a102cecc3"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "dirt",
+        "style": "hd2d",
+        "seed": 1204,
+        "size": 128,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "79625cb78d91f456ce84116645daee934a092a364e3eef2071e3d6d7ac044923",
+        "height": "eef945340c7b2f162d06dcc558f7e7f2d16c3c45438183ce8a80a85a5340ae4d",
+        "normal": "0e4ce896b959bf0fefc6e55de1b760c9b6ae47aa76d7950b1d9cfbb809798c1f",
+        "roughness": "91e48b53a45a818f293fcf505437048e5b184e8286ab81ffa8ac12e98723a1fa"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "dirt",
+        "style": "hd2d",
+        "seed": 1215,
+        "size": 128,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "f1bf2007c3cb58536fd782ae48ddbb6f573f7d986f4d11e43872254940190cbe",
+        "height": "0ba21c29310bb7a779959877d7a83a02a7e27847f5b7e7176243cf5c05424bbd",
+        "normal": "3925318bc49b2ba9cb11b8997560ee76bb5c5bde283815b1090cd20072bdf851",
+        "roughness": "518f8d65a37fbf96767a555c5f94bd272786339c5fb9cf7c8ad9bc24ae2a01fc"
+      }
+    },
+    {
+      "recipe": {
+        "id": "style-surface",
+        "family": "dirt",
+        "style": "hd2d",
+        "seed": 1233,
+        "size": 128,
+        "palette": "earth",
+        "strataScale": 4,
+        "fracture": 0.28,
+        "relief": 0.55,
+        "roughness": 0.84
+      },
+      "channels": {
+        "albedo": "97a59e593fecfcc50865692bc58b4b5743c7be11fe9feea82e538287d665b999",
+        "height": "2af1c74f6ead81a2b80e9928e172b493cccf07693392b2d2d6e2b07ff1103ef2",
+        "normal": "f5705d9290aa351d2e524943450a05dae921be98171f8c1d48cb779e3cc5111c",
+        "roughness": "069a9a83b29db26d728873563a7669d5311a0b8fdb5806c0e79bbd0655ede2f9"
+      }
+    }
+  ]
+}

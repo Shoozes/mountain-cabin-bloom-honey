@@ -1,5 +1,5 @@
 import type { StyleDef } from "@/shader/catalog";
-import { VERTEX, liveFragment } from "@/shader/glsl";
+import { VERTEX, liveFragment } from "./glsl.ts";
 
 export type Rgb = [number, number, number];
 
@@ -37,7 +37,6 @@ function contextFor(canvas: HTMLCanvasElement, preserve: boolean): GL {
     premultipliedAlpha: false,
   });
   if (!gl) throw new Error("WebGL is not available in this browser.");
-  gl.disable(gl.DITHER);
   return gl;
 }
 
@@ -45,15 +44,57 @@ class Target {
   readonly gl: GL;
   readonly programs = new Map<string, WebGLProgram>();
   readonly errors = new Map<string, string>();
-  private readonly buffer: WebGLBuffer;
+  private buffer: WebGLBuffer | null = null;
+  private lost = false;
+  private disposed = false;
+  private restoreError: string | undefined;
+  private readonly onRestore: () => void;
 
-  constructor(canvas: HTMLCanvasElement, preserve: boolean) {
+  constructor(canvas: HTMLCanvasElement, preserve: boolean, onRestore: () => void) {
     this.gl = contextFor(canvas, preserve);
+    this.onRestore = onRestore;
+    this.initializeBuffer();
+    canvas.addEventListener("webglcontextlost", this.contextLost);
+    canvas.addEventListener("webglcontextrestored", this.contextRestored);
+  }
+
+  private initializeBuffer() {
     const buffer = this.gl.createBuffer();
     if (!buffer) throw new Error("Could not allocate a shader buffer.");
-    this.buffer = buffer;
-    this.gl.bindBuffer(this.gl.ARRAY_BUFFER, buffer);
-    this.gl.bufferData(this.gl.ARRAY_BUFFER, QUAD, this.gl.STATIC_DRAW);
+    try {
+      this.gl.disable(this.gl.DITHER);
+      this.gl.bindBuffer(this.gl.ARRAY_BUFFER, buffer);
+      this.gl.bufferData(this.gl.ARRAY_BUFFER, QUAD, this.gl.STATIC_DRAW);
+      this.buffer = buffer;
+    } catch (error) {
+      this.gl.deleteBuffer(buffer);
+      throw error;
+    }
+  }
+
+  private readonly contextLost = (event: Event) => {
+    event.preventDefault();
+    this.lost = true;
+    // The browser invalidates every resource in the lost context.
+    this.buffer = null;
+    this.programs.clear();
+    this.errors.clear();
+  };
+
+  private readonly contextRestored = () => {
+    if (this.disposed) return;
+    this.lost = false;
+    this.restoreError = undefined;
+    try {
+      this.initializeBuffer();
+    } catch (error) {
+      this.restoreError = error instanceof Error ? error.message : "WebGL resources could not be restored.";
+    }
+    this.onRestore();
+  };
+
+  error(id: string): string | undefined {
+    return this.restoreError ?? this.errors.get(id);
   }
 
   program(style: StyleDef): WebGLProgram | null {
@@ -72,6 +113,7 @@ class Target {
   }
 
   draw(style: StyleDef, params: DrawParams, width: number, height: number): boolean {
+    if (this.disposed || this.lost || !this.buffer) return false;
     const program = this.program(style);
     const gl = this.gl;
     if (!program) return false;
@@ -106,6 +148,17 @@ class Target {
   dropPrograms() {
     for (const program of this.programs.values()) this.gl.deleteProgram(program);
     this.programs.clear();
+  }
+
+  dispose() {
+    if (this.disposed) return;
+    this.disposed = true;
+    this.gl.canvas.removeEventListener("webglcontextlost", this.contextLost);
+    this.gl.canvas.removeEventListener("webglcontextrestored", this.contextRestored);
+    this.dropPrograms();
+    if (this.buffer) this.gl.deleteBuffer(this.buffer);
+    this.buffer = null;
+    this.errors.clear();
   }
 }
 
@@ -158,24 +211,23 @@ export class ShaderMill {
   constructor(
     displayCanvas: HTMLCanvasElement,
     utilCanvas: HTMLCanvasElement,
+    onRestore: () => void = () => {},
   ) {
-    this.display = new Target(displayCanvas, false);
-    this.util = new Target(utilCanvas, true);
-    const restore = (target: Target) => {
-      target.gl.canvas.addEventListener("webglcontextlost", (event) => {
-        event.preventDefault();
-      });
-      target.gl.canvas.addEventListener("webglcontextrestored", () => {
-        target.dropPrograms();
-        target.errors.clear();
-      });
+    const restored = () => {
+      this.clearThumbs();
+      onRestore();
     };
-    restore(this.display);
-    restore(this.util);
+    this.display = new Target(displayCanvas, false, restored);
+    try {
+      this.util = new Target(utilCanvas, true, restored);
+    } catch (error) {
+      this.display.dispose();
+      throw error;
+    }
   }
 
   error(id: string): string | undefined {
-    return this.display.errors.get(id) ?? this.util.errors.get(id);
+    return this.display.error(id) ?? this.util.error(id);
   }
 
   drawDisplay(
@@ -207,7 +259,8 @@ export class ShaderMill {
   }
 
   dispose() {
-    this.display.dropPrograms();
-    this.util.dropPrograms();
+    this.display.dispose();
+    this.util.dispose();
+    this.clearThumbs();
   }
 }

@@ -1,5 +1,14 @@
 # Texture authoring TODO
 
+The [dirt clump refinement](work/done/MATERIAL-DIRT-20261023.md) completes the
+highest-priority local implementation batch, with an explicit reversible option
+that preserves older recipes. Current local proof: 260 tests, typecheck, lint,
+both builds and dev/root/Pages browser checks. **Priority 1 owner art review** and
+the new dirt candidate's owner review remain open. Grass tuft refinement follows
+the earlier study when selected against that feedback; engine/donor work keeps
+its separate scope. The preceding [review and cleanup](work/done/REVIEW-CLEANUP-20261023.md)
+records the completed WebGL recovery/resource repairs.
+
 ## Character creator continuation
 
 - [x] Implement native character assembly, reusable creators, original parts,
@@ -211,11 +220,15 @@ feedback batch with native before/after proof. Technical tests cannot approve ar
 
 ## Priority 2: multi-channel dirt structure
 
-- [ ] Replace the regular row/ridge reading in the HD-2D dirt candidate with
-  irregular structure, preserving family color roles and existing style recipes.
-- [ ] Compare 128px and 2×2 albedo, height, normals and roughness for seed 1204;
+- [x] Add the explicit Irregular clumps option for HD-2D dirt, replacing its
+  row/ridge reading while preserving family ramps and all older recipes/pixels.
+- [x] Compare 128px and 2×2 albedo, height, normals and roughness for seed 1204;
   verify wrapped normals, deterministic repeat behavior and legacy outputs for
-  seeds 1204/1215/1233. Keep artwork unapproved until reviewed.
+  seeds 1204/1215/1233. All 129 frozen legacy cases remain exact; dev/root/Pages
+  authoring, recovery, retry and export checks pass. See [the candidate guide](look-dev/dirt-clumps.md).
+- [ ] Owner-review the clump candidate's native and repeated matched channels.
+  Keep artwork unapproved; finite repetition and broad pigment patches remain
+  visible. This local batch does not qualify a receiving engine or migrate art.
 
 Owner: material generator/art direction. The [grass/dirt study](look-dev/grass-dirt-study.md)
 provides the source-bound findings and matched-channel evidence.
@@ -227,12 +240,23 @@ provides the source-bound findings and matched-channel evidence.
   their engine-owned batch. The Godot/jMonkeyEngine references remain sampling
   research; phase-offset CPU previews do not establish a runtime sampler.
 
-## Separate runtime maintenance
+## Repository cleanup
 
-- [ ] Qualify process ownership in the inherited Linux `preview:restart` helper
-  before it signals a port listener. Preserve command contracts and unrelated
-  services; verify owned stop/restart and a foreign listener without signaling it.
-  Current terrain browser proof uses its own ephemeral server and closes it.
+- [x] Rebuild WebGL geometry and repaint/restart thumbnails after display or
+  utility context restoration. Release buffers/listeners on disposal and roll
+  back partial startup; four lifecycle regressions run through `npm test`.
+- [x] Recheck standalone dev, root-built and Pages-built routes, desktop/narrow
+  layouts and candidate selection. Both lost contexts recover identical static
+  preview pixels without interaction or browser errors. See the current record
+  linked above; historical counts and receipts remain bound to their own source.
+- [x] Retire the inherited Grok/Vercel shell, sandbox-only preview/auth QA tools
+  and empty source pointer. Keep static local/Pages builds and Gknome operations.
+- [x] Group lint/format configuration under `.tools/config/` and move historical
+  screenshots beneath `docs/look-dev/`; preserve accepted artwork and source.
+- [ ] Remove the quarantined obsolete platform files only after the filesystem
+  deletion guard permits it. Recursive deletion was rejected with “blocked by
+  policy”; `.runtime/retired-platform-20261017/` preserves them opaquely. The
+  root is clear and active build/runtime paths no longer consume the old files.
 
 Publication saves verified progress and leaves these acceptance criteria intact.
 Deployment and releases are separate. Historical blocker commands remain in
@@ -280,3 +304,9 @@ AI-edited: 2026-10-17 | agent=Codex/root | task=sprite-components | change=compl
 AI-edited: 2026-10-17 | agent=Codex/root | task=sprite-closeout-publish | change=recorded final shared-workspace qualification and scoped progress saving
 
 AI-edited: 2026-10-17 | agent=Codex/root | task=sprite-variation | change=completed reusable variation and lossless transport scope; retained later migration and art acceptance boundaries
+
+AI-edited: 2026-10-17 | agent=Codex/root | task=root-standalone-cleanup | change=retired obsolete preview-helper backlog and recorded guarded cleanup limitation
+
+AI-edited: 2026-10-23 | agent=Codex/root | task=review-recheck-cleanup | change=recorded verified WebGL lifecycle repairs and retained dependency-ordered art/dirt pass-down
+
+AI-edited: 2026-10-23 | agent=Codex/root | task=dirt-clumps | change=completed additive dirt refinement and qualification while retaining owner acceptance and scoped next recommendations
