@@ -240,6 +240,16 @@ export function buildArtCss(
   frames: { name: string; selector: string; page: number; sourceSize: { width: number; height: number }; trim: { x: number; y: number; width: number; height: number }; anchor: [number, number] }[];
   clips: { name: string; selector: string; frames: string[]; fps: number; durationSeconds: number }[];
 } };
+/** GIF timing uses rounded cumulative centiseconds; pixels are never quantized. */
+export function buildArtGifs(
+  kit: ReturnType<typeof buildArtExport>,
+  options?: { signal?: AbortSignal },
+): Promise<{ files: { name: string; data: Uint8Array }[]; metadata: {
+  format: "grout-art-gif/1"; loop: "infinite";
+  timing: "rounded-cumulative-centiseconds"; palette: "exact-per-frame";
+  clips: { name: string; path: string; width: number; height: number; fps: number;
+    frames: string[]; delaysCs: number[]; durationCs: number; transparent: boolean }[];
+} }>;
 export type RecipeMetrics = {
   optimizedBytes: number; optimizedGzipBytes: number;
   optimizedBundleBytes: number | null; optimizedBundleGzipBytes: number | null;

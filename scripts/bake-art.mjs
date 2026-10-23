@@ -2,7 +2,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { createHash, randomUUID } from "node:crypto";
-import { parseRecipe, buildArtExport, buildArtCss, measureRecipe, optimizeRecipe } from "../packages/grout-art/index.mjs";
+import { parseRecipe, buildArtExport, buildArtCss, buildArtGifs, measureRecipe, optimizeRecipe } from "../packages/grout-art/index.mjs";
 import { encodeMaterialPng } from "./material-png.mjs";
 const root = path.resolve(import.meta.dirname, ".."),
   hash = (b) => createHash("sha256").update(b).digest("hex");
@@ -13,6 +13,7 @@ export const ART_SOURCE_PATHS = [
   "atlas.mjs",
   "export.mjs",
   "css.mjs",
+  "gif.mjs",
   "traveler.mjs",
   "metrics.mjs",
   "import.mjs",
@@ -24,8 +25,9 @@ export const ART_SOURCE_PATHS = [
   "variation.mjs",
   "index.mjs",
 ].map((p) => "packages/grout-art/" + p);
-export async function bakeArt({ recipe: input, output, signal, includeCss = false } = {}) {
+export async function bakeArt({ recipe: input, output, signal, includeCss = false, includeGif = false } = {}) {
   if (typeof includeCss !== "boolean") throw Error("includeCss must be boolean");
+  if (typeof includeGif !== "boolean") throw Error("includeGif must be boolean");
   if (typeof output !== "string" || !output.trim())
     throw Error("An explicit output directory is required");
   signal?.throwIfAborted();
@@ -42,7 +44,7 @@ export async function bakeArt({ recipe: input, output, signal, includeCss = fals
     sources.push({ path: relative, sha256: hash(bytes) });
     if (relative.startsWith("packages/")) runtimeSources.push(bytes.toString("utf8"));
   }
-  const identity = hash(JSON.stringify({ recipe, sources, ...(includeCss ? { includeCss: true } : {}) })),
+  const identity = hash(JSON.stringify({ recipe, sources, ...(includeCss ? { includeCss: true } : {}), ...(includeGif ? { includeGif: true } : {}) })),
     destination = path.resolve(output),
     directory = path.join(destination, "grout-art-" + identity.slice(0, 12)),
     pending = path.join(destination, ".pending-" + randomUUID()),
@@ -61,6 +63,8 @@ export async function bakeArt({ recipe: input, output, signal, includeCss = fals
   assets.set("sheet.png", encodeMaterialPng(kit.sheet));
   const stylesheet = includeCss ? buildArtCss(kit, { signal }) : null;
   if (stylesheet) assets.set("atlas.css", Buffer.from(stylesheet.css));
+  const animations = includeGif ? await buildArtGifs(kit, { signal }) : null;
+  if (animations) for (const file of animations.files) assets.set(file.name, Buffer.from(file.data));
   json("recipe.json", recipe);
   const optimized = await optimizeRecipe(recipe, { signal });
   assets.set("recipe.optimized.json", Buffer.from(JSON.stringify(optimized.document)));
@@ -75,6 +79,7 @@ export async function bakeArt({ recipe: input, output, signal, includeCss = fals
   const manifest = {
     ...kit.manifest,
     ...(stylesheet ? { stylesheet: stylesheet.metadata } : {}),
+    ...(animations ? { animations: animations.metadata } : {}),
     identity,
     sources,
     files: [...assets].map(([name, bytes]) => ({
@@ -131,13 +136,13 @@ async function main() {
   const args = process.argv.slice(2),
     opts = {};
   for (let i = 0; i < args.length;) {
-    if (args[i] === "--css" && !Object.hasOwn(opts, "--css")) {
-      opts["--css"] = true;
+    if (["--css", "--gif"].includes(args[i]) && !Object.hasOwn(opts, args[i])) {
+      opts[args[i]] = true;
       i++;
       continue;
     }
     if (!["--recipe", "--out"].includes(args[i]) || !args[i + 1] || Object.hasOwn(opts, args[i]))
-      throw Error("Usage: npm run bake:art -- --recipe recipe.json --out .artifacts/art [--css]");
+      throw Error("Usage: npm run bake:art -- --recipe recipe.json --out .artifacts/art [--css] [--gif]");
     opts[args[i]] = args[i + 1];
     i += 2;
   }
@@ -148,7 +153,7 @@ async function main() {
   process.once("SIGTERM", cancel);
   try {
     const recipe = JSON.parse(await fs.readFile(path.resolve(opts["--recipe"]), "utf8")),
-      result = await bakeArt({ recipe, output: opts["--out"], includeCss: !!opts["--css"], signal: controller.signal });
+      result = await bakeArt({ recipe, output: opts["--out"], includeCss: !!opts["--css"], includeGif: !!opts["--gif"], signal: controller.signal });
     console.log(
       JSON.stringify({
         directory: result.directory,

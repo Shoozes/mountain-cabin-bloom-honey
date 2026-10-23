@@ -1,6 +1,7 @@
 import {
   buildArtExport,
   buildArtCss,
+  buildArtGifs,
   optimizeRecipe,
   encodePortablePng,
   type ArtRecipe,
@@ -21,6 +22,7 @@ const sourceUrls = [
   new URL("../../packages/grout-art/atlas.mjs", import.meta.url),
   new URL("../../packages/grout-art/export.mjs", import.meta.url),
   new URL("../../packages/grout-art/css.mjs", import.meta.url),
+  new URL("../../packages/grout-art/gif.mjs", import.meta.url),
   new URL("../../packages/grout-art/browser.mjs", import.meta.url),
   new URL("../../packages/grout-art/traveler.mjs", import.meta.url),
   new URL("../../packages/grout-art/metrics.mjs", import.meta.url),
@@ -29,8 +31,9 @@ const sourceUrls = [
   new URL("../../packages/grout-art/character.mjs", import.meta.url),
   new URL("../../packages/grout-art/character-art.mjs", import.meta.url),
 ];
-export async function exportArtFiles(input: ArtRecipe, { signal, includeCss = false }: { signal?: AbortSignal; includeCss?: boolean } = {}) {
+export async function exportArtFiles(input: ArtRecipe, { signal, includeCss = false, includeGif = false }: { signal?: AbortSignal; includeCss?: boolean; includeGif?: boolean } = {}) {
   if (typeof includeCss !== "boolean") throw Error("includeCss must be boolean");
+  if (typeof includeGif !== "boolean") throw Error("includeGif must be boolean");
   signal?.throwIfAborted();
   const kit = buildArtExport(input, { signal }),
     files: { name: string; data: Uint8Array }[] = [];
@@ -50,6 +53,8 @@ export async function exportArtFiles(input: ArtRecipe, { signal, includeCss = fa
   files.push({ name: "sheet.png", data: await encodePortablePng(kit.sheet) });
   const stylesheet = includeCss ? buildArtCss(kit, { signal }) : null;
   if (stylesheet) files.push({ name: "atlas.css", data: encode.encode(stylesheet.css) });
+  const animations = includeGif ? await buildArtGifs(kit, { signal }) : null;
+  if (animations) files.push(...animations.files);
   json("recipe.json", kit.recipe);
   const optimized = await optimizeRecipe(kit.recipe, { signal });
   files.push({ name: "recipe.optimized.json", data: encode.encode(JSON.stringify(optimized.document)) });
@@ -68,14 +73,14 @@ export async function exportArtFiles(input: ArtRecipe, { signal, includeCss = fa
     const bytes = new Uint8Array(await response.arrayBuffer());
     sources.push({ path: url.pathname, sha256: await digest(bytes) });
   }
-  const identity = await digest(encode.encode(JSON.stringify({ recipe: kit.recipe, sources, ...(includeCss ? { includeCss: true } : {}) }))),
+  const identity = await digest(encode.encode(JSON.stringify({ recipe: kit.recipe, sources, ...(includeCss ? { includeCss: true } : {}), ...(includeGif ? { includeGif: true } : {}) }))),
     metadata = [];
   for (const file of files)
     metadata.push({ path: file.name, bytes: file.data.length, sha256: await digest(file.data) });
-  json("atlas.json", { ...kit.manifest, ...(stylesheet ? { stylesheet: stylesheet.metadata } : {}), identity, sources, files: metadata });
+  json("atlas.json", { ...kit.manifest, ...(stylesheet ? { stylesheet: stylesheet.metadata } : {}), ...(animations ? { animations: animations.metadata } : {}), identity, sources, files: metadata });
   signal?.throwIfAborted();
   return files;
 }
-export async function exportArtZip(recipe: ArtRecipe, options: { signal?: AbortSignal; includeCss?: boolean } = {}) {
+export async function exportArtZip(recipe: ArtRecipe, options: { signal?: AbortSignal; includeCss?: boolean; includeGif?: boolean } = {}) {
   return zipStore(await exportArtFiles(recipe, options));
 }

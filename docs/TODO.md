@@ -1,16 +1,28 @@
 # Texture authoring TODO
 
-The [CSS sprite export pass](work/done/SPRITE-CSS-20261023.md) completes the next
-unblocked local capability batch. Opt-in atlas CSS reproduces native frames and
-clip playback while default exports retain their existing assets. Current proof:
-273 tests, typecheck, lint, SDK consumers, both builds and dev/root/Pages browser
-checks, including 192 exact CSS frame/tick comparisons and narrow-screen export.
+The [GIF export pass](work/done/SPRITE-GIF-20261023.md) completes the latest
+bounded local capability batch. Optional GIF clips preserve native pixels,
+transparency, holds and cumulatively rounded timing. Current proof: 281 tests,
+typecheck, lint, SDK consumers, both builds and dev/root/Pages desktop/narrow
+exports; Chrome and Pillow independently match all 258 decoded frames each.
+Recipes, native pixels, PNGs and CSS retain exact pre-change hashes. GIF export
+is complete; its paired closeout and guarded progress save are recorded in the
+work record. Publication preserves progress without approving artwork.
+
+The [CSS sprite export pass](work/done/SPRITE-CSS-20261023.md) remains qualified;
+a fresh normal-build neighboring check adds 64 exact CSS frame/tick comparisons.
 The [grass tuft refinement](work/done/MATERIAL-GRASS-20261023.md) and
 [dirt clumps](work/done/MATERIAL-DIRT-20261023.md) remain implemented with exact
 older recipes/pixels. **Priority 1 owner art review** and review of those
 candidates remain open. Engine receiving and broader donor parity keep their
 separate scopes. Guarded publication of current CSS/grass progress is recorded
 in the CSS work record; publication does not change artwork acceptance.
+
+Post-publication Review/Recheck at `bb6b62f` found no actionable grass/CSS code
+defects. Prior encoder, source-inventory and narrow-header fixes remain closed;
+read-only boundary probes and source-matched browser evidence pass. See the
+[review record](work/done/SPRITE-CSS-20261023.md#post-publication-review-recheck-and-cleanup).
+Cleanup updated the records only; owner artwork acceptance remains open.
 
 ## Character creator continuation
 
@@ -123,7 +135,11 @@ both builds, dev/built GPU equality and desktop/mobile authoring/export proof.
   pages, repeated holds, loop reset, native pixels and browser/CLI parity.
   Studio Export options and CLI `--css` preserve default atlas exports; see
   [the CSS guide](look-dev/css-sprites.md). The mobile header keeps Export visible.
-- [ ] Qualify GIF export/SVG, fonts/UI atlases, remaining donor demos, engine adapters
+- [x] Add opt-in native GIF clip export in Studio and CLI `--gif`, composable with
+  CSS. Independently verify exact local palettes, cutout alpha, frame order/holds,
+  infinite loops and cumulative centisecond delays; retain explicit color/budget
+  errors, source/cache integrity and cancellation. See [the GIF guide](look-dev/gif-export.md).
+- [ ] Qualify SVG, fonts/UI atlases, remaining donor demos, engine adapters
   and compact runtime delivery through the guide's capability matrix.
 - [ ] Transfer Grout13 ownership or retire parent synchronization only after the
   relevant replacement is qualified. Preserve the donor in the meantime.
@@ -337,3 +353,9 @@ AI-edited: 2026-10-23 | agent=Codex/root | task=dirt-clumps | change=completed a
 AI-edited: 2026-10-23 | agent=Codex/root | task=grass-tufts | change=completed optional grass refinement and local proof while retaining owner art review and engine boundaries
 
 AI-edited: 2026-10-23 | agent=Codex/root | task=css-sprites | change=recorded qualified optional CSS export and mobile access while preserving remaining format and owner-review boundaries
+
+AI-edited: 2026-10-23 | agent=Codex/root | task=grass-css-review | change=recorded completed published-source review/recheck with no actionable code defect
+
+AI-edited: 2026-10-23 | agent=Codex/root | task=gif-export | change=completed the selected optional GIF batch, local decoder proof and exact export compatibility; retained remaining capability and owner-art work
+
+AI-edited: 2026-10-23 | agent=Codex/root | task=gif-closeout-publish | change=recorded paired scoped closeout and guarded progress saving with artwork and receiving boundaries preserved

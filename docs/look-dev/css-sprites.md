@@ -64,7 +64,10 @@ The [work record](../work/done/SPRITE-CSS-20261023.md) binds current local gates
 actual browser CSS pixels, cancellation/retry and desktop/narrow captures.
 Compact original-only evidence is retained while referenced under
 `D:/Compact_Evidence/mountain-cabin-bloom-honey/runs/css-sprites-20261023/`.
-GIF export, SVG, fonts/UI atlases, broader donor parity and engine receiving
+[GIF export](gif-export.md) is a separate opt-in clip sidecar and can be enabled
+with CSS. SVG, fonts/UI atlases, broader donor parity and engine receiving
 retain their existing future scope.
 
 AI-created: 2026-10-23 | agent=Codex/root | task=css-sprites | change=documented opt-in atlas CSS, native frame/clip playback and local fidelity boundary
+
+AI-edited: 2026-10-23 | agent=Codex/root | task=gif-export | change=linked the additive GIF option and retained later scope

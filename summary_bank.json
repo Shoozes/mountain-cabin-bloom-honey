@@ -471,6 +471,23 @@
         "docs/work/done/SPRITE-CSS-20261023.md"
       ]
     },
+    "art_gif": {
+      "description": "Opt-in exact-color GIF clips, cumulative timing, browser/CLI assets and independent decoder proof. Load art_atlases for shared packing/cache owners and art_studio for contextual controls.",
+      "status": "active",
+      "paths": [
+        "packages/grout-art/gif.mjs",
+        "packages/grout-art/index.mjs",
+        "packages/grout-art/index.d.mts",
+        "src/art/art-export.ts",
+        "scripts/bake-art.mjs",
+        "scripts/art-gif.test.mjs",
+        "scripts/art-gif-export.test.mjs",
+        "scripts/test-art-gif-browser.mjs",
+        "scripts/verify-art-gif-pillow.py",
+        "docs/look-dev/gif-export.md",
+        "docs/work/done/SPRITE-GIF-20261023.md"
+      ]
+    },
     "art_studio": {
       "description": "Native canvas, timeline, reversible wardrobe and import integration, layered equipment, source editing and recovery. Load art_import for conversion. Load art_variations for opt-in family candidates and lossless optimization.",
       "status": "active",

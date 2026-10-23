@@ -12,6 +12,7 @@ import {
   renderFrame,
   buildArtExport,
   buildArtCss,
+  buildArtGifs,
   extractFrame,
   createSpriteVariationProfile, generateSpriteVariations, optimizeRecipe, parseRecipe,
   type ArtRecipe,
@@ -26,6 +27,8 @@ const pixels: Pixels = renderFrame(recipe);
 const kit = buildArtExport(recipe);
 const stylesheet: string = buildArtCss(kit, { classPrefix: "consumer" }).css;
 void stylesheet;
+const gifs: Uint8Array[] = (await buildArtGifs(kit)).files.map(file => file.data);
+void gifs;
 const restored: Pixels = extractFrame(kit.atlas, recipe.frames[0].name);
 const cpu = await createRenderer({ backend: "cpu" });
 await cpu.render(recipe, 0, { signal: new AbortController().signal });

@@ -152,3 +152,46 @@ inputs and reused/fresh proof. No new branch/worktree, merge/rebase, raw push,
 credential inspection, deployment or release is part of this request.
 
 AI-edited: 2026-10-23 | agent=Codex/root | task=grass-css-closeout-publish | change=bound authorized two-batch closeout/publication to current proof, exact paths and guarded remote verification
+
+## Post-publication review, recheck and cleanup
+
+Status: Complete. Reviewed source: published
+`bb6b62fbfadcd5c15ba74ae82fcfb989ee3bfb26`, with no task-file working changes
+at intake. Exact remote main matched. The unrelated untracked Riasmap note was
+preserved and its contents were not opened. Review/Recheck stayed read-only;
+the following Cleanup phase updates this record and TODO only. No publication.
+
+Coverage: the Summary Bank's material_grass/art_css routes and affected owners,
+generator/validation/control/reset paths, SDK CSS geometry/keyframes/prefix and
+budget checks, public types, browser/CLI asset/cache identity, measurement source
+inventory, focused tests and authoring guides. An independent read-only CSS
+review found no actionable defect. This establishes a focused review of the
+published grass/CSS batch, not a claim of a new whole-repository audit.
+
+Recheck dispositions against the implementation diagnostics:
+
+- Verified closed: the browser proof producer converts clamped atlas pixels to
+  Uint8Array before PNG encoding.
+- Verified closed: CSS is included in the measured SDK runtime inventory; its
+  exact inventory regression assertion remains intact.
+- Verified closed: the narrow header wraps and moves navigation onto its own
+  row; current source-matching browser proof covers a real 390px export.
+- New/still-open actionable code findings: none. Owner art acceptance and
+  receiving-engine qualification remain outside this technical review.
+
+Fresh read-only `node --input-type=module` probes (exit 0) checked six frozen
+recipes and 24 channel hashes, eight tuft boundary recipes (sizes 64/512,
+scales 1/8 and uint32 seeds 0/4294967295), determinism and 24 periodic sample
+pairs, plus CSS source/
+anchor integrity and a single-frame 60fps clip. All passed. Source checks (exit 0)
+matched all 28 publication inputs and all six dev/root/Pages grass/CSS browser
+receipts before these documentation edits. The existing 273-test, SDK/typecheck/
+lint/build qualification and 192 CSS pixel comparisons remain applicable to
+unchanged behavior inputs; those full gates were not rerun for this docs-only
+cleanup. No new server, process, bake, capture or temporary output was created.
+
+No code repair or new implementation task was justified. Existing Summary Bank
+routes still own these files; no routing rewrite is required. Reference this
+review at its observed source identity when later code changes are selected.
+
+AI-edited: 2026-10-23 | agent=Codex/root | task=grass-css-review | change=recorded focused published-source review, verified-closed diagnostics and proportionate read-only proof without inventing repairs
