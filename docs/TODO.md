@@ -11,6 +11,13 @@ matching Node and CLI. All 232 frozen legacy channel hashes remain exact; all
 original drawing decisions. Artwork remains unapproved pending owner review;
 Minecraft packaging and receiving-engine proof remain separate.
 
+Post-publication Review/Recheck at `90a750b` found no actionable native16 code
+defects. Tile-period, hydration and source-inventory fixes remain closed;
+fresh boundary/legacy probes and source-matched browser evidence pass. The
+[review record](work/done/MATERIAL-VOXEL-20261023.md#post-publication-review-recheck-and-cleanup)
+records coverage and proof. Cleanup updates these records only; owner art
+acceptance remains the next step for these candidates.
+
 The [GIF export pass](work/done/SPRITE-GIF-20261023.md) completes the latest
 bounded Grout Art export batch. Optional GIF clips preserve native pixels,
 transparency, holds and cumulatively rounded timing. Current proof: 281 tests,
@@ -182,6 +189,8 @@ earlier kits and the existing terrain ramps. Artwork remains unapproved.
 - [x] Add a separate Minecraft-style native16 texture type with original grass,
   dirt, stone, cobble, sand, planks, bark and brick. Qualify source-bound browser/
   CLI exports, exact integer enlargement, legacy preservation and local recovery.
+- [x] Review/recheck the published native16 batch, verify prior fixes and test
+  boundary recipes without changing its drawings, recipes or export behavior.
 - [ ] Owner-review the original block-family study and repeated tiles before
   selecting these candidates for a game. Keep native scale/lighting/receiving
   decisions with the actual game scene.
@@ -379,3 +388,5 @@ AI-edited: 2026-10-23 | agent=Codex/root | task=gif-export | change=completed th
 AI-edited: 2026-10-23 | agent=Codex/root | task=gif-closeout-publish | change=recorded paired scoped closeout and guarded progress saving with artwork and receiving boundaries preserved
 
 AI-edited: 2026-10-23 | agent=Codex/root | task=voxel-material | change=recorded completed classic16 texture type, original-art review boundary and exact local compatibility/export proof
+
+AI-edited: 2026-10-23 | agent=Codex/root | task=voxel-review | change=recorded completed published-source review and recheck with no actionable code defect and retained owner acceptance

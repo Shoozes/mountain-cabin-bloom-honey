@@ -138,3 +138,80 @@ donor-art redistribution, game acceptance or Minecraft packaging is part of this
 batch. Blockers for this verified local format/type outcome: none.
 
 AI-edited: 2026-10-23 | agent=Codex/root | task=voxel-material-closeout-publish | change=recorded finished native16 type, visual refinement, current local proof, owned cleanup and scoped guarded publication
+
+## Post-publication review, recheck and cleanup
+
+Status: Complete. Reviewed source: published
+`90a750be9dbda2b805760f9fdf08a9538e185ea3`, with no tracked working changes
+at intake. Exact remote main matched through `git ls-remote --heads`. The
+unrelated untracked Riasmap note was preserved without opening its contents.
+Review/Recheck stayed read-only; Cleanup updates this record and TODO only.
+No publication is part of this pass.
+
+Coverage: the Summary Bank's material_voxel route and affected product_ui
+owners, native generator/validation, registry and types, control/reset/recovery
+paths, integer preview fitting, browser/CLI channel and source identity,
+cache/abort ownership, focused tests, study/browser producers and authoring
+guide. Retained original-family and narrow Pages captures were inspected.
+This establishes a focused review of the published native16 batch, not a new
+whole-repository audit. There was no earlier formal published-batch review;
+the recheck baseline is the implementation diagnostics recorded above.
+
+Recheck dispositions:
+
+- Verified closed: board/brick row dimensions divide 16 and alternating offsets
+  wrap with an even row count; bark groove periods also divide the native grid.
+- Verified closed: both material catalog shortcuts wait for hydration/recovery,
+  and the selected recipe request reaches the existing material owner.
+- Verified closed: browser and CLI source inventories include the native16
+  module. Cache validation and source-fetch failure/retry remain covered.
+- Verified closed as a harness correction: narrow catalog navigation closes
+  the covering Adjust drawer before using the next catalog shortcut.
+- New/still-open actionable code findings: none. Artwork acceptance and
+  receiving-engine qualification remain outside this technical review.
+
+Fresh read-only `node --input-type=module` probes (Node 26.5.0, exit 0) matched
+all 28 retained publication inputs before these documentation edits. All three
+full dev/root/Pages browser receipts matched their 11 current behavior inputs
+and retain zero unexpected errors, 306 exact previews and 144 PNG cases.
+The frozen baseline still matches 58 complete legacy recipes and 232 channel
+hashes. Boundary probes cover all eight families at uint32 seeds 0/4294967295
+and cluster scales 1/8 with maximum wear/relief and minimum roughness: 32 recipes,
+128 full-byte 512px enlarged channel maps, 32 enlarged floating-point height
+maps, 128 wrapped corner normals, opaque finite palettes, deterministic repeats
+and flat relief-zero normals. Twenty-nine invalid boundary/type inputs fail
+validation. All assertions passed.
+
+The existing 293-test, typecheck/lint and normal/Pages build qualification
+remains applicable to unchanged behavior inputs. Those full gates and browser
+flows were not rerun for this documentation-only cleanup. Existing Summary Bank
+routes still own the affected files; no routing rewrite or new implementation
+task is justified. No new server, process, bake, capture or temporary output was
+created. The retained proof above remains protected. Owner review of the
+original native/repeated drawings remains the next candidate-acceptance step.
+
+AI-edited: 2026-10-23 | agent=Codex/root | task=voxel-review | change=recorded focused published-source review, verified-closed diagnostics and read-only boundary/compatibility proof without inventing repairs
+
+## Review records closeout and publication
+
+The subsequent paired Closeout/Publish request authorizes the review updates in
+`docs/TODO.md` and this work record on existing main, based on `90a750b`.
+The index is empty at intake; local main, origin/main and exact remote main
+match. These two documentation paths are the complete publication allowlist.
+The unrelated untracked Riasmap note remains excluded and unopened.
+
+Closeout verifies the final diff, review link/anchor, existing Summary Bank
+routes and unchanged qualification inputs. The review probes above remain
+current. The 293-test, typecheck/lint, both builds and full dev/root/Pages browser
+proof are reused against unchanged product inputs; this documentation batch
+does not rerun them. No new process, server or scratch cleanup is required;
+existing referenced proof/build output remains retained under its owner.
+
+`review-publication.json` under the retained run above binds the final candidate
+paths/bytes, checks, guarded helper results and exact remote-main verification.
+Only `.tools/gitpush.ps1 -CommitOnly -Path <two-file allowlist> -Message <message>
+-Yes`, followed by verified push-only `.tools/gitpush.ps1 -Yes`, may publish this
+batch. The receipt records the actual outcome; a local commit alone is not
+publication. Owner artwork acceptance remains open. No deployment or release.
+
+AI-edited: 2026-10-23 | agent=Codex/root | task=voxel-review-closeout-publish | change=bound the documentation-only review batch to reused proof, exact paths, owned-resource accounting and guarded publication
