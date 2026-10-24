@@ -192,6 +192,12 @@ with exact local palettes, cutout transparency and recorded centisecond delays.
 Enable Include animated GIFs under Export options or pass `--gif`; it composes
 with CSS without changing the recipe or existing PNG exports.
 
+Optional [SVG frame export](svg-export.md) adds source-sized static SVG paths
+with exact cutout pixels and anchor metadata. Studio's Include SVG frames and
+CLI `--svg` compose with CSS/GIF. Completed dev/root/Pages downloads and exact
+native/3x browser raster comparisons qualify the output while preserving
+existing recipes and PNG/CSS/GIF bytes.
+
 ## Measurements and migration ownership
 
 The comparison example measures readable/minified recipes, gzip, expanded frame
@@ -220,7 +226,7 @@ receive launch actions; partial ports do not claim donor parity.
 | Painting, fill, selection, undo/redo | New Studio state; delivered | Larger-canvas interaction study |
 | Seeded variations and measured compactness | Reusable palette/part families, locks, candidate batches and lossless authoring transport delivered | Compact consumer runtime and broader donor parity |
 | Conversion and sprite extraction | PNG/GIF grids, aligned layers and reviewed transparent-sheet components delivered | Broader conversion workflows |
-| GIF/SVG/CSS workflows | Animated GIF import, opt-in exact-color GIF clip export and native CSS frame/clip export qualified | SVG fidelity; broader donor parity |
+| GIF/SVG/CSS workflows | Animated GIF import/export, native CSS export and optional SVG frame export qualified | SVG import and broader donor parity |
 | Fonts, UI atlases and remaining examples | Inventoried; donor retained | Native layout and consumer parity |
 | Engine adapters and compact runtime delivery | Donor retained | Actual receiving application proof |
 | Grout13 ownership and parent synchronization | Unchanged in donor | Transfer only after relevant replacement qualification |
@@ -325,3 +331,7 @@ AI-edited: 2026-10-17 | agent=Codex/root | task=sprite-variation | change=routed
 AI-edited: 2026-10-23 | agent=Codex/root | task=css-sprites | change=linked optional CSS frame/clip export and scoped capability qualification
 
 AI-edited: 2026-10-23 | agent=Codex/root | task=gif-export | change=linked optional GIF clips and qualified file/decoder boundaries
+
+AI-edited: 2026-10-23 | agent=Codex/root | task=svg-export | change=linked optional SVG frame output and retained completed-download qualification
+
+AI-edited: 2026-10-23 | agent=Codex/root | task=svg-closeout-publish | change=qualified SVG output through completed browser downloads and retained separate SVG import and donor boundaries

@@ -148,6 +148,7 @@ export function ArtStudio() {
   const [exporting, setExporting] = useState(false);
   const [includeCss, setIncludeCss] = useState(false);
   const [includeGif, setIncludeGif] = useState(false);
+  const [includeSvg, setIncludeSvg] = useState(false);
   const [metrics, setMetrics] = useState<RecipeMetrics | null>(null);
   const [metricsPending, setMetricsPending] = useState(false);
   const [backendProbe, setBackendProbe] = useState<Array<{ requested: string; actual?: string; ms?: number; byteDifference?: number; status: string }>>([]);
@@ -773,7 +774,7 @@ export function ArtStudio() {
     const controller = new AbortController();
     activeExport.current = controller;
     try {
-      const blob = await exportArtZip(recipe, { signal: controller.signal, includeCss, includeGif });
+      const blob = await exportArtZip(recipe, { signal: controller.signal, includeCss, includeGif, includeSvg });
       const href = URL.createObjectURL(blob);
       exportObjectUrl.current = href;
       const anchor = document.createElement("a");
@@ -785,7 +786,7 @@ export function ArtStudio() {
         if (exportObjectUrl.current === href) exportObjectUrl.current = null;
         exportRevokeTimer.current = null;
       }, 1000);
-      const extras = [includeCss ? "CSS sprites" : "", includeGif ? `${Object.keys(recipe.clips).length} GIF clips` : ""].filter(Boolean).join(" and ");
+      const extras = [includeCss ? "CSS sprites" : "", includeGif ? `${Object.keys(recipe.clips).length} GIF clips` : "", includeSvg ? `${recipe.frames.length} SVG frames` : ""].filter(Boolean).join(" and ");
       setMessage(`Export saved with editable recipe, atlas, sheet and frame metadata${extras ? `, plus ${extras}` : ""}.`);
     } catch (exportError) {
       if (controller.signal.aborted) setMessage("Export cancelled. Your editable recipe is still open.");
@@ -1096,6 +1097,7 @@ export function ArtStudio() {
             <summary>Export options</summary>
             <label><input type="checkbox" checked={includeCss} disabled={exporting} onChange={(event) => setIncludeCss(event.target.checked)} /> Include CSS sprites</label>
             <label><input type="checkbox" checked={includeGif} disabled={exporting} onChange={(event) => setIncludeGif(event.target.checked)} /> Include animated GIFs</label>
+            <label><input type="checkbox" checked={includeSvg} disabled={exporting} onChange={(event) => setIncludeSvg(event.target.checked)} /> Include SVG frames</label>
           </details>
           <p className="art-craft-note">Every palette, frame and layer in this recipe is editable. Exported art stays a draft until you accept it.</p>
         </aside>

@@ -250,6 +250,14 @@ export function buildArtGifs(
   clips: { name: string; path: string; width: number; height: number; fps: number;
     frames: string[]; delaysCs: number[]; durationCs: number; transparent: boolean }[];
 } }>;
+/** Static source-sized SVG frames; clip timing remains in atlas.json. */
+export function buildArtSvgs(
+  kit: ReturnType<typeof buildArtExport>,
+  options?: { signal?: AbortSignal },
+): Promise<{ files: { name: string; data: Uint8Array }[]; metadata: {
+  format: "grout-art-svg/1"; representation: "pixel-run-paths";
+  frames: { name: string; path: string; width: number; height: number; anchor: [number, number] }[];
+} }>;
 export type RecipeMetrics = {
   optimizedBytes: number; optimizedGzipBytes: number;
   optimizedBundleBytes: number | null; optimizedBundleGzipBytes: number | null;

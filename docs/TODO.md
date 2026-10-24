@@ -1,5 +1,13 @@
 # Texture authoring TODO
 
+[SVG frame export](work/done/SPRITE-SVG-20261023.md) is locally complete and
+qualified in SDK, Studio and CLI, preserving existing recipes and PNG/CSS/GIF
+output. All 302 tests, SDK consumers, typecheck/lint and both builds pass.
+Actual dev/root/Pages downloads complete with qualification true; 267 SVG frames
+and 534 native/3x raster comparisons match exactly. The earlier download stall
+no longer reproduces in the current checks; original failure evidence remains.
+SVG import, other format work and owner art acceptance remain separate items.
+
 The [Minecraft-style native16 type](work/done/MATERIAL-VOXEL-20261023.md) adds
 eight original block families, contextual controls, integer preview fitting and
 exact integer export enlargement. The owner selected Classic/default 16×16.
@@ -157,7 +165,10 @@ both builds, dev/built GPU equality and desktop/mobile authoring/export proof.
   CSS. Independently verify exact local palettes, cutout alpha, frame order/holds,
   infinite loops and cumulative centisecond delays; retain explicit color/budget
   errors, source/cache integrity and cancellation. See [the GIF guide](look-dev/gif-export.md).
-- [ ] Qualify SVG, fonts/UI atlases, remaining donor demos, engine adapters
+- [x] Qualify optional SVG frame export with completed dev/root/Pages downloads,
+  source-sized pixels, cutout alpha, anchors and preserved default exports. See
+  [the SVG guide](look-dev/svg-export.md) and completed work record.
+- [ ] Qualify SVG import, fonts/UI atlases, remaining donor demos, engine adapters
   and compact runtime delivery through the guide's capability matrix.
 - [ ] Transfer Grout13 ownership or retire parent synchronization only after the
   relevant replacement is qualified. Preserve the donor in the meantime.
@@ -390,3 +401,7 @@ AI-edited: 2026-10-23 | agent=Codex/root | task=gif-closeout-publish | change=re
 AI-edited: 2026-10-23 | agent=Codex/root | task=voxel-material | change=recorded completed classic16 texture type, original-art review boundary and exact local compatibility/export proof
 
 AI-edited: 2026-10-23 | agent=Codex/root | task=voxel-review | change=recorded completed published-source review and recheck with no actionable code defect and retained owner acceptance
+
+AI-edited: 2026-10-23 | agent=Codex/root | task=svg-export | change=selected optional SVG output, recorded implemented paths and retained the native browser download proof condition
+
+AI-edited: 2026-10-23 | agent=Codex/root | task=svg-closeout-publish | change=closed SVG frame export after actual dev/root/Pages downloads and full local proof while preserving separate art and format work

@@ -13,6 +13,7 @@ import {
   buildArtExport,
   buildArtCss,
   buildArtGifs,
+  buildArtSvgs,
   extractFrame,
   createSpriteVariationProfile, generateSpriteVariations, optimizeRecipe, parseRecipe,
   type ArtRecipe,
@@ -29,6 +30,8 @@ const stylesheet: string = buildArtCss(kit, { classPrefix: "consumer" }).css;
 void stylesheet;
 const gifs: Uint8Array[] = (await buildArtGifs(kit)).files.map(file => file.data);
 void gifs;
+const svgs: Uint8Array[] = (await buildArtSvgs(kit)).files.map(file => file.data);
+void svgs;
 const restored: Pixels = extractFrame(kit.atlas, recipe.frames[0].name);
 const cpu = await createRenderer({ backend: "cpu" });
 await cpu.render(recipe, 0, { signal: new AbortController().signal });

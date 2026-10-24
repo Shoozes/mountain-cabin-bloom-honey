@@ -69,6 +69,7 @@ export const ART_RUNTIME_URLS = [
   new URL("./export.mjs", import.meta.url),
   new URL("./css.mjs", import.meta.url),
   new URL("./gif.mjs", import.meta.url),
+  new URL("./svg.mjs", import.meta.url),
   new URL("./traveler.mjs", import.meta.url),
   new URL("./metrics.mjs", import.meta.url),
   new URL("./import.mjs", import.meta.url),

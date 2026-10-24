@@ -130,14 +130,20 @@
         "package.json"
       ]
     },
+    "context_routing": {
+      "description": "Summary-bank routes and text eligibility configuration. Load context_and_rebuild for pack-engine implementation.",
+      "status": "active",
+      "paths": [
+        "summary_bank.json",
+        ".tools/project.json"
+      ]
+    },
     "context_and_rebuild": {
-      "description": "Summary-bank routing, extension/exact-name text eligibility, and bounded context build/verify implementation; foundation regression stays in proof and integrity.",
+      "description": "Bounded context pack build/verify engine; load context_routing for the bank and text eligibility configuration. Foundation regressions stay in proof and integrity.",
       "status": "active",
       "last_seen": "2026-10-11T23:23:04Z",
       "paths": [
-        "summary_bank.json",
-        ".tools/context.ps1",
-        ".tools/project.json"
+        ".tools/context.ps1"
       ]
     },
     "lifecycle_and_safety": {
@@ -503,6 +509,23 @@
         "scripts/verify-art-gif-pillow.py",
         "docs/look-dev/gif-export.md",
         "docs/work/done/SPRITE-GIF-20261023.md"
+      ]
+    },
+    "art_svg": {
+      "description": "Qualified source-sized SVG frame paths, exact native colors/alpha/anchors and browser/CLI fidelity with completed dev/root/Pages downloads. Load art_atlases for shared packing/cache owners and art_studio for contextual controls.",
+      "status": "active",
+      "paths": [
+        "packages/grout-art/svg.mjs",
+        "packages/grout-art/index.mjs",
+        "packages/grout-art/index.d.mts",
+        "packages/grout-art/metrics.mjs",
+        "src/art/art-export.ts",
+        "scripts/bake-art.mjs",
+        "scripts/art-svg.test.mjs",
+        "scripts/art-svg-export.test.mjs",
+        "scripts/test-art-svg-browser.mjs",
+        "docs/look-dev/svg-export.md",
+        "docs/work/done/SPRITE-SVG-20261023.md"
       ]
     },
     "art_studio": {
